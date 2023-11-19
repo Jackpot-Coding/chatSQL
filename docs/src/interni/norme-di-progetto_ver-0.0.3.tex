@@ -1,0 +1,165 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+\title{Norme di Progetto}
+\author{Jackpot Coding}
+\date{November 2023}
+\renewcommand*\contentsname{Indice}
+
+\begin{document}
+
+\maketitle
+
+\pagebreak
+
+\begin{table}[ht]
+  \begin{tabular}{|c|c|c|c|c|}
+    \hline
+    \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Modifica} \\
+    \hline
+    % versione & data & autore & verificatore & descrizioneModifica \\
+    % \hline
+    V0.0.3 & 17/11/2023 & R.Simionato & - & \shortstack{Aggiunta sezione 4.2 Infrastruttura \\ e stesura} \\
+    \hline
+    V0.0.2 & 16/11/2023 & G. Moretto & - & \shortstack{Aggiunta sezione 3.1 documentazione \\ e stesura preliminare} \\
+    \hline
+    V0.0.1 & 15/11/2023 & G. Moretto & R. Simionato & Creata struttura del documento \\
+    \hline
+  \end{tabular}
+  \label{tab:conference}
+\end{table}
+
+
+\pagebreak
+\tableofcontents
+\pagebreak
+
+\section{Introduzione}
+
+\subsection{Scopo del documento}
+\subsection{Scopo del prodotto}
+\subsection{Glossario}
+\subsection{Riferimenti}
+
+\section{Processi primari}
+
+
+\section{Processi di supporto}
+
+\subsection{Documentazione}
+\subsubsection{Descrizione, Scopo e Aspettative }
+Si descrive come documentazione software come illustrazioni e/o testo che accompagnano il progetto software, sia come documenti separati che come commenti nel codice sorgente.\\ \\
+Il suo scopo è quello di rendere comprensibile il progetto nella sua interezza per chi lo sviluppa, chi lo mantiene ed il suo utilizzatore finale. Questo viene fatto descrivendo le attività effettuate nel ciclo di vita del software nel modo più chiaro possibile.\\ \\
+Le aspettative per questo processo sono:
+\begin{itemize}
+    \item Documentare tramite verbale ogni incontro interno ed esterno
+    \item Avere una struttura fissata per ogni tipo di documento
+    \item Utilizzare una procedura per la verifica dei documenti
+    \item Facilitare il lavoro autonomo per la gestione dei documenti
+\end{itemize}
+
+\subsubsection{Ciclo di vita di un documento}
+Il ciclo di vita di un documento è diviso nelle seguenti fasi:
+\begin{itemize}
+    \item Pianificazione: La struttura ed il contenuto vengono decisi dai componenti del gruppo, varie sezioni sono divise e assegnate tramite la piattaforma Trello.
+    \item Impostazione: Viene implementata la struttura del documento.
+    \item Scrittura: Le persone incaricate scrivono il contenuto del documento seguendo la struttura e le indicazioni per il tipo di documento. Il documento viene scritto nel linguaggio Latex e caricato nella repository in un branch dedicato.
+    \item Verifica: Le persone incaricate verificano il contenuto e, se necessario, apportano modifiche allo stesso.
+    \item Approvazione: Il responsabile di progetto approva il documento dopo la verifica. Una volta approvato il documento viene aggiunto al ramo main della repository.
+\end{itemize}
+
+\subsubsection{Modelli dei documenti}
+Viene creato un modello (o template) in formato Latex per ogni tipo di documento, in questo vengono definite l'intestazione ed le sezioni del documento.
+
+\subsubsection{Struttura di un documento}
+
+Instestazione
+
+Cambiamenti
+
+Indice
+
+Piè di pagina
+
+per i verbali:
+
+\subsubsection{Nome dei file}
+
+\textit{La versione x.y.z, quando facciamo una modifica aumentiamo di uno la z, appena tutte le parti vengono controllate aumentiamo la y, e quando abbiamo il documento “pronto” aumentiamo la x e possiamo fare il merge nel main della versione.}
+
+\subsubsection{Stile del testo}
+
+\subsubsection{Norme tipografiche}
+
+\subsubsection{Glossario}
+
+\subsubsection{Sigle}
+
+\subsubsection{Immagini}
+
+\subsubsection{Tabelle}
+
+\subsubsection{Strumenti utilizzati}
+overleaf, github, staruml
+
+
+\subsection{Gestione della configurazione}
+    \subsubsection{Descrizione e scopo}
+    
+    \subsubsection{Sistema di versionamento}
+    
+    \subsubsection{Repository}
+
+\subsection{Gestione della qualità}
+    \subsubsection{Descrizione, scopo}
+    \subsubsection{Piano di qualifica}
+
+\subsection{Verifica}
+    \subsubsection{Descrizione, scopo}
+    \subsection{Analisi statica}
+    \subsection{Analisi dinamica}
+    \subsection{Verifica della documentazione}
+    
+\section{Processi organizzativi}
+
+\subsection{Gestione di Processo}
+    \subsubsection{Pianificazione}
+    \subsubsection{Coordinamento}
+
+\subsection{Infrastruttura}
+L'infrastruttura organizzativa comprende tutti gli strumenti utilizzati per la comunicazione, la divisione dei compiti e il coordinamento tra i componenti per svolgere in modo efficace e strutturato i processi di organizzazione
+\subsubsection{Strumenti}
+\paragraph{Github}~\\
+Servizio di versionamento e hosting della repository scelto per mantenere la documentazione e il codice del progetto.
+\paragraph{Discord}~\\
+Strumento utilizzato per la comunicazione sincrona e asincrona interna al gruppo. All'interno del server sono presenti due tipologie di canali:
+\begin{itemize}
+    \item\textbf{Canali Testuali}: utilizzati principalmente per lo scambio di risorse e le comunicazioni testuali sincrone e asincrone;
+    \item\textbf{Canali Vocali}: utilizzati per la comunicazione vocale sincrona durante le riunioni interne, consentono inoltre di condividere il proprio schermo con gli altri membri presenti.
+\end{itemize}
+In base al periodo e alle necessità il numero di ciascun tipo di canale può variare, dando la possibilità di creare canali adibiti ad argomenti specifici.
+\paragraph{Telegram}~\\
+Principale strumento di comunicazione interna testuale asincrona che avviene tramite una chat condivisa. Le comunicazioni sono per lo più informali e volte all'organizzazione interna. La chat permette di mettere in evidenza i messaggi importanti, menzionare altri membri del gruppo e condividere sondaggi e/o file.
+\paragraph{Trello}~\\
+Strumento utilizzato per la gestione delle issues e la suddivisione dei compiti. Sono presenti cinque liste che rappresentano lo stato di avanzamento di una issue:
+\begin{itemize} 
+    \item\textbf{Da Fare}: stato iniziale, qui la issue attende fino a quando non viene presa in carico da un membro del gruppo. Verrà successivamente spostata alla lista "In Corso" appena inizierà la sua lavorazione;
+    \item\textbf{In Corso}: la issue è in lavorazione. Potrà essere spostata alla lista "In Pausa", oppure alla lista "Da Verificare" se è stata terminata;
+    \item\textbf{In Pausa}: la issue non è attualmente in lavorazione, potrà essere spostata solamente alla lista "In Corso";
+    \item\textbf{Da Verificare}: è compito dei Verificatori controllare le issue che vengono spostate in questa lista, scegliendo se terminarle spostandole nella apposita lista "Fatto", o rimandarle in lavorazione alla lista "In Corso";
+    \item\textbf{Fatto}: stato finale, la issue è stata completata e verificata.
+\end{itemize}
+Le uniche due liste che possono avere delle issue non assegnate ad un membro sono "Da Fare" e "Fatto".
+È compito del \textit{Responsabile di Progetto} verificare che le issue vengano divise correttamente ai diversi membri del gruppo. 
+\paragraph{Overleaf}~\\
+Editor online per i file LaTeX, principalmente usato per la stesura dei file in maniera condivisa.
+\paragraph{Google Drive}~\\
+Strumento utilizzato dal gruppo per la condivisione di file non ufficiali contenenti bozze e appunti con Google Docs, tabelle per la divisione interna dei ruoli e tracciamento del tempo con Google Sheets e presentazioni per i Diari di Bordo con Google Slides. 
+\paragraph{Zoom}~\\
+Strumento utilizzato principalmente per videochiamate esterne con committente e proponenete.
+\paragraph{Google Mail}~\\
+Utilizzato per le comunicazioni esterne asincrone verso il proponente e il committente con l'indirizzo mail del gruppo jackpotcoding@gmail.com.
+
+\subsection{Formazione}
+
+\end{document}
