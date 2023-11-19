@@ -1,0 +1,3 @@
+Placeholder per fare in modo che vengano caricate su GitHub le cartelle vuote.
+
+Da eliminare quando viene inserito un file dentro la cartella.
