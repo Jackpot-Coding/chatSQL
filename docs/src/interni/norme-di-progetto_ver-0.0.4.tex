@@ -1,9 +1,17 @@
 \documentclass{article}
 \usepackage{graphicx} % Required for inserting images
 
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
 \title{Norme di Progetto}
 \author{Jackpot Coding}
-\date{November 2023}
 \renewcommand*\contentsname{Indice}
 
 \begin{document}
@@ -19,7 +27,9 @@
     \hline
     % versione & data & autore & verificatore & descrizioneModifica \\
     % \hline
-    V0.0.3 & 17/11/2023 & R.Simionato & - & \shortstack{Aggiunta sezione 4.2 Infrastruttura \\ e stesura} \\
+    V0.0.4 & 19/11/2023 & G.Moretto & - & \shortstack{Aggiunti link all'indice \\ Aggiornamento sezioni 3.1.4, 3.1.5,\\ 3.1.6 , 3.1.7} \\
+    \hline
+    V0.0.3 & 17/11/2023 & R.Simionato & G.Moretto & \shortstack{Aggiunta sezione 4.2 Infrastruttura \\ e stesura} \\
     \hline
     V0.0.2 & 16/11/2023 & G. Moretto & - & \shortstack{Aggiunta sezione 3.1 documentazione \\ e stesura preliminare} \\
     \hline
@@ -73,19 +83,47 @@ Viene creato un modello (o template) in formato Latex per ogni tipo di documento
 
 \subsubsection{Struttura di un documento}
 
-Instestazione
+\paragraph{Intestazione}~\\
+L'intestazione contiene il logo dell'università di Padova, indicando il corso di laurea, il corso relativo al progetto e l'anno accademico. Inoltre è presente il logo, il nome e l'indirizzo email del gruppo (Jackpot Coding).
+Sono prensenti i dati che identificano il documento: data del documento, oggetto, redattori, verificatori, il responsabile, lo scriba ed in fine l'uso (interno o esterno) e se esterno i destinatari del documento.
 
-Cambiamenti
+\paragraph{Cambiamenti}~\\
+La sezione cambiamenti contiene una tabella con le seguenti colonne:
+\begin{itemize}
+    \item Versione: la versione raggiunta
+    \item Data: quando sono state effettuate le modifiche
+    \item Autore: Chi ha effettuato le modifiche
+    \item Verificatore: Chi ha verificato le modifiche
+    \item Modifica: Quali modifiche sono state apportate
+\end{itemize}
 
-Indice
+\paragraph{Indice}~\\
+L'indice riporta l'elenco delle sezioni e sotto-sezioni del documento riportando a quale pagina si trovano e contenendo un link per la navigazione rapida.
 
-Piè di pagina
+\subsubsection{Struttura di un verbale}
+Oltre alle sezioni sopra citate vengono inserite le seguenti sezioni.
 
-per i verbali:
+\paragraph{Orario}~\\
+Contiene l'ora di inizio e fine dell'incontro.
+
+\paragraph{Partecipanti}~\\
+Contiene una tabella elencante il nome e cognome dei partecipanti e la durata della loro presenza all'incontro.
+
+\paragraph{Sintesi dell'incontro}~\\
+Contiene una versione riassuntiva degli argomenti trattati durante l'incontro.
+
+\paragraph{Decisioni}~\\
+Contiene le decisioni prese durante l'incontro, queste si traducono i compiti assegnati ai membri del gruppo.
 
 \subsubsection{Nome dei file}
+Il nome del file deve essere esplicativo, indicando il contenuto dello stesso, e deve indicarne la versione.
 
-\textit{La versione x.y.z, quando facciamo una modifica aumentiamo di uno la z, appena tutte le parti vengono controllate aumentiamo la y, e quando abbiamo il documento “pronto” aumentiamo la x e possiamo fare il merge nel main della versione.}
+\subsubsection{Versione dei file}
+
+La versione viene indicata con tre numeri separati da un punto, indicati in questa sezione come x.y.z.
+
+Il numero z viene aumentato quando il documento subisce una modifica, il numero y aumenta solo quando le modifiche vengono verificate, l'aumento del numero x viene effettuato solamente quando il documento vine considerato pronto.
+
 
 \subsubsection{Stile del testo}
 
@@ -128,18 +166,24 @@ overleaf, github, staruml
 
 \subsection{Infrastruttura}
 L'infrastruttura organizzativa comprende tutti gli strumenti utilizzati per la comunicazione, la divisione dei compiti e il coordinamento tra i componenti per svolgere in modo efficace e strutturato i processi di organizzazione
+
 \subsubsection{Strumenti}
+
 \paragraph{Github}~\\
 Servizio di versionamento e hosting della repository scelto per mantenere la documentazione e il codice del progetto.
+
 \paragraph{Discord}~\\
 Strumento utilizzato per la comunicazione sincrona e asincrona interna al gruppo. All'interno del server sono presenti due tipologie di canali:
 \begin{itemize}
     \item\textbf{Canali Testuali}: utilizzati principalmente per lo scambio di risorse e le comunicazioni testuali sincrone e asincrone;
     \item\textbf{Canali Vocali}: utilizzati per la comunicazione vocale sincrona durante le riunioni interne, consentono inoltre di condividere il proprio schermo con gli altri membri presenti.
 \end{itemize}
+
 In base al periodo e alle necessità il numero di ciascun tipo di canale può variare, dando la possibilità di creare canali adibiti ad argomenti specifici.
+
 \paragraph{Telegram}~\\
 Principale strumento di comunicazione interna testuale asincrona che avviene tramite una chat condivisa. Le comunicazioni sono per lo più informali e volte all'organizzazione interna. La chat permette di mettere in evidenza i messaggi importanti, menzionare altri membri del gruppo e condividere sondaggi e/o file.
+
 \paragraph{Trello}~\\
 Strumento utilizzato per la gestione delle issues e la suddivisione dei compiti. Sono presenti cinque liste che rappresentano lo stato di avanzamento di una issue:
 \begin{itemize} 
