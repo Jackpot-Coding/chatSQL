@@ -21,12 +21,15 @@
 \pagebreak
 
 \begin{table}[ht]
+\centerline{%
   \begin{tabular}{|c|c|c|c|c|}
     \hline
     \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Modifica} \\
     \hline
     % versione & data & autore & verificatore & descrizioneModifica \\
     % \hline
+    V0.0.5 & 27/11/2023 & G.Moretto & - & \shortstack{Aggiornamento sezioni da 3.1.8 a 3.1.12 } \\
+    \hline
     V0.0.4 & 19/11/2023 & G.Moretto & - & \shortstack{Aggiunti link all'indice \\ Aggiornamento sezioni 3.1.4, 3.1.5,\\ 3.1.6 , 3.1.7} \\
     \hline
     V0.0.3 & 17/11/2023 & R.Simionato & G.Moretto & \shortstack{Aggiunta sezione 4.2 Infrastruttura \\ e stesura} \\
@@ -35,9 +38,11 @@
     \hline
     V0.0.1 & 15/11/2023 & G. Moretto & R. Simionato & Creata struttura del documento \\
     \hline
-  \end{tabular}
+  \end{tabular}%
+  }
   \label{tab:conference}
 \end{table}
+
 
 
 \pagebreak
@@ -68,7 +73,7 @@ Le aspettative per questo processo sono:
     \item Facilitare il lavoro autonomo per la gestione dei documenti
 \end{itemize}
 
-\subsubsection{Ciclo di vita di un documento}
+\subsubsection{Ciclo di vita di un documento} \label{cicloDoc}
 Il ciclo di vita di un documento è diviso nelle seguenti fasi:
 \begin{itemize}
     \item Pianificazione: La struttura ed il contenuto vengono decisi dai componenti del gruppo, varie sezioni sono divise e assegnate tramite la piattaforma Trello.
@@ -126,20 +131,33 @@ Il numero z viene aumentato quando il documento subisce una modifica, il numero 
 
 
 \subsubsection{Stile del testo}
+\textbf{Grassetto}: Applicato ai titoli e a parole di particolare importanza. \\
+\texttt{Monospace}: Applicato a frammenti di codice e percorsi di cartelle e file. \\
+\underline{Sottolineato}: Applicato a link presenti nel documento.
 
 \subsubsection{Norme tipografiche}
+\begin{itemize}
+    \item Gli elementi di un elenco finiscono con il carattere punto.
+    \item La prima lettera degli elementi di un elenco è sempre maiuscola.
+    \item I nomi delle sezioni e sottosezioni iniziano con una lettera maiuscola.
+\end{itemize}
 
 \subsubsection{Glossario}
+Il glossario è un documento che contiene termini e/o sigle il quale significato è importante per il progetto.
+
+Il documento viene caricato sulla repository per facilitare la consultazione e la stesura da parte del gruppo.
 
 \subsubsection{Sigle}
 
 \subsubsection{Immagini}
+Le immagini presenti nei documenti sono caricate nella cartella \texttt{/docs/src/assets} della repository.
 
-\subsubsection{Tabelle}
 
 \subsubsection{Strumenti utilizzati}
-overleaf, github, staruml
-
+\paragraph{Overleaf}~\\
+Viene utilizzato per la scrittura collaborativa di documenti in formato Latex.
+\paragraph{Github}~\\
+Nella repository ufficiale vengono caricate le versioni dei documenti utilizzando la procedura descritta dal ciclo di vita come da sezione \ref{cicloDoc}.
 
 \subsection{Gestione della configurazione}
     \subsubsection{Descrizione e scopo}
