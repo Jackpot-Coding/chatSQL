@@ -28,6 +28,8 @@
     \hline
     % versione & data & autore & verificatore & descrizioneModifica \\
     % \hline
+    V0.0.6 & 28/11/2023 & E. Gallo & - & \shortstack{Stesura delle sezioni 1.1, 1.2, 1.3 \\ dell'Introduzione} \\
+    \hline
     V0.0.5 & 27/11/2023 & G.Moretto & - & \shortstack{Aggiornamento sezioni da 3.1.8 a 3.1.12 } \\
     \hline
     V0.0.4 & 19/11/2023 & G.Moretto & - & \shortstack{Aggiunti link all'indice \\ Aggiornamento sezioni 3.1.4, 3.1.5,\\ 3.1.6 , 3.1.7} \\
@@ -52,8 +54,30 @@
 \section{Introduzione}
 
 \subsection{Scopo del documento}
+Il presente documento ha lo scopo di individuare le best practices di progetto e definire correttamente il Way of Working (G) dell'attività produttiva, in modo tale da permettere un lavoro omogeneo, coeso e attuabile in modo asincrono. Per garantire un approccio incrementale, vengono indicate nel registro delle modifiche, tutte le versioni e lo storico del documento, seguendo le regole riportate nel documento stesso. Nei prossimi punti vengono precisamente descritte le convenzioni sull'uso degli strumenti utilizzati, sia di comunicazione sia di realizzazione dei processi di lavoro interno ed esterno.
+
 \subsection{Scopo del prodotto}
+L'obiettivo del progetto è quello di realizzare un'applicazione che esplori a fondo la capacità dei Large Language Models (LLM) di generare codice più o meno corretto. In questo particolare caso, il capitolato (G) cerca di approfondire l'uso degli LLM e la tecnica di prompting (G) per generare codice SQL (G).
+L'applicativo deve:
+\begin{enumerate}
+    \item Archiviare la descrizione della struttura di un database.
+    \item Fornire un modo per richiedere, tramite linguaggio naturale, una visione di alcuni dati del database a scelta.
+    \item Combinare la richiesta con le varie informazioni necessarie della struttura del database, creando un prompt che verrà poi sottoposto ad un sistema di AI (G).
+\end{enumerate}
+Sia il linguaggio di programmazione sia l'LLM utilizzato dalla piattaforma, sono a discrezione del gruppo. Come linguaggio di programmazione è stato scelto Python (G), per semplicità e la presenza di numerose librerie.
+Oltre ai requisiti obbligatori, l'azienda Zucchetti S.p.A., da la possibilità di sviluppare l'applicazione in maniere più approfondita. I requisiti opzionali sono:
+\begin{enumerate}
+    \item Visualizzare la frase SQL prodotta dal sistema AI.
+    \item Sviluppare l'input vocale della frase in linguaggio naturale.
+    \item Verificare la correttezza della frase SQL prodotta dal sistema di AI.
+    \item Implementare la gestione di più basi di dati.
+    \item Utilizzare modelli LLM alternativi a ChatGPT.
+    \item Addestrare un modello in modo specifico per la traduzione di frasi di interrogazione in italiano a frasi SQL.
+\end{enumerate}
+
 \subsection{Glossario}
+Per evitare incomprensioni relative ai vari termini utilizzati nel documento, viene fornito un Glossario, nell'omonimo file, in modo da dare una definizione precisa di ogni termine che possa risultare ambiguo. Ogni termine presente nel Glossario verrà indicato nel documento con una lettera G come apice.
+
 \subsection{Riferimenti}
 
 \section{Processi primari}
