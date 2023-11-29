@@ -1,0 +1,165 @@
+\documentclass[5pt]{article}
+
+\usepackage{sectsty}
+\usepackage{graphicx}
+\usepackage{lipsum} % for generating dummy text
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{array}
+\usepackage{cellspace}
+\usepackage{tabularx}
+
+
+\usepackage{hyperref}
+\usepackage{scrextend}
+\graphicspath{ {./assets} }
+
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\title{ Verbale - data }
+\date{\today}
+
+%STARTOF THE DOCUMENT
+\begin{document}
+
+%-------------------------
+
+% Reduce top margin only on the first page
+\newgeometry{top=0.5in}
+
+%UNIPD LOGO
+    \vspace{8pt}
+    \includegraphics[scale=0.2]{assets/UNIPDFull.png}
+%END UNIPD LOGO
+
+\vspace{30pt}
+
+%COURSE INFO
+\begin{minipage}[t]{0.48\textwidth}
+    %COURSE TITLE
+        \begin{flushleft}
+            Informatica\\
+            \vspace{5pt}
+            \textbf{\LARGE Ingegneria del Software}\\
+            Anno Accademico: 2023/2024
+        \end{flushleft}
+    %END COURSE TITLE
+\end{minipage}
+%END COURSE INFO
+
+
+\vspace{5px}
+
+
+%BLACK LINE
+\rule{\textwidth}{5pt}
+
+%JACKPOT CODING INFO
+\begin{minipage}[t]{0.50\textwidth}
+    %LOGO JACKPOT CODING
+    \begin{flushleft}
+        \hspace{10pt}
+        \includegraphics[scale=0.65]{assets/jackpot-logo.png} 
+    \end{flushleft}
+\end{minipage}
+\hspace{-60pt} % This adds horizontal space between the minipages
+\begin{flushright}
+    \begin{minipage}[t]{0.50\textwidth}
+        %INFO JACKPOT CODING
+        \begin{flushright}
+            Gruppo: {\Large Jackpot Coding}\\
+            Email: \href{mailto:jackpotcoding@gmail.com}{jackpotcoding@gmail.com}
+        \end{flushright}
+    \end{minipage}
+\end{flushright}
+%END JACKPOT CODING INFO
+
+\vspace{24pt}
+
+%TITLE
+\begin{center}
+    \textbf{\LARGE CANDIDATURA PER IL CAPITOLATO}
+\end{center}
+%END TITLE
+
+\vspace{13pt}
+
+\begin{flushleft}
+    \begin{spacing}{1.5}
+        REDATTORE: E. Gallo, G. Moretto\\%INSERT HERE THE NAMES
+        VERIFICATORI: R. Simionato, M. Gobbo, M. Camillo, M. Favaretto \\
+        RESPONSABILE: G. Moretto\\%INSERT HERE THE NAMES
+        \vspace{7pt}
+        DESTINATARI: Prof. T. Vardanega, Prof. R. Cardin\\%INSERT HERE THE NAMES
+    \end{spacing}
+\end{flushleft}
+
+\begin{flushright}
+    \begin{spacing}{1}
+        USO: ESTERNO\\
+        VERSIONE: 1.1\\
+    \end{spacing}
+\end{flushright}
+
+
+% Restore original margins from the second page onwards
+\restoregeometry
+
+\pagebreak
+
+
+
+
+% Optional TOC
+% \tableofcontents
+% \pagebreak
+
+%--Paper--
+
+\section{\Large CANDIDATURA}
+Con la presente, il gruppo “\textbf{Jackpot Coding}” vuole comunicarVi che intende candidarsi e impegnarsi nella realizzazione del progetto didattico da Voi commissionato, denominato:
+
+\begin{center}
+    \textbf{ChatSQL (C9)}
+\end{center}
+
+\noindent proposto dall’azienda Zucchetti S.p.A. \\
+La repo contenente la documentazione relativa ai verbali e alla candidatura è presenti al link: \\ \href{https://github.com/Jackpot-Coding/documenti}{https://github.com/Jackpot-Coding/documenti}
+
+\vspace{20pt}
+\section{\Large ELENCO INCONTRI CON I PROPONENTI}
+Nel periodo precedente alla presentazione della candidatura, con scadenza datata 31 ottobre 2023, sono stati svolti alcuni incontri esplorativi con le aziende che avevano proposto i capitolati più interessanti e graditi dal gruppo.\\
+
+\medskip
+\noindent Tutti gli incontri sono stati documentati e si trovano nella sezione “verbali/esterni” della repo di documentazione. I capitolati approfonditi sono:\\
+\begin{itemize}
+    \item \href{https://github.com/Jackpot-Coding/documenti/blob/6c8377d2d8a50156a56929086edf8c3d3dc32f94/verbali/esterni/26-10-2023%20Zucchetti.pdf}{ChatSQL (C9) di Zucchetti S.p.A. in data 26/10/2023}
+    \item \href{https://github.com/Jackpot-Coding/documenti/blob/6c8377d2d8a50156a56929086edf8c3d3dc32f94/verbali/esterni/27-10-2023%20Imola%20Informatica.pdf}{Easy Meal (C3) di Imola Informatica in data 27/10/2023}
+\end{itemize}
+
+\medskip
+\noindent Al termine di ciascuno di questi incontri è stata svolta una riunione interna al gruppo per discutere di quanto ascoltato e prendere una decisione in merito a quale capitolato candidarsi. I verbali di questi incontri si trovano nella sezione “verbali/interni” della repo di documentazione.
+
+\vspace{20pt}
+\section{MOTIVAZIONE DELLA SCELTA}
+\noindent L’ambito del progetto presentato ha attirato la nostra attenzione in quanto include l’uso dei Large Language Models. L’argomento trattato risulta promettente, in quanto sta trovando una grande applicazione in diversi campi, accademici e non.\\
+
+\medskip
+\noindent Questa scelta ci permetterà di entrare nel mondo dell'intelligenza artificiale che sta vedendo una forte crescita nel mercato.\\
+
+\medskip
+\noindent I componenti del gruppo si sono trovati in accordo sulla scelta, inoltre l’azienda si è mostrata da subito molto disponibile e crediamo che interagire con una realtà come Zucchetti sia un’ottima possibilità di crescita professionale.\\
+
+\vspace{50pt}
+\noindent La presentazione dei costi e l’assunzione degli impegni è presentata nell’apposito documento
+
+%--/Paper--
+
+\end{document}

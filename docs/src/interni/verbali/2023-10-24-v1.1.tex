@@ -1,0 +1,190 @@
+\documentclass[5pt]{article}
+
+\usepackage{sectsty}
+\usepackage{graphicx}
+\usepackage{lipsum} % for generating dummy text
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{array}
+\usepackage{cellspace}
+\usepackage{tabularx}
+
+
+\usepackage{hyperref}
+\usepackage{scrextend}
+\graphicspath{ {./img} }
+
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\title{ Verbale - data }
+\date{\today}
+
+%STARTOF THE DOCUMENT
+\begin{document}
+
+%-------------------------
+
+% Reduce top margin only on the first page
+\newgeometry{top=0.5in}
+
+%UNIPD LOGO
+    \vspace{8pt}
+    \includegraphics[scale=0.2]{assets/UNIPDFull.png}
+%END UNIPD LOGO
+
+\vspace{30pt}
+
+%COURSE INFO
+\begin{minipage}[t]{0.48\textwidth}
+    %COURSE TITLE
+        \begin{flushleft}
+            Informatica\\
+            \vspace{5pt}
+            \textbf{\LARGE Ingegneria del Software}\\
+            Anno Accademico: 2023/2024
+        \end{flushleft}
+    %END COURSE TITLE
+\end{minipage}
+%END COURSE INFO
+
+
+\vspace{5px}
+
+
+%BLACK LINE
+\textcolor{}{\rule{\textwidth}{5pt}}
+
+%JACKPOT CODING INFO
+\begin{minipage}[t]{0.50\textwidth}
+    %LOGO JACKPOT CODING
+    \begin{flushleft}
+        \hspace{10pt}
+        \includegraphics[scale=0.65]{assets/jackpot-logo.png} 
+    \end{flushleft}
+\end{minipage}
+\hspace{-60pt} % This adds horizontal space between the minipages
+\begin{flushright}
+    \begin{minipage}[t]{0.50\textwidth}
+        %INFO JACKPOT CODING
+        \begin{flushright}
+            Gruppo: {\Large Jackpot Coding}\\
+            Email: \href{mailto:jackpotcoding@gmail.com}{jackpotcoding@gmail.com}
+        \end{flushright}
+    \end{minipage}
+\end{flushright}
+%END JACKPOT CODING INFO
+
+\vspace{24pt}
+
+%TITLE
+\begin{center}
+    \textbf{\large VERBALE }
+    \textbf{\large 24/10/2023} \\
+    \textbf{\Large IMPOSTAZIONE ORGANIZZAZIONE}
+\end{center}
+%END TITLE
+
+\vspace{13pt}
+
+\begin{flushleft}
+    \begin{spacing}{1.5}
+        REDATTORE: R. Simionato\\%INSERT HERE THE NAMES
+        VERIFICATORI: E. Gallo, M. Camillo \\
+        RESPONSABILE: G. Moretto\\%INSERT HERE THE NAMES
+        \vspace{7pt}
+        SCRIBA: R. Simionato\\%INSERT HERE THE NAMES
+    \end{spacing}
+\end{flushleft}
+
+\begin{flushright}
+    \begin{spacing}{1}
+        USO: INTERNO\\
+        VERSIONE: 1.1\\
+    \end{spacing}
+\end{flushright}
+
+
+% Restore original margins from the second page onwards
+\restoregeometry
+
+\pagebreak
+
+
+
+
+% Optional TOC
+% \tableofcontents
+% \pagebreak
+
+%--Paper--
+
+\section{\Large REGISTRO DELLE MODIFICHE}
+\begin{table}[ht]
+  \centering
+  \renewcommand{\arraystretch}{1.5} % Adjust the value as needed
+  \begin{tabular}{|>{\centering}p{40pt}|>{\centering}p{60pt}|>{\centering}p{85pt}|>{\centering}p{85pt}|>{\centering}p{150pt}|}
+    \hline \textbf{Versione} & \textbf{Data} &
+    \textbf{Autore} & \textbf{Verificatore} & \textbf{Modifica} \tabularnewline
+    \hline v 1.1 & 14/11/2023 & E. Gallo & G.Moretto & Aggiunta sezione "Decisioni" \tabularnewline
+    \hline v 1.0 & 25/10/2023 & R. Simionato & M. Camillo & Redatto documento \tabularnewline
+    \hline
+  \end{tabular}
+  \label{tab:conference}
+\end{table}
+
+\section{\Large ORARIO}
+\begin{spacing}{1.5}
+    {\large Inizio incontro: 20:00}\\
+    {\large Fine incontro: 21:30}
+\end{spacing}
+
+\section{PARTECIPANTI}
+% Define minimal spacing at the top and bottom of cells
+\setlength\cellspacetoplimit{6pt}
+\setlength\cellspacebottomlimit{6pt}
+
+\begin{table}[ht]
+  \begin{tabular}{|Sc|Sc|}
+    \hline
+    \textbf{Nome Componente} & \textbf{Durata della presenza} \\
+    \hline
+    Camillo Matteo & 1 ora 30 minuti \\
+    Favaretto Marco & 1 ora 30 minuti \\
+    Gallo Edoardo & 1 ora 30 minuti \\
+    Gobbo Marco & 1 ora 30 minuti \\
+    Moretto Giulio & 1 ora 30 minuti \\
+    Simionato Riccardo & 1 ora 30 minuti \\
+    \hline
+  \end{tabular}
+  \label{tab:conference}
+\end{table}
+
+\section{SINTESI DELL'INCONTRO}
+
+È stato creato l’indirizzo email del gruppo \href{mailto:jackpotcoding@gmail.com}{jackpotcoding@gmail.com} e creata l'\href{https://github.com/Jackpot-Coding}{Organizzazione su Github}.\\
+Sono state esposte ed elaborate le preferenze di ciascuno sulla scelta del capitolato. \\
+
+\medskip
+\noindent Il gruppo si è trovato in accordo nel portare come prima scelta il capitolato C9 - ChatSQL presentato dall’azienda Zucchetti, seguito da C3 - EasyMeal e C8 - JMAP.\\
+
+\medskip
+\noindent Sono state scritte ed inviate mail per fissare gli incontri conoscitivi con i referenti di Zucchetti e Imola Informatica.\\
+
+\medskip
+\noindent È stato finalizzato il logo.
+
+\section{DECISIONI}
+\begin{itemize}
+    \item Trovare un accordo con i proponenti riguardo data e ora dell’incontro e il mezzo tramite il quale comunicare.
+    \item Preparare una lista di domande e dubbi riguardanti i vari capitolati che verranno approfonditi. 
+\end{itemize}
+%--/Paper--
+
+\end{document}
