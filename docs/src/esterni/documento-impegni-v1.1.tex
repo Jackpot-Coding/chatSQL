@@ -1,0 +1,179 @@
+\documentclass[5pt]{article}
+
+\usepackage{sectsty}
+\usepackage{graphicx}
+\usepackage{lipsum} % for generating dummy text
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{array}
+\usepackage{cellspace}
+\usepackage{tabularx}
+\usepackage{eurosym}
+\usepackage[table]{xcolor}
+
+
+\usepackage{hyperref}
+\usepackage{scrextend}
+\graphicspath{ {./assets} }
+
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\title{ Verbale - data }
+\date{\today}
+
+\setlength{\parindent}{0pt}
+
+%STARTOF THE DOCUMENT
+\begin{document}
+
+%-------------------------
+
+% Reduce top margin only on the first page
+\newgeometry{top=0.5in}
+
+%UNIPD LOGO
+    \vspace{8pt}
+    \includegraphics[scale=0.2]{assets/UNIPDFull.png}
+%END UNIPD LOGO
+
+\vspace{30pt}
+
+%COURSE INFO
+\begin{minipage}[t]{0.48\textwidth}
+    %COURSE TITLE
+        \begin{flushleft}
+            Informatica\\
+            \vspace{5pt}
+            \textbf{\LARGE Ingegneria del Software}\\
+            Anno Accademico: 2023/2024
+        \end{flushleft}
+    %END COURSE TITLE
+\end{minipage}
+%END COURSE INFO
+
+
+\vspace{5px}
+
+
+%BLACK LINE
+\rule{\textwidth}{5pt}
+
+%JACKPOT CODING INFO
+\begin{minipage}[t]{0.50\textwidth}
+    %LOGO JACKPOT CODING
+    \begin{flushleft}
+        \hspace{10pt}
+        \includegraphics[scale=0.65]{assets/jackpot-logo.png} 
+    \end{flushleft}
+\end{minipage}
+\hspace{-60pt} % This adds horizontal space between the minipages
+\begin{flushright}
+    \begin{minipage}[t]{0.50\textwidth}
+        %INFO JACKPOT CODING
+        \begin{flushright}
+            Gruppo: {\Large Jackpot Coding}\\
+            Email: \href{mailto:jackpotcoding@gmail.com}{jackpotcoding@gmail.com}
+        \end{flushright}
+    \end{minipage}
+\end{flushright}
+%END JACKPOT CODING INFO
+
+\vspace{24pt}
+
+%TITLE
+\begin{center}
+    \textbf{\Huge IMPEGNI}
+\end{center}
+%END TITLE
+
+\vspace{13pt}
+
+\begin{flushleft}
+    \begin{spacing}{1.5}
+        REDATTORE: E. Gallo, G. Moretto \\%INSERT HERE THE NAMES
+        VERIFICATORI: R. Simionato, M. Gobbo, M. Camillo, M. Favaretto \\
+        RESPONSABILE: G. Moretto\\%INSERT HERE THE NAMES
+        \vspace{7pt}
+        SCRIBA: R. Simionato\\%INSERT HERE THE NAMES
+        \vspace{7pt}
+        DESTINATARI: Prof. T. Vardanega, Prof. R. Cardin\\%INSERT HERE THE NAMES
+    \end{spacing}
+\end{flushleft}
+
+\begin{flushright}
+    \begin{spacing}{1}
+        USO: ESTERNO\\
+        VERSIONE: 1.1\\
+    \end{spacing}
+\end{flushright}
+
+
+% Restore original margins from the second page onwards
+\restoregeometry
+
+\pagebreak
+
+
+
+
+% Optional TOC
+% \tableofcontents
+% \pagebreak
+
+%--Paper--
+
+\section{\Large IMPEGNO ORARIO}
+Il gruppo ha deciso di dividersi equamente le ore di lavoro per ciascun ruolo da assumere durante lo svolgimento del progetto, più specificatamente sono 92 ore a testa per un ammontare totale di 552 ore complessive.\\
+
+\medskip
+La seguente tabella indica le ore di lavoro dei vari ruoli che si occupano del progetto e dei loro relativi costi:\\
+
+\begin{table}[ht]
+  \centering
+  \renewcommand{\arraystretch}{1.5} % Adjust the value as needed
+  \begin{tabular}{|p{80pt}|>{\centering}p{60pt}|>{\centering}p{65pt}|>{\centering}p{65pt}|>{\centering}p{100pt}|}
+    \hline \rowcolor{blue!20} & \textbf{Ore Ind.} & \textbf{Ore Totali} & \textbf{Costo (\euro/h)} & \textbf{Costo Totale (\euro)} \tabularnewline
+    \hline Responsabile & 8 & 48 & 30 & 1440 \tabularnewline
+    \hline \rowcolor{gray!20} Amministratore & 8 & 48 & 20 & 960 \tabularnewline
+    \hline Analista & 12 & 72 & 25 & 1800 \tabularnewline
+    \hline \rowcolor{gray!20} Progettista & 18 & 108 & 25 & 2700 \tabularnewline
+    \hline Programmatore & 22 & 132 & 15 & 1980 \tabularnewline
+    \hline \rowcolor{gray!20} Verificatore & 24 & 144 & 15 & 2160 \tabularnewline
+    \hline Totale & 92 & 552 & - & 11040 \tabularnewline
+    \hline
+  \end{tabular}
+  \label{tab:conference}
+\end{table}
+
+\medskip
+E’ da sottolineare come ci sarà una rotazione temporale per i ruoli, in questo modo riusciremo a distribuire equamente il monte orario.
+
+\section{SUDDIVISIONE RUOLI}
+
+La distribuzione delle ore per ruolo non è casuale infatti abbiamo considerato che:\\
+\begin{itemize}
+    \item \textbf{Responsabile/Amministratore}: il loro ruolo è primario e fondamentale per la riuscita del progetto e per tutta la durata del progetto saranno sempre presenti, controllando ogni fase di avanzamento; tuttavia hanno meno interazioni rispetto agli altri ruoli motivo per cui si è deciso di assegnare 8 ore.
+    \item \textbf{Analista}: presenti moltissimo durante l’analisi dei requisiti (parte delicata e di vitale importanza) vanno a scemare nelle altre parti del progetto, ecco perché si è deciso di assegnare un monte ore di 12 ore.
+    \item \textbf{Progettista}:  svolge l’attività di design per la quale si prevede un ammontare di ore non indifferente motivo per il quale abbiamo stimato insieme al verificatore, seppur inferiore, il maggiore ammontare di ore di lavoro.
+    \item \textbf{Programmatore}: Sebbene non presenti fin dalle fasi iniziali del progetto essi sono fondamentali e hanno una mole di lavoro importante per praticamente tutta la durata del progetto, motivo per il quale insieme ai verificatori sono quelli che hanno più ore.
+    \item \textbf{Cerificatori}: visto la necessità di avere una sicurezza e una solida base di lavoro si è deciso di assegnare più ore ai verificatori più di quante se ne abbiano assegnate ai programmatori ecco spiegato l’ammontare delle ore.
+\end{itemize}
+
+\medskip
+Si ricorda come i ruoli saranno interpretati a rotazione da tutti i membri del gruppo facendo così in modo che tutti abbiano la possibilità di imparare e fare esperienza.
+
+\section{PREVENTIVO DEI COSTI}
+Il costo finale calcolato in base alle tariffe orarie dei ruoli e alle ore preventivate è di: \textbf{\euro 11040} come è visibile in tabella.
+
+\section{SCADENZA DI CONSEGNA}
+Con il presente documento il gruppo “\textbf{Jackpot Coding}” intende comunicarLe che si impegnerà a terminare il progetto didattico entro e non oltre il giorno 17/05/2024.
+%--/Paper--
+
+\end{document}

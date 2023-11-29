@@ -1,0 +1,199 @@
+\documentclass[5pt]{article}
+
+\usepackage{sectsty}
+\usepackage{graphicx}
+\usepackage{lipsum} % for generating dummy text
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{array}
+\usepackage{cellspace}
+
+
+\usepackage{hyperref}
+\usepackage{scrextend}
+\graphicspath{ {./img} }
+
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\title{ Verbale - data }
+\date{\today}
+
+%STARTOF THE DOCUMENT
+\begin{document}
+
+%-------------------------
+
+% Reduce top margin only on the first page
+\newgeometry{top=0.5in}
+
+%UNIPD LOGO
+    \vspace{8pt}
+    \includegraphics[scale=0.2]{assets/UNIPDFull.png}
+%END UNIPD LOGO
+
+\vspace{30pt}
+
+%COURSE INFO
+\begin{minipage}[t]{0.48\textwidth}
+    %COURSE TITLE
+        \begin{flushleft}
+            Informatica\\
+            \vspace{5pt}
+            \textbf{\LARGE Ingegneria del Software}\\
+            Anno Accademico: 2023/2024
+        \end{flushleft}
+    %END COURSE TITLE
+\end{minipage}
+%END COURSE INFO
+
+
+\vspace{5px}
+
+
+%BLACK LINE
+\textcolor{}{\rule{\textwidth}{5pt}}
+
+%JACKPOT CODING INFO
+\begin{minipage}[t]{0.50\textwidth}
+    %LOGO JACKPOT CODING
+    \begin{flushleft}
+        \hspace{10pt}
+        \includegraphics[scale=0.65]{assets/jackpot-logo.png} 
+    \end{flushleft}
+\end{minipage}
+\hspace{-60pt} % This adds horizontal space between the minipages
+\begin{flushright}
+    \begin{minipage}[t]{0.50\textwidth}
+        %INFO JACKPOT CODING
+        \begin{flushright}
+            Gruppo: {\Large Jackpot Coding}\\
+            Email: \href{mailto:jackpotcoding@gmail.com}{jackpotcoding@gmail.com}
+        \end{flushright}
+    \end{minipage}
+\end{flushright}
+%END JACKPOT CODING INFO
+
+\vspace{24pt}
+
+%TITLE
+\begin{center}
+    \textbf{\large VERBALE }
+    \textbf{\large 26/10/2023} \\
+    \textbf{\LARGE INCONTRO ZUCCHETTI}
+\end{center}
+%END TITLE
+
+\vspace{13pt}
+
+\begin{flushleft}
+    \begin{spacing}{1.5}
+        REDATTORE:  G. Moretto, R. Simionato\\%INSERT HERE THE NAMES
+        VERIFICATORE:   E. Gallo\\%INSERT HERE THE NAMES
+        RESPONSABILE:   G. Moretto\\%INSERT HERE THE NAMES
+        \vspace{7pt}
+        SCRIBA: M. Gobbo\\%INSERT HERE THE NAMES
+        \vspace{7pt}
+        DESTINATARI:   Sig. G. Piccoli, Prof. T. Vardanega, Prof. R. Cardin\\%INSERT HERE THE NAMES
+    \end{spacing}
+\end{flushleft}
+
+\begin{flushright}
+    \begin{spacing}{1}
+        USO: ESTERNO\\
+        VERSIONE: 1.0\\
+    \end{spacing}
+\end{flushright}
+
+
+% Restore original margins from the second page onwards
+\restoregeometry
+
+\pagebreak
+
+
+
+
+% Optional TOC
+% \tableofcontents
+% \pagebreak
+
+%--Paper--
+
+\section{\Large ORARIO}
+\begin{spacing}{1.5}
+    {\large Inizio incontro: 16:00}\\
+    {\large Fine incontro: 16:40}
+\end{spacing}
+
+\section{PARTECIPANTI}
+% Define minimal spacing at the top and bottom of cells
+\setlength\cellspacetoplimit{6pt}
+\setlength\cellspacebottomlimit{6pt}
+
+\begin{table}[ht]
+  \begin{tabular}{|Sc|Sc|}
+    \hline
+    \textbf{Nome Componente} & \textbf{Durata della presenza} \\
+    \hline
+    Camillo Matteo & 40 minuti \\
+    Favaretto Marco & 40 minuti \\
+    Gallo Edoardo & 40 minuti \\
+    Gobbo Marco & 40 minuti \\
+    Moretto Giulio & 40 minuti \\
+    Simionato Riccardo & 30 minuti \\
+    Gregorio Piccoli (Zucchetti S.p.A.) & 40 minuti \\
+    \hline
+  \end{tabular}
+  \label{tab:conference}
+\end{table}
+
+\section{SINTESI DELL'INCONTRO}
+Presente alla riunione per conto dell’azienda, Gregorio Piccoli, rappresentante di Zucchetti
+S.p.A.
+Sono state poste le seguenti domande:\\
+\begin{enumerate}
+    \item Conferma dell'obiettivo del progetto.
+    \item Tecnologie consigliate.
+    \item Se realizzare l’interfaccia utente come una pagina web o un applicativo eseguibile.
+    \item Risorse messe a disposizione dall’azienda.
+    \item Consigli sui modelli LLM utilizzabili.
+\end{enumerate}
+
+\vspace{10pt}
+Il progetto rispetta le nostre intuizioni come descritto da documentazione fornita.
+
+\vspace{10pt}
+\noindent Non vi sono vincoli sulle tecnologie da utilizzare. Data la sua popolarità negli ambienti di
+intelligenza artificiale, Python è consigliato come linguaggio di programmazione.\\
+Consigliato inoltre il sito \href{https://huggingface.co}{huggingface.co} come solida base per l’apprendimento dei modelli LLM
+e come strumento per testarli e selezionare il miglior approccio al progetto.\\
+Viene inoltre
+segnalata la libreria \href{https://github.com/neuml/txtai}{neuml/txtai} che l’azienda stessa utilizza.
+
+\vspace{10pt}
+\noindent Per l’interfaccia utente non vi è preferenza tra interfaccia web o applicazione nativa, in quanto
+l’obiettivo del progetto è la creazione del prompt da poi utilizzare in un modello LLM.
+
+\vspace{10pt}
+\noindent Per la comunicazione asincrona e le riunioni l’azienda ha confermato l’utilizzo rispettivamente di
+email e Zoom, con il quale si è trovata particolarmente bene negli anni scorsi.
+
+\vspace{10pt}
+\noindent Sono stati fatti notare i limiti sui modelli LLM, soprattutto per quanto riguarda l’accuratezza delle
+informazioni restituite, ciò nonostante si manifesta un grande interesse per l’argomento in
+quanto questi rappresentano un nuovo modo di interagire con i computer.
+
+\vspace{10pt}
+\noindent L’incontro è stato positivo, i nostri dubbi sono stati chiariti e si è manifestato interesse da tutti i
+componenti del gruppo, confermando la scelta del capitolato precedentemente espressa negli
+incontri interni.
+%--/Paper--
+
+\end{document}
