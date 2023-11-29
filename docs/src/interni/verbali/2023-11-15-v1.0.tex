@@ -1,0 +1,167 @@
+\documentclass[5pt]{article}
+
+\usepackage{sectsty}
+\usepackage{graphicx}
+\usepackage{lipsum} % for generating dummy text
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{array}
+\usepackage{cellspace}
+
+
+\usepackage{hyperref}
+\usepackage{scrextend}
+\graphicspath{ {./src} }
+
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\title{ Verbale - data }
+\date{\today}
+
+%STARTOF THE DOCUMENT
+\begin{document}
+
+%-------------------------
+
+% Reduce top margin only on the first page
+\newgeometry{top=0.5in}
+
+%UNIPD LOGO
+    \vspace{8pt}
+    \includegraphics[scale=0.2]{assets/UNIPDFull.png}
+%END UNIPD LOGO
+
+\vspace{25pt}
+
+%COURSE INFO
+\begin{minipage}[t]{0.48\textwidth}
+    %COURSE TITLE
+        \begin{flushleft}
+            Informatica\\
+            \vspace{5pt}
+            \textbf{\LARGE Ingegneria del Software}\\
+            Anno Accademico: 2023/2024
+        \end{flushleft}
+    %END COURSE TITLE
+\end{minipage}
+%END COURSE INFO
+
+
+\vspace{5px}
+
+
+%BLACK LINE
+\textcolor{}{\rule{\textwidth}{5pt}}
+
+%JACKPOT CODING INFO
+\begin{minipage}[t]{0.50\textwidth}
+    %LOGO JACKPOT CODING
+    \begin{flushleft}
+        \hspace{10pt}
+        \includegraphics[scale=0.65]{assets/jackpot-logo.png} 
+    \end{flushleft}
+\end{minipage}
+\hspace{-60pt} % This adds horizontal space between the minipages
+\begin{flushright}
+    \begin{minipage}[t]{0.50\textwidth}
+        %INFO JACKPOT CODING
+        \begin{flushright}
+            Gruppo: {\Large Jackpot Coding}\\
+            Email: \href{mailto:jackpotcoding@gmail.com}{jackpotcoding@gmail.com}
+        \end{flushright}
+    \end{minipage}
+\end{flushright}
+%END JACKPOT CODING INFO
+
+\vspace{15pt}
+
+%TITLE
+\begin{center}
+    \textbf{\large VERBALE }
+    \textbf{\large 15/11/2023} \\
+    \textbf{\Large INCONTRO SETTIMANALE PER LA GESTIONE DEL PROGETTO DIDATTICO}
+\end{center}
+%END TITLE
+
+\vspace{13pt}
+
+\begin{flushleft}
+    \begin{spacing}{1.5}
+        REDATTORE:  M. Favaretto\\%INSERT HERE THE NAMES
+        VERIFICATORE: G. Moretto  \\%INSERT HERE THE NAMES
+        RESPONSABILE:   R. Simionato\\%INSERT HERE THE NAMES
+        \vspace{7pt}
+        SCRIBA: M. Favaretto\\%INSERT HERE THE NAMES
+    \end{spacing}
+\end{flushleft}
+
+\begin{flushright}
+    \begin{spacing}{1}
+        USO: INTERNO\\
+        VERSIONE: 1.0\\ % secondo numerazione proposta da Riccardo
+    \end{spacing}
+\end{flushright}
+
+
+% Restore original margins from the second page onwards
+\restoregeometry
+
+\pagebreak
+
+
+
+
+% Optional TOC
+% \tableofcontents
+% \pagebreak
+
+%--Paper--
+
+\section{\Large ORARIO}
+\begin{spacing}{1.5}
+    {\large Inizio incontro: 18:30}\\
+    {\large Fine incontro: 20:00}
+\end{spacing}
+
+\section{PARTECIPANTI}
+% Define minimal spacing at the top and bottom of cells
+\setlength\cellspacetoplimit{6pt}
+\setlength\cellspacebottomlimit{6pt}
+
+\begin{table}[ht]
+  \begin{tabular}{|Sc|Sc|}
+    \hline
+    \textbf{Nome Componente} & \textbf{Durata della presenza} \\
+    \hline
+    Camillo Matteo & 1 ora e 30 minuti \\
+    Favaretto Marco & 2 ore \\
+    Gallo Edoardo & 2 ore \\
+    Gobbo Marco & 2 ore \\
+    Moretto Giulio & 2 ore \\
+    Simionato Riccardo & 1 ora e 45 minuti \\
+    \hline
+  \end{tabular}
+  \label{tab:conference}
+\end{table}
+
+\section{SINTESI DELL'INCONTRO}
+Durante l'incontro si è svolta una veloce revisione dei compiti assegnati nell'incontro precedente. Nello specifico: le modifiche apportate ai documenti di candidatura e ai verbali e lo script per la compilazione automatica dei file in \LaTeX .\\
+È stata impostata la struttura del file di Way of Working e del documento Norme di Progetto.\\
+In ultimo si è discusso della possibile integrazione tra OverLeaf e GitHub, di un futuro incontro con l'azienda proponente Zucchetti S.p.A. riguardo i requisiti del progetto didattico e dei futuri incontri interni per l'analisi di essi.
+
+\section{DECISIONI}
+\begin{itemize}
+    \item Ripartizione della stesura dei diversi capitoli delle Norme di Progetto tra i componenti.
+    \item Necessità di iniziare l'analisi dei requisiti del progetto didattico.
+    \item Contattare successivamente l'azienda proponente per una discussione circa i requisiti del progetto didattico.
+\end{itemize}
+%--/Paper--
+
+\end{document}
