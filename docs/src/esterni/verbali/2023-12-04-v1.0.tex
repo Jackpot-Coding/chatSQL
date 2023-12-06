@@ -95,10 +95,10 @@
 \begin{flushleft}
     \begin{spacing}{1.5}
         REDATTORE: R. Simionato\\ 
-        VERIFICATORE: \\ % Da aggiungere __CONTROLLO__
+        VERIFICATORE: G. Moretto\\ 
         RESPONSABILE: M. Favaretto\\ 
         \vspace{7pt}
-        SCRIBA: \\ % Da aggiungere __CONTROLLO__
+        SCRIBA: R. Simionato\\ 
         \vspace{7pt}
         DESTINATARI: Sig. G. Piccoli, Prof. T. Vardanega, Prof. R. Cardin\\ 
     \end{spacing}
@@ -124,7 +124,7 @@
 \section{ORARIO}
 \begin{spacing}{1.5}
     {\large Inizio incontro: 16:30}\\
-    {\large Fine incontro: 17:00} % Ho segnato mezz'ora ma forse era un po' meno __CONTROLLO__
+    {\large Fine incontro: 17:00} 
 \end{spacing}
 
 \section{PARTECIPANTI}
@@ -137,7 +137,7 @@
     \hline
     \textbf{Nome Componente} & \textbf{Durata della presenza} \\
     \hline
-    Camillo Matteo & 25 minuti \\ % Possiamo mettere anche 30 minuti, tanto avevamo appena iniziato __CONTROLLO__
+    Camillo Matteo & 25 minuti \\
     Favaretto Marco & 30 minuti \\
     Gallo Edoardo & 30 minuti \\
     Gobbo Marco & 30 minuti \\
@@ -152,28 +152,29 @@
 \section{SINTESI DELL'INCONTRO}
 Durante l'incontro sono stati presentati al proponente i casi d'uso individuati dal gruppo dopo una prima analisi, portando le seguenti domande:
 \begin{enumerate}
-    \item Ci sono vincoli sul tipo e il numero di formati di file strutturati da dover supportare? Questi file devono poter essere editabili all'interno del programma dall'utente?;
-    \item Quale tipo di errori andrà gestito dal programma? Coerenza tra testo dell'utente e database selezionato? Correttezza di quanto capito dall'LLM e della sua risposta?;
-    \item Il prompt che andremo a creare dovrà essere una rielaborazione del testo inserito dall'utente per migliorare la possibilità di risposta dell'LLM, oppure è possibile solamente aggiungere al testo dell'utente le informazioni necessarie a contestualizzare la richiesta, come la struttura del database?. % Non so se abbia senso com'è scritta l'ultima domanda __CONTROLLO__
+    \item Ci sono vincoli sul tipo e il numero di formati di file strutturati da dover supportare? Questi file devono poter essere editabili all'interno del programma dall'utente?.
+    \item Quale tipo di errori andrà gestito dal programma? Coerenza tra testo dell'utente e database selezionato? Correttezza di quanto capito dall'LLM e della sua risposta?.
+    \item Il prompt che andremo a creare dovrà essere una rielaborazione del testo inserito dall'utente per migliorare la possibilità di risposta dell'LLM, oppure è possibile solamente aggiungere al testo dell'utente le informazioni necessarie a contestualizzare la richiesta, come la struttura del database?
 \end{enumerate}
-Di seguito le risposte maturate durante l'incontro in forma discorsiva. % Decidere se lasciare o togliere questa riga __CONTROLLO__
-
-Come vincolo viene richiesto solamente di supportare un tipo di file strutturato da noi scelto, con la possibilità di aggiungerne altri in un secondo momento. I file dovrebbero poter essere editabili tramite un interfaccia apposita all'interno del programma, da questa necessità è stata individuata la presenza di due attori(utenti) differenti. L'utente base, che utilizzerà il programma per fare le richieste selezionando il database da una lista già definita, e l'utente tecnico, che potrà aggiungere, rimuovere o modificare i database presenti tramite suddetta interfaccia.
+Di seguito le risposte maturate durante l'incontro in forma discorsiva. 
+\\ \\
+Come vincolo viene richiesto solamente di supportare un tipo di file strutturato da noi scelto, con la possibilità di aggiungerne altri in un secondo momento. \\ \\
+I file dovrebbero poter essere editabili tramite un interfaccia apposita all'interno del programma, da questa necessità è stata individuata la presenza di due attori(utenti) differenti. L'utente base, che utilizzerà il programma per fare le richieste selezionando il database da una lista già definita, e l'utente tecnico, che potrà aggiungere, rimuovere o modificare i database presenti tramite suddetta interfaccia
 Per il POC l'interfaccia non viene richiesta.
-
-Per quanto riguarda gli errori da gestire si pone particolare attenzione sulla risposta dell'LLM che potrebbe, in caso di ambiguità o mancanza di informazioni sufficienti, inventare dati al fine di dare una risposta completa. Un possibile controllo potrebbe essere la ricerca delle keyword presenti all'interno della risposta e un seguente ranking basato sui dati forniti(database e testo dell'utente). Lo stesso potrebbe essere applicato per un primo controllo di coerenza tra la richiesta dell'utente e il database selezionato.
-
-Il prompt che andremo a creare dovrà necessariamente contenere la struttura del database che l'utente vuole interrogare, inoltre potrebbe migliorare la risposta finale aggiungere inoltre una sorta di dizionario che contenga sinonimi dei dati del database, termini usati in linguaggio naturale collegati o derivati dai nomi di colonne e tabelle. % Anche qui non so se si capisca molto __CONTROLLO__
-
+\\ \\
+Per quanto riguarda gli errori da gestire si pone particolare attenzione sulla risposta dell'LLM che potrebbe, in caso di ambiguità o mancanza di informazioni sufficienti, inventare dati al fine di dare una risposta completa. Un possibile controllo potrebbe essere la ricerca delle keyword presenti all'interno della risposta e un seguente ranking basato sui dati forniti(database e testo dell'utente). Lo stesso potrebbe essere applicato per un primo controllo di coerenza tra la richiesta dell'utente e il database selezionato.\\
+\\ 
+Il prompt che andremo a creare dovrà necessariamente contenere la struttura del database che l'utente vuole interrogare, inoltre potrebbe migliorare la risposta finale aggiungendo una sorta di dizionario che contenga sinonimi dei dati del database, termini usati in linguaggio naturale collegati o derivati dai nomi di colonne e tabelle. 
+\\ \\
 La rielaborazione del testo inserito dall'utente potrebbe essere un modo di affinare le risposte dell'LLM creando dei prompt più prevedibili e quindi precisi, può essere un argomento da approfondire.
 
 \section{CONCLUSIONI}
 Dall'incontro sono emerse le seguenti attività: 
 \begin{itemize}
-    \item Aggiungere i casi d'uso per l'accesso al programma da parte dei diversi utenti;
-    \item Aggiungere i casi d'uso per l'utente tecnico (caricamento, modifica e eliminazione del database);
-    \item Ragionare su come impostare e salvare i file strutturati contenenti le informazioni dei database e dei dizionari?;
-    \item Approfondire l'argomento LLM per la ricerca delle keyword, ranking e rielaborazione dei testi. % Decidere se lasciare o togliere questa riga __CONTROLLO__
+    \item Aggiungere i casi d'uso per l'accesso al programma da parte dei diversi utenti.
+    \item Aggiungere i casi d'uso per l'utente tecnico (caricamento, modifica e eliminazione del database).
+    \item Ragionare su come impostare e salvare i file strutturati contenenti le informazioni dei database e dei dizionari.
+    \item Approfondire l'argomento LLM per la ricerca delle keyword, ranking e rielaborazione dei testi.
 \end{itemize}
 
 
