@@ -1,0 +1,180 @@
+\documentclass[5pt]{article}
+
+\usepackage{sectsty}
+\usepackage{graphicx}
+\usepackage{lipsum} % for generating dummy text
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{array}
+\usepackage{cellspace}
+
+
+\usepackage{hyperref}
+\usepackage{scrextend}
+\graphicspath{ {../../assets} }
+
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\title{ Verbale - 4/12/2023 }
+\date{\today}
+
+%STARTOF THE DOCUMENT
+\begin{document}
+
+%-------------------------
+
+% Reduce top margin only on the first page
+\newgeometry{top=0.5in}
+
+%UNIPD LOGO
+    \vspace{8pt}
+    \includegraphics[scale=0.2]{UNIPDFull.png}
+%END UNIPD LOGO
+
+\vspace{10pt}
+
+%COURSE INFO
+\begin{minipage}[t]{0.48\textwidth}
+    %COURSE TITLE
+        \begin{flushleft}
+            Informatica\\
+            \vspace{5pt}
+            \textbf{\LARGE Ingegneria del Software}\\
+            Anno Accademico: 2023/2024
+        \end{flushleft}
+    %END COURSE TITLE
+\end{minipage}
+%END COURSE INFO
+
+
+\vspace{5px}
+
+
+%BLACK LINE
+\rule{\textwidth}{5pt}
+
+%JACKPOT CODING INFO
+\begin{minipage}[t]{0.50\textwidth}
+    %LOGO JACKPOT CODING
+    \begin{flushleft}
+        \hspace{10pt}
+        \includegraphics[scale=0.65]{jackpot-logo.png} 
+    \end{flushleft}
+\end{minipage}
+\hspace{-60pt} % This adds horizontal space between the minipages
+\begin{flushright}
+    \begin{minipage}[t]{0.50\textwidth}
+        %INFO JACKPOT CODING
+        \begin{flushright}
+            Gruppo: {\Large Jackpot Coding}\\
+            Email: \href{mailto:jackpotcoding@gmail.com}{jackpotcoding@gmail.com}
+        \end{flushright}
+    \end{minipage}
+\end{flushright}
+%END JACKPOT CODING INFO
+
+\vspace{20pt}
+
+%TITLE
+\begin{center}
+    \textbf{\large VERBALE }
+    \textbf{\large 04/12/2023} \\
+    \textbf{\LARGE APPROFONDIMENTO CASI D'USO E FUNZIONALITÀ DEL PRODOTTO}
+\end{center}
+%END TITLE
+
+\vspace{13pt}
+
+\begin{flushleft}
+    \begin{spacing}{1.5}
+        REDATTORE: R. Simionato\\ 
+        VERIFICATORE: \\ % Da aggiungere __CONTROLLO__
+        RESPONSABILE: M. Favaretto\\ 
+        \vspace{7pt}
+        SCRIBA: \\ % Da aggiungere __CONTROLLO__
+        \vspace{7pt}
+        DESTINATARI: Sig. G. Piccoli, Prof. T. Vardanega, Prof. R. Cardin\\ 
+    \end{spacing}
+\end{flushleft}
+
+\begin{flushright}
+    \begin{spacing}{1}
+        USO: ESTERNO\\
+        VERSIONE: 1.0\\
+    \end{spacing}
+\end{flushright}
+
+
+% Restore original margins from the second page onwards
+\restoregeometry
+
+\pagebreak
+
+% Optional TOC
+% \tableofcontents
+% \pagebreak
+
+\section{ORARIO}
+\begin{spacing}{1.5}
+    {\large Inizio incontro: 16:30}\\
+    {\large Fine incontro: 17:00} % Ho segnato mezz'ora ma forse era un po' meno __CONTROLLO__
+\end{spacing}
+
+\section{PARTECIPANTI}
+% Define minimal spacing at the top and bottom of cells
+\setlength\cellspacetoplimit{6pt}
+\setlength\cellspacebottomlimit{6pt}
+
+\begin{table}[ht]
+  \begin{tabular}{|Sc|Sc|}
+    \hline
+    \textbf{Nome Componente} & \textbf{Durata della presenza} \\
+    \hline
+    Camillo Matteo & 25 minuti \\ % Possiamo mettere anche 30 minuti, tanto avevamo appena iniziato __CONTROLLO__
+    Favaretto Marco & 30 minuti \\
+    Gallo Edoardo & 30 minuti \\
+    Gobbo Marco & 30 minuti \\
+    Moretto Giulio & 30 minuti \\
+    Simionato Riccardo & 30 minuti \\
+    Gregorio Piccoli (Zucchetti S.p.A.) & 30 minuti \\
+    \hline
+  \end{tabular}
+  \label{tab:conference}
+\end{table}
+
+\section{SINTESI DELL'INCONTRO}
+Durante l'incontro sono stati presentati al proponente i casi d'uso individuati dal gruppo dopo una prima analisi, portando le seguenti domande:
+\begin{enumerate}
+    \item Ci sono vincoli sul tipo e il numero di formati di file strutturati da dover supportare? Questi file devono poter essere editabili all'interno del programma dall'utente?;
+    \item Quale tipo di errori andrà gestito dal programma? Coerenza tra testo dell'utente e database selezionato? Correttezza di quanto capito dall'LLM e della sua risposta?;
+    \item Il prompt che andremo a creare dovrà essere una rielaborazione del testo inserito dall'utente per migliorare la possibilità di risposta dell'LLM, oppure è possibile solamente aggiungere al testo dell'utente le informazioni necessarie a contestualizzare la richiesta, come la struttura del database?. % Non so se abbia senso com'è scritta l'ultima domanda __CONTROLLO__
+\end{enumerate}
+Di seguito le risposte maturate durante l'incontro in forma discorsiva. % Decidere se lasciare o togliere questa riga __CONTROLLO__
+
+Come vincolo viene richiesto solamente di supportare un tipo di file strutturato da noi scelto, con la possibilità di aggiungerne altri in un secondo momento. I file dovrebbero poter essere editabili tramite un interfaccia apposita all'interno del programma, da questa necessità è stata individuata la presenza di due attori(utenti) differenti. L'utente base, che utilizzerà il programma per fare le richieste selezionando il database da una lista già definita, e l'utente tecnico, che potrà aggiungere, rimuovere o modificare i database presenti tramite suddetta interfaccia.
+Per il POC l'interfaccia non viene richiesta.
+
+Per quanto riguarda gli errori da gestire si pone particolare attenzione sulla risposta dell'LLM che potrebbe, in caso di ambiguità o mancanza di informazioni sufficienti, inventare dati al fine di dare una risposta completa. Un possibile controllo potrebbe essere la ricerca delle keyword presenti all'interno della risposta e un seguente ranking basato sui dati forniti(database e testo dell'utente). Lo stesso potrebbe essere applicato per un primo controllo di coerenza tra la richiesta dell'utente e il database selezionato.
+
+Il prompt che andremo a creare dovrà necessariamente contenere la struttura del database che l'utente vuole interrogare, inoltre potrebbe migliorare la risposta finale aggiungere inoltre una sorta di dizionario che contenga sinonimi dei dati del database, termini usati in linguaggio naturale collegati o derivati dai nomi di colonne e tabelle. % Anche qui non so se si capisca molto __CONTROLLO__
+
+La rielaborazione del testo inserito dall'utente potrebbe essere un modo di affinare le risposte dell'LLM creando dei prompt più prevedibili e quindi precisi, può essere un argomento da approfondire.
+
+\section{CONCLUSIONI}
+Dall'incontro sono emerse le seguenti attività: 
+\begin{itemize}
+    \item Aggiungere i casi d'uso per l'accesso al programma da parte dei diversi utenti;
+    \item Aggiungere i casi d'uso per l'utente tecnico (caricamento, modifica e eliminazione del database);
+    \item Ragionare su come impostare e salvare i file strutturati contenenti le informazioni dei database e dei dizionari?;
+    \item Approfondire l'argomento LLM per la ricerca delle keyword, ranking e rielaborazione dei testi. % Decidere se lasciare o togliere questa riga __CONTROLLO__
+\end{itemize}
+
+
+\end{document}
