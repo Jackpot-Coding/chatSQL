@@ -1,0 +1,99 @@
+:root{
+  --light-blue: #89CFF0;
+  --blue: #0267C1;
+  --dark-blue: #0A1128;
+  --grey: #9A8C98;
+  --orange: #F6511D;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: "Lucida Console", monospace;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: white;
+    background-color: var(--dark-blue);
+}
+
+a {
+  color: white;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: var(--light-blue);
+}
+
+nav {
+  max-width: 40em;
+  margin: auto;
+  padding: 2em 3em 0 3em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#logo {
+  width: 10em;
+  box-shadow:  -10px 0 0 0 white,
+                10px 0 0 0 white,
+                0 -10px 0 0 white,
+                0 10px 0 0 white;
+  padding: 0.3em;
+  background-color: white;
+}
+
+#nav-menu {
+  display: flex;
+}
+
+#nav-menu p {
+  padding: 0 1em;
+}
+
+section {
+  max-width: 40em;
+  margin: auto;
+  padding: 1em 3em;
+}
+
+section h1 {
+  text-align: center;
+  /*background-color: var(--dark-blue);*/
+  color: white;
+  box-shadow:  -7px 0 0 0 white,
+                7px 0 0 0 white,
+                0 -7px 0 0 white,
+                0 7px 0 0 white;
+}
+
+.indented {
+  padding-left: 2em;
+}
+
+#last-update {
+  text-align: center;
+  font-size: 0.7em;
+  color: var(--grey);
+}
+
+.versione {
+  font-size: 0.9em;
+  color: var(--grey);
+}
+
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column;
+  }
+
+  section {
+    padding: 0.5em;
+  }
+
+  #nav-menu {
+    flex-direction: column;
+    align-items: center;
+  }
+}
