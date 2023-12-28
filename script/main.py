@@ -3,11 +3,12 @@
 """
 
 import os
+import pathlib
 import shutil
 
 # ///// CONFIG /////
 PATH_DOCS = [
-    os.path.join("docs", "src", "template.tex")
+    os.path.join("docs", "src")
 ]
 PATH_VERBALI_INTERNI = os.path.join("docs", "src", "verbali", "interni")
 PATH_VERBALI_ESTERNI = os.path.join("docs", "src", "verbali", "esterni")
@@ -16,10 +17,10 @@ OUTPUT_NAME = "docs"
 ROOT_NAME = "chatSQL"
 
 # Inizializzati in set_directory()
-ROOT_PATH = ""
-TEMP_PATH = ""
+ROOT_PATH   = ""
+TEMP_PATH   = ""
 OUTPUT_PATH = ""
-
+SRC_PATH    = ""
 
 # ///// FUNCTIONS /////
 
@@ -29,7 +30,7 @@ Necessario perchè lo script funzioni su pc con sistemi operativi e/o
 struttura delle cartelle diversi
 """
 def set_directory():
-    global ROOT_PATH, TEMP_PATH, OUTPUT_PATH
+    global ROOT_PATH, TEMP_PATH, OUTPUT_PATH, SRC_PATH
     path = os.path.realpath(__file__)
     path_list = path.split(os.sep)
     path_found = False
@@ -41,7 +42,8 @@ def set_directory():
             path_list.pop()
 
     ROOT_PATH = os.sep.join(path_list)
-    TEMP_PATH = os.path.join(ROOT_PATH, "temp")
+    SRC_PATH  = os.path.join(ROOT_PATH,"docs","src");
+    TEMP_PATH = os.path.join(SRC_PATH,"temp")
     OUTPUT_PATH = os.path.join(ROOT_PATH, OUTPUT_NAME)
      
 """
@@ -58,22 +60,33 @@ def create_temp_directory():
     os.mkdir(os.path.join(TEMP_PATH, "esterni", "verbali"))
 
 """
-Ritorna il path alla directory corretta in base al tipo di documento
-    dir_path    : directory del file .tex da compilare
+Ritorna il path alla cartella corrispondente in distribuzione
+    path    : directory del file .tex da compilare
 """
-def get_correct_filepath(dir_path):
-    path_list = dir_path.split(os.sep)
+def get_dist_dir_path(path):
+    return path.replace(SRC_PATH,OUTPUT_PATH)
 
-    if "verbali" in path_list:
-        if "interni" in path_list:
-            return os.path.join(TEMP_PATH, "interni", "verbali")
-        elif "esterni" in path_list:
-            return os.path.join(TEMP_PATH, "esterni", "verbali")
-    else:
-        if "interni" in path_list:
-            return os.path.join(TEMP_PATH, "interni")
-        elif "esterni" in path_list:
-            return os.path.join(TEMP_PATH, "esterni")
+"""
+Ritorna il path alla cartella temporanea corrispondente
+    path    : directory del file .tex da compilare
+"""
+def get_temp_dir_path(path):
+    return path.replace(SRC_PATH,TEMP_PATH)
+
+"""
+Elimina i file ausiliari creati da latxmk
+    folder  : directory con i file ausiliari
+"""
+def delete_auxiliary_files(folder):
+    for filename in os.listdir(folder):
+        file_path = os.path.join(folder, filename)
+        try:
+            if os.path.isfile(file_path) or os.path.islink(file_path):
+                os.unlink(file_path)
+            elif os.path.isdir(file_path):
+                shutil.rmtree(file_path)
+        except Exception as e:
+            print('Failed to delete %s. Reason: %s' % (file_path, e))
 
 
 """
@@ -81,34 +94,41 @@ Compila il file latex e lo posiziona nella cartella temp
     dir_path    : directory del file .tex da compilare
     file_name   : nome del file .tex da compilare
 """
-def compile_latex(dir_path, file_name):
-    os.chdir(ROOT_PATH)
-    os.chdir(dir_path)
-    os.system("latexmk -pdf " + file_name)
+def compile_latex(dir_path,file_name):
 
-    created_file_name = os.path.splitext(file_name)[0] + ".pdf"
-    created_file_path = get_correct_filepath(dir_path)
-    shutil.move(created_file_name, os.path.join(created_file_path, created_file_name))
-    os.chdir(ROOT_PATH)
+    dist_dir = get_dist_dir_path(dir_path) # cartella di destinazione del documento
+    temp_dir = get_temp_dir_path(dir_path) # cartella temporanea del documento
+    
+    p = pathlib.Path(file_name)
+    pdf_file_name = p.with_suffix('.pdf');
+
+    if( not os.path.exists( os.path.join(dist_dir,pdf_file_name) ) ): # se il file PDF corrispondente non esiste crealo
+
+        os.chdir(ROOT_PATH)
+        os.chdir(dir_path)
+        os.system("latexmk -pdf -f -output-directory="+ temp_dir +"  " + file_name)
+
+        created_file_path = os.path.join(temp_dir,pdf_file_name)
+        shutil.move(created_file_path,os.path.join(dist_dir,pdf_file_name))
+        delete_auxiliary_files(temp_dir)
 
 """
 Compila i file latex in .pdf spostandoli nella corretta cartella temp
 in base al tipo di documento(interno/esterno, documento/verbale)
 """
 def latex_to_pdf():
-    for file_path in PATH_DOCS:
-        if os.path.exists(file_path):
-            dir_path, file_name = os.path.split(file_path)
-            compile_latex(dir_path, file_name)
+    src_walk = os.walk(SRC_PATH)
+    for root,dirs,files in src_walk: # scorri la cartella /docs/src
+        for folder in dirs:         # scorri cartelle in /docs/src
+            if(folder != 'temp' and folder != 'assets'):   
+                dir_listing = os.listdir(os.path.join(root,folder))
+                for file_name in dir_listing:
+                    file_path = (os.path.join(root,folder,file_name))
+                    if os.path.isfile(file_path):
+                        if( pathlib.Path(file_path).suffix == '.tex'):
+                            compile_latex(os.path.join(root,folder),file_name)
 
 
-"""
-Sposta i nuovi file dalla cartella temp alla cartella di output finale
-"""
-def move_new_files():
-    if os.path.exists(OUTPUT_PATH):
-        shutil.rmtree(OUTPUT_PATH)
-    os.rename(TEMP_PATH, OUTPUT_PATH)
 
 """
 Aggiorna il sito web con le nuove versioni dei file
@@ -126,15 +146,14 @@ def end_confirm():
 
 def main():
     set_directory()         # Imposta la directory dei src
+
     os.chdir(ROOT_PATH)     # Mi sposto nella root del progetto
     
     create_temp_directory() # Crea la cartella per i nuovi .pdf 
 
     latex_to_pdf()          # Crea i pdf in temp
 
-    move_new_files()        # Sposta i nuovi file nella cartella di destinazione
-
-    #update_website()        # Aggiorna il sito web
+    # #update_website()        # Aggiorna il sito web
 
     end_confirm()           # Messaggio di terminazione
 
