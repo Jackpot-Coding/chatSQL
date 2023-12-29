@@ -95,8 +95,8 @@
 
 \begin{flushleft}
     \begin{spacing}{1.5}
-        REDATTORE: R. Simionato\\%INSERT HERE THE NAMES
-        VERIFICATORI: \\
+        REDATTORI: R. Simionato, G. Moretto\\%INSERT HERE THE NAMES
+        VERIFICATORI: G. Moretto\\
         \vspace{7pt}
         DESTINATARI: Prof. T. Vardanega, Prof. R. Cardin\\%INSERT HERE THE NAMES
     \end{spacing}
@@ -124,9 +124,11 @@
     \hline
     % versione & data & autore & verificatore & descrizioneModifica \\
     % \hline
-    V0.0.2 & 18/12/2023 & R. Simionato & - & Aggiunte Introduzione, Descrizione e Casi d'uso \\
+    v.0.0.3 & 29/12/2023 & G. Moretto & - & Aggiunti UC 6,7,8,9,9.1,9.2, commentati altri \\
     \hline
-    V0.0.1 & 15/11/2023 & R. Simionato & - & Creata struttura del documento \\
+    V0.0.2 & 18/12/2023 & R. Simionato & G. Moretto & Aggiunte Introduzione, Descrizione e Casi d'uso \\
+    \hline
+    V0.0.1 & 15/11/2023 & R. Simionato & G. Moretto  & Creata struttura del documento \\
     \hline
   \end{tabular}%
   }
@@ -360,7 +362,7 @@ Il prodotto dovrà inoltre dare la possibilità agli utenti amministratori, dopo
     \end{itemize}
 \end{itemize}
 
-\subsection{UC5.2 - Inserimento nome utente}
+\subsection{UC5.2 - Inserimento password}
 \label{sec:UC5.2}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
@@ -407,7 +409,7 @@ Il prodotto dovrà inoltre dare la possibilità agli utenti amministratori, dopo
     \end{itemize}
 \end{itemize}
 
-\subsection{UC7 - Caricamento struttura database (file strutturato XML, CSV, JSON, ecc.) ???}
+\subsection{UC7 - Creazione struttura del database}
 \label{sec:UC7}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
@@ -416,26 +418,134 @@ Il prodotto dovrà inoltre dare la possibilità agli utenti amministratori, dopo
     \item \textbf{Precondizioni:} 
     \begin{itemize}
         \item L’amministratore ha effettuato il login (\hyperref[sec:UC5]{\textbf{UC5}});
-        \item L’amministratore ha a disposizione un file strutturato in formato ???(da decidere);
+        \item L’amministratore si trova nel pannello amministrativo;
     \end{itemize}
     \item \textbf{Postcondizioni:} 
     \begin{itemize}
-        \item Il file con la struttura del database viene caricato nel programma;
+        \item La struttura del database viene salvata nel programma;
     \end{itemize}
     \item \textbf{Scenario principale:} 
     \begin{itemize}
-        \item L’amministratore si trova nel pannello amministrativo;
-        \item L’amministratore sceglie un file in formato ??? tra i suoi file locali e lo carica nel programma;
+        \item L’amministratore si reca nella sezione di inserimento della struttura database;
+        \item L'amministratore inserisce le tabelle del database (\hyperref[sec:UC8]{\textbf{UC8}});;
+        \item L'amministratore salva le tabelle inserite
     \end{itemize}
     \item \textbf{Estensioni:} nel caso in cui venga inserito un file in formato non valido o i dati all’interno del file non siano validi:
     \begin{itemize}
-        \item Il caricamento viene interrotto;
-        \item Viene visualizzato un errore - \hyperref[sec:UC8]{\textbf{UC8}}.
+        \item ---- Il caricamento viene interrotto;
+        \item ---- .
     \end{itemize}
 \end{itemize}
 
-\subsection{UC8 - Visualizzazione errore: caricamento struttura (formato non accettato)}
+\subsection{UC8 - Creazione delle tabelle del database}
 \label{sec:UC8}
+%\includegraphics[]{diagramma_UML}
+\begin{itemize}
+	\item \textbf{Descrizione:} l’amministratore vuole aggiungere le tabelle alla struttura del database da interrogare;
+	\item \textbf{Attori:} amministratore;
+	\item \textbf{Precondizioni:} 
+	\begin{itemize}
+		\item L’amministratore ha effettuato il login (\hyperref[sec:UC5]{\textbf{UC5}});
+		\item L’amministratore si trova nel pannello amministrativo;
+		\item L’amministratore si trova nela sezione di inserimento della struttura database;
+	\end{itemize}
+	\item \textbf{Postcondizioni:} 
+	\begin{itemize}
+		\item La tabella viene aggiunta alla struttura del database;
+	\end{itemize}
+	\item \textbf{Scenario principale:} 
+	\begin{itemize}
+		\item L’amministratore inserisce i campi che compongono la tabella (\hyperref[sec:UC9]{\textbf{UC9}});
+	\end{itemize}
+	\item \textbf{Estensioni:} nel caso in cui venga inserito un file in formato non valido o i dati all’interno del file non siano validi:
+	\begin{itemize}
+		\item
+	\end{itemize}
+\end{itemize}
+
+
+\subsection{UC9 - Inserimento dei campi delle tabelle nel database}
+\label{sec:UC9}
+%\includegraphics[]{diagramma_UML}
+\begin{itemize}
+	\item \textbf{Descrizione:} l’amministratore vuole aggiungere i campi che compongolo le tabelle alla struttura del database da interrogare;
+	\item \textbf{Attori:} amministratore;
+	\item \textbf{Precondizioni:} 
+	\begin{itemize}
+		\item L’amministratore ha effettuato il login (\hyperref[sec:UC5]{\textbf{UC5}});
+		\item L’amministratore si trova nel pannello amministrativo;
+		\item L’amministratore si trova nela sezione di inserimento della struttura database;
+		\item L’amministratore sta inserendo i campi che compongono la tabella;
+	\end{itemize}
+	\item \textbf{Postcondizioni:} 
+	\begin{itemize}
+		\item I campi vengono aggiunti alla tabella;
+	\end{itemize}
+	\item \textbf{Scenario principale:} 
+	\begin{itemize}
+		\item L’amministratore seleziona il tipo di campo  (\hyperref[sec:UC9.1]{\textbf{UC9.1}});
+		\item L'amministratore inserisce il nome del campo (\hyperref[sec:UC9.1]{\textbf{UC9.2}});
+	\end{itemize}
+	\item \textbf{Estensioni:} nel caso in cui venga inserito un file in formato non valido o i dati all’interno del file non siano validi:
+	\begin{itemize}
+		\item
+	\end{itemize}
+\end{itemize}
+
+\subsection{UC9.1 - Selezione del tipo del campo della tabella}
+\label{sec:UC9.1}
+%\includegraphics[]{diagramma_UML}
+\begin{itemize}
+	\item \textbf{Descrizione:} l’amministratore vuole selezionare il tipo del campo da inserire nella tabella;
+	\item \textbf{Attori:} amministratore;
+	\item \textbf{Precondizioni:} 
+	\begin{itemize}
+		\item L’amministratore ha effettuato il login (\hyperref[sec:UC5]{\textbf{UC5}});
+		\item L’amministratore si trova nel pannello amministrativo;
+		\item L’amministratore si trova nela sezione di inserimento della struttura database;
+		\item L’amministratore sta inserendo i campi che compongono la tabella;
+	\end{itemize}
+	\item \textbf{Postcondizioni:} 
+	\begin{itemize}
+		\item Il tipo del campo viene selezionato;
+	\end{itemize}
+	\item \textbf{Scenario principale:} 
+	\begin{itemize}
+		\item L’amministratore seleziona il tipo di campo, selezionandolo dalle scelte possibili;
+	\end{itemize}
+		\begin{itemize}
+	\item \textbf{Estensioni:} TODO nessun testo inserito
+\end{itemize}
+\end{itemize}
+
+\subsection{UC9.2 -Inserimento del nome del campo della tabella}
+\label{sec:UC9.2}
+%\includegraphics[]{diagramma_UML}
+\begin{itemize}
+	\item \textbf{Descrizione:} l’amministratore vuole inserire il nome del campo da inserire nella tabella;
+	\item \textbf{Attori:} amministratore;
+	\item \textbf{Precondizioni:} 
+	\begin{itemize}
+		\item L’amministratore ha effettuato il login (\hyperref[sec:UC5]{\textbf{UC5}});
+		\item L’amministratore si trova nel pannello amministrativo;
+		\item L’amministratore si trova nela sezione di inserimento della struttura database;
+		\item L’amministratore sta inserendo i campi che compongono la tabella;
+	\end{itemize}
+	\item \textbf{Postcondizioni:} 
+	\begin{itemize}
+		\item Il nome del campo viene inserito;
+	\end{itemize}
+	\item \textbf{Scenario principale:} 
+	\begin{itemize}
+		\item L’amministrator inserisce il nomeampo nel campo di testo dedicato;
+	\end{itemize}
+	\item \textbf{Estensioni:} TODO errore nome campo
+\end{itemize}
+
+\iffalse
+
+\subsection{UC8xx - Visualizzazione errore: caricamento struttura (formato non accettato)??}
+\label{sec:UC8xxx}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
     \item \textbf{Descrizione:} l’amministratore carica un file con un formato errato;
@@ -457,8 +567,8 @@ Il prodotto dovrà inoltre dare la possibilità agli utenti amministratori, dopo
     \end{itemize}
 \end{itemize}
 
-\subsection{UC9 - Modifica struttura database}
-\label{sec:UC9}
+\subsection{UC9xx - Modifica struttura database}
+\label{sec:UC9xxx}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
     \item \textbf{Descrizione:}  l’amministratore modifica una delle strutture database già presenti;
@@ -482,8 +592,8 @@ Il prodotto dovrà inoltre dare la possibilità agli utenti amministratori, dopo
     \end{itemize}
 \end{itemize}
 
-\subsection{UC10 - Modifica struttura database}
-\label{sec:UC10}
+\subsection{UC10xx - Eliminazione struttura database}
+\label{sec:10xxx}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
     \item \textbf{Descrizione:}  l’amministratore elimina una delle strutture database già presenti;
@@ -507,8 +617,8 @@ Il prodotto dovrà inoltre dare la possibilità agli utenti amministratori, dopo
     \end{itemize}
 \end{itemize}
 
-\subsection{UC11 - Logout}
-\label{sec:UC11}
+\subsection{UC11xx - Logout}
+\label{sec:UC11xxx}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
     \item \textbf{Descrizione:} 
@@ -528,6 +638,7 @@ Il prodotto dovrà inoltre dare la possibilità agli utenti amministratori, dopo
     \end{itemize}
 \end{itemize}
 
+\fi
 
 \section{Requisiti}
 \subsection{Requisiti funzionali}
