@@ -124,6 +124,8 @@
     \hline
     % versione & data & autore & verificatore & descrizioneModifica \\
     % \hline
+    v.0.0.5 & 7/01/2024 & R. Simionato & - & Aggiunti UC 3,4,7,8,9 e sottocasi  \\
+    \hline
     v.0.0.4 & 5/01/2024 & R. Simionato & - & Aggiunta nuova struttura per i Casi d'Uso \\
     \hline
     v.0.0.3 & 29/12/2023 & G. Moretto & - & Aggiunti UC 6,7,8,9,9.1,9.2, commentati altri \\
@@ -293,6 +295,8 @@ Il prodotto dovrà inoltre dare la possibilità agli utenti amministratori, dopo
 \subsection{UC - }
 \label{sec:UC}
 
+\fi
+
 \subsection{UC1 - Login}
 \label{sec:UC1}
 %\includegraphics[]{diagramma_UML}
@@ -325,7 +329,7 @@ Il prodotto dovrà inoltre dare la possibilità agli utenti amministratori, dopo
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC1.1 - Inserimento nome utente}
+\subsubsection{UC1.1 - Inserimento nome utente}
 \label{sec:UC1.1}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
@@ -347,7 +351,7 @@ Il prodotto dovrà inoltre dare la possibilità agli utenti amministratori, dopo
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC1.2 - Inserimento password}
+\subsubsection{UC1.2 - Inserimento password}
 \label{sec:UC1.2}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
@@ -424,35 +428,135 @@ Il prodotto dovrà inoltre dare la possibilità agli utenti amministratori, dopo
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC3.1 - Inserimento nome DB}
+\subsubsection{UC3.1 - Inserimento nome DB}
 \label{sec:UC3.1}
+%\includegraphics[]{diagramma_UML}
+\begin{itemize}
+	\item \textbf{Descrizione:} l’amministratore deve inserire il nome del nuovo database da aggiungere;
+	\item \textbf{Attori:} amministratore;
+	\item \textbf{Precondizioni:} 
+	\begin{itemize}
+		\item L’amministratore ha effettuato il login (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore si trova nel pannello amministrativo;
+		\item L’amministratore sta creando un nuovo database (\hyperref[sec:UC3]{\textbf{UC3}});
+	\end{itemize}
+	\item \textbf{Postcondizioni:} 
+	\begin{itemize}
+		\item L'amministratore ha inserito correttamente il nome del nuovo database;
+	\end{itemize}
+	\item \textbf{Scenario principale:} 
+	\begin{itemize}
+		\item L’amministratore inserisce il nome del database nel form di creazione;
+	\end{itemize}
+\end{itemize}
 
-\subsection{UC3.2 - Inserimento descrizione DB}
+\subsubsection{UC3.2 - Inserimento descrizione DB}
 \label{sec:UC3.2}
+%\includegraphics[]{diagramma_UML}
+\begin{itemize}
+	\item \textbf{Descrizione:} l’amministratore deve inserire la descrizione del nuovo database da aggiungere;
+	\item \textbf{Attori:} amministratore;
+	\item \textbf{Precondizioni:} 
+	\begin{itemize}
+		\item L’amministratore ha effettuato il login (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore si trova nel pannello amministrativo;
+		\item L’amministratore sta creando un nuovo database (\hyperref[sec:UC3]{\textbf{UC3}});
+	\end{itemize}
+	\item \textbf{Postcondizioni:} 
+	\begin{itemize}
+		\item L'amministratore ha inserito correttamente la descrizione del nuovo database;
+	\end{itemize}
+	\item \textbf{Scenario principale:} 
+	\begin{itemize}
+		\item L’amministratore inserisce la descrizione del database nel form di creazione;
+	\end{itemize}
+\end{itemize}
 
 \subsection{UC4 - Errore: nome DB già presente}
 \label{sec:UC4}
+%\includegraphics[]{diagramma_UML}
+\begin{itemize}
+	\item \textbf{Descrizione:} L’amministratore visualizza un errore di creazione del database;
+	\item \textbf{Attori:} amministratore;
+	\item \textbf{Precondizioni:} 
+	\begin{itemize}
+		\item L’amministratore ha effettuato il login (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore si trova nel pannello amministrativo;
+		\item L’amministratore sta creando un nuovo database (\hyperref[sec:UC3]{\textbf{UC3}});
+	\end{itemize}
+	\item \textbf{Postcondizioni:} 
+	\begin{itemize}
+		\item La struttura del database non viene salvata nel programma e visualizza un messaggio di errore;
+	\end{itemize}
+	\item \textbf{Scenario principale:} 
+	\begin{itemize}
+		\item L’amministratore inserisce il nome del database nel form di creazione (\hyperref[sec:UC3.1]{\textbf{UC3.1}});
+		\item L’amministratore inserisce la descrizione del database nel form di creazione (\hyperref[sec:UC3.2]{\textbf{UC3.2}});
+		\item Il sistema verifica che non esista già un database con lo stesso nome;
+		\item Il sistema visualizza un messaggio di errore per il nome inserito.
+	\end{itemize}
+\end{itemize}
 
 \subsection{UC5 - Visualizzazione DB}
 \label{sec:UC5}
+%\includegraphics[]{diagramma_UML}
+\begin{itemize}
+	\item \textbf{Descrizione:} l’amministratore visualizza tutte le strutture database disponibili;
+	\item \textbf{Attori:} amministratore;
+	\item \textbf{Precondizioni:} 
+	\begin{itemize}
+		\item L’amministratore ha effettuato il login (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore si trova nel pannello amministrativo;
+	\end{itemize}
+	\item \textbf{Postcondizioni:} 
+	\begin{itemize}
+		\item L'amministrazione naviga il pannello amministrativo e può vedere nome e descrizione dei database presenti;
+	\end{itemize}
+	\item \textbf{Scenario principale:} 
+	\begin{itemize}
+		\item Il programma visualizza la lista dei database presenti, con la possibilità di modificarli, visualizzarli o eliminarli; ???
+	\end{itemize}
+\end{itemize}
 
 \subsection{UC6 - Modifica DB}
 \label{sec:UC6}
 
 \subsection{UC7 - Elimina DB}
 \label{sec:UC7}
-
-\subsection{UC8 - Creazione tabella DB}
-\label{sec:UC8}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
-	\item \textbf{Descrizione:} l’amministratore vuole aggiungere le tabelle alla struttura del database da interrogare;
+	\item \textbf{Descrizione:} l’amministratore elimina la struttura database selezionata;
 	\item \textbf{Attori:} amministratore;
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
 		\item L’amministratore ha effettuato il login (\hyperref[sec:UC1]{\textbf{UC1}});
 		\item L’amministratore si trova nel pannello amministrativo;
-		\item L’amministratore si trova nella sezione di inserimento della struttura database;
+		\item L’amministratore sta visualizzando la lista dei database; ???
+	\end{itemize}
+	\item \textbf{Postcondizioni:} 
+	\begin{itemize}
+		\item La struttura database selezionata viene eliminata dal sistema;
+	\end{itemize}
+	\item \textbf{Scenario principale:} 
+	\begin{itemize}
+		\item L'amministratore sta visualizzando la lista dei database presenti nel sistema (\hyperref[sec:UC5]{\textbf{UC5}});
+		\item L'amministratore seleziona il database da eliminare usando il pulsante di eliminazione apposito;
+		\item Il sistema visualizza un messaggio di conferma dell'eliminazione;
+		\item Se l'amministrazione conferma l'eliminazione, il database e le tabelle collegate verranno rimossi dal sistema e verrà visualizzato un messaggio di avvenuta eliminazione.
+	\end{itemize}
+\end{itemize}
+
+\subsection{UC8 - Creazione tabella DB}
+\label{sec:UC8}
+%\includegraphics[]{diagramma_UML}
+\begin{itemize}
+	\item \textbf{Descrizione:} l’amministratore vuole aggiungere una tabella alla struttura del database da interrogare;
+	\item \textbf{Attori:} amministratore;
+	\item \textbf{Precondizioni:} 
+	\begin{itemize}
+		\item L’amministratore ha effettuato il login (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore si trova nel pannello amministrativo;
+		\item L’amministratore si trova nella sezione di creazione di una nuova tabella;
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
@@ -474,26 +578,159 @@ Il prodotto dovrà inoltre dare la possibilità agli utenti amministratori, dopo
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC8.1 - Inserimento nome tabella}
+\subsubsection{UC8.1 - Inserimento nome tabella}
 \label{sec:UC8.1}
+%\includegraphics[]{diagramma_UML}
+\begin{itemize}
+	\item \textbf{Descrizione:} l’amministratore inserisce il nome della tabella da creare;
+	\item \textbf{Attori:} amministratore;
+	\item \textbf{Precondizioni:} 
+	\begin{itemize}
+		\item L’amministratore ha effettuato il login (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore sta creando una nuova tabella (\hyperref[sec:UC1]{\textbf{UC8}});
+	\end{itemize}
+	\item \textbf{Postcondizioni:} 
+	\begin{itemize}
+		\item Il nome della tabella viene inserito nel form;
+	\end{itemize}
+	\item \textbf{Scenario principale:} 
+	\begin{itemize}
+		\item L’amministratore inserisce il nome della tabella nell'apposito form di creazione;
+	\end{itemize}
+\end{itemize}
 
-\subsection{UC8.2 - Inserimento sinonimi tabella}
+\subsubsection{UC8.2 - Inserimento sinonimi tabella}
 \label{sec:UC8.2}
+%\includegraphics[]{diagramma_UML}
+\begin{itemize}
+	\item \textbf{Descrizione:} l’amministratore inserisce i sinonimi associati al nome della tabella da creare;
+	\item \textbf{Attori:} amministratore;
+	\item \textbf{Precondizioni:} 
+	\begin{itemize}
+		\item L’amministratore ha effettuato il login (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore sta creando una nuova tabella (\hyperref[sec:UC1]{\textbf{UC8}});
+	\end{itemize}
+	\item \textbf{Postcondizioni:} 
+	\begin{itemize}
+		\item I sinonimi del nome della tabella vengono inseriti nel form;
+	\end{itemize}
+	\item \textbf{Scenario principale:} 
+	\begin{itemize}
+		\item L’amministratore inserisce i sinonimi del nome della tabella nell'apposito form di creazione;
+	\end{itemize}
+\end{itemize}
 
-\subsection{UC8.3 - Inserimento descrizione tabella}
+\subsubsection{UC8.3 - Inserimento descrizione tabella}
 \label{sec:UC8.3}
+%\includegraphics[]{diagramma_UML}
+\begin{itemize}
+	\item \textbf{Descrizione:} l’amministratore inserisce la descrizione della tabella da creare;
+	\item \textbf{Attori:} amministratore;
+	\item \textbf{Precondizioni:} 
+	\begin{itemize}
+		\item L’amministratore ha effettuato il login (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore sta creando una nuova tabella (\hyperref[sec:UC1]{\textbf{UC8}});
+	\end{itemize}
+	\item \textbf{Postcondizioni:} 
+	\begin{itemize}
+		\item La descrizione della tabella viene inserita nel form;
+	\end{itemize}
+	\item \textbf{Scenario principale:} 
+	\begin{itemize}
+		\item L’amministratore inserisce la descrizione della tabella nell'apposito form di creazione;
+	\end{itemize}
+\end{itemize}
 
 \subsection{UC9 - Errore nella creazione della tabella}
 \label{sec:UC9}
+%\includegraphics[]{diagramma_UML}
+\begin{itemize}
+	\item \textbf{Descrizione:} L’amministratore visualizza un errore di creazione della tabella;
+	\item \textbf{Attori:} amministratore;
+	\item \textbf{Precondizioni:} 
+	\begin{itemize}
+		\item L’amministratore ha effettuato il login (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore sta creando una nuova tabella (\hyperref[sec:UC1]{\textbf{UC8}});
+	\end{itemize}
+	\item \textbf{Postcondizioni:} 
+	\begin{itemize}
+		\item La tabella non viene creata e il programma visualizza un messaggio di errore;
+	\end{itemize}
+	\item \textbf{Scenario principale:} 
+	\begin{itemize}
+		\item L’amministratore inserisce il nome della tabella nel form di creazione (\hyperref[sec:UC8.1]{\textbf{UC8.1}});
+		\item L’amministratore inserisce i sinonimi del nome della tabella nel form di creazione (\hyperref[sec:UC8.2]{\textbf{UC8.2}});
+		\item L’amministratore inserisce la descrizione della tabella nel form di creazione (\hyperref[sec:UC8.3]{\textbf{UC8.3}});
+		\item Il sistema verifica che non esista già una tabella con lo stesso nome e che vengano inseriti sinonimi e descrizione della tabella;
+		\item Il sistema visualizza il messaggio di errore opportuno.
+	\end{itemize}
+\end{itemize}
 
-\subsection{UC9.1 - Errore sinonimi non inseriti}
+\subsubsection{UC9.1 - Errore nome tabella già presente}
 \label{sec:UC9.1}
+%\includegraphics[]{diagramma_UML}
+\begin{itemize}
+	\item \textbf{Descrizione:} L’amministratore visualizza un errore relativo al nome della tabella;
+	\item \textbf{Attori:} amministratore;
+	\item \textbf{Precondizioni:} 
+	\begin{itemize}
+		\item L’amministratore ha effettuato il login (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore sta creando una nuova tabella (\hyperref[sec:UC1]{\textbf{UC8}});
+	\end{itemize}
+	\item \textbf{Postcondizioni:} 
+	\begin{itemize}
+		\item La tabella non viene creata e il programma visualizza un messaggio di errore;
+	\end{itemize}
+	\item \textbf{Scenario principale:} 
+	\begin{itemize}
+		\item Il sistema verifica che non esista già una tabella con lo stesso nome;
+		\item Il sistema visualizza il messaggio di errore per il nome inserito.
+	\end{itemize}
+\end{itemize}
 
-\subsection{UC9.2 - Errore nome tabella già presente}
+\subsubsection{UC9.2 - Errore sinonimi non inseriti}
 \label{sec:UC9.2}
+%\includegraphics[]{diagramma_UML}
+\begin{itemize}
+	\item \textbf{Descrizione:} L’amministratore visualizza un errore relativo ai sinonimi del nome della tabella;
+	\item \textbf{Attori:} amministratore;
+	\item \textbf{Precondizioni:} 
+	\begin{itemize}
+		\item L’amministratore ha effettuato il login (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore sta creando una nuova tabella (\hyperref[sec:UC1]{\textbf{UC8}});
+	\end{itemize}
+	\item \textbf{Postcondizioni:} 
+	\begin{itemize}
+		\item La tabella non viene creata e il programma visualizza un messaggio di errore;
+	\end{itemize}
+	\item \textbf{Scenario principale:} 
+	\begin{itemize}
+		\item Il sistema verifica che il campo relativo ai sinonimi del nome della tabella non sia vuoto;
+		\item Il sistema visualizza il messaggio di errore per il campo sinonimi vuoto.
+	\end{itemize}
+\end{itemize}
 
-\subsection{UC9.3 - Errore descrizione non inserita}
+\subsubsection{UC9.3 - Errore descrizione non inserita}
 \label{sec:UC9.3}
+%\includegraphics[]{diagramma_UML}
+\begin{itemize}
+	\item \textbf{Descrizione:} L’amministratore visualizza un errore relativo alla descrizione della tabella;
+	\item \textbf{Attori:} amministratore;
+	\item \textbf{Precondizioni:} 
+	\begin{itemize}
+		\item L’amministratore ha effettuato il login (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore sta creando una nuova tabella (\hyperref[sec:UC1]{\textbf{UC8}});
+	\end{itemize}
+	\item \textbf{Postcondizioni:} 
+	\begin{itemize}
+		\item La tabella non viene creata e il programma visualizza un messaggio di errore;
+	\end{itemize}
+	\item \textbf{Scenario principale:} 
+	\begin{itemize}
+		\item Il sistema verifica che il campo relativo ai sinonimi del nome della tabella non sia vuoto;
+		\item Il sistema visualizza il messaggio di errore per il campo descrizione vuoto.
+	\end{itemize}
+\end{itemize}
 
 \subsection{UC10 - Modifica della tabella}
 \label{sec:UC10}
@@ -537,7 +774,7 @@ Il prodotto dovrà inoltre dare la possibilità agli utenti amministratori, dopo
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC13.1 - Inserimento nome campo}
+\subsubsection{UC13.1 - Inserimento nome campo}
 \label{sec:UC13.1}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
@@ -564,7 +801,7 @@ Il prodotto dovrà inoltre dare la possibilità agli utenti amministratori, dopo
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC13.2 - Inserimento tipo campo}
+\subsubsection{UC13.2 - Inserimento tipo campo}
 \label{sec:UC13.2}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
@@ -591,19 +828,19 @@ Il prodotto dovrà inoltre dare la possibilità agli utenti amministratori, dopo
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC13.3 - Inserimento sinonimi campo}
+\subsubsection{UC13.3 - Inserimento sinonimi campo}
 \label{sec:UC13.3}
 
 \subsection{UC14 - Errore creazione campo}
 \label{sec:UC14}
 
-\subsection{UC14.1 - Errore nome campo già esistente}
+\subsubsection{UC14.1 - Errore nome campo già esistente}
 \label{sec:UC14.1}
 
-\subsection{UC14.2 - Errore tipo campo non selezionato}
+\subsubsection{UC14.2 - Errore tipo campo non selezionato}
 \label{sec:UC14.2}
 
-\subsection{UC14.3 - Errore mancato inserimento sinonimi campo}
+\subsubsection{UC14.3 - Errore mancato inserimento sinonimi campo}
 \label{sec:UC14.3}
 
 \subsection{UC15 - Visualizzazione campo tabella}
@@ -697,13 +934,13 @@ Il prodotto dovrà inoltre dare la possibilità agli utenti amministratori, dopo
 \subsection{UC23 - Errore frase naturale}
 \label{sec:UC23}
 
-\subsection{UC23.1 - Errore frase non inserita}
+\subsubsection{UC23.1 - Errore frase non inserita}
 \label{sec:UC23.1}
 
-\subsection{UC23.2 - Errore frase non compresa}
+\subsubsection{UC23.2 - Errore frase non compresa}
 \label{sec:UC23.2}
 
-\subsection{UC23.3 - Errore frase non inerente}
+\subsubsection{UC23.3 - Errore frase non inerente}
 \label{sec:UC23.3}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
@@ -754,10 +991,10 @@ Il prodotto dovrà inoltre dare la possibilità agli utenti amministratori, dopo
 \subsection{UC25 - Errore generazione prompt}
 \label{sec:UC25}
 
-\subsection{UC25.1 - Errore comunicazione con LLM}
+\subsubsection{UC25.1 - Errore comunicazione con LLM}
 \label{sec:UC25.1}
 
-\subsection{UC25.2 - Errore dati mancanti per creazione prompt}
+\subsubsection{UC25.2 - Errore dati mancanti per creazione prompt}
 \label{sec:UC25.2}
 
 \subsection{UC26 - Richiesta generazione query SQL}
@@ -766,10 +1003,10 @@ Il prodotto dovrà inoltre dare la possibilità agli utenti amministratori, dopo
 \subsection{UC27 - Errore generazione query SQL}
 \label{sec:UC27}
 
-\subsection{UC27.1 - Errore comunicazione con API}
+\subsubsection{UC27.1 - Errore comunicazione con API}
 \label{sec:UC27.1}
 
-\subsection{UC27.2 - Errore formattazione prompt}
+\subsubsection{UC27.2 - Errore formattazione prompt}
 \label{sec:UC27.2}
 
 \subsection{UC28 - Visualizzazione query SQL}
@@ -777,8 +1014,6 @@ Il prodotto dovrà inoltre dare la possibilità agli utenti amministratori, dopo
 
 %\subsection{UC - }
 %\label{sec:UC}
-
-\fi
 
 \section{Requisiti}
 \subsection{Requisiti funzionali}
