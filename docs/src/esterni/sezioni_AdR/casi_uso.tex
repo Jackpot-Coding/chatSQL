@@ -21,87 +21,7 @@
 % Link sul quale cliccare per andare alla label
 %   \hyperref[sec:nomeSezione]{testo}
 % END TEMPLATE
-
-
-\iffalse
-
-\subsection{UC8xx - Visualizzazione errore: caricamento struttura (formato non accettato)??}
-\label{sec:UC8xxx}
-%\includegraphics[]{diagramma_UML}
-\begin{itemize}
-	\item \textbf{Descrizione:} l’amministratore carica un file con un formato errato;
-	\item \textbf{Attori:} amministratore;
-	\item \textbf{Precondizioni:} 
-	\begin{itemize}
-		\item L’amministratore ha selezionato un file con formato diverso dal ???(da decidere);
-	\end{itemize}
-	\item \textbf{Postcondizioni:} 
-	\begin{itemize}
-		\item Il programma visualizza un messaggio di errore;
-		\item Il file non viene elaborato;
-	\end{itemize}
-	\item \textbf{Scenario principale:} 
-	\begin{itemize}
-		\item L’amministratore si trova nel pannello amministrativo;
-		\item L’amministratore sceglie un file in un formato diverso dal ??? tra i suoi file locali e lo carica nel programma;
-		\item Il programma visualizza un messaggio di errore.
-	\end{itemize}
-\end{itemize}
-
-\subsection{UC9xx - Modifica struttura database}
-\label{sec:UC9xxx}
-%\includegraphics[]{diagramma_UML}
-\begin{itemize}
-	\item \textbf{Descrizione:}  l’amministratore modifica una delle strutture database già presenti;
-	\item \textbf{Attori:} amministratore;
-	\item \textbf{Precondizioni:} 
-	\begin{itemize}
-		\item L’amministratore si trova nel pannello amministrativo;
-		\item ???
-	\end{itemize}
-	\item \textbf{Postcondizioni:} 
-	\begin{itemize}
-		\item La struttura è stata modificata e salvata.
-	\end{itemize}
-	\item \textbf{Scenario principale:} 
-	\begin{itemize}
-		\item ???
-	\end{itemize}
-	\item \textbf{Generalizzazioni:} 
-	\begin{itemize}
-		\item ???
-	\end{itemize}
-\end{itemize}
-
-\subsection{UC10xx - Eliminazione struttura database}
-\label{sec:10xxx}
-%\includegraphics[]{diagramma_UML}
-\begin{itemize}
-	\item \textbf{Descrizione:}  l’amministratore elimina una delle strutture database già presenti;
-	\item \textbf{Attori:} amministratore;
-	\item \textbf{Precondizioni:} 
-	\begin{itemize}
-		\item L’amministratore si trova nel pannello amministrativo;
-		\item ???
-	\end{itemize}
-	\item \textbf{Postcondizioni:} 
-	\begin{itemize}
-		\item La struttura è stata eliminata.
-	\end{itemize}
-	\item \textbf{Scenario principale:} 
-	\begin{itemize}
-		\item ???
-	\end{itemize}
-	\item \textbf{Generalizzazioni:} 
-	\begin{itemize}
-		\item ???
-	\end{itemize}
-\end{itemize}
-
-\subsection{UC - }
-\label{sec:UC}
-
-\fi
+\setcounter{secnumdepth}{0}
 
 \subsection{UC1 - Login}
 \label{sec:UC1}
@@ -124,14 +44,9 @@
 		\item L’ amministratore inserisce la propria password nel form di accesso (\hyperref[sec:UC1.2]{\textbf{UC1.2}});
 		\item Il sistema verifica che le credenziali ricevute siano corrette. 
 	\end{itemize}
-	\item \textbf{Generalizzazioni:} 
-	\begin{itemize}
-		\item \hyperref[sec:UC1.1]{\textbf{UC1.1}} - Inserimento nome utente
-		\item \hyperref[sec:UC1.2]{\textbf{UC1.2}} - Inserimento password
-	\end{itemize}
 	\item \textbf{Estensioni:} Nel caso le credenziali non siano corrette:
 	\begin{itemize}
-		\item viene mostrato un errore - \hyperref[sec:UC5]{\textbf{UC5}}
+		\item viene mostrato un errore - \hyperref[sec:UC2]{\textbf{UC2}}
 	\end{itemize}
 \end{itemize}
 
@@ -183,7 +98,7 @@
 \label{sec:UC2}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
-	\item \textbf{Descrizione:} L’amministratore visualizza un errore di autenticazione;
+	\item \textbf{Descrizione:} L’amministratore visualizza un messaggio di errore di autenticazione;
 	\item \textbf{Attori:} amministratore;
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
@@ -194,6 +109,7 @@
 	\item \textbf{Postcondizioni:}
 	\begin{itemize}
 		\item L’amministratore non viene riconosciuto dal sistema e deve reinserire le proprie credenziali;
+		\item L'amministrazione visualizza un messaggio di errore;
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
@@ -204,7 +120,7 @@
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC3 - Creazione database}
+\subsection{UC3 - Creazione Database}
 \label{sec:UC3}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
@@ -221,20 +137,15 @@
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item L’amministratore inserisce il nome e la descrizione del database;
-	\end{itemize}
-	\item \textbf{Generalizzazioni:} 
-	\begin{itemize}
-		\item \hyperref[sec:UC3.1]{\textbf{UC3.1}} - Inserimento nome DB
-		\item \hyperref[sec:UC3.2]{\textbf{UC3.2}} - Inserimento descrizione DB
+		\item L’amministratore inserisce il nome (\hyperref[sec:UC3.1]{\textbf{UC3.1}}) e la descrizione (\hyperref[sec:UC3.2]{\textbf{UC3.2}}) del database;
 	\end{itemize}
 	\item \textbf{Estensioni:} nel caso in cui venga inserito un nome già esistente:
 	\begin{itemize}
-		\item \hyperref[sec:UC4]{\textbf{UC4}} - Errore: nome DB già presente
+		\item \hyperref[sec:UC4]{\textbf{UC4}} - Errore: nome Database già presente
 	\end{itemize}
 \end{itemize}
 
-\subsubsection{UC3.1 - Inserimento nome DB}
+\subsubsection{UC3.1 - Inserimento nome Database}
 \label{sec:UC3.1}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
@@ -256,7 +167,7 @@
 	\end{itemize}
 \end{itemize}
 
-\subsubsection{UC3.2 - Inserimento descrizione DB}
+\subsubsection{UC3.2 - Inserimento descrizione Database}
 \label{sec:UC3.2}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
@@ -278,7 +189,7 @@
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC4 - Errore: nome DB già presente}
+\subsection{UC4 - Errore: nome Database già presente}
 \label{sec:UC4}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
@@ -292,22 +203,68 @@
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
-		\item La struttura del database non viene salvata nel programma e visualizza un messaggio di errore;
+		\item La struttura del database non viene salvata nel programma e l'amministratore visualizza un messaggio di errore;
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item L’amministratore inserisce il nome del database nel form di creazione (\hyperref[sec:UC3.1]{\textbf{UC3.1}});
-		\item L’amministratore inserisce la descrizione del database nel form di creazione (\hyperref[sec:UC3.2]{\textbf{UC3.2}});
+		\item L’amministratore inserisce il nome del database (\hyperref[sec:UC3.1]{\textbf{UC3.1}});
+		\item L’amministratore inserisce la descrizione del database  (\hyperref[sec:UC3.2]{\textbf{UC3.2}});
 		\item Il sistema verifica che non esista già un database con lo stesso nome;
 		\item Il sistema visualizza un messaggio di errore per il nome inserito.
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC5 - Visualizzazione DB}
+\subsection{UC5 - Visualizzazione lista Strutture Database}
 \label{sec:UC5}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
-	\item \textbf{Descrizione:} l’amministratore visualizza tutte le strutture database disponibili;
+	\item \textbf{Descrizione:} l’amministratore visualizza tutte le Strutture Database disponibili;
+	\item \textbf{Attori:} amministratore;
+	\item \textbf{Precondizioni:} 
+	\begin{itemize}
+		\item L’amministratore ha effettuato il login (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore si trova nel pannello amministrativo;
+	\end{itemize}
+	\item \textbf{Postcondizioni:} 
+	\begin{itemize}
+		\item L'amministratore può vedere nome e descrizione dei database presenti;
+	\end{itemize}
+	\item \textbf{Scenario principale:} 
+	\begin{itemize}
+		\item Il programma visualizza la lista dei database presenti, con la possibilità di modificarli, visualizzarli o eliminarli;
+	\end{itemize}
+\end{itemize}
+
+\subsection{UC6 - Visualizzazione singola Struttura Database}
+\label{sec:UC6}
+%\includegraphics[]{diagramma_UML}
+\begin{itemize}
+	\item \textbf{Descrizione:} l’amministratore visualizza una Struttura Database;
+	\item \textbf{Attori:} amministratore;
+	\item \textbf{Precondizioni:} 
+	\begin{itemize}
+		\item L’amministratore ha effettuato il login (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore si trova nel pannello amministrativo;
+		\item L'amministratore ha selezionato una Struttura Database dalla lista;
+	\end{itemize}
+	\item \textbf{Postcondizioni:} 
+	\begin{itemize}
+		\item L'amministratore visualizza il nome della Struttura Database;
+		\item L'amministratore visualizza la descrizione della Struttura Database;
+		\item L'amministratore visualizza la lista delle tabelle della Struttura Database  (\hyperref[sec:UC12]{\textbf{UC12}};
+	\end{itemize}
+	\item \textbf{Scenario principale:} 
+	\begin{itemize}
+		\item Il programma visualizza la lista dei database presenti, con la possibilità di modificarli, visualizzarli o eliminarli; ???
+	\end{itemize}
+\end{itemize}
+
+
+\subsection{UC7 - Modifica Database}
+\label{sec:UC7}
+%\includegraphics[]{diagramma_UML}
+\begin{itemize}
+	\item \textbf{Descrizione:} l’amministratore modifica la Strutture Database selezionata;
 	\item \textbf{Attori:} amministratore;
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
@@ -324,14 +281,11 @@
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC6 - Modifica DB}
-\label{sec:UC6}
-
-\subsection{UC7 - Elimina DB}
-\label{sec:UC7}
+\subsection{UC8 - Elimina Database}
+\label{sec:UC8}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
-	\item \textbf{Descrizione:} l’amministratore elimina la struttura database selezionata;
+	\item \textbf{Descrizione:} l’amministratore elimina la Struttura Database selezionata;
 	\item \textbf{Attori:} amministratore;
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
@@ -341,7 +295,7 @@
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
-		\item La struttura database selezionata viene eliminata dal sistema;
+		\item La Struttura Database selezionata viene eliminata dal sistema;
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
@@ -352,8 +306,8 @@
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC8 - Creazione tabella DB}
-\label{sec:UC8}
+\subsection{UC9 - Creazione tabella Database}
+\label{sec:UC9}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
 	\item \textbf{Descrizione:} l’amministratore vuole aggiungere una tabella alla struttura del database da interrogare;
@@ -384,8 +338,8 @@
 	\end{itemize}
 \end{itemize}
 
-\subsubsection{UC8.1 - Inserimento nome tabella}
-\label{sec:UC8.1}
+\subsubsection{UC9.1 - Inserimento nome tabella}
+\label{sec:UC9.1}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
 	\item \textbf{Descrizione:} l’amministratore inserisce il nome della tabella da creare;
@@ -405,8 +359,8 @@
 	\end{itemize}
 \end{itemize}
 
-\subsubsection{UC8.2 - Inserimento sinonimi tabella}
-\label{sec:UC8.2}
+\subsubsection{UC9.2 - Inserimento sinonimi tabella}
+\label{sec:UC9.2}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
 	\item \textbf{Descrizione:} l’amministratore inserisce i sinonimi associati al nome della tabella da creare;
@@ -426,8 +380,8 @@
 	\end{itemize}
 \end{itemize}
 
-\subsubsection{UC8.3 - Inserimento descrizione tabella}
-\label{sec:UC8.3}
+\subsubsection{UC9.3 - Inserimento descrizione tabella}
+\label{sec:UC9.3}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
 	\item \textbf{Descrizione:} l’amministratore inserisce la descrizione della tabella da creare;
@@ -447,8 +401,8 @@
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC9 - Errore nella creazione della tabella}
-\label{sec:UC9}
+\subsection{UC10 - Errore nella creazione della tabella}
+\label{sec:UC10}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
 	\item \textbf{Descrizione:} L’amministratore visualizza un errore di creazione della tabella;
@@ -472,8 +426,8 @@
 	\end{itemize}
 \end{itemize}
 
-\subsubsection{UC9.1 - Errore nome tabella già presente}
-\label{sec:UC9.1}
+\subsubsection{UC10.1 - Errore nome tabella già presente}
+\label{sec:UC10.1}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
 	\item \textbf{Descrizione:} L’amministratore visualizza un errore relativo al nome della tabella;
@@ -494,8 +448,8 @@
 	\end{itemize}
 \end{itemize}
 
-\subsubsection{UC9.2 - Errore sinonimi non inseriti}
-\label{sec:UC9.2}
+\subsubsection{UC10.2 - Errore sinonimi non inseriti}
+\label{sec:UC10.2}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
 	\item \textbf{Descrizione:} L’amministratore visualizza un errore relativo ai sinonimi del nome della tabella;
@@ -516,8 +470,8 @@
 	\end{itemize}
 \end{itemize}
 
-\subsubsection{UC9.3 - Errore descrizione non inserita}
-\label{sec:UC9.3}
+\subsubsection{UC10.3 - Errore descrizione non inserita}
+\label{sec:UC10.3}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
 	\item \textbf{Descrizione:} L’amministratore visualizza un errore relativo alla descrizione della tabella;
@@ -538,32 +492,56 @@
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC10 - Modifica della tabella}
-\label{sec:UC10}
-
-\subsection{UC11 - Visualizzazione della tabella}
+\subsection{UC11 - Modifica della tabella}
 \label{sec:UC11}
+
+\subsection{UC12 - Visualizzazione lista delle tabella della Struttura Database}
+\label{sec:UC12}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
-	\item \textbf{Descrizione:} l’amministratore visualizza tutte le tabelle della struttura database selezionata;
+	\item \textbf{Descrizione:} l’amministratore visualizza tutte le tabelle della Struttura Database selezionata;
 	\item \textbf{Attori:} amministratore;
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
 		\item L’amministratore ha effettuato il login (\hyperref[sec:UC1]{\textbf{UC1}});
 		\item L’amministratore si trova nel pannello amministrativo;
+		\item L'amministratore ha selezionato una Struttura Database dalla lista;
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
-		\item L'amministratore può vedere nome, descrizione e sinonimi delle tabelle presenti;
+		\item L'amministratore può vedere il nome delle tabelle presenti;
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item Il programma visualizza la lista delle tabelle presenti, con la possibilità di modificarle, visualizzarle o eliminarle; ???
+		\item Il programma visualizza la lista delle tabelle presenti, con la possibilità di modificarle, visualizzarle o eliminarle;
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC12 - Eliminazione della tabella}
-\label{sec:UC12}
+\subsection{UC13 - Visualizzazione della singola tabella}
+\label{sec:UC13}
+%\includegraphics[]{diagramma_UML}
+\begin{itemize}
+	\item \textbf{Descrizione:} l’amministratore visualizza la tabella della Struttura Database selezionata;
+	\item \textbf{Attori:} amministratore;
+	\item \textbf{Precondizioni:} 
+	\begin{itemize}
+		\item L’amministratore ha effettuato il login (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore si trova nel pannello amministrativo;
+		\item L'amministratore ha selezionato una tabella dalla lista;
+	\end{itemize}
+	\item \textbf{Postcondizioni:} 
+	\begin{itemize}
+		\item L'amministratore può vedere nome, descrizione e sinonimi della tabella selezionata;
+		\item L'amministratore può visualizzare i campi della tabella selezionata;
+	\end{itemize}
+	\item \textbf{Scenario principale:} 
+	\begin{itemize}
+		\item Il programma visualizza i campi della tabella selezionata;
+	\end{itemize}
+\end{itemize}
+
+\subsection{UC14 - Eliminazione della tabella}
+\label{sec:UC14}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
 	\item \textbf{Descrizione:} l’amministratore elimina la tabella selezionata;
@@ -576,7 +554,7 @@
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
-		\item La struttura database selezionata viene eliminata dal sistema;
+		\item La Struttura Database selezionata viene eliminata dal sistema;
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
@@ -587,17 +565,17 @@
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC13 - Creazione campo tabella}
-\label{sec:UC13}
+\subsection{UC15 - Creazione campo tabella}
+\label{sec:UC15}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
-	\item \textbf{Descrizione:} l’amministratore vuole aggiungere i campi che compongono le tabelle alla struttura del database;
+	\item \textbf{Descrizione:} l’amministratore vuole aggiungere un campo alla tabella selezionata;
 	\item \textbf{Attori:} amministratore;
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
 		\item L’amministratore ha effettuato il login (\hyperref[sec:UC1]{\textbf{UC1}});
 		\item L’amministratore si trova nel pannello amministrativo;
-		\item L’amministratore si trova nella sezione di inserimento della struttura database;
+		\item L’amministratore si trova nella sezione di visualizzazione di una tabella (\hyperref[sec:UC13]{\textbf{UC13}});
 		\item L’amministratore sta inserendo i campi che compongono la tabella;
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
@@ -606,22 +584,18 @@
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item L’amministratore inserisce il nome del campo, ne seleziona il tipo e inserisce i sinonimi;
-	\end{itemize}
-	\item \textbf{Generalizzazioni:} 
-	\begin{itemize}
-		\item \hyperref[sec:UC13.1]{\textbf{UC13.1}} - Inserimento nome campo
-		\item \hyperref[sec:UC13.2]{\textbf{UC13.2}} - Inserimento tipo campo
-		\item \hyperref[sec:UC13.3]{\textbf{UC13.3}} - Inserimento sinonimi campo
+		\item L’amministratore inserisce il nome del campo \hyperref[sec:UC15.1]{\textbf{UC15.1}};
+		\item L'amministratore seleziona il tipo del campo \hyperref[sec:UC15.2]{\textbf{UC15.2}};
+		\item L'amministratore inserisce i sinonimi del campo \hyperref[sec:UC15.3]{\textbf{UC15.3}};
 	\end{itemize}
 	\item \textbf{Estensioni:} nel caso in cui il nome inserito sia già esistente o non sia stato selezionato il tipo o inseriti i sinonimi:
 	\begin{itemize}
-		\item \hyperref[sec:UC14]{\textbf{UC14}} - Errore creazione campo
+		\item \hyperref[sec:UC16]{\textbf{UC16}} - Errore creazione campo
 	\end{itemize}
 \end{itemize}
 
-\subsubsection{UC13.1 - Inserimento nome campo}
-\label{sec:UC13.1}
+\subsubsection{UC15.1 - Inserimento nome campo}
+\label{sec:UC15.1}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
 	\item \textbf{Descrizione:} l’amministratore vuole inserire il nome del campo da inserire nella tabella;
@@ -630,7 +604,7 @@
 	\begin{itemize}
 		\item L’amministratore ha effettuato il login (\hyperref[sec:UC1]{\textbf{UC1}});
 		\item L’amministratore si trova nel pannello amministrativo;
-		\item L’amministratore si trova nella sezione di inserimento della struttura database;
+		\item L’amministratore si trova nella sezione di visualizzazione di una tabella (\hyperref[sec:UC13]{\textbf{UC13}});
 		\item L’amministratore sta inserendo i campi che compongono la tabella;
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
@@ -643,12 +617,12 @@
 	\end{itemize}
 	\item \textbf{Estensioni:} nel caso in cui il nome inserito sia già esistente:
 	\begin{itemize}
-		\item \hyperref[sec:UC14.1]{\textbf{UC14.1}} - Errore nome campo già esistente
+		\item \hyperref[sec:UC16.1]{\textbf{UC16.1}} - Errore nome campo già esistente
 	\end{itemize}
 \end{itemize}
 
-\subsubsection{UC13.2 - Inserimento tipo campo}
-\label{sec:UC13.2}
+\subsubsection{UC15.2 - Inserimento tipo campo}
+\label{sec:UC15.2}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
 	\item \textbf{Descrizione:} l’amministratore vuole selezionare il tipo del campo da inserire nella tabella;
@@ -657,7 +631,7 @@
 	\begin{itemize}
 		\item L’amministratore ha effettuato il login (\hyperref[sec:UC1]{\textbf{UC1}});
 		\item L’amministratore si trova nel pannello amministrativo;
-		\item L’amministratore si trova nella sezione di inserimento della struttura database;
+		\item L’amministratore si trova nella sezione di visualizzazione di una tabella (\hyperref[sec:UC15]{\textbf{UC13}}) ;
 		\item L’amministratore sta inserendo i campi che compongono la tabella;
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
@@ -670,12 +644,12 @@
 	\end{itemize}
 	\item \textbf{Estensioni:} nel caso in cui il tipo non venga selezionato:
 	\begin{itemize}
-		\item \hyperref[sec:UC14.1]{\textbf{UC14.1}} - Errore tipo campo non selezionato
+		\item \hyperref[sec:UC16.2]{\textbf{UC16.2}} - Errore tipo campo non selezionato
 	\end{itemize}
 \end{itemize}
 
-\subsubsection{UC13.3 - Inserimento sinonimi campo}
-\label{sec:UC13.3}
+\subsubsection{UC15.3 - Inserimento sinonimi campo}
+\label{sec:UC15.3}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
 	\item \textbf{Descrizione:} l’amministratore vuole selezionare il tipo del campo da inserire nella tabella;
@@ -684,7 +658,7 @@
 	\begin{itemize}
 		\item L’amministratore ha effettuato il login (\hyperref[sec:UC1]{\textbf{UC1}});
 		\item L’amministratore si trova nel pannello amministrativo;
-		\item L’amministratore si trova nella sezione di inserimento della struttura database;
+		\item L’amministratore si trova nella sezione di visualizzazione di una tabella (\hyperref[sec:UC15]{\textbf{UC15}} ;
 		\item L’amministratore sta inserendo i campi che compongono la tabella;
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
@@ -697,12 +671,12 @@
 	\end{itemize}
 	\item \textbf{Estensioni:} nel caso in cui i sinonimi non vengano inseriti:
 	\begin{itemize}
-		\item \hyperref[sec:UC14.1]{\textbf{UC14.1}} - Errore mancato inserimento sinonimi campo
+		\item \hyperref[sec:UC16.3]{\textbf{UC16.3}} - Errore mancato inserimento sinonimi campo
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC14 - Errore creazione campo}
-\label{sec:UC14}
+\subsection{UC16 - Errore creazione campo}
+\label{sec:UC16}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
 	\item \textbf{Descrizione:} L’amministratore visualizza un errore di creazione del campo;
@@ -710,7 +684,9 @@
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
 		\item L’amministratore ha effettuato il login (\hyperref[sec:UC1]{\textbf{UC1}});
-		\item L’amministratore sta creando un nuovo campo (\hyperref[sec:UC13]{\textbf{UC13}});
+		\item L’amministratore si trova nel pannello amministrativo;
+		\item L’amministratore si trova nella sezione di visualizzazione di una tabella (\hyperref[sec:UC15]{\textbf{UC15}} ;
+		\item L’amministratore sta creando un nuovo campo (\hyperref[sec:UC15]{\textbf{UC15}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
@@ -726,8 +702,8 @@
 	\end{itemize}
 \end{itemize}
 
-\subsubsection{UC14.1 - Errore nome campo già esistente}
-\label{sec:UC14.1}
+\subsubsection{UC16.1 - Errore nome campo già esistente}
+\label{sec:UC16.1}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
 	\item \textbf{Descrizione:} L’amministratore visualizza un errore relativo al nome del campo;
@@ -735,7 +711,9 @@
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
 		\item L’amministratore ha effettuato il login (\hyperref[sec:UC1]{\textbf{UC1}});
-		\item L’amministratore sta creando un nuovo campo (\hyperref[sec:UC13]{\textbf{UC13}});
+		\item L’amministratore si trova nel pannello amministrativo;
+		\item L’amministratore si trova nella sezione di visualizzazione di una tabella (\hyperref[sec:UC15]{\textbf{UC15}} ;
+		\item L’amministratore sta creando un nuovo campo (\hyperref[sec:UC15]{\textbf{UC15}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
@@ -748,8 +726,8 @@
 	\end{itemize}
 \end{itemize}
 
-\subsubsection{UC14.2 - Errore tipo campo non selezionato}
-\label{sec:UC14.2}
+\subsubsection{UC16.2 - Errore tipo campo non selezionato}
+\label{sec:UC16.2}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
 	\item \textbf{Descrizione:} L’amministratore visualizza un errore relativo al tipo del campo;
@@ -757,7 +735,9 @@
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
 		\item L’amministratore ha effettuato il login (\hyperref[sec:UC1]{\textbf{UC1}});
-		\item L’amministratore sta creando un nuovo campo (\hyperref[sec:UC13]{\textbf{UC13}});
+		\item L’amministratore si trova nel pannello amministrativo;
+		\item L’amministratore si trova nella sezione di visualizzazione di una tabella (\hyperref[sec:UC15]{\textbf{UC15}} ;
+		\item L’amministratore sta creando un nuovo campo (\hyperref[sec:UC15]{\textbf{UC15}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
@@ -770,8 +750,8 @@
 	\end{itemize}
 \end{itemize}
 
-\subsubsection{UC14.3 - Errore mancato inserimento sinonimi campo}
-\label{sec:UC14.3}
+\subsubsection{UC16.3 - Errore mancato inserimento sinonimi campo}
+\label{sec:UC16.3}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
 	\item \textbf{Descrizione:} L’amministratore visualizza un errore relativo ai sinonimi del nome del campo;
@@ -779,7 +759,9 @@
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
 		\item L’amministratore ha effettuato il login (\hyperref[sec:UC1]{\textbf{UC1}});
-		\item L’amministratore sta creando un nuovo campo (\hyperref[sec:UC13]{\textbf{UC13}});
+		\item L’amministratore si trova nel pannello amministrativo;
+		\item L’amministratore si trova nella sezione di visualizzazione di una tabella (\hyperref[sec:UC15]{\textbf{UC15}} ;
+		\item L’amministratore sta creando un nuovo campo (\hyperref[sec:UC15]{\textbf{UC15}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
@@ -792,8 +774,8 @@
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC15 - Visualizzazione campo tabella}
-\label{sec:UC15}
+\subsection{UC17 - Visualizzazione lista dei campi della tabella}
+\label{sec:UC17}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
 	\item \textbf{Descrizione:} l’amministratore visualizza tutti i campi della tabella selezionata;
@@ -801,6 +783,7 @@
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
 		\item L’amministratore ha effettuato il login (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore si trova nella sezione di visualizzazione di una tabella (\hyperref[sec:UC15]{\textbf{UC15}} ;
 		\item L’amministratore si trova nel pannello amministrativo;
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
@@ -813,11 +796,62 @@
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC16 - Modifica campo tabella}
-\label{sec:UC16}
+\subsection{UC18 - Visualizzazione singolo campo tabella}
+\label{sec:UC18}
+%\includegraphics[]{diagramma_UML}
+\begin{itemize}
+	\item \textbf{Descrizione:} l’amministratore visualizza tutti i campi della tabella selezionata;
+	\item \textbf{Attori:} amministratore;
+	\item \textbf{Precondizioni:} 
+	\begin{itemize}
+		\item L’amministratore ha effettuato il login (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore si trova nella sezione di visualizzazione di una tabella (\hyperref[sec:UC15]{\textbf{UC15}} ;
+		\item L’amministratore si trova nel pannello amministrativo;
+		\item L'amministratore ha selezionato un campo di una tabella;
+	\end{itemize}
+	\item \textbf{Postcondizioni:} 
+	\begin{itemize}
+		\item L'amministratore può vedere nome, tipo e sinonimi del campo selezionatoi;
+	\end{itemize}
+	\item \textbf{Scenario principale:} 
+	\begin{itemize}
+		\item Il programma visualizza la lista dei campi presenti, con la possibilità di modificarli, visualizzarli o eliminarli; ???
+	\end{itemize}
+\end{itemize}
 
-\subsection{UC17 - Eliminazione campo tabella}
-\label{sec:UC17}
+\subsection{UC19 - Modifica campo tabella}
+\label{sec:UC19}
+%\includegraphics[]{diagramma_UML}
+\begin{itemize}
+	\item \textbf{Descrizione:} l’amministratore vuole madificare un campo alla tabella selezionata;
+	\item \textbf{Attori:} amministratore;
+	\item \textbf{Precondizioni:} 
+	\begin{itemize}
+		\item L’amministratore ha effettuato il login (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore si trova nel pannello amministrativo;
+		\item L’amministratore si trova nella sezione di visualizzazione di una tabella (\hyperref[sec:UC13]{\textbf{UC13}});
+		\item L’amministratore sta modificando i campi che compongono la tabella;
+	\end{itemize}
+	\item \textbf{Postcondizioni:} 
+	\begin{itemize}
+		\item I campi della tabella vengono modificati;
+	\end{itemize}
+	\item \textbf{Scenario principale:} 
+	\begin{itemize}
+		\item L’amministratore inserisce il nome del campo \hyperref[sec:UC15.1]{\textbf{UC15.1}};
+		\item L'amministratore seleziona il tipo del campo \hyperref[sec:UC15.2]{\textbf{UC15.2}};
+		\item L'amministratore inserisce i sinonimi del campo \hyperref[sec:UC15.3]{\textbf{UC15.3}};
+	\end{itemize}
+
+		\item \textbf{Estensioni:} nel caso in cui il nome inserito sia già esistente o non sia stato selezionato il tipo o inseriti i sinonimi:
+		\begin{itemize}
+			\item (\hyperref[sec:UC16]{\textbf{UC16}}) - Errore creazione campo
+	\end{itemize}
+\end{itemize}
+
+
+\subsection{UC20 - Eliminazione campo tabella}
+\label{sec:UC20}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
 	\item \textbf{Descrizione:} l’amministratore elimina il campo selezionato;
@@ -841,14 +875,55 @@
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC18 - Caricamento struttura DB tramite file}
-\label{sec:UC18}
+\subsection{UC21 - Caricamento struttura Database tramite file}
+\label{sec:UC21}
+\begin{itemize}
+	\item \textbf{Descrizione:} l’amministratore vuole caricare un file che descrive una Struttura Database;
+	\item \textbf{Attori:} amministratore;
+	\item \textbf{Precondizioni:} 
+	\begin{itemize}
+		\item L’amministratore ha effettuato il login (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore si trova nel pannello amministrativo;
+	\end{itemize}
+	\item \textbf{Postcondizioni:} 
+	\begin{itemize}
+		\item La Struttura Database viene caricata correttamente nel sistema;
+	\end{itemize}
+	\item \textbf{Scenario principale:} 
+	\begin{itemize}
+		\item L'amministrazione inserisce il file della Struttura Database;
+	\end{itemize}
+	\item \textbf{Estensioni:} nel caso il file non sia correttoi:
+	\begin{itemize}
+		\item \hyperref[sec:UC22]{\textbf{UC22}} - Errore caricamento file
+	\end{itemize}
+\end{itemize}
 
-\subsection{UC19 - Errore caricamento file(formato non accettato)}
-\label{sec:UC19}
+\subsection{UC22 - Errore caricamento file}
+\label{sec:UC22}
+\begin{itemize}
+	\item \textbf{Descrizione:} L’amministratore visualizza un errore di caricamento del file;
+	\item \textbf{Attori:} amministratore;
+	\item \textbf{Precondizioni:} 
+	\begin{itemize}
+		\item L’amministratore ha effettuato il login (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore si trova nel pannello amministrativo;
+		\item L’amministratore sta caricando un file Struttura del Databese (\hyperref[sec:UC21]{\textbf{UC21}});
+	\end{itemize}
+	\item \textbf{Postcondizioni:} 
+	\begin{itemize}
+		\item La tabella non viene creata e il programma visualizza un messaggio di errore;
+	\end{itemize}
+	\item \textbf{Scenario principale:} 
+	\begin{itemize}
+		\item Il sistema verifica che il formato del file sia corretto;
+		\item Il sistema mostra un messaggio di errore se il formato non è corretto;
+	\end{itemize}
+\end{itemize}
 
-\subsection{UC20 - Logout}
-\label{sec:UC20}
+
+\subsection{UC23 - Logout}
+\label{sec:UC23}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
 	\item \textbf{Descrizione: l'amministratore vuole fare il logout dall'area amministrativa} 
@@ -868,26 +943,26 @@
 	\end{itemize}
 	\item \textbf{Estensioni:} nel caso in cui l'utente non fosse loggato:
 	\begin{itemize}
-		\item Viene visualizzato un errore - \hyperref[sec:UC21]{\textbf{UC21}}.
+		\item Viene visualizzato un errore - \hyperref[sec:UC24]{\textbf{UC24}}.
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC21 - Errore logout (not logged in)}
-\label{sec:UC21}
+\subsection{UC24 - Errore logout (not logged in)}
+\label{sec:UC24}
 
-\subsection{UC22 - Selezione database da interrogare}
-\label{sec:UC22}
+\subsection{UC25 - Selezione database da interrogare}
+\label{sec:UC25}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
 	\item \textbf{Descrizione:} l’utente seleziona il database che vuole interrogare da una lista;
 	\item \textbf{Attori:} utente;
 	\item \textbf{Precondizioni:}
 	\begin{itemize}
-		\item Sono presenti una o più strutture database da poter selezionare;
+		\item Sono presenti una o più Strutture Database da poter selezionare;
 	\end{itemize}
 	\item \textbf{Postcondizioni:}
 	\begin{itemize}
-		\item L’utente ha selezionato una struttura database e può procedere con \hyperref[sec:UC2]{\textbf{UC2}};
+		\item L’utente ha selezionato una Struttura Database e può procedere con \hyperref[sec:UC2]{\textbf{UC2}};
 	\end{itemize}
 	\item \textbf{Scenario principale:}
 	\begin{itemize}
@@ -896,11 +971,11 @@
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC23 - Errore DB non selezionato}
-\label{sec:UC23}
+\subsection{UC26 - Errore Database non selezionato}
+\label{sec:UC26}
 
-\subsection{UC24 - Inserimento frase in linguaggio naturale}
-\label{sec:UC24}
+\subsection{UC27 - Inserimento frase in linguaggio naturale}
+\label{sec:UC27}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
 	\item \textbf{Descrizione:} L’utente scrive una frase in linguaggio naturale nella casella di testo disponibile nell’interfaccia e ne conferma l’inserimento;
@@ -926,17 +1001,17 @@
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC25 - Errore frase naturale}
-\label{sec:UC25}
+\subsection{UC28 - Errore frase naturale}
+\label{sec:UC28}
 
-\subsubsection{UC25.1 - Errore frase non inserita}
-\label{sec:UC25.1}
+\subsubsection{UC28.1 - Errore frase non inserita}
+\label{sec:UC28.1}
 
-\subsubsection{UC25.2 - Errore frase non compresa}
-\label{sec:UC25.2}
+\subsubsection{UC28.2 - Errore frase non compresa}
+\label{sec:UC28.2}
 
-\subsubsection{UC25.3 - Errore frase non inerente}
-\label{sec:UC25.3}
+\subsubsection{UC28.3 - Errore frase non inerente}
+\label{sec:UC28.3}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
 	\item \textbf{Descrizione:} l’utente inserisce una frase in linguaggio naturale non interpretabile dal sistema come inerente al database;
@@ -959,8 +1034,8 @@
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC26 - Visualizzazione prompt generato}
-\label{sec:UC26}
+\subsection{UC27 - Visualizzazione prompt generato}
+\label{sec:UC27}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
 	\item \textbf{Descrizione:} L’utente riceve il prompt per la generazione della query;
@@ -983,29 +1058,29 @@
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC27 - Errore generazione prompt}
-\label{sec:UC27}
-
-\subsubsection{UC27.1 - Errore comunicazione con LLM}
-\label{sec:UC27.1}
-
-\subsubsection{UC27.2 - Errore dati mancanti per creazione prompt}
-\label{sec:UC27.2}
-
-\subsection{UC28 - Richiesta generazione query SQL}
+\subsection{UC28 - Errore generazione prompt}
 \label{sec:UC28}
 
-\subsection{UC29 - Errore generazione query SQL}
+\subsubsection{UC28.1 - Errore comunicazione con LLM}
+\label{sec:UC28.1}
+
+\subsubsection{UC28.2 - Errore dati mancanti per creazione prompt}
+\label{sec:UC28.2}
+
+\subsection{UC29 - Richiesta generazione query SQL}
 \label{sec:UC29}
 
-\subsubsection{UC29.1 - Errore comunicazione con API}
-\label{sec:UC29.1}
-
-\subsubsection{UC29.2 - Errore formattazione prompt}
-\label{sec:UC29.2}
-
-\subsection{UC30 - Visualizzazione query SQL}
+\subsection{UC30 - Errore generazione query SQL}
 \label{sec:UC30}
+
+\subsubsection{UC30.1 - Errore comunicazione con API}
+\label{sec:UC30.1}
+
+\subsubsection{UC30.2 - Errore formattazione prompt}
+\label{sec:UC30.2}
+
+\subsection{UC31 - Visualizzazione query SQL}
+\label{sec:UC31}
 
 %\subsection{UC - }
 %\label{sec:UC}
