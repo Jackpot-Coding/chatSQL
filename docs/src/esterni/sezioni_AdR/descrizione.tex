@@ -1,0 +1,19 @@
+\section{Descrizione}
+\subsection{Obiettivi del prodotto}
+Il prodotto ha come obiettivo di dare la possibilità di interrogare un database partendo da una richiesta in linguaggio naturale e trasformandola in un prompt da sottoporre ad un sistema di AI per ottenere una query SQL corretta in base alla struttura del database interrogato.
+
+\subsection{Funzioni del prodotto}
+Il prodotto dovrà quindi, dati:
+\begin{itemize}
+	\item un file strutturato contenente le tabelle e le relazioni di un database;
+	\item una frase in linguaggio naturale per interrogare suddetto database.
+\end{itemize}
+Trovare nella frase le parole chiave, capendo quali sono i dati da visualizzare, in quali tabelle sono salvate, tenendo conto di eventuali condizioni imposte.
+In seguito riscrivere la frase in modo da generare un prompt che possa essere passato ad un sistema AI che creerà la query richiesta in linguaggio SQL.
+Il prompt generato potrà essere semplicemente mostrato all’utente, che sarà tenuto ad inserirlo nel sistema AI da lui scelto, oppure utilizzare le API delle AI per sottoporre direttamente il prompt e mostrare all’utente il codice SQL.
+Il prodotto dovrà inoltre dare la possibilità agli utenti amministratori, dopo aver effettuato l’accesso, di:
+\begin{itemize}
+	\item aggiungere file strutturati selezionabili dagli utenti;
+	\item modificare i file strutturati;
+	\item eliminare file strutturati non più necessari.
+\end{itemize}

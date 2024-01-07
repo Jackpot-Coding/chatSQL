@@ -1,211 +1,17 @@
-\documentclass[5pt]{article}
-
-\usepackage{sectsty}
-\usepackage{graphicx}
-\usepackage{lipsum} % for generating dummy text
-\usepackage[margin=1in]{geometry}
-\usepackage{setspace}
-\usepackage{array}
-\usepackage{cellspace}
-\usepackage{tabularx}
-
-
-\usepackage{hyperref}
-\usepackage{scrextend}
-\graphicspath{ {../assets} }
-
-
-% Margins
-\topmargin=-0.45in
-\evensidemargin=0in
-\oddsidemargin=0in
-\textwidth=6.5in
-\textheight=9.0in
-\headsep=0.25in
-
-\title{Analisi dei Requisiti}
-\author{Jackpot Coding}
-\renewcommand*\contentsname{Indice}
-\date{\today}
-
-%STARTOF THE DOCUMENT
-\begin{document}
-
-%-------------------------
-
-% Reduce top margin only on the first page
-\newgeometry{top=0.5in}
-
-%UNIPD LOGO
-    \vspace{8pt}
-    \includegraphics[scale=0.2]{UNIPDFull.png}
-%END UNIPD LOGO
-
-\vspace{30pt}
-
-%COURSE INFO
-\begin{minipage}[t]{0.48\textwidth}
-    %COURSE TITLE
-        \begin{flushleft}
-            Informatica\\
-            \vspace{5pt}
-            \textbf{\LARGE Ingegneria del Software}\\
-            Anno Accademico: 2023/2024
-        \end{flushleft}
-    %END COURSE TITLE
-\end{minipage}
-%END COURSE INFO
-
-
-\vspace{5px}
-
-
-%BLACK LINE
-\rule{\textwidth}{5pt}
-
-%JACKPOT CODING INFO
-\begin{minipage}[t]{0.50\textwidth}
-    %LOGO JACKPOT CODING
-    \begin{flushleft}
-        \hspace{10pt}
-        \includegraphics[scale=0.65]{jackpot-logo.png} 
-    \end{flushleft}
-\end{minipage}
-\hspace{-60pt} % This adds horizontal space between the minipages
-\begin{flushright}
-    \begin{minipage}[t]{0.50\textwidth}
-        %INFO JACKPOT CODING
-        \begin{flushright}
-            Gruppo: {\Large Jackpot Coding}\\
-            Email: \href{mailto:jackpotcoding@gmail.com}{jackpotcoding@gmail.com}
-        \end{flushright}
-    \end{minipage}
-\end{flushright}
-%END JACKPOT CODING INFO
-
-\vspace{24pt}
-
-%TITLE
-\begin{center}
-    \textbf{\LARGE ANALISI DEI REQUISITI}
-\end{center}
-%END TITLE
-
-\vspace{13pt}
-
-\begin{flushleft}
-    \begin{spacing}{1.5}
-        REDATTORI: R. Simionato, G. Moretto\\%INSERT HERE THE NAMES
-        VERIFICATORI: G. Moretto\\
-        \vspace{7pt}
-        DESTINATARI: Prof. T. Vardanega, Prof. R. Cardin\\%INSERT HERE THE NAMES
-    \end{spacing}
-\end{flushleft}
-
-\begin{flushright}
-    \begin{spacing}{1}
-        USO: ESTERNO\\
-        VERSIONE: 0.0.2\\
-    \end{spacing}
-\end{flushright}
-
-
-% Restore original margins from the second page onwards
-\restoregeometry
-
-\pagebreak
-
-\textbf{\Large Registro delle modifiche}
-\begin{table}[ht]
-\centerline{%
-  \begin{tabular}{|c|c|c|c|c|}
-    \hline
-    \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Modifica} \\
-    \hline
-    % versione & data & autore & verificatore & descrizioneModifica \\
-    % \hline
-    v.0.0.5 & 7/01/2024 & R. Simionato & - & Aggiunti UC 3,4,7,8,9 e sottocasi  \\
-    \hline
-    v.0.0.4 & 5/01/2024 & R. Simionato & - & Aggiunta nuova struttura per i Casi d'Uso \\
-    \hline
-    v.0.0.3 & 29/12/2023 & G. Moretto & - & Aggiunti UC 6,7,8,9,9.1,9.2, commentati altri \\
-    \hline
-    V0.0.2 & 18/12/2023 & R. Simionato & G. Moretto & Aggiunte Introduzione, Descrizione e Casi d'uso \\
-    \hline
-    V0.0.1 & 15/11/2023 & R. Simionato & G. Moretto  & Creata struttura del documento \\
-    \hline
-  \end{tabular}%
-  }
-  \label{tab:conference}
-\end{table}
-
-
-
-\pagebreak
-\tableofcontents
-\pagebreak
-
-% Elenco Figure
-% Elenco Tabelle
-
-\section{Introduzione}
-\subsection{Scopo del documento}
-Questo documento serve a fornire una descrizione dettagliata del funzionamento del prodotto, prestando particolare attenzione a come il prodotto potrà essere usato e a quanto richiesto dai requisiti presentati e discussi con il proponente.
-Analizzando questi cerchiamo quindi di individuare ed illustrare i diversi attori e i casi d’uso presenti all’interno del prodotto.\\
-Ogni caso d’uso rappresenta uno scenario di utilizzo del programma da parte di un attore, per descriverlo al meglio utilizzeremo la struttura seguente:
-\begin{itemize}
-    \item Descrizione: breve descrizione del caso d'uso;
-    \item Attori: chi esegue l'azione descritta;
-    \item Precondizioni: stato del programma prima del caso d'uso;
-    \item Postcondizioni: stato del programma dopo il caso d'uso;
-    \item Scenario principale: azioni svolte prima, durante e dopo il caso d'uso;
-    \item Generalizzazioni: se presenti, scomposizione del caso d'uso in sottocasi;
-    \item Estensioni: se presenti, casi d'uso collegati(es. visualizzazione di errori o avvisi).
-\end{itemize}
-Ogni attore rappresenta una persona o un sistema esterno al programma che si interfaccia con esso.
-Nel nostro caso il programma verrà utilizzato da due tipi di attori che avranno accesso a diverse funzionalità del prodotto:
-\begin{itemize}
-    \item \textbf{Utente}: può scegliere il database a cui fare la richiesta e inserire il messaggio in linguaggio naturale che verrà utilizzato per la creazione del prompt;
-    \item \textbf{Amministratore}: può aggiungere, modificare e eliminare i database selezionabili dagli utenti.
-\end{itemize} % __DA VERIFICARE__ decidere se lasciare la descrizione degli attori qui o se spostarla
-
-\subsection{Glossario}
-\subsection{Riferimenti}
-
-\section{Descrizione}
-\subsection{Obiettivi del prodotto}
-Il prodotto ha come obiettivo di dare la possibilità di interrogare un database partendo da una richiesta in linguaggio naturale e trasformandola in un prompt da sottoporre ad un sistema di AI per ottenere una query SQL corretta in base alla struttura del database interrogato.
-
-\subsection{Funzioni del prodotto}
-Il prodotto dovrà quindi, dati:
-\begin{itemize}
-    \item un file strutturato contenente le tabelle e le relazioni di un database;
-    \item una frase in linguaggio naturale per interrogare suddetto database.
-\end{itemize}
-Trovare nella frase le parole chiave, capendo quali sono i dati da visualizzare, in quali tabelle sono salvate, tenendo conto di eventuali condizioni imposte.
-In seguito riscrivere la frase in modo da generare un prompt che possa essere passato ad un sistema AI che creerà la query richiesta in linguaggio SQL.
-Il prompt generato potrà essere semplicemente mostrato all’utente, che sarà tenuto ad inserirlo nel sistema AI da lui scelto, oppure utilizzare le API delle AI per sottoporre direttamente il prompt e mostrare all’utente il codice SQL.
-Il prodotto dovrà inoltre dare la possibilità agli utenti amministratori, dopo aver effettuato l’accesso, di:
-\begin{itemize}
-    \item aggiungere file strutturati selezionabili dagli utenti;
-    \item modificare i file strutturati;
-    \item eliminare file strutturati non più necessari.
-\end{itemize}
-
 \section{Casi d'uso}
 % TEMPLATE
 %   \subsection{UC - NomeUseCase}
 %   \label{sec:UC}
 %   \includegraphics[]{diagramma_UML}
 %   \begin{itemize}
-%       \item \textbf{Descrizione:} 
-%       \item \textbf{Attori:} 
-%       \item \textbf{Precondizioni:} 
-%       \item \textbf{Postcondizioni:} 
-%       \item \textbf{Scenario principale:} 
-%       \item \textbf{Generalizzazioni:} 
-%       \item \textbf{Estensioni:} 
-%   \end{itemize}
+	%       \item \textbf{Descrizione:} 
+	%       \item \textbf{Attori:} 
+	%       \item \textbf{Precondizioni:} 
+	%       \item \textbf{Postcondizioni:} 
+	%       \item \textbf{Scenario principale:} 
+	%       \item \textbf{Generalizzazioni:} 
+	%       \item \textbf{Estensioni:} 
+	%   \end{itemize}
 
 %   \hyperref[sec:UC]{\textbf{UC}}
 
@@ -223,73 +29,73 @@ Il prodotto dovrà inoltre dare la possibilità agli utenti amministratori, dopo
 \label{sec:UC8xxx}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
-    \item \textbf{Descrizione:} l’amministratore carica un file con un formato errato;
-    \item \textbf{Attori:} amministratore;
-    \item \textbf{Precondizioni:} 
-    \begin{itemize}
-        \item L’amministratore ha selezionato un file con formato diverso dal ???(da decidere);
-    \end{itemize}
-    \item \textbf{Postcondizioni:} 
-    \begin{itemize}
-        \item Il programma visualizza un messaggio di errore;
-        \item Il file non viene elaborato;
-    \end{itemize}
-    \item \textbf{Scenario principale:} 
-    \begin{itemize}
-        \item L’amministratore si trova nel pannello amministrativo;
-        \item L’amministratore sceglie un file in un formato diverso dal ??? tra i suoi file locali e lo carica nel programma;
-        \item Il programma visualizza un messaggio di errore.
-    \end{itemize}
+	\item \textbf{Descrizione:} l’amministratore carica un file con un formato errato;
+	\item \textbf{Attori:} amministratore;
+	\item \textbf{Precondizioni:} 
+	\begin{itemize}
+		\item L’amministratore ha selezionato un file con formato diverso dal ???(da decidere);
+	\end{itemize}
+	\item \textbf{Postcondizioni:} 
+	\begin{itemize}
+		\item Il programma visualizza un messaggio di errore;
+		\item Il file non viene elaborato;
+	\end{itemize}
+	\item \textbf{Scenario principale:} 
+	\begin{itemize}
+		\item L’amministratore si trova nel pannello amministrativo;
+		\item L’amministratore sceglie un file in un formato diverso dal ??? tra i suoi file locali e lo carica nel programma;
+		\item Il programma visualizza un messaggio di errore.
+	\end{itemize}
 \end{itemize}
 
 \subsection{UC9xx - Modifica struttura database}
 \label{sec:UC9xxx}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
-    \item \textbf{Descrizione:}  l’amministratore modifica una delle strutture database già presenti;
-    \item \textbf{Attori:} amministratore;
-    \item \textbf{Precondizioni:} 
-    \begin{itemize}
-        \item L’amministratore si trova nel pannello amministrativo;
-        \item ???
-    \end{itemize}
-    \item \textbf{Postcondizioni:} 
-    \begin{itemize}
-        \item La struttura è stata modificata e salvata.
-    \end{itemize}
-    \item \textbf{Scenario principale:} 
-    \begin{itemize}
-        \item ???
-    \end{itemize}
-    \item \textbf{Generalizzazioni:} 
-    \begin{itemize}
-        \item ???
-    \end{itemize}
+	\item \textbf{Descrizione:}  l’amministratore modifica una delle strutture database già presenti;
+	\item \textbf{Attori:} amministratore;
+	\item \textbf{Precondizioni:} 
+	\begin{itemize}
+		\item L’amministratore si trova nel pannello amministrativo;
+		\item ???
+	\end{itemize}
+	\item \textbf{Postcondizioni:} 
+	\begin{itemize}
+		\item La struttura è stata modificata e salvata.
+	\end{itemize}
+	\item \textbf{Scenario principale:} 
+	\begin{itemize}
+		\item ???
+	\end{itemize}
+	\item \textbf{Generalizzazioni:} 
+	\begin{itemize}
+		\item ???
+	\end{itemize}
 \end{itemize}
 
 \subsection{UC10xx - Eliminazione struttura database}
 \label{sec:10xxx}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
-    \item \textbf{Descrizione:}  l’amministratore elimina una delle strutture database già presenti;
-    \item \textbf{Attori:} amministratore;
-    \item \textbf{Precondizioni:} 
-    \begin{itemize}
-        \item L’amministratore si trova nel pannello amministrativo;
-        \item ???
-    \end{itemize}
-    \item \textbf{Postcondizioni:} 
-    \begin{itemize}
-        \item La struttura è stata eliminata.
-    \end{itemize}
-    \item \textbf{Scenario principale:} 
-    \begin{itemize}
-        \item ???
-    \end{itemize}
-    \item \textbf{Generalizzazioni:} 
-    \begin{itemize}
-        \item ???
-    \end{itemize}
+	\item \textbf{Descrizione:}  l’amministratore elimina una delle strutture database già presenti;
+	\item \textbf{Attori:} amministratore;
+	\item \textbf{Precondizioni:} 
+	\begin{itemize}
+		\item L’amministratore si trova nel pannello amministrativo;
+		\item ???
+	\end{itemize}
+	\item \textbf{Postcondizioni:} 
+	\begin{itemize}
+		\item La struttura è stata eliminata.
+	\end{itemize}
+	\item \textbf{Scenario principale:} 
+	\begin{itemize}
+		\item ???
+	\end{itemize}
+	\item \textbf{Generalizzazioni:} 
+	\begin{itemize}
+		\item ???
+	\end{itemize}
 \end{itemize}
 
 \subsection{UC - }
@@ -852,8 +658,14 @@ Il prodotto dovrà inoltre dare la possibilità agli utenti amministratori, dopo
 \subsection{UC17 - Eliminazione campo tabella}
 \label{sec:UC17}
 
-\subsection{UC18 - Logout}
+\subsection{UC18 - Caricamento struttura DB tramite file}
 \label{sec:UC18}
+
+\subsection{UC19 - Errore caricamento file(formato non accettato)}
+\label{sec:UC19}
+
+\subsection{UC20 - Logout}
+\label{sec:UC20}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
 	\item \textbf{Descrizione: l'amministratore vuole fare il logout dall'area amministrativa} 
@@ -873,15 +685,15 @@ Il prodotto dovrà inoltre dare la possibilità agli utenti amministratori, dopo
 	\end{itemize}
 	\item \textbf{Estensioni:} nel caso in cui l'utente non fosse loggato:
 	\begin{itemize}
-		\item Viene visualizzato un errore - \hyperref[sec:UC19]{\textbf{UC19}}.
+		\item Viene visualizzato un errore - \hyperref[sec:UC21]{\textbf{UC21}}.
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC19 - Errore logout (not logged in)}
-\label{sec:UC19}
+\subsection{UC21 - Errore logout (not logged in)}
+\label{sec:UC21}
 
-\subsection{UC20 - Selezione database da interrogare}
-\label{sec:UC20}
+\subsection{UC22 - Selezione database da interrogare}
+\label{sec:UC22}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
 	\item \textbf{Descrizione:} l’utente seleziona il database che vuole interrogare da una lista;
@@ -901,22 +713,22 @@ Il prodotto dovrà inoltre dare la possibilità agli utenti amministratori, dopo
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC21 - Errore DB non selezionato}
-\label{sec:UC21}
+\subsection{UC23 - Errore DB non selezionato}
+\label{sec:UC23}
 
-\subsection{UC22 - Inserimento frase in linguaggio naturale}
-\label{sec:UC22}
+\subsection{UC24 - Inserimento frase in linguaggio naturale}
+\label{sec:UC24}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
 	\item \textbf{Descrizione:} L’utente scrive una frase in linguaggio naturale nella casella di testo disponibile nell’interfaccia e ne conferma l’inserimento;
 	\item \textbf{Attori:} utente;
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’utente ha selezionato un file di struttura Database (\hyperref[sec:UC20]{\textbf{UC20}});
+		\item L’utente ha selezionato un file di struttura Database (\hyperref[sec:UC22]{\textbf{UC22}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
-		\item L’utente riceve un prompt per la creazione della query richiesta (\hyperref[sec:UC24]{\textbf{UC24}});
+		\item L’utente riceve un prompt per la creazione della query richiesta (\hyperref[sec:UC26]{\textbf{UC26}});
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
@@ -927,29 +739,29 @@ Il prodotto dovrà inoltre dare la possibilità agli utenti amministratori, dopo
 	\end{itemize}
 	\item \textbf{Estensioni:} nel caso in cui venga inserita una frase non inerente al database, o non comprensibile:
 	\begin{itemize}
-		\item Viene visualizzato un errore - \hyperref[sec:UC23]{\textbf{UC23}}.
+		\item Viene visualizzato un errore - \hyperref[sec:UC25]{\textbf{UC25}}.
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC23 - Errore frase naturale}
-\label{sec:UC23}
+\subsection{UC25 - Errore frase naturale}
+\label{sec:UC25}
 
-\subsubsection{UC23.1 - Errore frase non inserita}
-\label{sec:UC23.1}
+\subsubsection{UC25.1 - Errore frase non inserita}
+\label{sec:UC25.1}
 
-\subsubsection{UC23.2 - Errore frase non compresa}
-\label{sec:UC23.2}
+\subsubsection{UC25.2 - Errore frase non compresa}
+\label{sec:UC25.2}
 
-\subsubsection{UC23.3 - Errore frase non inerente}
-\label{sec:UC23.3}
+\subsubsection{UC25.3 - Errore frase non inerente}
+\label{sec:UC25.3}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
 	\item \textbf{Descrizione:} l’utente inserisce una frase in linguaggio naturale non interpretabile dal sistema come inerente al database;
 	\item \textbf{Attori:} utente;
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’utente ha selezionato un file di struttura Database (\hyperref[sec:UC20]{\textbf{UC20}});
-		\item L’utente ha scritto una frase in linguaggio naturale nella casella di testo apposita e ne ha confermato l’inserimento (\hyperref[sec:UC22]{\textbf{UC22}});
+		\item L’utente ha selezionato un file di struttura Database (\hyperref[sec:UC22]{\textbf{UC22}});
+		\item L’utente ha scritto una frase in linguaggio naturale nella casella di testo apposita e ne ha confermato l’inserimento (\hyperref[sec:UC24]{\textbf{UC24}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
@@ -959,21 +771,21 @@ Il prodotto dovrà inoltre dare la possibilità agli utenti amministratori, dopo
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
 		\item L’utente ha il programma aperto;
-		\item L’utente ha selezionato il database(\hyperref[sec:UC20]{\textbf{UC20}}) e inserito la frase(\hyperref[sec:UC22]{\textbf{UC22}});
+		\item L’utente ha selezionato il database(\hyperref[sec:UC22]{\textbf{UC22}}) e inserito la frase(\hyperref[sec:UC24]{\textbf{UC24}});
 		\item Il programma visualizza un messaggio di errore.
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC24 - Visualizzazione prompt generato}
-\label{sec:UC24}
+\subsection{UC26 - Visualizzazione prompt generato}
+\label{sec:UC26}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
 	\item \textbf{Descrizione:} L’utente riceve il prompt per la generazione della query;
 	\item \textbf{Attori:} utente;
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’utente ha selezionato un file di struttura Database (\hyperref[sec:UC20]{\textbf{UC20}});
-		\item L’utente ha scritto una frase in linguaggio naturale nella casella di testo apposita e ne ha confermato l’inserimento (\hyperref[sec:UC22]{\textbf{UC22}});
+		\item L’utente ha selezionato un file di struttura Database (\hyperref[sec:UC22]{\textbf{UC22}});
+		\item L’utente ha scritto una frase in linguaggio naturale nella casella di testo apposita e ne ha confermato l’inserimento (\hyperref[sec:UC24]{\textbf{UC24}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
@@ -982,44 +794,35 @@ Il prodotto dovrà inoltre dare la possibilità agli utenti amministratori, dopo
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
 		\item L’utente ha il programma aperto;
-		\item L’utente ha selezionato il database(\hyperref[sec:UC20]{\textbf{UC20}}) e inserito la frase(\hyperref[sec:UC22]{\textbf{UC22}});
+		\item L’utente ha selezionato il database(\hyperref[sec:UC22]{\textbf{UC22}}) e inserito la frase(\hyperref[sec:UC24]{\textbf{UC24}});
 		\item L’utente preme il bottone per ottenere il prompt;
 		\item Il programma visualizza il prompt elaborato.
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC25 - Errore generazione prompt}
-\label{sec:UC25}
-
-\subsubsection{UC25.1 - Errore comunicazione con LLM}
-\label{sec:UC25.1}
-
-\subsubsection{UC25.2 - Errore dati mancanti per creazione prompt}
-\label{sec:UC25.2}
-
-\subsection{UC26 - Richiesta generazione query SQL}
-\label{sec:UC26}
-
-\subsection{UC27 - Errore generazione query SQL}
+\subsection{UC27 - Errore generazione prompt}
 \label{sec:UC27}
 
-\subsubsection{UC27.1 - Errore comunicazione con API}
+\subsubsection{UC27.1 - Errore comunicazione con LLM}
 \label{sec:UC27.1}
 
-\subsubsection{UC27.2 - Errore formattazione prompt}
+\subsubsection{UC27.2 - Errore dati mancanti per creazione prompt}
 \label{sec:UC27.2}
 
-\subsection{UC28 - Visualizzazione query SQL}
+\subsection{UC28 - Richiesta generazione query SQL}
 \label{sec:UC28}
+
+\subsection{UC29 - Errore generazione query SQL}
+\label{sec:UC29}
+
+\subsubsection{UC29.1 - Errore comunicazione con API}
+\label{sec:UC29.1}
+
+\subsubsection{UC29.2 - Errore formattazione prompt}
+\label{sec:UC29.2}
+
+\subsection{UC30 - Visualizzazione query SQL}
+\label{sec:UC30}
 
 %\subsection{UC - }
 %\label{sec:UC}
-
-\section{Requisiti}
-\subsection{Requisiti funzionali}
-\subsection{Requisiti di qualità}
-\subsection{Requisiti di vincolo}
-\subsection{Tracciamento}
-
-
-\end{document}
