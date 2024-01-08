@@ -21,11 +21,23 @@
 % Link sul quale cliccare per andare alla label
 %   \hyperref[sec:nomeSezione]{testo}
 % END TEMPLATE
+
+\subsection{Obiettivi}
+La sezione ha come obiettivo quello di identificare e descrivere tutti i casi d'uso che sono stati individuati dal gruppo si sede di analisi del capitolato assegnato.
+
+\subsection{Attori}
+Il sistema dispone di due attori principali. In particolare:
+\begin{itemize}
+	\item \textbf{Utente}, che accede al servizio come utente in grado di selezionare una struttura database precaricata, inserire una frase di interrogazione in linguaggio naturale, visualizzare il prompt generato dall'LLM per poi confermarlo e ottenere una frase in formato SQL che rappresenti quello che era stato richiesto inizialmente.
+	\item \textbf{Amministratore}, generalizzazione dell'utente generico ed accede al servizio come amministratore. Oltre a poter compiere tutte le azioni che può fare l'utente generico, l'amministratore può creare, visualizzare, modificare ed eliminare un database, le sue tabelle e i suoi campi.
+\end{itemize}
+\includegraphics[scale=0.6]{UML_Use_Cases/UC-Attori.drawio.png}
+
 \setcounter{secnumdepth}{0}
 
 \subsection{UC1 - Login}
 \label{sec:UC1}
-%\includegraphics[]{diagramma_UML}
+\includegraphics[scale=0.6]{UML_Use_Cases/UC1.drawio.png}
 \begin{itemize}
 	\item \textbf{Descrizione:} L’amministratore accede al pannello amministrativo con le sue credenziali;
 	\item \textbf{Attori:} amministratore;
@@ -52,7 +64,7 @@
 
 \subsubsection{UC1.1 - Inserimento nome utente}
 \label{sec:UC1.1}
-%\includegraphics[]{diagramma_UML}
+\includegraphics[scale=0.6]{UML_Use_Cases/UC1.1_1.2.drawio.png}
 \begin{itemize}
 	\item \textbf{Descrizione:} L’amministratore inserisce il proprio nome utente;
 	\item \textbf{Attori:} amministratore;
@@ -493,6 +505,29 @@
 
 \subsection{UC11 - Modifica della tabella}
 \label{sec:UC11}
+%\includegraphics[]{diagramma_UML}
+\begin{itemize}
+	\item \textbf{Descrizione:} l’amministratore vuole modificare una tabella del database selezionato e da interrogare;
+	\item \textbf{Attori:} amministratore;
+	\item \textbf{Precondizioni:} 
+	\begin{itemize}
+		\item L’amministratore ha effettuato il login (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore si trova nel pannello amministrativo;
+		\item L’amministratore si trova nella sezione di modifica di una tabella;
+	\end{itemize}
+	\item \textbf{Postcondizioni:} 
+	\begin{itemize}
+		\item La tabella selezionata viene modificata;
+	\end{itemize}
+	\item \textbf{Scenario principale:} 
+	\begin{itemize}
+		\item L’amministratore modifica il nome, i sinonimi del nome e la descrizione della tabella;
+	\end{itemize}
+	\item \textbf{Estensioni:} nel caso in cui non vengano rimossi completamente i sinonimi del nome della tabella, o il nome modificato è già presente:
+	\begin{itemize}
+		\item \hyperref[sec:UC9]{\textbf{UC9}} - Errore nella creazione della tabella
+	\end{itemize}
+\end{itemize}
 
 \subsection{UC12 - Visualizzazione lista delle tabella della Struttura Database}
 \label{sec:UC12}
@@ -649,7 +684,7 @@
 \label{sec:UC15.3}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
-	\item \textbf{Descrizione:} l’amministratore vuole selezionare il tipo del campo da inserire nella tabella;
+	\item \textbf{Descrizione:} l’amministratore vuole inserire i sinonimi del campo da inserire nella tabella;
 	\item \textbf{Attori:} amministratore;
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
@@ -691,9 +726,9 @@
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item L’amministratore inserisce il nome del campo nel form di creazione (\hyperref[sec:UC13.1]{\textbf{UC13.1}});
-		\item L’amministratore seleziona il tipo del campo nel form di creazione (\hyperref[sec:UC13.2]{\textbf{UC13.2}});
-		\item L’amministratore inserisce i sinonimi del nome campo nel form di creazione (\hyperref[sec:UC13.3]{\textbf{UC13.3}});
+		\item L’amministratore inserisce il nome del campo nel form di creazione (\hyperref[sec:UC15.1]{\textbf{UC15.1}});
+		\item L’amministratore seleziona il tipo del campo nel form di creazione (\hyperref[sec:UC15.2]{\textbf{UC15.2}});
+		\item L’amministratore inserisce i sinonimi del nome campo nel form di creazione (\hyperref[sec:UC15.3]{\textbf{UC15.3}});
 		\item Il sistema verifica che non esista già una tabella con lo stesso nome, che venga selezionato il tipo e che vengano inseriti i sinonimi del campo;
 		\item Il sistema visualizza il messaggio di errore opportuno.
 	\end{itemize}
@@ -889,7 +924,7 @@
 	\begin{itemize}
 		\item L'amministrazione inserisce il file della Struttura Database;
 	\end{itemize}
-	\item \textbf{Estensioni:} nel caso il file non sia correttoi:
+	\item \textbf{Estensioni:} nel caso il file non sia corretto:
 	\begin{itemize}
 		\item \hyperref[sec:UC22]{\textbf{UC22}} - Errore caricamento file
 	\end{itemize}
@@ -1192,8 +1227,8 @@
 	\item \textbf{Attori:} utente;
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’utente ha selezionato un file di struttura Database (\hyperref[sec:UC22]{\textbf{UC22}});
-		\item L’utente ha scritto una frase in linguaggio naturale (\hyperref[sec:UC24]{\textbf{UC24}});
+		\item L’utente ha selezionato un file di struttura Database (\hyperref[sec:UC25]{\textbf{UC25}});
+		\item L’utente ha scritto una frase in linguaggio naturale (\hyperref[sec:UC27]{\textbf{UC27}});
 		\item L’utente richiede il prompt;
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
@@ -1238,7 +1273,7 @@
 \label{sec:UC32}
 %   \includegraphics[]{diagramma_UML}
 \begin{itemize}
-	\item \textbf{Descrizione:} L'utente visualizza un messaggio di errore inerente generazione della query SQL;
+	\item \textbf{Descrizione:} L'utente visualizza un messaggio di errore inerente alla generazione della query SQL;
 	\item \textbf{Attori:} utente;
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
