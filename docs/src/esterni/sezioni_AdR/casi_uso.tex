@@ -105,6 +105,8 @@
 		\item L’amministratore possiede le credenziali di accesso;
 		\item L’amministratore non ha già effettuato l’accesso;
 		\item L’amministratore sta effettuando il login (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore ha inserito il proprio nome utente (\hyperref[sec:UC1.1]{\textbf{UC1.1}});
+		\item L’amministratore ha inserito la propria password (\hyperref[sec:UC1.2]{\textbf{UC1.2}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:}
 	\begin{itemize}
@@ -113,10 +115,8 @@
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item L’amministratore inserisce il proprio nome utente nel form di accesso (\hyperref[sec:UC1.1]{\textbf{UC1.1}});
-		\item L’amministratore inserisce la propria password nel form di accesso (\hyperref[sec:UC1.2]{\textbf{UC1.2}});
 		\item Il sistema verifica le credenziali ricevute siano corrette;
-		\item Il sistema visualizza un messaggio di errore per le credenziali inserite.
+		\item Il sistema visualizza un messaggio di errore per le credenziali inserite se non corrette.
 	\end{itemize}
 \end{itemize}
 
@@ -163,7 +163,7 @@
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item L’amministratore inserisce il nome del database nel form di creazione;
+		\item L’amministratore inserisce il nome del database;
 	\end{itemize}
 \end{itemize}
 
@@ -185,7 +185,7 @@
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item L’amministratore inserisce la descrizione del database nel form di creazione;
+		\item L’amministratore inserisce la descrizione del database;
 	\end{itemize}
 \end{itemize}
 
@@ -255,12 +255,12 @@
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item Il programma visualizza la lista dei database presenti, con la possibilità di modificarli, visualizzarli o eliminarli; ???
+		\item Il programma mostra la lista dei database presenti, con la possibilità di modificarli, visualizzarli o eliminarli;
 	\end{itemize}
 \end{itemize}
 
 
-\subsection{UC7 - Modifica Database}
+\subsection{UC7 - Modifica Struttura Database}
 \label{sec:UC7}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
@@ -268,16 +268,16 @@
 	\item \textbf{Attori:} amministratore;
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’amministratore ha effettuato il login (\hyperref[sec:UC1]{\textbf{UC1}});
-		\item L’amministratore si trova nel pannello amministrativo;
+		\item L’amministratore sta visualizzando una struttura Database (\hyperref[sec:UC6]{\textbf{UC6}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
-		\item L'amministratore può vedere nome e descrizione dei database presenti;
+		\item Il sistema aggiorna la Struttura Database;
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item Il programma visualizza la lista dei database presenti, con la possibilità di modificarli, visualizzarli o eliminarli; ???
+		\item Il sistema verifica il nome ricevuto;
+		\item Il sistema ve
 	\end{itemize}
 \end{itemize}
 
@@ -299,7 +299,6 @@
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item L'amministratore sta visualizzando la lista dei database presenti nel sistema (\hyperref[sec:UC5]{\textbf{UC5}});
 		\item L'amministratore seleziona il database da eliminare usando il pulsante di eliminazione apposito;
 		\item Il sistema visualizza un messaggio per chiedere la conferma dell'eliminazione;
 		\item Se l'amministrazione conferma l'eliminazione, il database e le tabelle collegate verranno rimossi dal sistema e verrà visualizzato un messaggio di avvenuta eliminazione.
@@ -328,9 +327,9 @@
 	\end{itemize}
 	\item \textbf{Generalizzazioni:} 
 	\begin{itemize}
-		\item \hyperref[sec:UC8.1]{\textbf{UC8.1}} - Inserimento nome tabella
-		\item \hyperref[sec:UC8.2]{\textbf{UC8.2}} - Inserimento sinonimi tabella
-		\item \hyperref[sec:UC8.3]{\textbf{UC8.3}} - Inserimento descrizione tabella
+		\item \hyperref[sec:UC9.1]{\textbf{UC9.1}} - Inserimento nome tabella
+		\item \hyperref[sec:UC9.2]{\textbf{UC9.2}} - Inserimento sinonimi tabella
+		\item \hyperref[sec:UC9.3]{\textbf{UC9.3}} - Inserimento descrizione tabella
 	\end{itemize}
 	\item \textbf{Estensioni:} nel caso in cui non vengano inseriti i sinonimi del nome della tabella, o il nome esisti già:
 	\begin{itemize}
@@ -347,7 +346,7 @@
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
 		\item L’amministratore ha effettuato il login (\hyperref[sec:UC1]{\textbf{UC1}});
-		\item L’amministratore sta creando una nuova tabella (\hyperref[sec:UC8]{\textbf{UC8}});
+		\item L’amministratore sta creando una nuova tabella (\hyperref[sec:UC9]{\textbf{UC9}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
@@ -368,7 +367,7 @@
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
 		\item L’amministratore ha effettuato il login (\hyperref[sec:UC1]{\textbf{UC1}});
-		\item L’amministratore sta creando una nuova tabella (\hyperref[sec:UC8]{\textbf{UC8}});
+		\item L’amministratore sta creando una nuova tabella (\hyperref[sec:UC9]{\textbf{UC9}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
@@ -389,7 +388,7 @@
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
 		\item L’amministratore ha effettuato il login (\hyperref[sec:UC1]{\textbf{UC1}});
-		\item L’amministratore sta creando una nuova tabella (\hyperref[sec:UC8]{\textbf{UC8}});
+		\item L’amministratore sta creando una nuova tabella (\hyperref[sec:UC9]{\textbf{UC9}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
@@ -410,7 +409,7 @@
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
 		\item L’amministratore ha effettuato il login (\hyperref[sec:UC1]{\textbf{UC1}});
-		\item L’amministratore sta creando una nuova tabella (\hyperref[sec:UC8]{\textbf{UC8}});
+		\item L’amministratore sta creando una nuova tabella (\hyperref[sec:UC9]{\textbf{UC9}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
@@ -435,7 +434,7 @@
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
 		\item L’amministratore ha effettuato il login (\hyperref[sec:UC1]{\textbf{UC1}});
-		\item L’amministratore sta creando una nuova tabella (\hyperref[sec:UC8]{\textbf{UC8}});
+		\item L’amministratore sta creando una nuova tabella (\hyperref[sec:UC9]{\textbf{UC9}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
@@ -457,7 +456,7 @@
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
 		\item L’amministratore ha effettuato il login (\hyperref[sec:UC1]{\textbf{UC1}});
-		\item L’amministratore sta creando una nuova tabella (\hyperref[sec:UC8]{\textbf{UC8}});
+		\item L’amministratore sta creando una nuova tabella (\hyperref[sec:UC9]{\textbf{UC9}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
@@ -479,7 +478,7 @@
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
 		\item L’amministratore ha effettuato il login (\hyperref[sec:UC1]{\textbf{UC1}});
-		\item L’amministratore sta creando una nuova tabella (\hyperref[sec:UC8]{\textbf{UC8}});
+		\item L’amministratore sta creando una nuova tabella (\hyperref[sec:UC9]{\textbf{UC9}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
@@ -525,8 +524,7 @@
 	\item \textbf{Attori:} amministratore;
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’amministratore ha effettuato il login (\hyperref[sec:UC1]{\textbf{UC1}});
-		\item L’amministratore si trova nel pannello amministrativo;
+		\item L'amministratore ha visualizzato la lista delle tabelle della Struttura Database (\hyperref[sec:UC12]{\textbf{UC12}});
 		\item L'amministratore ha selezionato una tabella dalla lista;
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
@@ -550,7 +548,7 @@
 	\begin{itemize}
 		\item L’amministratore ha effettuato il login (\hyperref[sec:UC1]{\textbf{UC1}});
 		\item L’amministratore si trova nel pannello amministrativo;
-		\item L’amministratore sta visualizzando la lista delle tabelle (\hyperref[sec:UC11]{\textbf{UC11}});
+		\item L’amministratore sta visualizzando la lista delle tabelle (\hyperref[sec:UC12]{\textbf{UC12}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
@@ -558,10 +556,9 @@
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item L'amministratore sta visualizzando la lista delle tabelle presenti nella struttura selezionata (\hyperref[sec:UC11]{\textbf{UC11}});
 		\item L'amministratore seleziona la tabella da eliminare usando il pulsante di eliminazione apposito;
 		\item Il sistema visualizza un messaggio per chiedere la conferma dell'eliminazione;
-		\item Se l'amministrazione conferma l'eliminazione, la tabella e i suoi campi verranno rimossi dal sistema e verrà visualizzato un messaggio di avvenuta eliminazione.
+		\item Se l'l'amministratore conferma l'eliminazione, la tabella e i suoi campi verranno rimossi dal sistema e verrà visualizzato un messaggio di avvenuta eliminazione.
 	\end{itemize}
 \end{itemize}
 
@@ -631,7 +628,7 @@
 	\begin{itemize}
 		\item L’amministratore ha effettuato il login (\hyperref[sec:UC1]{\textbf{UC1}});
 		\item L’amministratore si trova nel pannello amministrativo;
-		\item L’amministratore si trova nella sezione di visualizzazione di una tabella (\hyperref[sec:UC15]{\textbf{UC13}}) ;
+		\item L’amministratore si trova nella sezione di visualizzazione di una tabella (\hyperref[sec:UC13]{\textbf{UC13}}) ;
 		\item L’amministratore sta inserendo i campi che compongono la tabella;
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
@@ -658,7 +655,7 @@
 	\begin{itemize}
 		\item L’amministratore ha effettuato il login (\hyperref[sec:UC1]{\textbf{UC1}});
 		\item L’amministratore si trova nel pannello amministrativo;
-		\item L’amministratore si trova nella sezione di visualizzazione di una tabella (\hyperref[sec:UC15]{\textbf{UC15}} ;
+		\item L’amministratore si trova nella sezione di visualizzazione di una tabella (\hyperref[sec:UC13]{\textbf{UC13}} ;
 		\item L’amministratore sta inserendo i campi che compongono la tabella;
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
@@ -685,7 +682,7 @@
 	\begin{itemize}
 		\item L’amministratore ha effettuato il login (\hyperref[sec:UC1]{\textbf{UC1}});
 		\item L’amministratore si trova nel pannello amministrativo;
-		\item L’amministratore si trova nella sezione di visualizzazione di una tabella (\hyperref[sec:UC15]{\textbf{UC15}} ;
+		\item L’amministratore si trova nella sezione di visualizzazione di una tabella (\hyperref[sec:UC13]{\textbf{UC13}} ;
 		\item L’amministratore sta creando un nuovo campo (\hyperref[sec:UC15]{\textbf{UC15}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
@@ -712,7 +709,7 @@
 	\begin{itemize}
 		\item L’amministratore ha effettuato il login (\hyperref[sec:UC1]{\textbf{UC1}});
 		\item L’amministratore si trova nel pannello amministrativo;
-		\item L’amministratore si trova nella sezione di visualizzazione di una tabella (\hyperref[sec:UC15]{\textbf{UC15}} ;
+		\item L’amministratore si trova nella sezione di visualizzazione di una tabella (\hyperref[sec:UC13]{\textbf{UC13}} ;
 		\item L’amministratore sta creando un nuovo campo (\hyperref[sec:UC15]{\textbf{UC15}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
@@ -736,7 +733,7 @@
 	\begin{itemize}
 		\item L’amministratore ha effettuato il login (\hyperref[sec:UC1]{\textbf{UC1}});
 		\item L’amministratore si trova nel pannello amministrativo;
-		\item L’amministratore si trova nella sezione di visualizzazione di una tabella (\hyperref[sec:UC15]{\textbf{UC15}} ;
+		\item L’amministratore si trova nella sezione di visualizzazione di una tabella (\hyperref[sec:UC13]{\textbf{UC13}} ;
 		\item L’amministratore sta creando un nuovo campo (\hyperref[sec:UC15]{\textbf{UC15}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
@@ -760,7 +757,7 @@
 	\begin{itemize}
 		\item L’amministratore ha effettuato il login (\hyperref[sec:UC1]{\textbf{UC1}});
 		\item L’amministratore si trova nel pannello amministrativo;
-		\item L’amministratore si trova nella sezione di visualizzazione di una tabella (\hyperref[sec:UC15]{\textbf{UC15}} ;
+		\item L’amministratore si trova nella sezione di visualizzazione di una tabella (\hyperref[sec:UC13]{\textbf{UC13}} ;
 		\item L’amministratore sta creando un nuovo campo (\hyperref[sec:UC15]{\textbf{UC15}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
@@ -783,7 +780,7 @@
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
 		\item L’amministratore ha effettuato il login (\hyperref[sec:UC1]{\textbf{UC1}});
-		\item L’amministratore si trova nella sezione di visualizzazione di una tabella (\hyperref[sec:UC15]{\textbf{UC15}} ;
+		\item L’amministratore si trova nella sezione di visualizzazione di una tabella (\hyperref[sec:UC13]{\textbf{UC13}} ;
 		\item L’amministratore si trova nel pannello amministrativo;
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
@@ -792,7 +789,7 @@
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item Il programma visualizza la lista dei campi presenti, con la possibilità di modificarli, visualizzarli o eliminarli; ???
+		\item Il programma visualizza la lista dei campi presenti, con la possibilità di modificarli, visualizzarli o eliminarli;
 	\end{itemize}
 \end{itemize}
 
@@ -805,7 +802,7 @@
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
 		\item L’amministratore ha effettuato il login (\hyperref[sec:UC1]{\textbf{UC1}});
-		\item L’amministratore si trova nella sezione di visualizzazione di una tabella (\hyperref[sec:UC15]{\textbf{UC15}} ;
+		\item L’amministratore si trova nella sezione di visualizzazione di una tabella (\hyperref[sec:UC13]{\textbf{UC13}});
 		\item L’amministratore si trova nel pannello amministrativo;
 		\item L'amministratore ha selezionato un campo di una tabella;
 	\end{itemize}
@@ -815,7 +812,7 @@
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item Il programma visualizza la lista dei campi presenti, con la possibilità di modificarli, visualizzarli o eliminarli; ???
+		\item Il programma visualizza la lista dei campi presenti, con la possibilità di modificarli, visualizzarli o eliminarli;
 	\end{itemize}
 \end{itemize}
 
@@ -823,7 +820,7 @@
 \label{sec:UC19}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
-	\item \textbf{Descrizione:} l’amministratore vuole madificare un campo alla tabella selezionata;
+	\item \textbf{Descrizione:} l’amministratore vuole modificare un campo alla tabella selezionata;
 	\item \textbf{Attori:} amministratore;
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
@@ -868,8 +865,7 @@
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item L'amministratore sta visualizzando la lista dei campi presenti nella tabella selezionata (\hyperref[sec:UC15]{\textbf{UC15}});
-		\item L'amministratore seleziona il campo da eliminare usando il pulsante di eliminazione apposito;
+		\item L'amministratore seleziona il campo da eliminare;
 		\item Il sistema visualizza un messaggio per chiedere la conferma dell'eliminazione;
 		\item Se l'amministrazione conferma l'eliminazione, il campo verrà rimosso dal sistema e verrà visualizzato un messaggio di avvenuta eliminazione.
 	\end{itemize}
@@ -947,14 +943,14 @@
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC24 - Errore logout (not logged in)}
+\subsection{UC24 - Errore logout}
 \label{sec:UC24}
 
-\subsection{UC25 - Selezione database da interrogare}
+\subsection{UC25 - Selezione Struttura Database da interrogare}
 \label{sec:UC25}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
-	\item \textbf{Descrizione:} l’utente seleziona il database che vuole interrogare da una lista;
+	\item \textbf{Descrizione:} l’utente seleziona la Struttura Database che vuole interrogare da una lista;
 	\item \textbf{Attori:} utente;
 	\item \textbf{Precondizioni:}
 	\begin{itemize}
@@ -962,31 +958,52 @@
 	\end{itemize}
 	\item \textbf{Postcondizioni:}
 	\begin{itemize}
-		\item L’utente ha selezionato una Struttura Database e può procedere con \hyperref[sec:UC2]{\textbf{UC2}};
+		\item L’utente ha selezionato una Struttura Database;
 	\end{itemize}
 	\item \textbf{Scenario principale:}
 	\begin{itemize}
 		\item L’utente ha il programma aperto;
 		\item L’utente seleziona uno dei database presenti nella lista.
 	\end{itemize}
+	\item \textbf{Estensioni:} In caso l'utente non selezioni una Strttura Database;
+	\begin{itemize}
+		\item Errore Struttura Database non selezionata (\hyperref[sec:UC26]{\textbf{UC26}});
+	\end{itemize}
 \end{itemize}
 
-\subsection{UC26 - Errore Database non selezionato}
+\subsection{UC26 - Errore Struttura Database non selezionata}
 \label{sec:UC26}
+\begin{itemize}
+	\item \textbf{Descrizione:} l’utente non ha selezionato una Struttura Database;
+	\item \textbf{Attori:} utente;
+	\item \textbf{Precondizioni:}
+	\begin{itemize}
+		\item Sono presenti una o più Strutture Database da poter selezionare;
+	\end{itemize}
+	\item \textbf{Postcondizioni:}
+	\begin{itemize}
+		\item L’utente visualizza un messaggio di errore;
+	\end{itemize}
+	\item \textbf{Scenario principale:}
+	\begin{itemize}
+		\item Il sistema non riceve una Struttura Database;
+		\item Il sistema mostra un errore;
+	\end{itemize}
+\end{itemize}
 
 \subsection{UC27 - Inserimento frase in linguaggio naturale}
 \label{sec:UC27}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
-	\item \textbf{Descrizione:} L’utente scrive una frase in linguaggio naturale nella casella di testo disponibile nell’interfaccia e ne conferma l’inserimento;
+	\item \textbf{Descrizione:} L’utente scrive una frase in linguaggio naturale;
 	\item \textbf{Attori:} utente;
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’utente ha selezionato un file di struttura Database (\hyperref[sec:UC22]{\textbf{UC22}});
+		\item L’utente ha selezionato un file di struttura Database (\hyperref[sec:UC25]{\textbf{UC25}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
-		\item L’utente riceve un prompt per la creazione della query richiesta (\hyperref[sec:UC26]{\textbf{UC26}});
+		\item L’utente riceve un prompt per la creazione della query richiesta (\hyperref[sec:UC29]{\textbf{UC29}});
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
@@ -997,18 +1014,79 @@
 	\end{itemize}
 	\item \textbf{Estensioni:} nel caso in cui venga inserita una frase non inerente al database, o non comprensibile:
 	\begin{itemize}
-		\item Viene visualizzato un errore - \hyperref[sec:UC25]{\textbf{UC25}}.
+		\item Viene visualizzato un errore - \hyperref[sec:UC28]{\textbf{UC28}}.
 	\end{itemize}
 \end{itemize}
 
 \subsection{UC28 - Errore frase naturale}
 \label{sec:UC28}
+\begin{itemize}
+	\item \textbf{Descrizione:} L’utente visualizza un errore inerente alla frase inserita;
+	\item \textbf{Attori:} utente;
+	\item \textbf{Precondizioni:} 
+	\begin{itemize}
+		\item L’utente ha selezionato un file di struttura Database (\hyperref[sec:UC25]{\textbf{UC25}});
+		\item L'utente ha inserito una frase in linguaggio naturale (\hyperref[sec:UC27]{\textbf{UC27}});
+	\end{itemize}
+	\item \textbf{Postcondizioni:} 
+	\begin{itemize}
+		\item L’utente visualizza un messaggio di errore;
+	\end{itemize}
+	\item \textbf{Scenario principale:} 
+	\begin{itemize}
+		\item Il sistema verifica la frase ricevuta;
+		\item Il sistema non riescie ad elaborare la frase;
+		\item Il sistema visualizza un messaggio di errore.
+	\end{itemize}
+	\end{itemize}
+
 
 \subsubsection{UC28.1 - Errore frase non inserita}
 \label{sec:UC28.1}
+\begin{itemize}
+	\item \textbf{Descrizione:} L’utente visualizza un errore relativo alla frase inserita;
+	\item \textbf{Attori:} utente;
+	\item \textbf{Precondizioni:} 
+	\begin{itemize}
+		\item L’utente ha selezionato un file di struttura Database (\hyperref[sec:UC25]{\textbf{UC25}});
+		\item L'utente ha inserito una frase in linguaggio naturale (\hyperref[sec:UC27]{\textbf{UC27}});
+	\end{itemize}
+	\item \textbf{Postcondizioni:} 
+	\begin{itemize}
+		\item Il programma mostra un messaggio di errore;
+		\item Il prompt non viene generato;
+	\end{itemize}
+	\item \textbf{Scenario principale:} 
+	\begin{itemize}
+		\item Il sistema non ha ricevuto una frase;
+		\item Il sistema visualizza un messaggio di errore.
+	\end{itemize}
+\end{itemize}
+
 
 \subsubsection{UC28.2 - Errore frase non compresa}
 \label{sec:UC28.2}
+\begin{itemize}
+	\item \textbf{Descrizione:} L’utente inserisce una frase in linguaggio naturale non comprensibile dal sistema;
+	\item \textbf{Attori:} utente;
+	\item \textbf{Precondizioni:} 
+	\begin{itemize}
+		\item L’utente ha selezionato un file di struttura Database (\hyperref[sec:UC25]{\textbf{UC25}});
+		\item L'utente ha inserito una frase in linguaggio naturale (\hyperref[sec:UC27]{\textbf{UC27}});
+	\end{itemize}
+	\item \textbf{Postcondizioni:} 
+	\begin{itemize}
+		\item Il programma mostra un messaggio di errore;
+		\item Il prompt non viene generato;
+	\end{itemize}
+	\item \textbf{Scenario principale:} 
+	\begin{itemize}
+		\item Il sistema verifica la frase ricevuta;
+		\item Il sistema non comprende la frase;
+		\item Il sistema visualizza un messaggio di errore.
+	\end{itemize}
+\end{itemize}
+
 
 \subsubsection{UC28.3 - Errore frase non inerente}
 \label{sec:UC28.3}
@@ -1018,32 +1096,32 @@
 	\item \textbf{Attori:} utente;
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’utente ha selezionato un file di struttura Database (\hyperref[sec:UC22]{\textbf{UC22}});
-		\item L’utente ha scritto una frase in linguaggio naturale nella casella di testo apposita e ne ha confermato l’inserimento (\hyperref[sec:UC24]{\textbf{UC24}});
+		\item L’utente ha selezionato un file di struttura Database (\hyperref[sec:UC25]{\textbf{UC22}});
+		\item L’utente ha scritto una frase in linguaggio naturale nella casella di testo apposita e ne ha confermato l’inserimento (\hyperref[sec:UC27]{\textbf{UC24}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
-		\item Il programma visualizza un messaggio di errore;
+		\item Il programma mostra un messaggio di errore;
 		\item Il prompt non viene generato;
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item L’utente ha il programma aperto;
-		\item L’utente ha selezionato il database(\hyperref[sec:UC22]{\textbf{UC22}}) e inserito la frase(\hyperref[sec:UC24]{\textbf{UC24}});
-		\item Il programma visualizza un messaggio di errore.
+		\item Il sistema verifica la frase ricevuta;
+		\item Il sistema non trova componenti inerenti alla Struttura Database nella frase;
+		\item Il sistema visualizza un messaggio di errore.
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC27 - Visualizzazione prompt generato}
-\label{sec:UC27}
+\subsection{UC29 - Visualizzazione prompt generato}
+\label{sec:UC29}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
 	\item \textbf{Descrizione:} L’utente riceve il prompt per la generazione della query;
 	\item \textbf{Attori:} utente;
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’utente ha selezionato un file di struttura Database (\hyperref[sec:UC22]{\textbf{UC22}});
-		\item L’utente ha scritto una frase in linguaggio naturale nella casella di testo apposita e ne ha confermato l’inserimento (\hyperref[sec:UC24]{\textbf{UC24}});
+		\item L’utente ha selezionato un file di struttura Database (\hyperref[sec:UC25]{\textbf{UC22}});
+		\item L’utente ha scritto una frase in linguaggio naturale (\hyperref[sec:UC27]{\textbf{UC24}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
@@ -1052,35 +1130,201 @@
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
 		\item L’utente ha il programma aperto;
-		\item L’utente ha selezionato il database(\hyperref[sec:UC22]{\textbf{UC22}}) e inserito la frase(\hyperref[sec:UC24]{\textbf{UC24}});
-		\item L’utente preme il bottone per ottenere il prompt;
+		\item L’utente ha selezionato la Struttura Database (\hyperref[sec:UC25]{\textbf{UC25}})
+		\item L'utente ha inserito la frase in linguaggio naturale (\hyperref[sec:UC27]{\textbf{UC27}});
+		\item L’utente richiede il prompt;
 		\item Il programma visualizza il prompt elaborato.
+	\end{itemize}
+	\item \textbf{Estensioni:} nel caso in cui non sia possibile generare il prompt:
+	\begin{itemize}
+		\item Viene visualizzato un errore - \hyperref[sec:UC30]{\textbf{UC30}}.
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC28 - Errore generazione prompt}
-\label{sec:UC28}
-
-\subsubsection{UC28.1 - Errore comunicazione con LLM}
-\label{sec:UC28.1}
-
-\subsubsection{UC28.2 - Errore dati mancanti per creazione prompt}
-\label{sec:UC28.2}
-
-\subsection{UC29 - Richiesta generazione query SQL}
-\label{sec:UC29}
-
-\subsection{UC30 - Errore generazione query SQL}
+\subsection{UC30 - Errore generazione prompt}
 \label{sec:UC30}
+\begin{itemize}
+	\item \textbf{Descrizione:} L’utente visualizza un errore inerente alla generazione del prompt;
+	\item \textbf{Attori:} utente;
+	\item \textbf{Precondizioni:} 
+	\begin{itemize}
+		\item L’utente ha selezionato un file di struttura Database (\hyperref[sec:UC25]{\textbf{UC25}});
+		\item L’utente ha scritto una frase in linguaggio naturale (\hyperref[sec:UC27]{\textbf{UC27}});
+		\item L’utente richiede il prompt;
+	\end{itemize}
+	\item \textbf{Postcondizioni:} 
+	\begin{itemize}
+		\item L’utente visualizza un messaggio di errore;
+	\end{itemize}
+	\item \textbf{Scenario principale:} 
+	\begin{itemize}
+		\item Il sistema verifica il prompt e ritorna l'errore adeguato;
+	\end{itemize}
+\end{itemize}
 
-\subsubsection{UC30.1 - Errore comunicazione con API}
+\subsubsection{UC30.1 - Errore comunicazione con LLM}
 \label{sec:UC30.1}
+\begin{itemize}
+	\item \textbf{Descrizione:} L’utente visualizza un errore inerente alla comunicazione con il modello LLM;
+	\item \textbf{Attori:} utente;
+	\item \textbf{Precondizioni:} 
+	\begin{itemize}
+		\item L’utente ha selezionato un file di struttura Database (\hyperref[sec:UC25]{\textbf{UC25}});
+		\item L’utente ha scritto una frase in linguaggio naturale (\hyperref[sec:UC27]{\textbf{UC27}});
+		\item L’utente richiede il prompt;
+	\end{itemize}
+	\item \textbf{Postcondizioni:} 
+	\begin{itemize}
+		\item L’utente visualizza un messaggio di errore;
+	\end{itemize}
+	\item \textbf{Scenario principale:} 
+	\begin{itemize}
+		\item Il sistema riceve il prompt;
+		\item Il sistema non riesce a comunicare con il modello LLM;
+		\item Il sistema mostra un errore;
+	\end{itemize}
+\end{itemize}
 
-\subsubsection{UC30.2 - Errore formattazione prompt}
+\subsubsection{UC30.2 - Errore dati mancanti per creazione prompt}
 \label{sec:UC30.2}
+\begin{itemize}
+	\item \textbf{Descrizione:} L’utente visualizza un errore inerente alla frase in linguaggio naturale;
+	\item \textbf{Attori:} utente;
+	\item \textbf{Precondizioni:} 
+	\begin{itemize}
+		\item L’utente ha selezionato un file di struttura Database (\hyperref[sec:UC22]{\textbf{UC22}});
+		\item L’utente ha scritto una frase in linguaggio naturale (\hyperref[sec:UC24]{\textbf{UC24}});
+		\item L’utente richiede il prompt;
+	\end{itemize}
+	\item \textbf{Postcondizioni:} 
+	\begin{itemize}
+		\item L’utente visualizza un messaggio di errore;
+	\end{itemize}
+	\item \textbf{Scenario principale:} 
+	\begin{itemize}
+		\item Il sistema riceve il prompt;
+		\item Il sistema non trova tutti i dati necessari per la generazione del prompt ;
+		\item Il sistema mostra un errore;
+	\end{itemize}
+\end{itemize}
 
-\subsection{UC31 - Visualizzazione query SQL}
+\subsection{UC31 - Richiesta generazione query SQL}
 \label{sec:UC31}
+%   \includegraphics[]{diagramma_UML}
+\begin{itemize}
+    \item \textbf{Descrizione:} L'utente richiede la generazione della query SQL;
+    \item \textbf{Attori:} utente;
+    \item \textbf{Precondizioni:} 
+    \begin{itemize}
+    	\item L'utente ha visualizzato il prompt (\hyperref[sec:UC29]{\textbf{UC29}});
+    \end{itemize}
+    \item \textbf{Postcondizioni:} 
+    \begin{itemize}
+    	\item L'utente visualizza la query SQL richiesta (\hyperref[sec:UC33]{\textbf{UC33}});
+    \end{itemize}
+    \item \textbf{Scenario principale:}
+    \begin{itemize}
+    	\item L'utente richiede la generazione della query SQL a partire dal prompt ricevuto;
+    	\item Il sistema verifica il prompt ricevuto;
+    	\item Il sistema invia il prompt al servizio LLM esterno;
+    \end{itemize}
+    \item \textbf{Estensioni:} In caso non sia possibile generare la query SQL:
+    \begin{itemize}
+    	\item Errore generazione query SQL (\hyperref[sec:UC32]{\textbf{UC32}});
+    \end{itemize}
+\end{itemize}
 
-%\subsection{UC - }
-%\label{sec:UC}
+\subsection{UC32 - Errore generazione query SQL}
+\label{sec:UC32}
+%   \includegraphics[]{diagramma_UML}
+\begin{itemize}
+	\item \textbf{Descrizione:} L'utente visualizza un messaggio di errore inerente generazione della query SQL;
+	\item \textbf{Attori:} utente;
+	\item \textbf{Precondizioni:} 
+	\begin{itemize}
+		\item L'utente ha visualizzato il prompt (\hyperref[sec:UC29]{\textbf{UC29}});
+		\item L'utente richiede la generazione della query SQL (\hyperref[sec:UC31]{\textbf{UC31}});
+	\end{itemize}
+	\item \textbf{Postcondizioni:} 
+	\begin{itemize}
+		\item L'utente un messaggio di errore;
+	\end{itemize}
+	\item \textbf{Scenario principale:}
+	\begin{itemize}
+		\item L'utente richiede la generazione della query SQL a partire dal prompt ricevuto;
+		\item Il sistema verifica il prompt ricevuto;
+		\item Il sistema invia il prompt al servizio LLM esterno;
+		\item Il sistema mostra un messaggio di errore;
+	\end{itemize}
+\end{itemize}
+
+\subsubsection{UC32.1 - Errore comunicazione con API}
+\label{sec:UC32.1}
+\begin{itemize}
+	\item \textbf{Descrizione:} L'utente visualizza un messaggio di errore inerente alla comunicazione con il servizio di API esterno;
+	\item \textbf{Attori:} utente;
+	\item \textbf{Precondizioni:} 
+	\begin{itemize}
+		\item L'utente ha visualizzato il prompt (\hyperref[sec:UC29]{\textbf{UC29}});
+		\item L'utente richiede la generazione della query SQL (\hyperref[sec:UC31]{\textbf{UC31}});
+	\end{itemize}
+	\item \textbf{Postcondizioni:} 
+	\begin{itemize}
+		\item L'utente un messaggio di errore;
+	\end{itemize}
+	\item \textbf{Scenario principale:}
+	\begin{itemize}
+		\item L'utente richiede la generazione della query SQL a partire dal prompt ricevuto;
+		\item Il sistema verifica il prompt ricevuto;
+		\item Il sistema invia il prompt al servizio LLM esterno;
+		\item Il sistema non riescie a comunicare con il servizio LLM esterno;
+		\item Il sistema mostra un messaggio di errore;
+	\end{itemize}
+\end{itemize}
+
+\subsubsection{UC32.2 - Errore formattazione prompt}
+\label{sec:UC32.2}
+\begin{itemize}
+	\item \textbf{Descrizione:} L'utente visualizza un messaggio di errore inerente alla formattazione del prompt creato;
+	\item \textbf{Attori:} utente;
+	\item \textbf{Precondizioni:} 
+	\begin{itemize}
+		\item L'utente ha visualizzato il prompt (\hyperref[sec:UC29]{\textbf{UC29}});
+		\item L'utente richiede la generazione della query SQL (\hyperref[sec:UC31]{\textbf{UC31}});
+	\end{itemize}
+	\item \textbf{Postcondizioni:} 
+	\begin{itemize}
+		\item L'utente un messaggio di errore;
+	\end{itemize}
+	\item \textbf{Scenario principale:}
+	\begin{itemize}
+		\item L'utente richiede la generazione della query SQL a partire dal prompt ricevuto;
+		\item Il sistema verifica il prompt ricevuto;
+		\item Il sistema invia il prompt al servizio LLM esterno;
+		\item Il sistema riceve un errore dal servizio LLM esterno;
+		\item Il sistema mostra un messaggio di errore;
+	\end{itemize}
+\end{itemize}
+
+\subsection{UC33 - Visualizzazione query SQL}
+\label{sec:UC33}
+\begin{itemize}
+	\item \textbf{Descrizione:} L’utente visualizza la query SQL ricevuta dal servizio LLM esterno;
+	\item \textbf{Attori:} utente;
+	\item \textbf{Precondizioni:} 
+	\begin{itemize}
+		\item L’utente ha selezionato un file di struttura Database (\hyperref[sec:UC25]{\textbf{UC25}});
+		\item L’utente ha inserito una frase in linguaggio naturale (\hyperref[sec:UC27]{\textbf{UC27}});
+		\item Il programma visualizza il prompt elaborato (\hyperref[sec:UC29]{\textbf{UC29}});
+		\item L’utente richiesto la generazione della query SQL (\hyperref[sec:UC31]{\textbf{UC31}});
+	\end{itemize}
+	\item \textbf{Postcondizioni:} 
+	\begin{itemize}
+		\item Il programma visualizza la query SQL richiesta;
+	\end{itemize}
+	\item \textbf{Scenario principale:} 
+	\begin{itemize}
+		\item L'utente richiede la generazione della query SQL (\hyperref[sec:UC31]{\textbf{UC31}});
+		\item L'utente visualizza la query SQL richiesta;
+	\end{itemize}
+\end{itemize}
