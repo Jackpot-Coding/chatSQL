@@ -26,6 +26,9 @@
     \hline
     \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Modifica} \\
     \hline
+    \hline
+    V0.0.7 & 04/01/2024 & M. Gobbo & - & \shortstack{Stesura iniziale parte 1.4, 3.2, 3.3, 3.4} \\
+    \hline
     % versione & data & autore & verificatore & descrizioneModifica \\
     % \hline
     V0.0.6 & 28/11/2023 & E. Gallo & - & \shortstack{Stesura delle sezioni 1.1, 1.2, 1.3 \\ dell'Introduzione} \\
@@ -79,7 +82,19 @@ Oltre ai requisiti obbligatori, l'azienda Zucchetti S.p.A., da la possibilità d
 Per evitare incomprensioni relative ai vari termini utilizzati nel documento, viene fornito un Glossario, nell'omonimo file, in modo da dare una definizione precisa di ogni termine che possa risultare ambiguo. Ogni termine presente nel Glossario verrà indicato nel documento con una lettera G come apice.
 
 \subsection{Riferimenti}
+\subsubsection{Riferimenti normativi}
+Capitolato C9 ChatSQL: creare frasi SQL da linguaggio naturale
+\begin{itemize}
+    \item \url{https://www.math.unipd.it/~tullio/IS-1/2023/Progetto/C9.pdf}
+\end{itemize}
 
+\subsubsection{Riferimenti informativi}
+Slide dell’insegnamento del corso di Ingegneria del Software:
+\begin{itemize}
+\item \url{https://www.math.unipd.it/~tullio/IS-1/2023/Progetto/T3.pdf}
+\item \url{https://www.math.unipd.it/~tullio/IS-1/2023/Dispense/T4.pdf}
+\item \url{https://www.math.unipd.it/~tullio/IS-1/2023/Dispense/T5.pdf}
+\end{itemize}
 \section{Processi primari}
 
 
@@ -147,13 +162,6 @@ Contiene le decisioni prese durante l'incontro, queste si traducono i compiti as
 \subsubsection{Nome dei file}
 Il nome del file deve essere esplicativo, indicando il contenuto dello stesso, e deve indicarne la versione.
 
-\subsubsection{Versione dei file}
-
-La versione viene indicata con tre numeri separati da un punto, indicati in questa sezione come x.y.z.
-
-Il numero z viene aumentato quando il documento subisce una modifica, il numero y aumenta solo quando le modifiche vengono verificate, l'aumento del numero x viene effettuato solamente quando il documento vine considerato pronto.
-
-
 \subsubsection{Stile del testo}
 \textbf{Grassetto}: Applicato ai titoli e a parole di particolare importanza. \\
 \texttt{Monospace}: Applicato a frammenti di codice e percorsi di cartelle e file. \\
@@ -185,20 +193,59 @@ Nella repository ufficiale vengono caricate le versioni dei documenti utilizzand
 
 \subsection{Gestione della configurazione}
     \subsubsection{Descrizione e scopo}
+    La gestione della configurazione è un processo cruciale per mantenere la coerenza del software nel tempo, garantendo il corretto funzionamento del sistema nonostante le eventuali modifiche apportate. Problemi nella configurazione potrebbero causare incoerenze o problemi di aderenza alle normative, compromettendo le operazioni aziendali, è quindi importante perseguire questo punto.
     
     \subsubsection{Sistema di versionamento}
+    Il versionamento offre la possibilità di registrare tutte le modifiche apportate a un documento. Questo sistema consente di ripristinare una versione precedente del documento e visualizzare chiaramente tutte le modifiche fatte nel corso del tempo, incluso l'autore di ciascuna modifica.\\
+    Nel nostro gruppo, abbiamo adottato il seguente codice per identificare le diverse versioni di un documento:
+    \begin{center}
+    \textbf{[x].[y].[z]}
+    \end{center}
+    La versione viene indicata con tre numeri separati da un punto, come visto sopra, indicati in questa sezione come x.y.z.
+    \begin{itemize}
+    \item[\textbf{x)}] Il numero viene aumentato solo quando il documento è considerato pronto.
+    \item[\textbf{y)}] Il numero viene aumentato solo quando le modifiche sono verificate.
+    \item[\textbf{z)}] Il numero viene aumentato quando il documento subisce una modifica.
+    \end{itemize}  
     
     \subsubsection{Repository}
+    \paragraph{Tecnologie utilizzate}~\\
+    Il nostro team ha scelto di utilizzare GitHub come strumento per gestire la configurazione, facendo affidamento sul sistema di controllo di versione distribuito di Git.\\
+    La repository è accessibile pubblicamente tramite il seguente link:\\
+    \begin{center}
+    \url{https://github.com/Jackpot-Coding}\\\\
+    \end{center}
+    Per agevolare la consultazione e la navigazione dei documenti, abbiamo creato un sito dedicato tramite GitHub. È possibile accedervi utilizzando il seguente riferimento:\\
+    \begin{center}
+    \url{https://jackpot-coding.github.io/chatSQL/}\\\\
+    \end{center}
+    \paragraph{Struttura Repo}~\\
+    Nella struttura del nostro repository i file sono sistemati in questo modo:\\
+    
+
 
 \subsection{Gestione della qualità}
     \subsubsection{Descrizione, scopo}
+    La gestione della qualità in un progetto è fondamentale per assicurare che i processi e i prodotti soddisfino le richieste del cliente con la massima qualità possibile. È altrettanto importante perseguire un miglioramento continuo attraverso monitoraggi e valutazioni retrospettive. Questo processo coinvolge una serie di attività volte a garantire che i risultati e le performance del progetto siano allineati agli obiettivi e ai requisiti stabiliti. Questa sezione si concentra sull'impegno del gruppo nella gestione della qualità del progetto, cercando di assicurare un'implementazione accurata e coerente di tali processi
     \subsubsection{Piano di qualifica}
 
 \subsection{Verifica}
     \subsubsection{Descrizione, scopo}
-    \subsection{Analisi statica}
-    \subsection{Analisi dinamica}
-    \subsection{Verifica della documentazione}
+    La verifica del software è il processo valutativo che assicura l'accuratezza della fase di sviluppo per costruire il prodotto desiderato. Si esegue durante lo sviluppo per rilevare difetti precocemente e garantire che il software soddisfi i requisiti del cliente. L'obiettivo della verifica è controllare la correttezza e completezza del prodotto, garantendo che sia conforme alle aspettative. Si basa su analisi e test per assicurare l'assenza di errori nel software e nella documentazione. Questa sezione mira a definire l'approccio scelto dal gruppo per attuare il processo di verifica.
+    \subsubsection{Analisi statica}
+    L'analisi statica consiste nell'esaminare il codice o la documentazione prima dell'esecuzione del software, garantendo il soddisfacimento dei requisiti specificati. Questo metodo si applica non solo al codice ma anche ai documenti, focalizzandosi sugli aspetti statici del sistema software, come le convenzioni del codice o le metriche del software. Include sia test manuali che automatizzati, come l'analisi di coerenza.
+    Questo tipo di analisi si divide in due metodi principali: 
+
+    \begin{itemize}
+    \item WALKTHROUGH: prevedono una lettura ampia per individuare possibili errori senza conoscere la loro posizione esatta.
+    \item INSPECTION: mirano a individuare errori specifici con un approccio mirato.
+    \end{itemize}
+    In particolare, nell'analisi dei documenti, si utilizzano tecniche simili di Walkthrough e Inspection.\\
+    Inizialmente, l'attività di Walkthrough è prevalente rispetto all'Inspection, ma con il progredire del progetto e la ripetizione delle verifiche sulla documentazione, si sviluppa una lista degli errori comuni (Lista di Controllo), consentendo l'adozione più ampia dell'Inspection, che si rivela più efficiente.
+    \subsubsection{Analisi dinamica}
+    L'analisi dinamica si svolge simultaneamente all'esecuzione del software ed è principalmente costituita dalla fase di test. A differenza dell'analisi statica, coinvolge l'esecuzione effettiva del sistema e dei suoi componenti.\\
+    Per garantire che il prodotto funzioni correttamente durante l'esecuzione, il gruppo utilizza una serie di test eseguibili in tempo reale. È essenziale che tali test siano ripetibili, pertanto si identificano strumenti per automatizzarne l'esecuzione.\\
+    Questo approccio dinamico è cruciale per rilevare problemi e difetti durante l'esecuzione effettiva del software, fornendo una maggiore sicurezza sul corretto funzionamento del prodotto.
     
 \section{Processi organizzativi}
 
