@@ -31,13 +31,13 @@ Il sistema dispone di due attori principali. In particolare:
 	\item \textbf{Utente}, che accede al servizio come utente in grado di selezionare una struttura database precaricata, inserire una frase di interrogazione in linguaggio naturale, visualizzare il prompt generato dall'LLM per poi confermarlo e ottenere una frase in formato SQL che rappresenti quello che era stato richiesto inizialmente.
 	\item \textbf{Amministratore}, generalizzazione dell'utente generico ed accede al servizio come amministratore. Oltre a poter compiere tutte le azioni che può fare l'utente generico, l'amministratore può creare, visualizzare, modificare ed eliminare un database, le sue tabelle e i suoi campi.
 \end{itemize}
-\includegraphics[scale=0.6]{UML_Use_Cases/UC-Attori.drawio.png}
+\includegraphics[scale=0.6]{UML_Use_Cases/UC-Attori.png}
 
 \setcounter{secnumdepth}{0}
 
 \subsection{UC1 - Login}
 \label{sec:UC1}
-\includegraphics[scale=0.6]{UML_Use_Cases/UC1.drawio.png}
+\includegraphics[scale=0.6]{UML_Use_Cases/UC1_2.png}
 \begin{itemize}
 	\item \textbf{Descrizione:} L’amministratore accede al pannello amministrativo con le sue credenziali;
 	\item \textbf{Attori:} amministratore;
@@ -64,7 +64,7 @@ Il sistema dispone di due attori principali. In particolare:
 
 \subsubsection{UC1.1 - Inserimento nome utente}
 \label{sec:UC1.1}
-\includegraphics[scale=0.6]{UML_Use_Cases/UC1.1_1.2.drawio.png}
+\includegraphics[scale=0.6]{UML_Use_Cases/UC1.1_1.2.png}
 \begin{itemize}
 	\item \textbf{Descrizione:} L’amministratore inserisce il proprio nome utente;
 	\item \textbf{Attori:} amministratore;
@@ -134,7 +134,7 @@ Il sistema dispone di due attori principali. In particolare:
 
 \subsection{UC3 - Creazione Database}
 \label{sec:UC3}
-%\includegraphics[]{diagramma_UML}
+\includegraphics[scale=0.6]{UML_Use_Cases/UC3_4.png}
 \begin{itemize}
 	\item \textbf{Descrizione:} l’amministratore vuole aggiungere la struttura di un database da poter interrogare;
 	\item \textbf{Attori:} amministratore;
@@ -159,7 +159,7 @@ Il sistema dispone di due attori principali. In particolare:
 
 \subsubsection{UC3.1 - Inserimento nome Database}
 \label{sec:UC3.1}
-%\includegraphics[]{diagramma_UML}
+\includegraphics[scale=0.6]{UML_Use_Cases/UC3.1_3.2.png}
 \begin{itemize}
 	\item \textbf{Descrizione:} l’amministratore deve inserire il nome del nuovo database da aggiungere;
 	\item \textbf{Attori:} amministratore;
@@ -228,7 +228,7 @@ Il sistema dispone di due attori principali. In particolare:
 
 \subsection{UC5 - Visualizzazione lista Strutture Database}
 \label{sec:UC5}
-%\includegraphics[]{diagramma_UML}
+\includegraphics[scale=0.6]{UML_Use_Cases/UC5.png}
 \begin{itemize}
 	\item \textbf{Descrizione:} l’amministratore visualizza tutte le Strutture Database disponibili;
 	\item \textbf{Attori:} amministratore;
@@ -249,7 +249,7 @@ Il sistema dispone di due attori principali. In particolare:
 
 \subsection{UC6 - Visualizzazione singola Struttura Database}
 \label{sec:UC6}
-%\includegraphics[]{diagramma_UML}
+\includegraphics[scale=0.6]{UML_Use_Cases/UC6_7_8.png}
 \begin{itemize}
 	\item \textbf{Descrizione:} l’amministratore visualizza una Struttura Database;
 	\item \textbf{Attori:} amministratore;
@@ -319,7 +319,7 @@ Il sistema dispone di due attori principali. In particolare:
 
 \subsection{UC9 - Creazione tabella Database}
 \label{sec:UC9}
-%\includegraphics[]{diagramma_UML}
+\includegraphics[scale=0.6]{UML_Use_Cases/UC9_10.png}
 \begin{itemize}
 	\item \textbf{Descrizione:} l’amministratore vuole aggiungere una tabella alla struttura del database da interrogare;
 	\item \textbf{Attori:} amministratore;
@@ -351,7 +351,7 @@ Il sistema dispone di due attori principali. In particolare:
 
 \subsubsection{UC9.1 - Inserimento nome tabella}
 \label{sec:UC9.1}
-%\includegraphics[]{diagramma_UML}
+\includegraphics[scale=0.47]{UML_Use_Cases/UC9.1_9.2_9.3_10.1_10.2_10.3.png}
 \begin{itemize}
 	\item \textbf{Descrizione:} l’amministratore inserisce il nome della tabella da creare;
 	\item \textbf{Attori:} amministratore;
@@ -505,7 +505,7 @@ Il sistema dispone di due attori principali. In particolare:
 
 \subsection{UC11 - Modifica della tabella}
 \label{sec:UC11}
-%\includegraphics[]{diagramma_UML}
+\includegraphics[scale=0.6]{UML_Use_Cases/UC11_13_14.png}
 \begin{itemize}
 	\item \textbf{Descrizione:} l’amministratore vuole modificare una tabella del database selezionato e da interrogare;
 	\item \textbf{Attori:} amministratore;
@@ -531,7 +531,7 @@ Il sistema dispone di due attori principali. In particolare:
 
 \subsection{UC12 - Visualizzazione lista delle tabella della Struttura Database}
 \label{sec:UC12}
-%\includegraphics[]{diagramma_UML}
+\includegraphics[scale=0.6]{UML_Use_Cases/UC12.png}
 \begin{itemize}
 	\item \textbf{Descrizione:} l’amministratore visualizza tutte le tabelle della Struttura Database selezionata;
 	\item \textbf{Attori:} amministratore;
@@ -599,7 +599,7 @@ Il sistema dispone di due attori principali. In particolare:
 
 \subsection{UC15 - Creazione campo tabella}
 \label{sec:UC15}
-%\includegraphics[]{diagramma_UML}
+\includegraphics[scale=0.6]{UML_Use_Cases/UC15_16.png}
 \begin{itemize}
 	\item \textbf{Descrizione:} l’amministratore vuole aggiungere un campo alla tabella selezionata;
 	\item \textbf{Attori:} amministratore;
@@ -628,7 +628,7 @@ Il sistema dispone di due attori principali. In particolare:
 
 \subsubsection{UC15.1 - Inserimento nome campo}
 \label{sec:UC15.1}
-%\includegraphics[]{diagramma_UML}
+\includegraphics[scale=0.45]{UML_Use_Cases/UC15.1_15.2_15.3_16.1_16.2_16.3.png}
 \begin{itemize}
 	\item \textbf{Descrizione:} l’amministratore vuole inserire il nome del campo da inserire nella tabella;
 	\item \textbf{Attori:} amministratore;
@@ -808,7 +808,7 @@ Il sistema dispone di due attori principali. In particolare:
 
 \subsection{UC17 - Visualizzazione lista dei campi della tabella}
 \label{sec:UC17}
-%\includegraphics[]{diagramma_UML}
+\includegraphics[scale=0.6]{UML_Use_Cases/UC17.png}
 \begin{itemize}
 	\item \textbf{Descrizione:} l’amministratore visualizza tutti i campi della tabella selezionata;
 	\item \textbf{Attori:} amministratore;
@@ -830,7 +830,7 @@ Il sistema dispone di due attori principali. In particolare:
 
 \subsection{UC18 - Visualizzazione singolo campo tabella}
 \label{sec:UC18}
-%\includegraphics[]{diagramma_UML}
+\includegraphics[scale=0.6]{UML_Use_Cases/UC18_19_20.png}
 \begin{itemize}
 	\item \textbf{Descrizione:} l’amministratore visualizza tutti i campi della tabella selezionata;
 	\item \textbf{Attori:} amministratore;
@@ -908,6 +908,7 @@ Il sistema dispone di due attori principali. In particolare:
 
 \subsection{UC21 - Caricamento struttura Database tramite file}
 \label{sec:UC21}
+\includegraphics[scale=0.6]{UML_Use_Cases/UC21_22.png}
 \begin{itemize}
 	\item \textbf{Descrizione:} l’amministratore vuole caricare un file che descrive una Struttura Database;
 	\item \textbf{Attori:} amministratore;
@@ -955,7 +956,7 @@ Il sistema dispone di due attori principali. In particolare:
 
 \subsection{UC23 - Logout}
 \label{sec:UC23}
-%\includegraphics[]{diagramma_UML}
+\includegraphics[scale=0.6]{UML_Use_Cases/UC23_24.png}
 \begin{itemize}
 	\item \textbf{Descrizione: l'amministratore vuole fare il logout dall'area amministrativa} 
 	\item \textbf{Attori:} amministratore;
@@ -983,7 +984,7 @@ Il sistema dispone di due attori principali. In particolare:
 
 \subsection{UC25 - Selezione Struttura Database da interrogare}
 \label{sec:UC25}
-%\includegraphics[]{diagramma_UML}
+\includegraphics[scale=0.55]{UML_Use_Cases/UC25_26.png}
 \begin{itemize}
 	\item \textbf{Descrizione:} l’utente seleziona la Struttura Database che vuole interrogare da una lista;
 	\item \textbf{Attori:} utente;
@@ -1028,7 +1029,7 @@ Il sistema dispone di due attori principali. In particolare:
 
 \subsection{UC27 - Inserimento frase in linguaggio naturale}
 \label{sec:UC27}
-%\includegraphics[]{diagramma_UML}
+\includegraphics[scale=0.6]{UML_Use_Cases/UC27_28.png}
 \begin{itemize}
 	\item \textbf{Descrizione:} L’utente scrive una frase in linguaggio naturale;
 	\item \textbf{Attori:} utente;
@@ -1078,6 +1079,7 @@ Il sistema dispone di due attori principali. In particolare:
 
 \subsubsection{UC28.1 - Errore frase non inserita}
 \label{sec:UC28.1}
+\includegraphics[scale=0.6]{UML_Use_Cases/UC28.1_28.2_28.3.png}
 \begin{itemize}
 	\item \textbf{Descrizione:} L’utente visualizza un errore relativo alla frase inserita;
 	\item \textbf{Attori:} utente;
@@ -1149,7 +1151,7 @@ Il sistema dispone di due attori principali. In particolare:
 
 \subsection{UC29 - Visualizzazione prompt generato}
 \label{sec:UC29}
-%\includegraphics[]{diagramma_UML}
+\includegraphics[scale=0.6]{UML_Use_Cases/UC29_30.png}
 \begin{itemize}
 	\item \textbf{Descrizione:} L’utente riceve il prompt per la generazione della query;
 	\item \textbf{Attori:} utente;
@@ -1199,6 +1201,7 @@ Il sistema dispone di due attori principali. In particolare:
 
 \subsubsection{UC30.1 - Errore comunicazione con LLM}
 \label{sec:UC30.1}
+\includegraphics[scale=0.6]{UML_Use_Cases/UC30.1_30.2.png}
 \begin{itemize}
 	\item \textbf{Descrizione:} L’utente visualizza un errore inerente alla comunicazione con il modello LLM;
 	\item \textbf{Attori:} utente;
@@ -1245,7 +1248,7 @@ Il sistema dispone di due attori principali. In particolare:
 
 \subsection{UC31 - Richiesta generazione query SQL}
 \label{sec:UC31}
-%   \includegraphics[]{diagramma_UML}
+\includegraphics[scale=0.55]{UML_Use_Cases/UC31_32.png}
 \begin{itemize}
     \item \textbf{Descrizione:} L'utente richiede la generazione della query SQL;
     \item \textbf{Attori:} utente;
@@ -1295,6 +1298,7 @@ Il sistema dispone di due attori principali. In particolare:
 
 \subsubsection{UC32.1 - Errore comunicazione con API}
 \label{sec:UC32.1}
+\includegraphics[scale=0.6]{UML_Use_Cases/UC32.1_32.2.png}
 \begin{itemize}
 	\item \textbf{Descrizione:} L'utente visualizza un messaggio di errore inerente alla comunicazione con il servizio di API esterno;
 	\item \textbf{Attori:} utente;
