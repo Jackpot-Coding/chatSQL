@@ -1,17 +1,24 @@
+\DefTblrTemplate{contfoot-text}{default}{}
+\DefTblrTemplate{conthead-text}{default}{}
+\DefTblrTemplate{caption}{default}{}
+\DefTblrTemplate{conthead}{default}{}
+\DefTblrTemplate{capcont}{default}{}
+
 \section{Requisiti}
 In questa sezione vengono descritti e organizzati in forma tabellare i requisiti che il prodotto finale dovrà soddisfare. La struttura usata viene descritta all'interno del documento Norme di Progetto.
 
+
 \subsection{Requisiti funzionali}
-\iffalse
-\begin{table}[ht]
-	\centering
-	\begin{tblr}{
+
+
+	\begin{longtblr}{
 			colspec={|Q[0.10\linewidth]|Q[0.50\linewidth]|Q[0.15\linewidth]|Q[0.15\linewidth]|},
 			rows={halign=l},
 			column{1}={halign=c},
 			column{3}={halign=c},
 			column{4}={halign=c},
-			row{1}={halign=c}
+			row{1}={halign=c},
+			entry = {Requisiti funzionali},
 		}
 		% CONTENUTO %
 		\hline
@@ -96,9 +103,8 @@ In questa sezione vengono descritti e organizzati in forma tabellare i requisiti
 		RF38 & Avere a disposizione un modello addestrato appositamente per tradurre le frasi di interrogazione in italiano a SQL & Opzionale & Capitolato \\
 		\hline
 		% END_CONTENUTO %
-	\end{tblr}
-\end{table}
-\fi
+	\end{longtblr}
+
 
 \subsection{Requisiti di qualità}
 
