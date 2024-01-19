@@ -1,0 +1,176 @@
+\documentclass[5pt]{article}
+
+\usepackage{sectsty}
+\usepackage{graphicx}
+\usepackage{lipsum} % for generating dummy text
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{array}
+\usepackage{cellspace}
+
+
+\usepackage{hyperref}
+\usepackage{scrextend}
+\graphicspath{ {../../assets} }
+
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\title{ Verbale - 18/01/2024 }
+\date{\today}
+
+%STARTOF THE DOCUMENT
+\begin{document}
+	
+	%-------------------------
+	
+	% Reduce top margin only on the first page
+	\newgeometry{top=0.5in}
+	
+	%UNIPD LOGO
+	\vspace{8pt}
+	\includegraphics[scale=0.2]{UNIPDFull.png}
+	%END UNIPD LOGO
+	
+	\vspace{10pt}
+	
+	%COURSE INFO
+	\begin{minipage}[t]{0.48\textwidth}
+		%COURSE TITLE
+		\begin{flushleft}
+			Informatica\\
+			\vspace{5pt}
+			\textbf{\LARGE Ingegneria del Software}\\
+			Anno Accademico: 2023/2024
+		\end{flushleft}
+		%END COURSE TITLE
+	\end{minipage}
+	%END COURSE INFO
+	
+	
+	\vspace{5px}
+	
+	
+	%BLACK LINE
+	\rule{\textwidth}{5pt}
+	
+	%JACKPOT CODING INFO
+	\begin{minipage}[t]{0.50\textwidth}
+		%LOGO JACKPOT CODING
+		\begin{flushleft}
+			\hspace{10pt}
+			\includegraphics[scale=0.65]{jackpot-logo.png} 
+		\end{flushleft}
+	\end{minipage}
+	\hspace{-60pt} % This adds horizontal space between the minipages
+	\begin{flushright}
+		\begin{minipage}[t]{0.50\textwidth}
+			%INFO JACKPOT CODING
+			\begin{flushright}
+				Gruppo: {\Large Jackpot Coding}\\
+				Email: \href{mailto:jackpotcoding@gmail.com}{jackpotcoding@gmail.com}
+			\end{flushright}
+		\end{minipage}
+	\end{flushright}
+	%END JACKPOT CODING INFO
+	
+	\vspace{20pt}
+	
+	%TITLE
+	\begin{center}
+		\textbf{\large VERBALE }
+		\textbf{\large 18/01/2024} \\
+		\textbf{\LARGE DISCUSSIONE STRUTTURA E REALIZZAZIONE DEL POC}
+	\end{center}
+	%END TITLE
+	
+	\vspace{13pt}
+	
+	\begin{flushleft}
+		\begin{spacing}{1.5}
+			REDATTORE: R. Simionato\\%INSERT HERE THE NAMES
+			VERIFICATORE: \\%INSERT HERE THE NAMES
+			RESPONSABILE: \\%INSERT HERE THE NAMES
+			\vspace{7pt}
+			SCRIBA: R. Simionato\\%INSERT HERE THE NAMES
+			\vspace{7pt}
+			DESTINATARI:   Prof. T. Vardanega, Prof. R. Cardin\\%INSERT HERE THE NAMES
+		\end{spacing}
+	\end{flushleft}
+	
+	\begin{flushright}
+		\begin{spacing}{1}
+			USO: INTERNO\\
+			VERSIONE: 1.0\\
+		\end{spacing}
+	\end{flushright}
+	
+	
+	% Restore original margins from the second page onwards
+	\restoregeometry
+	
+	\pagebreak
+	
+	% Optional TOC
+	% \tableofcontents
+	% \pagebreak
+	
+	\section{ORARIO}
+	\begin{spacing}{1.5}
+		{\large Inizio incontro: 20:20}\\
+		{\large Fine incontro: 21:00}
+	\end{spacing}
+	
+	\section{PARTECIPANTI}
+	% Define minimal spacing at the top and bottom of cells
+	\setlength\cellspacetoplimit{6pt}
+	\setlength\cellspacebottomlimit{6pt}
+	
+	\begin{table}[ht]
+		\begin{tabular}{|Sc|Sc|}
+			\hline
+			\textbf{Nome Componente} & \textbf{Durata della presenza} \\
+			\hline
+			Camillo Matteo & - \\
+			Favaretto Marco & 40 minuti \\
+			Gallo Edoardo & 40 minuti \\
+			Gobbo Marco & 30 minuti \\
+			Moretto Giulio & 40 minuti \\
+			Simionato Riccardo & 40 minuti \\
+			\hline
+		\end{tabular}
+		\label{tab:conference}
+	\end{table}
+	
+	\section{SINTESI DELL'INCONTRO}
+	Durante l'incontro è stata fatta una rapida verifica dei verbali interni mancanti non ancora caricati nella repository.\\
+	Sono stati discussi vari metodi di realizzazione del POC, in particolare come approcciarsi alla creazione del prompt da sottoporre all'LLM (tecniche di prompt engineering come ad esempio la tecnica INSTRUCT) e come estrarre dal file strutturato che descrive il database solamente le tabelle relative alla richiesta dell'utente (tecniche di text analysis) per non dover fornire l'intera struttura database all'LLM.\\
+	È stata infine definita una struttura minima per il POC, decidendo di tralasciare l'interfaccia grafica web per concentrarsi sullo sviluppo dell'applicativo e testare diversi metodi di creazione del prompt. Il POC dovrà fornire un file JSON con la descrizione di un database, e un file eseguibile che permetta di inserire la frase in linguaggio naturale da terminale e la inserisca all'interno di un prompt con la descrizione del database.
+	
+	\section{DECISIONI}
+	\begin{itemize}
+		\item Creare il file JSON con la descrizione di un database da poter usare per il POC;
+		\item Approfondire individualmente le tecniche di prompt engineering e text analysis e appuntare le risorse utili sull'apposito file condiviso.
+	\end{itemize}
+	
+	\section{RISORSE}
+	Prompt engineering
+	\begin{itemize}
+		\item Concetti sul prompt engineering\\ \url{https://thenewstack.io/prompt-engineering-get-llms-to-generate-the-content-you-want/}
+		\item Tecnica INSTRUCT\\ \url{https://medium.com/@ickman/instruct-making-llms-do-anything-you-want-ff4259d4b91}
+	\end{itemize}
+	
+	Text analysis
+	\begin{itemize}
+		\item Estrarre dati da un testo non strutturato\\ \url{https://xebia.com/blog/archetype-llm-batch-use-case/}
+		\item Usare gli LLM per l'analisi dei testi\\ \url{https://github.com/cssmodels/howtousellms}
+		\item Esempi HuggingFace\\ \url{https://huggingface.co/dslim/bert-base-NER}\\ \url{https://huggingface.co/knowledgator/UTC-DeBERTa-large}
+	\end{itemize}
+	
+\end{document}
