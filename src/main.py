@@ -10,7 +10,7 @@ dbFile.close()
 tables = db['database']['tabelle']
 
 #Chiedi frase in linguaggio naturale
-naturalLangPhrase = "dammi i clienti ordinati per nome"#input("Inserisci frase di interrograzione in linguaggio naturale: ")
+naturalLangPhrase = input("Inserisci frase di interrograzione in linguaggio naturale: ")
 
 #Identifica le parti del linguaggio (Parts of speech)
 classifier = pipeline("token-classification", model = "sachaarbonel/bert-italian-cased-finetuned-pos")
