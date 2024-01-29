@@ -49,15 +49,14 @@ prompt = ""
 if len(foundTables)>0:
 
     #Contruisci la struttura delle tabelle da interrogare
-    if(len(foundTables) == 1):
-        prompt += "Data la tabella "
-    else:
-        prompt += "Date le tabelle "
+    prompt += "Data la tabella "
 
-    for table in foundTables:
+    for index, table in enumerate(foundTables):
         prompt += table["nome"]+" composta dai campi "
         for field in table["campi"]:
             prompt += field["nome"]+" di tipo "+field["tipo"]+" "
+        if(index < len(foundTables)-1):
+            prompt += " e la tabella "
 
     prompt += "Crea una query SQL per la seguente richiesta: "+naturalLangPhrase
 

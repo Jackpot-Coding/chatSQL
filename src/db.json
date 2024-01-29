@@ -32,7 +32,7 @@
             },
             {
                 "nome":"FAT",
-                "sinonimi":"fatture,fattura,vendite,vendita",
+                "sinonimi":"fatture,fattura,vendite,vendita,fatturato",
                 "descrizione":"Fatture emesse",
                 "campi":[
                     {
