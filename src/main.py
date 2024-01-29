@@ -1,4 +1,5 @@
 import json
+import sys
 
 from transformers import pipeline
 
@@ -12,9 +13,15 @@ tables = db['database']['tabelle']
 #Chiedi frase in linguaggio naturale
 naturalLangPhrase = input("Inserisci frase di interrograzione in linguaggio naturale: ")
 
+if len(naturalLangPhrase)==0:
+    sys.exit("Errore: Frase in linguaggio naturale non inserita.")
+
 #Identifica le parti del linguaggio (Parts of speech)
 classifier = pipeline("token-classification", model = "sachaarbonel/bert-italian-cased-finetuned-pos")
 tokens = classifier(naturalLangPhrase)
+
+if(len(tokens)==0):
+    sys.exit("Errore: impossibile interpretare la frase inserita.")
 
 #Preleva i nomi
 nouns = []
@@ -55,6 +62,6 @@ if len(foundTables)>0:
     prompt += "Crea una query SQL per la seguente richiesta: "+naturalLangPhrase
 
 else:
-    print("Non è stato possibile trovare le tabelle interessate.")
+    print("Errore: Frase non inerente al database.")
 
 print(prompt)
