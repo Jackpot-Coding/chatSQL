@@ -1,3 +1,8 @@
 transformers
 rich
 six
+PyMultiDictionary
+pattern3
+
+
+sed -i '36s/.*/    pass/' /home/matteo/.local/lib/python3.10/site-packages/pattern3/text/tree.py
