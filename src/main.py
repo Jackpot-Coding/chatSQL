@@ -76,7 +76,8 @@ if len(foundTables)>0:
     for index, table in enumerate(foundTables):
         prompt += table["nome"]+" composta dai campi "
         for field in table["campi"]:
-            prompt += field["nome"]+" di tipo "+field["tipo"]+" "
+            fieldSynonyms = field["sinonimi"].split(",")
+            prompt += field["nome"]+" di tipo "+field["tipo"]+" contenente "+fieldSynonyms[0]+","
         if(index < len(foundTables)-1):
             prompt += " e la tabella "
 

@@ -14,17 +14,17 @@
                         "sinonimi":"identificatore"
                     },
                     {
-                        "nome":"rag_soc",
+                        "nome":"c1",
                         "tipo":"VARCHAR",
                         "sinonimi":"ragione sociale,nome"
                     },
                     {
-                        "nome":"addr",
+                        "nome":"c2",
                         "tipo":"VARCHAR",
                         "sinonimi":"indirizzo,posizione,recapito,strada,abitazione,residenza,domicilio,via,strada"
                     },
                     {
-                        "nome":"ac",
+                        "nome":"c3",
                         "tipo":"BOOL",
                         "sinonimi":"attivo,attivi,abilitato,abilitati"
                     }
@@ -41,17 +41,17 @@
                         "sinonimi":"identificatore"
                     },
                     {
-                        "nome":"cus",
+                        "nome":"c1",
                         "tipo":"INT",
                         "sinonimi":"clienti,cliente,acquirente,acquirenti"
                     },
                     {
-                        "nome":"amt",
+                        "nome":"c2",
                         "tipo":"FLOAT",
                         "sinonimi":"importo,costo,prezzo,ammontare,somma,totale,spesa"
                     },
                     {
-                        "nome":"dat",
+                        "nome":"c3",
                         "tipo":"DATE",
                         "sinonimi":"data,anno,mese,giorno,tempo,scadenza,termine"
                     }
