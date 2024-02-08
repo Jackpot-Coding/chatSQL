@@ -10,105 +10,130 @@ In questa sezione vengono descritti e organizzati in forma tabellare i requisiti
 
 \subsection{Requisiti funzionali}
 
+\begin{longtblr}
+	{
+		colspec={|Q[0.10\linewidth]|Q[0.50\linewidth]|Q[0.15\linewidth]|Q[0.15\linewidth]|},
+		rows={halign=l},
+		column{1}={halign=c},
+		column{3}={halign=c},
+		column{4}={halign=c},
+		row{1}={halign=c},
+		%entry = {Requisiti funzionali},
+	}
+	% CONTENUTO %
+	\hline
+	\textbf{Codice} & \textbf{Descrizione} & \textbf{Classificazione} & \textbf{Fonti} \\
+	\hline
+	% RF& descrizione & classificazione & fonti \\
+	% \hline
+	RF1 & L'amministratore deve poter effettuare il login per modificare i Database & Obbligatorio & UC1 - Verbale esterno \\
+	\hline
+	RF2 & Visualizzazione di errore in caso di credenziali errate durante il login & Obbligatorio & UC2 \\
+	\hline
+	RF3 & L'amministratore deve poter creare un nuovo database specificando nome e descrizione & Obbligatorio & UC3 \\
+	\hline
+	RF4 & Visualizzazione di errore in caso di tentativo di creazione di un database con un nome già in uso & Obbligatorio & UC4 \\
+	\hline
+	RF5 & L'amministratore deve poter visualizzare la lista dei database presenti & Obbligatorio & UC5 \\
+	\hline
+	RF6 & L'amministratore deve poter visualizzare i dettagli di un database & Obbligatorio & UC6 \\
+	\hline
+	RF7 & L'amministratore deve poter effettuare modifiche a nome e descrizione di un database & Obbligatorio & UC7 \\
+	\hline
+	RF8 & L'amministratore deve poter eliminare un database presente & Obbligatorio & UC8 \\
+	\hline
+	RF9 & L'amministratore deve poter creare una nuova tabella specificando nome, sinonimi e descrizione & Obbligatorio & UC9 \\
+	\hline
+	RF10 & Visualizzazione di errore in caso di tentativo di creazione di una tabella con un nome già in uso o dati mancanti & Obbligatorio & UC10 \\
+	\hline
+	RF11 & L'amministratore deve poter effettuare modifiche a nome, sinonimi e descrizione della tabella & Obbligatorio & UC11 \\
+	\hline
+	RF12 & L'amministratore deve poter visualizzare la lista delle tabelle presenti in un database & Obbligatorio & UC12 \\
+	\hline
+	RF13 & L'amministratore deve poter visualizzare i dettagli di una tabella & Obbligatorio & UC13 \\
+	\hline
+	RF14 & L'amministratore deve poter eliminare una tabella presente in un database & Obbligatorio & UC14 \\
+	\hline
+	RF15 & L'amministratore deve poter creare un nuovo campo all'interno di una tabella specificando nome, tipo e sinonimi & Obbligatorio & UC15 \\
+	\hline
+	RF16 & Visualizzazione di errore in caso di tentativo di creazione di un campo con un nome già in uso o dati mancanti & Obbligatorio & UC16 \\
+	\hline
+	RF17 & L'amministratore deve poter visualizzare la lista dei campi presenti in una tabella & Obbligatorio & UC17 \\
+	\hline
+	RF18 & L'amministratore deve poter visualizzare i dettagli di un campo & Obbligatorio & UC18 \\
+	\hline
+	RF19 & L'amministratore deve poter effettuare modifiche a nome, tipo e sinonimi di un campo & Obbligatorio & UC19 \\
+	\hline
+	RF20 & L'amministratore deve poter eliminare un campo presente in una tabella & Obbligatorio & UC20 \\
+	\hline
+	RF21 & L'amministratore deve poter caricare la struttura di un nuovo database tramite file & Obbligatorio & UC21 - Capitolato \\
+	\hline
+	RF22 & Visualizzazione di errore in caso di problemi durante il caricamento del file & Desiderabile & UC22 \\
+	\hline
+	RF23 & L'amministratore deve poter effettuare il logout & Obbligatorio & UC23 \\
+	\hline
+	RF24 & Visualizzazione errore in caso di problemi in fase di logout & Desiderabile & UC24 \\
+	\hline
+	RF25 & L'utente deve poter scegliere il database da interrogare tra quelli presenti nel sistema & Obbligatorio & UC25 - Capitolato \\
+	\hline
+	RF26 & Visualizzazione di errore nel caso in cui l'utente non selezioni un database da interrogare & Desiderabile & UC26 \\
+	\hline
+	RF27 & L'utente deve poter inserire la richiesta in linguaggio naturale per interrogare il database & Obbligatorio & UC27 - Capitolato \\
+	\hline
+	RF28 & Visualizzazione di errore in caso di problemi con la frase inserita dall'utente & Desiderabile & UC28 \\
+	\hline
+	RF29 & Visualizzazione del prompt generato da fornire poi all'LLM & Obbligatorio & UC29 - Capitolato \\
+	\hline
+	RF30 & Visualizzazione di errore in caso di problemi con la generazione del prompt & Desiderabile & UC30 \\
+	\hline
+	RF31 & L'utente deve poter richiedere la generazione della query utilizzando un servizio LLM esterno al sistema & Opzionale & UC31 - Capitolato \\
+	\hline
+	RF32 & Visualizzazione di errore in caso di problemi con la generazione della query & Opzionale & UC32 - Capitolato \\
+	\hline
+	RF33 & Visualizzazione della query generata dal LLM con il prompt & Opzionale & UC33 - Capitolato \\
+	\hline
+	RF34 & Dare la possibilità all'utente di inserire la frase in linguaggio naturale tramite input vocale & Opzionale & Capitolato \\
+	\hline
+	RF35 & Verificare la correttezza della frase SQL prodotta & Opzionale & Capitolato \\
+	\hline
+	RF36 & Implementare la gestione di più basi di dati & Opzionale & Capitolato - UC5, UC25 \\
+	\hline
+	RF37 & Utilizzare modelli LLM alternativi a ChatGPT & Opzionale & Capitolato \\
+	\hline
+	RF38 & Avere a disposizione un modello addestrato appositamente per tradurre le frasi di interrogazione in italiano a SQL & Opzionale & Capitolato \\
+	\hline
+	% END_CONTENUTO %
+\end{longtblr}
 
-	\begin{longtblr}{
-			colspec={|Q[0.10\linewidth]|Q[0.50\linewidth]|Q[0.15\linewidth]|Q[0.15\linewidth]|},
-			rows={halign=l},
-			column{1}={halign=c},
-			column{3}={halign=c},
-			column{4}={halign=c},
-			row{1}={halign=c},
-			entry = {Requisiti funzionali},
-		}
-		% CONTENUTO %
-		\hline
-		\textbf{Codice} & \textbf{Descrizione} & \textbf{Classificazione} & \textbf{Fonti} \\
-		\hline
-		% RF& descrizione & classificazione & fonti \\
-		% \hline
-		RF1 & L'amministratore deve poter effettuare il login per modificare i Database & Obbligatorio & UC1 - Verbale esterno \\
-		\hline
-		RF2 & Visualizzazione di errore in caso di credenziali errate durante il login & Obbligatorio & UC2 \\
-		\hline
-		RF3 & L'amministratore deve poter creare un nuovo database specificando nome e descrizione & Obbligatorio & UC3 \\
-		\hline
-		RF4 & Visualizzazione di errore in caso di tentativo di creazione di un database con un nome già in uso & Obbligatorio & UC4 \\
-		\hline
-		RF5 & L'amministratore deve poter visualizzare la lista dei database presenti & Obbligatorio & UC5 \\
-		\hline
-		RF6 & L'amministratore deve poter visualizzare i dettagli di un database & Obbligatorio & UC6 \\
-		\hline
-		RF7 & L'amministratore deve poter effettuare modifiche a nome e descrizione di un database & Obbligatorio & UC7 \\
-		\hline
-		RF8 & L'amministratore deve poter eliminare un database presente & Obbligatorio & UC8 \\
-		\hline
-		RF9 & L'amministratore deve poter creare una nuova tabella specificando nome, sinonimi e descrizione & Obbligatorio & UC9 \\
-		\hline
-		RF10 & Visualizzazione di errore in caso di tentativo di creazione di una tabella con un nome già in uso o dati mancanti & Obbligatorio & UC10 \\
-		\hline
-		RF11 & L'amministratore deve poter effettuare modifiche a nome, sinonimi e descrizione della tabella & Obbligatorio & UC11 \\
-		\hline
-		RF12 & L'amministratore deve poter visualizzare la lista delle tabelle presenti in un database & Obbligatorio & UC12 \\
-		\hline
-		RF13 & L'amministratore deve poter visualizzare i dettagli di una tabella & Obbligatorio & UC13 \\
-		\hline
-		RF14 & L'amministratore deve poter eliminare una tabella presente in un database & Obbligatorio & UC14 \\
-		\hline
-		RF15 & L'amministratore deve poter creare un nuovo campo all'interno di una tabella specificando nome, tipo e sinonimi & Obbligatorio & UC15 \\
-		\hline
-		RF16 & Visualizzazione di errore in caso di tentativo di creazione di un campo con un nome già in uso o dati mancanti & Obbligatorio & UC16 \\
-		\hline
-		RF17 & L'amministratore deve poter visualizzare la lista dei campi presenti in una tabella & Obbligatorio & UC17 \\
-		\hline
-		RF18 & L'amministratore deve poter visualizzare i dettagli di un campo & Obbligatorio & UC18 \\
-		\hline
-		RF19 & L'amministratore deve poter effettuare modifiche a nome, tipo e sinonimi di un campo & Obbligatorio & UC19 \\
-		\hline
-		RF20 & L'amministratore deve poter eliminare un campo presente in una tabella & Obbligatorio & UC20 \\
-		\hline
-		RF21 & L'amministratore deve poter caricare la struttura di un nuovo database tramite file & Obbligatorio & UC21 - Capitolato \\
-		\hline
-		RF22 & Visualizzazione di errore in caso di problemi durante il caricamento del file & Desiderabile & UC22 \\
-		\hline
-		RF23 & L'amministratore deve poter effettuare il logout & Obbligatorio & UC23 \\
-		\hline
-		RF24 & Visualizzazione errore in caso di problemi in fase di logout & Desiderabile & UC24 \\
-		\hline
-		RF25 & L'utente deve poter scegliere il database da interrogare tra quelli presenti nel sistema & Obbligatorio & UC25 - Capitolato \\
-		\hline
-		RF26 & Visualizzazione di errore nel caso in cui l'utente non selezioni un database da interrogare & Desiderabile & UC26 \\
-		\hline
-		RF27 & L'utente deve poter inserire la richiesta in linguaggio naturale per interrogare il database & Obbligatorio & UC27 - Capitolato \\
-		\hline
-		RF28 & Visualizzazione di errore in caso di problemi con la frase inserita dall'utente & Desiderabile & UC28 \\
-		\hline
-		RF29 & Visualizzazione del prompt generato da fornire poi all'LLM & Obbligatorio & UC29 - Capitolato \\
-		\hline
-		RF30 & Visualizzazione di errore in caso di problemi con la generazione del prompt & Desiderabile & UC30 \\
-		\hline
-		RF31 & L'utente deve poter richiedere la generazione della query utilizzando un servizio LLM esterno al sistema & Opzionale & UC31 - Capitolato \\
-		\hline
-		RF32 & Visualizzazione di errore in caso di problemi con la generazione della query & Opzionale & UC32 - Capitolato \\
-		\hline
-		RF33 & Visualizzazione della query generata dal LLM con il prompt & Opzionale & UC33 - Capitolato \\
-		\hline
-		RF34 & Dare la possibilità all'utente di inserire la frase in linguaggio naturale trampite input vocale & Opzionale & Capitolato \\
-		\hline
-		RF35 & Verificare la correttezza della frase SQL prodotta & Opzionale & Capitolato \\
-		\hline
-		RF36 & Implementare la gestione di più basi di dati & Opzionale & Capitolato - UC5, UC25 \\
-		\hline
-		RF37 & Utilizzare modelli LLM alternativi a ChatGPT & Opzionale & Capitolato \\
-		\hline
-		RF38 & Avere a disposizione un modello addestrato appositamente per tradurre le frasi di interrogazione in italiano a SQL & Opzionale & Capitolato \\
-		\hline
-		% END_CONTENUTO %
-	\end{longtblr}
-
-
+\newpage
 \subsection{Requisiti di qualità}
+\begin{longtblr}
+	{
+		colspec={|Q[0.10\linewidth]|Q[0.50\linewidth]|Q[0.15\linewidth]|Q[0.15\linewidth]|},
+		rows={halign=l},
+		column{1}={halign=c},
+		column{3}={halign=c},
+		column{4}={halign=c},
+		row{1}={halign=c},
+		%entry = {Requisiti funzionali},
+	}
+	% CONTENUTO %
+	\hline
+	\textbf{Codice} & \textbf{Descrizione} & \textbf{Classificazione} & \textbf{Fonti} \\
+	\hline
+	% RQ& descrizione & classificazione & fonti \\
+	% \hline
+	RQ1 & Il prodotto deve essere sviluppato seguendo le Norme di Progetto definite & Obbligatorio & Norme di Progetto \\
+	\hline
+	RQ2 & Il codice sorgente deve essere presente su GitHub all'interno di una repository & Obbligatorio & Norme di Progetto \\
+	\hline
+	RQ3 & Viene fornita la documentazione dell'applicazione, presente all'interno della repository & Desiderabile & Norme di Progetto \\
+	\hline
+	% END_CONTENUTO %
+\end{longtblr}
 
-\begin{table}[ht]
+\iffalse
+\begin{table}[H]
 	\centering
 	\begin{tblr}{
 			colspec={|Q[0.10\linewidth]|Q[0.50\linewidth]|Q[0.15\linewidth]|Q[0.15\linewidth]|},
@@ -116,7 +141,7 @@ In questa sezione vengono descritti e organizzati in forma tabellare i requisiti
 			column{1}={halign=c},
 			column{3}={halign=c},
 			column{4}={halign=c},
-			row{1}={halign=c}
+			row{1}={halign=c},
 		}
 		% CONTENUTO %
 		\hline
@@ -133,27 +158,36 @@ In questa sezione vengono descritti e organizzati in forma tabellare i requisiti
 		% END_CONTENUTO %
 	\end{tblr}
 \end{table}
-		
-%\begin{center}
-%	\rowcolors{2}{gray!25}{white}
-%	\begin{tabular}{ |p{0.10\linewidth}|p{0.50\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}| }
-%		\hline
-%		\textbf{Codice} & \textbf{Descrizione} & \textbf{Classificazione} & \textbf{Fonti} \\
-%		\hline
-%		% RQ& descrizione & classificazione & fonti \\
-%		% \hline
-%		RQ1 & Il prodotto deve essere sviluppato seguendo le Norme di Progetto definite & Obbligatorio & Norme di Progetto \\
-%		\hline
-%		RQ2 & Il codice sorgente deve essere presente su GitHub all'interno di una repository & Obbligatorio & Norme di Progetto \\
-%		\hline
-%		RQ3 & Viene fornita la documentazione dell'applicazione, presente all'interno della repository & Desiderabile & Norme di Progetto \\
-%		\hline
-%	\end{tabular}
-%\end{center}
+\fi
 
 \subsection{Requisiti di vincolo}
+\begin{longtblr}
+	{
+		colspec={|Q[0.10\linewidth]|Q[0.50\linewidth]|Q[0.15\linewidth]|Q[0.15\linewidth]|},
+		rows={halign=l},
+		column{1}={halign=c},
+		column{3}={halign=c},
+		column{4}={halign=c},
+		row{1}={halign=c},
+		%entry = {Requisiti funzionali},
+	}
+	% CONTENUTO %
+	\hline
+	\textbf{Codice} & \textbf{Descrizione} & \textbf{Classificazione} & \textbf{Fonti} \\
+	\hline
+	% RV& descrizione & classificazione & fonti \\
+	% \hline
+	RV1 & Sviluppo di un interfaccia tramite HTML e CSS & Opzionale & Verbale esterno \\
+	\hline
+	RV2 & Sviluppo dell'applicazione in Python & Opzionale & Capitolato \\
+	\hline
+	RV3 & Il prodotto deve essere in grado di analizzare un file strutturato & Obbligatorio & Capitolato \\
+	\hline
+	% END_CONTENUTO %
+\end{longtblr}
 
-\begin{table}[ht]
+\iffalse
+\begin{table}[H]
 	\centering
 	\begin{tblr}{
 			colspec={|Q[0.10\linewidth]|Q[0.50\linewidth]|Q[0.15\linewidth]|Q[0.15\linewidth]|},
@@ -178,413 +212,206 @@ In questa sezione vengono descritti e organizzati in forma tabellare i requisiti
 		% END_CONTENUTO %
 	\end{tblr}
 \end{table}
-
-%\begin{center}
-%	\rowcolors{2}{gray!25}{white}
-%	\begin{tabular}{ |p{0.10\linewidth}|p{0.50\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}| }
-%		\hline
-%		\textbf{Codice} & \textbf{Descrizione} & \textbf{Classificazione} & \textbf{Fonti} \\
-%		\hline
-%		% RV& descrizione & classificazione & fonti \\
-%		% \hline
-%		RV1 & Sviluppo di un interfaccia tramite HTML e CSS & Opzionale & Verbale esterno \\
-%		\hline
-%		RV2 & Sviluppo dell'applicazione in Python & Opzionale & Capitolato \\
-%		\hline
-%		RV3 & Il prodotto deve essere in grado di analizzare un file strutturato & Obbligatorio & Capitolato \\
-%		\hline
-%	\end{tabular}
-%\end{center}
+\fi
 
 \subsection{Requisiti prestazionali}
 Non sono stati individuati vincoli prestazionali.
 
 \subsection{Tracciamento}
 \subsubsection{Fonte - Requisiti}
+\begin{longtblr}
+	{
+		colspec={|Q[0.25\linewidth]|Q[0.25\linewidth]|},
+		rows={halign=c}
+	}
+	% CONTENUTO %
+	\hline
+	\textbf{Fonte} & \textbf{Requisiti} \\
+	\hline
+	% fonte & requisiti \\
+	% \hline
+	Capitolato & RF21, RF25, RF27, RF29, RF31, RF32, RF33, RF34, RF35, RF36, RF37, RF38, RV2, RV3 \\
+	\hline
+	UC1 & RF1 \\
+	\hline
+	UC2 & RF2 \\
+	\hline
+	UC3 & RF3 \\
+	\hline
+	UC4 & RF4 \\
+	\hline
+	UC5 & RF5 \\
+	\hline
+	UC6 & RF6 \\
+	\hline
+	UC7 & RF7 \\
+	\hline
+	UC8 & RF8 \\
+	\hline
+	UC9 & RF9 \\
+	\hline
+	UC10 & RF10 \\
+	\hline
+	UC11 & RF11 \\
+	\hline
+	UC12 & RF12 \\
+	\hline
+	UC13 & RF13 \\
+	\hline
+	UC14 & RF14 \\
+	\hline
+	UC15 & RF15 \\
+	\hline
+	UC16 & RF16 \\
+	\hline
+	UC17 & RF17 \\
+	\hline
+	UC18 & RF18 \\
+	\hline
+	UC19 & RF19 \\
+	\hline
+	UC20 & RF20 \\
+	\hline
+	UC21 & RF21 \\
+	\hline
+	UC22 & RF22 \\
+	\hline
+	UC23 & RF23 \\
+	\hline
+	UC24 & RF24 \\
+	\hline
+	UC25 & RF25 \\
+	\hline
+	UC26 & RF26 \\
+	\hline
+	UC27 & RF27 \\
+	\hline
+	UC28 & RF28 \\
+	\hline
+	UC29 & RF29 \\
+	\hline
+	UC30 & RF30 \\
+	\hline
+	UC31 & RF31 \\
+	\hline
+	UC32 & RF32 \\
+	\hline
+	UC33 & RF33 \\
+	\hline
+	Norme di Progetto  & RQ1, RQ2, RQ3 \\
+	\hline
+	Verbali esterni  & RF1, RV1 \\
+	\hline
+	% END_CONTENUTO %
+\end{longtblr}
 
-\begin{table}[ht]
-	\centering
-	\begin{tblr}{
-			colspec={|Q[0.25\linewidth]|Q[0.25\linewidth]|},
-			rows={halign=c}
-		}
-		% CONTENUTO %
-		\hline
-		\textbf{Fonte} & \textbf{Requisiti} \\
-		\hline
-		% fonte & requisiti \\
-		% \hline
-		Capitolato & RF21, RF25, RF27, RF29, RF31, RF32, RF33, RF34, RF35, RF36, RF37, RF38, RV2, RV3 \\
-		\hline
-		UC1 & RF1 \\
-		\hline
-		UC2 & RF2 \\
-		\hline
-		UC3 & RF3 \\
-		\hline
-		UC4 & RF4 \\
-		\hline
-		UC5 & RF5 \\
-		\hline
-		UC6 & RF6 \\
-		\hline
-		UC7 & RF7 \\
-		\hline
-		UC8 & RF8 \\
-		\hline
-		UC9 & RF9 \\
-		\hline
-		UC10 & RF10 \\
-		\hline
-		UC11 & RF11 \\
-		\hline
-		UC12 & RF12 \\
-		\hline
-		UC13 & RF13 \\
-		\hline
-		UC14 & RF14 \\
-		\hline
-		UC15 & RF15 \\
-		\hline
-		UC16 & RF16 \\
-		\hline
-		UC17 & RF17 \\
-		\hline
-		UC18 & RF18 \\
-		\hline
-		UC19 & RF19 \\
-		\hline
-		UC20 & RF20 \\
-		\hline
-		UC21 & RF21 \\
-		\hline
-		UC22 & RF22 \\
-		\hline
-		UC23 & RF23 \\
-		\hline
-		UC24 & RF24 \\
-		\hline
-		UC25 & RF25 \\
-		\hline
-		UC26 & RF26 \\
-		\hline
-		UC27 & RF27 \\
-		\hline
-		UC28 & RF28 \\
-		\hline
-		UC29 & RF29 \\
-		\hline
-		UC30 & RF30 \\
-		\hline
-		UC31 & RF31 \\
-		\hline
-		UC32 & RF32 \\
-		\hline
-		UC33 & RF33 \\
-		\hline
-		Norme di Progetto  & RQ1, RQ2, RQ3 \\
-		\hline
-		Verbali esterni  & RF1, RV1 \\
-		\hline
-		% END_CONTENUTO %
-	\end{tblr}
-\end{table}
-
-\iffalse
-\begin{center}
-	\rowcolors{2}{gray!25}{white}
-	\begin{tabular}{ |p{0.25\linewidth}|p{0.25\linewidth}| } 
-		\hline
-		\textbf{Fonte} & \textbf{Requisiti} \\
-		\hline
-		% fonte & requisiti \\
-		% \hline
-		Capitolato & RF21, RF25, RF27, RF29, RF31, RF32, RF33, RF34, RF35, RF36, RF37, RF38, RV2, RV3 \\
-		\hline
-		UC1 & RF1 \\
-		\hline
-		UC2 & RF2 \\
-		\hline
-		UC3 & RF3 \\
-		\hline
-		UC4 & RF4 \\
-		\hline
-		UC5 & RF5 \\
-		\hline
-		UC6 & RF6 \\
-		\hline
-		UC7 & RF7 \\
-		\hline
-		UC8 & RF8 \\
-		\hline
-		UC9 & RF9 \\
-		\hline
-		UC10 & RF10 \\
-		\hline
-		UC11 & RF11 \\
-		\hline
-		UC12 & RF12 \\
-		\hline
-		UC13 & RF13 \\
-		\hline
-		UC14 & RF14 \\
-		\hline
-		UC15 & RF15 \\
-		\hline
-		UC16 & RF16 \\
-		\hline
-		UC17 & RF17 \\
-		\hline
-		UC18 & RF18 \\
-		\hline
-		UC19 & RF19 \\
-		\hline
-		UC20 & RF20 \\
-		\hline
-		UC21 & RF21 \\
-		\hline
-		UC22 & RF22 \\
-		\hline
-		UC23 & RF23 \\
-		\hline
-		UC24 & RF24 \\
-		\hline
-		UC25 & RF25 \\
-		\hline
-		UC26 & RF26 \\
-		\hline
-		UC27 & RF27 \\
-		\hline
-		UC28 & RF28 \\
-		\hline
-		UC29 & RF29 \\
-		\hline
-		UC30 & RF30 \\
-		\hline
-		UC31 & RF31 \\
-		\hline
-		UC32 & RF32 \\
-		\hline
-		UC33 & RF33 \\
-		\hline
-		Norme di Progetto  & RQ1, RQ2, RQ3 \\
-		\hline
-		Verbali esterni  & RF1, RV1 \\
-		\hline
-	\end{tabular}
-\end{center}
-\fi
 
 \subsubsection{Requisito - Fonti}
+\begin{longtblr}
+	{
+		colspec={|Q[0.25\linewidth]|Q[0.25\linewidth]|},
+		rows={halign=c}
+	}
+	% CONTENUTO %
+	\hline
+	\textbf{Requisito} & \textbf{Fonti} \\
+	\hline
+	% requisito & fonti \\
+	% \hline
+	RF1 & UC1, Verbale esterno \\
+	\hline
+	RF2 & UC2 \\
+	\hline
+	RF3 & UC3 \\
+	\hline
+	RF4 & UC4 \\
+	\hline
+	RF5 & UC5 \\
+	\hline
+	RF6 & UC6 \\
+	\hline
+	RF7 & UC7 \\
+	\hline
+	RF8 & UC8 \\
+	\hline
+	RF9 & UC9 \\
+	\hline
+	RF10 & UC10 \\
+	\hline
+	RF11 & UC11 \\
+	\hline
+	RF12 & UC12 \\
+	\hline
+	RF13 & UC13 \\
+	\hline
+	RF14 & UC14 \\
+	\hline
+	RF15 & UC15 \\
+	\hline
+	RF16 & UC16 \\
+	\hline
+	RF17 & UC17 \\
+	\hline
+	RF18 & UC18 \\
+	\hline
+	RF19 & UC19 \\
+	\hline
+	RF20 & UC20 \\
+	\hline
+	RF21 & UC21, Capitolato \\
+	\hline
+	RF22 & UC22 \\
+	\hline
+	RF23 & UC23 \\
+	\hline
+	RF24 & UC24 \\
+	\hline
+	RF25 & UC25, Capitolato \\
+	\hline
+	RF26 & UC26 \\
+	\hline
+	RF27 & UC27, Capitolato \\
+	\hline
+	RF28 & UC28 \\
+	\hline
+	RF29 & UC29, Capitolato \\
+	\hline
+	RF30 & UC30 \\
+	\hline
+	RF31 & UC31, Capitolato \\
+	\hline
+	RF32 & UC32, Capitolato \\
+	\hline
+	RF33 & UC33, Capitolato \\
+	\hline
+	RF34 & Capitolato \\
+	\hline
+	RF35 & Capitolato \\
+	\hline
+	RF36 & UC5, UC25, Capitolato \\
+	\hline
+	RF37 & Capitolato \\
+	\hline
+	RF38 & Capitolato \\
+	\hline
+	RQ1 & Norme di Progetto \\
+	\hline
+	RQ2 & Norme di Progetto \\
+	\hline
+	RQ3 & Norme di Progetto \\
+	\hline
+	RV1 & Verbale esterno \\
+	\hline
+	RV2 & Capitolato \\
+	\hline
+	RV3 & Capitolato \\
+	\hline
+	% END_CONTENUTO %
+\end{longtblr}
 
-\begin{table}[ht]
-	\centering
-	\begin{tblr}{
-			colspec={|Q[0.25\linewidth]|Q[0.25\linewidth]|},
-			rows={halign=c}
-		}
-		% CONTENUTO %
-		\hline
-		\textbf{Requisito} & \textbf{Fonti} \\
-		\hline
-		% requisito & fonti \\
-		% \hline
-		RF1 & UC1, Verbale esterno \\
-		\hline
-		RF2 & UC2 \\
-		\hline
-		RF3 & UC3 \\
-		\hline
-		RF4 & UC4 \\
-		\hline
-		RF5 & UC5 \\
-		\hline
-		RF6 & UC6 \\
-		\hline
-		RF7 & UC7 \\
-		\hline
-		RF8 & UC8 \\
-		\hline
-		RF9 & UC9 \\
-		\hline
-		RF10 & UC10 \\
-		\hline
-		RF11 & UC11 \\
-		\hline
-		RF12 & UC12 \\
-		\hline
-		RF13 & UC13 \\
-		\hline
-		RF14 & UC14 \\
-		\hline
-		RF15 & UC15 \\
-		\hline
-		RF16 & UC16 \\
-		\hline
-		RF17 & UC17 \\
-		\hline
-		RF18 & UC18 \\
-		\hline
-		RF19 & UC19 \\
-		\hline
-		RF20 & UC20 \\
-		\hline
-		RF21 & UC21, Capitolato \\
-		\hline
-		RF22 & UC22 \\
-		\hline
-		RF23 & UC23 \\
-		\hline
-		RF24 & UC24 \\
-		\hline
-		RF25 & UC25, Capitolato \\
-		\hline
-		RF26 & UC26 \\
-		\hline
-		RF27 & UC27, Capitolato \\
-		\hline
-		RF28 & UC28 \\
-		\hline
-		RF29 & UC29, Capitolato \\
-		\hline
-		RF30 & UC30 \\
-		\hline
-		RF31 & UC31, Capitolato \\
-		\hline
-		RF32 & UC32, Capitolato \\
-		\hline
-		RF33 & UC33, Capitolato \\
-		\hline
-		RF34 & Capitolato \\
-		\hline
-		RF35 & Capitolato \\
-		\hline
-		RF36 & UC5, UC25, Capitolato \\
-		\hline
-		RF37 & Capitolato \\
-		\hline
-		RF38 & Capitolato \\
-		\hline
-		RQ1 & Norme di Progetto \\
-		\hline
-		RQ2 & Norme di Progetto \\
-		\hline
-		RQ3 & Norme di Progetto \\
-		\hline
-		RV1 & Verbale esterno \\
-		\hline
-		RV2 & Capitolato \\
-		\hline
-		RV3 & Capitolato \\
-		\hline
-		% END_CONTENUTO %
-	\end{tblr}
-\end{table}
-
-\iffalse
-\begin{center}
-	\rowcolors{2}{gray!25}{white}
-	\begin{tabular}{ |p{0.25\linewidth}|p{0.25\linewidth}| } 
-		\hline
-		\textbf{Requisito} & \textbf{Fonti} \\
-		\hline
-		% requisito & fonti \\
-		% \hline
-		RF1 & UC1, Verbale esterno \\
-		\hline
-		RF2 & UC2 \\
-		\hline
-		RF3 & UC3 \\
-		\hline
-		RF4 & UC4 \\
-		\hline
-		RF5 & UC5 \\
-		\hline
-		RF6 & UC6 \\
-		\hline
-		RF7 & UC7 \\
-		\hline
-		RF8 & UC8 \\
-		\hline
-		RF9 & UC9 \\
-		\hline
-		RF10 & UC10 \\
-		\hline
-		RF11 & UC11 \\
-		\hline
-		RF12 & UC12 \\
-		\hline
-		RF13 & UC13 \\
-		\hline
-		RF14 & UC14 \\
-		\hline
-		RF15 & UC15 \\
-		\hline
-		RF16 & UC16 \\
-		\hline
-		RF17 & UC17 \\
-		\hline
-		RF18 & UC18 \\
-		\hline
-		RF19 & UC19 \\
-		\hline
-		RF20 & UC20 \\
-		\hline
-		RF21 & UC21, Capitolato \\
-		\hline
-		RF22 & UC22 \\
-		\hline
-		RF23 & UC23 \\
-		\hline
-		RF24 & UC24 \\
-		\hline
-		RF25 & UC25, Capitolato \\
-		\hline
-		RF26 & UC26 \\
-		\hline
-		RF27 & UC27, Capitolato \\
-		\hline
-		RF28 & UC28 \\
-		\hline
-		RF29 & UC29, Capitolato \\
-		\hline
-		RF30 & UC30 \\
-		\hline
-		RF31 & UC31, Capitolato \\
-		\hline
-		RF32 & UC32, Capitolato \\
-		\hline
-		RF33 & UC33, Capitolato \\
-		\hline
-		RF34 & Capitolato \\
-		\hline
-		RF35 & Capitolato \\
-		\hline
-		RF36 & UC5, UC25, Capitolato \\
-		\hline
-		RF37 & Capitolato \\
-		\hline
-		RF38 & Capitolato \\
-		\hline
-		RQ1 & Norme di Progetto \\
-		\hline
-		RQ2 & Norme di Progetto \\
-		\hline
-		RQ3 & Norme di Progetto \\
-		\hline
-		RV1 & Verbale esterno \\
-		\hline
-		RV2 & Capitolato \\
-		\hline
-		RV3 & Capitolato \\
-		\hline
-	\end{tabular}
-\end{center}
-\fi
 
 \subsection{Riepilogo}
 \begin{center}
-
 	\rowcolors{2}{gray!25}{white}
 	\begin{tabular}{ |c|c|c|c|c| } 
 		\hline

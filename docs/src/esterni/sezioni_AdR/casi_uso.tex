@@ -23,15 +23,18 @@
 % END TEMPLATE
 
 \subsection{Obiettivi}
-La sezione ha come obiettivo quello di identificare e descrivere tutti i casi d'uso che sono stati individuati dal gruppo si sede di analisi del capitolato assegnato.
+La sezione ha come obiettivo quello di identificare e descrivere tutti i casi d'uso che sono stati individuati dal gruppo in sede di analisi del capitolato assegnato.
 
 \subsection{Attori}
+\begin{wrapfigure}{r}{3.5cm}
+	\includegraphics[width=3.5cm]{UML_Use_Cases/UC-Attori.png}
+\end{wrapfigure}
 Il sistema dispone di due attori principali. In particolare:
 \begin{itemize}
 	\item \textbf{Utente}, che accede al servizio come utente in grado di selezionare una struttura database precaricata, inserire una frase di interrogazione in linguaggio naturale, visualizzare il prompt generato dall'LLM per poi confermarlo e ottenere una frase in formato SQL che rappresenti quello che era stato richiesto inizialmente.
-	\item \textbf{Amministratore}, generalizzazione dell'utente generico ed accede al servizio come amministratore. Oltre a poter compiere tutte le azioni che può fare l'utente generico, l'amministratore può creare, visualizzare, modificare ed eliminare un database, le sue tabelle e i suoi campi.
+	\item \textbf{Amministratore}, generalizzazione dell'utente generico, accede al servizio come amministratore. Oltre a poter compiere tutte le azioni che può fare l'utente generico, l'amministratore può creare, visualizzare, modificare ed eliminare un database, le sue tabelle e i suoi campi.
 \end{itemize}
-\includegraphics[scale=0.6]{UML_Use_Cases/UC-Attori.png}
+% \includegraphics[scale=0.6]{UML_Use_Cases/UC-Attori.png}
 
 \setcounter{secnumdepth}{0}
 
@@ -276,7 +279,7 @@ Il sistema dispone di due attori principali. In particolare:
 \label{sec:UC7}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
-	\item \textbf{Descrizione:} l’amministratore modifica la Strutture Database selezionata;
+	\item \textbf{Descrizione:} l’amministratore modifica la Struttura Database selezionata;
 	\item \textbf{Attori:} amministratore;
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
@@ -288,8 +291,12 @@ Il sistema dispone di due attori principali. In particolare:
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
+		\item L’amministratore modifica il nome del Database;
 		\item Il sistema verifica il nome ricevuto;
-		\item Il sistema ve
+	\end{itemize}
+	\item \textbf{Estensioni:} nel caso in cui il nuovo nome sia già presente:
+	\begin{itemize}
+		\item \hyperref[sec:UC4]{\textbf{UC4}} - Errore: nome Database già presente.
 	\end{itemize}
 \end{itemize}
 
@@ -313,7 +320,7 @@ Il sistema dispone di due attori principali. In particolare:
 	\begin{itemize}
 		\item L'amministratore seleziona il database da eliminare usando il pulsante di eliminazione apposito;
 		\item Il sistema visualizza un messaggio per chiedere la conferma dell'eliminazione;
-		\item Se l'amministrazione conferma l'eliminazione, il database e le tabelle collegate verranno rimossi dal sistema e verrà visualizzato un messaggio di avvenuta eliminazione.
+		\item Se l'amministratore conferma l'eliminazione, il database e le tabelle collegate verranno rimossi dal sistema e verrà visualizzato un messaggio di avvenuta eliminazione.
 	\end{itemize}
 \end{itemize}
 
@@ -345,7 +352,7 @@ Il sistema dispone di due attori principali. In particolare:
 	\end{itemize}
 	\item \textbf{Estensioni:} nel caso in cui non vengano inseriti i sinonimi del nome della tabella, o il nome esisti già:
 	\begin{itemize}
-		\item \hyperref[sec:UC9]{\textbf{UC9}} - Errore nella creazione della tabella
+		\item \hyperref[sec:UC10]{\textbf{UC10}} - Errore nella creazione della tabella
 	\end{itemize}
 \end{itemize}
 
@@ -429,9 +436,9 @@ Il sistema dispone di due attori principali. In particolare:
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item L’amministratore inserisce il nome della tabella nel form di creazione (\hyperref[sec:UC8.1]{\textbf{UC8.1}});
-		\item L’amministratore inserisce i sinonimi del nome della tabella nel form di creazione (\hyperref[sec:UC8.2]{\textbf{UC8.2}});
-		\item L’amministratore inserisce la descrizione della tabella nel form di creazione (\hyperref[sec:UC8.3]{\textbf{UC8.3}});
+		\item L’amministratore inserisce il nome della tabella nel form di creazione (\hyperref[sec:UC9.1]{\textbf{UC9.1}});
+		\item L’amministratore inserisce i sinonimi del nome della tabella nel form di creazione (\hyperref[sec:UC9.2]{\textbf{UC9.2}});
+		\item L’amministratore inserisce la descrizione della tabella nel form di creazione (\hyperref[sec:UC9.3]{\textbf{UC9.3}});
 		\item Il sistema verifica che non esista già una tabella con lo stesso nome e che vengano inseriti sinonimi e descrizione della tabella;
 		\item Il sistema visualizza il messaggio di errore opportuno.
 	\end{itemize}
@@ -525,11 +532,11 @@ Il sistema dispone di due attori principali. In particolare:
 	\end{itemize}
 	\item \textbf{Estensioni:} nel caso in cui non vengano rimossi completamente i sinonimi del nome della tabella, o il nome modificato è già presente:
 	\begin{itemize}
-		\item \hyperref[sec:UC9]{\textbf{UC9}} - Errore nella creazione della tabella
+		\item \hyperref[sec:UC10]{\textbf{UC10}} - Errore nella creazione della tabella
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC12 - Visualizzazione lista delle tabella della Struttura Database}
+\subsection{UC12 - Visualizzazione lista delle tabelle nella Struttura Database}
 \label{sec:UC12}
 \includegraphics[scale=0.6]{UML_Use_Cases/UC12.png}
 \begin{itemize}
@@ -944,7 +951,7 @@ Il sistema dispone di due attori principali. In particolare:
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
-		\item La tabella non viene creata e il programma visualizza un messaggio di errore;
+		\item La Struttura Database non viene caricata e salvata, il programma visualizza un messaggio di errore;
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
@@ -958,7 +965,7 @@ Il sistema dispone di due attori principali. In particolare:
 \label{sec:UC23}
 \includegraphics[scale=0.6]{UML_Use_Cases/UC23_24.png}
 \begin{itemize}
-	\item \textbf{Descrizione: l'amministratore vuole fare il logout dall'area amministrativa} 
+	\item \textbf{Descrizione:} l'amministratore vuole fare il logout dall'area amministrativa; 
 	\item \textbf{Attori:} amministratore;
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
@@ -1071,15 +1078,16 @@ Il sistema dispone di due attori principali. In particolare:
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
 		\item Il sistema verifica la frase ricevuta;
-		\item Il sistema non riescie ad elaborare la frase;
+		\item Il sistema non riesce ad elaborare la frase;
 		\item Il sistema visualizza un messaggio di errore.
 	\end{itemize}
-	\end{itemize}
+\end{itemize}
 
+\includegraphics[scale=0.6]{UML_Use_Cases/UC28.1_28.2_28.3.png}
 
 \subsubsection{UC28.1 - Errore frase non inserita}
 \label{sec:UC28.1}
-\includegraphics[scale=0.6]{UML_Use_Cases/UC28.1_28.2_28.3.png}
+%\includegraphics[scale=0.6]{UML_Use_Cases/UC28.1_28.2_28.3.png}
 \begin{itemize}
 	\item \textbf{Descrizione:} L’utente visualizza un errore relativo alla frase inserita;
 	\item \textbf{Attori:} utente;
@@ -1316,7 +1324,7 @@ Il sistema dispone di due attori principali. In particolare:
 		\item L'utente richiede la generazione della query SQL a partire dal prompt ricevuto;
 		\item Il sistema verifica il prompt ricevuto;
 		\item Il sistema invia il prompt al servizio LLM esterno;
-		\item Il sistema non riescie a comunicare con il servizio LLM esterno;
+		\item Il sistema non riesce a comunicare con il servizio LLM esterno;
 		\item Il sistema mostra un messaggio di errore;
 	\end{itemize}
 \end{itemize}
@@ -1333,7 +1341,7 @@ Il sistema dispone di due attori principali. In particolare:
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
-		\item L'utente un messaggio di errore;
+		\item L'utente visualizza un messaggio di errore;
 	\end{itemize}
 	\item \textbf{Scenario principale:}
 	\begin{itemize}
