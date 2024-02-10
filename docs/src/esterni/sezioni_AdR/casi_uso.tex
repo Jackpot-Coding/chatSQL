@@ -31,7 +31,7 @@ La sezione ha come obiettivo quello di identificare e descrivere tutti i casi d'
 \end{wrapfigure}
 Il sistema dispone di due attori principali. In particolare:
 \begin{itemize}
-	\item \textbf{Utente}, che accede al servizio come utente in grado di selezionare una struttura \textit{database} precaricata, inserire una frase di interrogazione in linguaggio naturale, visualizzare il \textit{prompt} generato dall'\textit{LLM} per poi confermarlo e ottenere una frase in formato \textit{SQL} che rappresenti quello che era stato richiesto inizialmente.
+	\item \textbf{Utente}, che accede al servizio come utente in grado di selezionare una struttura \textit{database} precaricata, inserire una frase di interrogazione in linguaggio naturale, visualizzare il \textit{prompt} generato dall'\textit{LLM} per poi confermarlo e ottenere una frase in \textit{form}ato \textit{SQL} che rappresenti quello che era stato richiesto inizialmente.
 	\item \textbf{Amministratore}, generalizzazione dell'utente generico, accede al servizio come amministratore. Oltre a poter compiere tutte le azioni che può fare l'utente generico, l'amministratore può creare, visualizzare, modificare ed eliminare un \textit{database}, le sue tabelle e i suoi campi.
 \end{itemize}
 % \includegraphics[scale=0.6]{UML_Use_Cases/UC-Attori.png}
@@ -55,8 +55,8 @@ Il sistema dispone di due attori principali. In particolare:
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item L’ amministratore inserisce il proprio nome utente nel form di accesso (\hyperref[sec:UC1.1]{\textbf{UC1.1}});
-		\item L’ amministratore inserisce la propria password nel form di accesso (\hyperref[sec:UC1.2]{\textbf{UC1.2}});
+		\item L’ amministratore inserisce il proprio nome utente nel \textit{form} di accesso (\hyperref[sec:UC1.1]{\textbf{UC1.1}});
+		\item L’ amministratore inserisce la propria \textit{password} nel \textit{form} di accesso (\hyperref[sec:UC1.2]{\textbf{UC1.2}});
 		\item Il sistema verifica che le credenziali ricevute siano corrette. 
 	\end{itemize}
 	\item \textbf{Estensioni:} Nel caso le credenziali non siano corrette:
@@ -83,15 +83,15 @@ Il sistema dispone di due attori principali. In particolare:
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item L’amministratore inserisce il proprio nome utente nel form di accesso.
+		\item L’amministratore inserisce il proprio nome utente nel \textit{form} di accesso.
 	\end{itemize}
 \end{itemize}
 
-\subsubsection{UC1.2 - Inserimento password}
+\subsubsection{UC1.2 - Inserimento \textit{password}}
 \label{sec:UC1.2}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
-	\item \textbf{Descrizione:} L’amministratore inserisce la propria password;
+	\item \textbf{Descrizione:} L’amministratore inserisce la propria \textit{password};
 	\item \textbf{Attori:} amministratore;
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
@@ -101,11 +101,11 @@ Il sistema dispone di due attori principali. In particolare:
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
-		\item L’amministratore ha inserito correttamente la propria password;
+		\item L’amministratore ha inserito correttamente la propria \textit{password};
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item L’amministratore inserisce la propria password nel form di accesso.
+		\item L’amministratore inserisce la propria \textit{password} nel \textit{form} di accesso.
 	\end{itemize}
 \end{itemize}
 
@@ -121,7 +121,7 @@ Il sistema dispone di due attori principali. In particolare:
 		\item L’amministratore non ha già effettuato l’accesso;
 		\item L’amministratore sta effettuando il \textit{login} (\hyperref[sec:UC1]{\textbf{UC1}});
 		\item L’amministratore ha inserito il proprio nome utente (\hyperref[sec:UC1.1]{\textbf{UC1.1}});
-		\item L’amministratore ha inserito la propria password (\hyperref[sec:UC1.2]{\textbf{UC1.2}});
+		\item L’amministratore ha inserito la propria \textit{password} (\hyperref[sec:UC1.2]{\textbf{UC1.2}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:}
 	\begin{itemize}
@@ -369,11 +369,11 @@ Il sistema dispone di due attori principali. In particolare:
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
-		\item Il nome della tabella viene inserito nel form;
+		\item Il nome della tabella viene inserito nel \textit{form};
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item L’amministratore inserisce il nome della tabella nell'apposito form di creazione;
+		\item L’amministratore inserisce il nome della tabella nell'apposito \textit{form} di creazione;
 	\end{itemize}
 \end{itemize}
 
@@ -390,11 +390,11 @@ Il sistema dispone di due attori principali. In particolare:
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
-		\item I sinonimi del nome della tabella vengono inseriti nel form;
+		\item I sinonimi del nome della tabella vengono inseriti nel \textit{form};
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item L’amministratore inserisce i sinonimi del nome della tabella nell'apposito form di creazione;
+		\item L’amministratore inserisce i sinonimi del nome della tabella nell'apposito \textit{form} di creazione;
 	\end{itemize}
 \end{itemize}
 
@@ -411,11 +411,11 @@ Il sistema dispone di due attori principali. In particolare:
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
-		\item La descrizione della tabella viene inserita nel form;
+		\item La descrizione della tabella viene inserita nel \textit{form};
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item L’amministratore inserisce la descrizione della tabella nell'apposito form di creazione;
+		\item L’amministratore inserisce la descrizione della tabella nell'apposito \textit{form} di creazione;
 	\end{itemize}
 \end{itemize}
 
@@ -436,9 +436,9 @@ Il sistema dispone di due attori principali. In particolare:
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item L’amministratore inserisce il nome della tabella nel form di creazione (\hyperref[sec:UC9.1]{\textbf{UC9.1}});
-		\item L’amministratore inserisce i sinonimi del nome della tabella nel form di creazione (\hyperref[sec:UC9.2]{\textbf{UC9.2}});
-		\item L’amministratore inserisce la descrizione della tabella nel form di creazione (\hyperref[sec:UC9.3]{\textbf{UC9.3}});
+		\item L’amministratore inserisce il nome della tabella nel \textit{form} di creazione (\hyperref[sec:UC9.1]{\textbf{UC9.1}});
+		\item L’amministratore inserisce i sinonimi del nome della tabella nel \textit{form} di creazione (\hyperref[sec:UC9.2]{\textbf{UC9.2}});
+		\item L’amministratore inserisce la descrizione della tabella nel \textit{form} di creazione (\hyperref[sec:UC9.3]{\textbf{UC9.3}});
 		\item Il sistema verifica che non esista già una tabella con lo stesso nome e che vengano inseriti sinonimi e descrizione della tabella;
 		\item Il sistema visualizza il messaggio di errore opportuno.
 	\end{itemize}
@@ -733,9 +733,9 @@ Il sistema dispone di due attori principali. In particolare:
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item L’amministratore inserisce il nome del campo nel form di creazione (\hyperref[sec:UC15.1]{\textbf{UC15.1}});
-		\item L’amministratore seleziona il tipo del campo nel form di creazione (\hyperref[sec:UC15.2]{\textbf{UC15.2}});
-		\item L’amministratore inserisce i sinonimi del nome campo nel form di creazione (\hyperref[sec:UC15.3]{\textbf{UC15.3}});
+		\item L’amministratore inserisce il nome del campo nel \textit{form} di creazione (\hyperref[sec:UC15.1]{\textbf{UC15.1}});
+		\item L’amministratore seleziona il tipo del campo nel \textit{form} di creazione (\hyperref[sec:UC15.2]{\textbf{UC15.2}});
+		\item L’amministratore inserisce i sinonimi del nome campo nel \textit{form} di creazione (\hyperref[sec:UC15.3]{\textbf{UC15.3}});
 		\item Il sistema verifica che non esista già una tabella con lo stesso nome, che venga selezionato il tipo e che vengano inseriti i sinonimi del campo;
 		\item Il sistema visualizza il messaggio di errore opportuno.
 	\end{itemize}
@@ -955,8 +955,8 @@ Il sistema dispone di due attori principali. In particolare:
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item Il sistema verifica che il formato del file sia corretto;
-		\item Il sistema mostra un messaggio di errore se il formato non è corretto;
+		\item Il sistema verifica che il \textit{form}ato del file sia corretto;
+		\item Il sistema mostra un messaggio di errore se il \textit{form}ato non è corretto;
 	\end{itemize}
 \end{itemize}
 
@@ -1312,7 +1312,7 @@ Il sistema dispone di due attori principali. In particolare:
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
-		\item L'utente un messaggio di errore;
+		\item L'utente visualizza un messaggio di errore;
 	\end{itemize}
 	\item \textbf{Scenario principale:}
 	\begin{itemize}
@@ -1348,10 +1348,10 @@ Il sistema dispone di due attori principali. In particolare:
 	\end{itemize}
 \end{itemize}
 
-\subsubsection{UC32.2 - Errore formattazione \textit{prompt}}
+\subsubsection{UC32.2 - Errore \textit{form}attazione \textit{prompt}}
 \label{sec:UC32.2}
 \begin{itemize}
-	\item \textbf{Descrizione:} L'utente visualizza un messaggio di errore inerente alla formattazione del \textit{prompt} creato;
+	\item \textbf{Descrizione:} L'utente visualizza un messaggio di errore inerente alla \textit{form}attazione del \textit{prompt} creato;
 	\item \textbf{Attori:} utente;
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
