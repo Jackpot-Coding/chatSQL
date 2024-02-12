@@ -1,4 +1,4 @@
-\section{Casi d'uso}
+\section{Casi d'uso\textsuperscript{G}}
 % TEMPLATE
 %   \subsection{UC - NomeUseCase}
 %   \label{sec:UC}
@@ -23,40 +23,40 @@
 % END TEMPLATE
 
 \subsection{Obiettivi}
-La sezione ha come obiettivo quello di identificare e descrivere tutti i casi d'uso che sono stati individuati dal gruppo in sede di analisi del capitolato assegnato.
+La sezione ha come obiettivo quello di identificare e descrivere tutti i casi d'uso\textsuperscript{G} che sono stati individuati dal gruppo in sede di analisi del capitolato\textsuperscript{G} assegnato.
 
-\subsection{Attori}
+\subsection{Attori\textsuperscript{G}}
 \begin{wrapfigure}{r}{3.5cm}
 	\includegraphics[width=3.5cm]{UML_Use_Cases/UC-Attori.png}
 \end{wrapfigure}
 Il sistema dispone di due attori principali. In particolare:
 \begin{itemize}
-	\item \textbf{Utente}, che accede al servizio come utente in grado di selezionare una struttura \textit{database} precaricata, inserire una frase di interrogazione in linguaggio naturale, visualizzare il \textit{prompt} generato dall'\textit{LLM} per poi confermarlo e ottenere una frase in \textit{form}ato \textit{SQL} che rappresenti quello che era stato richiesto inizialmente.
-	\item \textbf{Amministratore}, generalizzazione dell'utente generico, accede al servizio come amministratore. Oltre a poter compiere tutte le azioni che può fare l'utente generico, l'amministratore può creare, visualizzare, modificare ed eliminare un \textit{database}, le sue tabelle e i suoi campi.
+	\item \textbf{Utente\textsuperscript{G}}, che accede al servizio come utente\textsuperscript{G} in grado di selezionare una struttura \textit{database\textsuperscript{G}} precaricata, inserire una frase di interrogazione in linguaggio naturale\textsuperscript{G}, visualizzare il \textit{prompt\textsuperscript{G}} generato dall'\textit{LLM\textsuperscript{G}} per poi confermarlo e ottenere una frase in formato\textsuperscript{G} \textit{SQL\textsuperscript{G}} che rappresenti quello che era stato richiesto inizialmente.
+	\item \textbf{Amministratore\textsuperscript{G}}, generalizzazione dell'utente\textsuperscript{G} generico, accede al servizio come amministratore\textsuperscript{G}. Oltre a poter compiere tutte le azioni che può fare l'utente\textsuperscript{G} generico, l'amministratore\textsuperscript{G} può creare, visualizzare, modificare ed eliminare un \textit{database\textsuperscript{G}}, le sue tabelle e i suoi campi.
 \end{itemize}
-% \includegraphics[scale=0.6]{UML_Use_Cases/UC-Attori.png}
+% \includegraphics[scale=0.6]{UML_Use_Cases/UC-Attori\textsuperscript{G}.png}
 
 \setcounter{secnumdepth}{0}
 
-\subsection{UC1 - \textit{Login}}
+\subsection{UC1 - \textit{Login\textsuperscript{G}}}
 \label{sec:UC1}
 \includegraphics[scale=0.6]{UML_Use_Cases/UC1_2.png}
 \begin{itemize}
-	\item \textbf{Descrizione:} L’amministratore accede al pannello amministrativo con le sue credenziali;
-	\item \textbf{Attori:} amministratore;
+	\item \textbf{Descrizione:} L’amministratore\textsuperscript{G} accede al pannello amministrativo con le sue credenziali;
+	\item \textbf{Attori\textsuperscript{G}:} amministratore\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’amministratore possiede delle credenziali di accesso valide;
-		\item L’amministratore non ha già effettuato l’accesso;
+		\item L’amministratore\textsuperscript{G} possiede delle credenziali di accesso valide;
+		\item L’amministratore\textsuperscript{G} non ha già effettuato l’accesso;
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
-		\item L’utente Amministratore viene riconosciuto dal sistema;
+		\item L’utente\textsuperscript{G} Amministratore\textsuperscript{G} viene riconosciuto dal sistema;
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item L’ amministratore inserisce il proprio nome utente nel \textit{form} di accesso (\hyperref[sec:UC1.1]{\textbf{UC1.1}});
-		\item L’ amministratore inserisce la propria \textit{password} nel \textit{form} di accesso (\hyperref[sec:UC1.2]{\textbf{UC1.2}});
+		\item L’ amministratore\textsuperscript{G} inserisce il proprio nome utente\textsuperscript{G} nel \textit{form\textsuperscript{G}} di accesso (\hyperref[sec:UC1.1]{\textbf{UC1.1}});
+		\item L’ amministratore\textsuperscript{G} inserisce la propria \textit{password\textsuperscript{G}} nel \textit{form\textsuperscript{G}} di accesso (\hyperref[sec:UC1.2]{\textbf{UC1.2}});
 		\item Il sistema verifica che le credenziali ricevute siano corrette. 
 	\end{itemize}
 	\item \textbf{Estensioni:} Nel caso le credenziali non siano corrette:
@@ -65,67 +65,67 @@ Il sistema dispone di due attori principali. In particolare:
 	\end{itemize}
 \end{itemize}
 
-\subsubsection{UC1.1 - Inserimento nome utente}
+\subsubsection{UC1.1 - Inserimento nome utente\textsuperscript{G}}
 \label{sec:UC1.1}
 \includegraphics[scale=0.6]{UML_Use_Cases/UC1.1_1.2.png}
 \begin{itemize}
-	\item \textbf{Descrizione:} L’amministratore inserisce il proprio nome utente;
-	\item \textbf{Attori:} amministratore;
+	\item \textbf{Descrizione:} L’amministratore\textsuperscript{G} inserisce il proprio nome utente\textsuperscript{G};
+	\item \textbf{Attori\textsuperscript{G}:} amministratore\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’amministratore possiede le credenziali di accesso;
-		\item L’amministratore non ha già effettuato l’accesso;
-		\item L’amministratore sta effettuando il \textit{login} (\hyperref[sec:UC1]{\textbf{UC1}})
+		\item L’amministratore\textsuperscript{G} possiede le credenziali di accesso;
+		\item L’amministratore\textsuperscript{G} non ha già effettuato l’accesso;
+		\item L’amministratore\textsuperscript{G} sta effettuando il \textit{login\textsuperscript{G}} (\hyperref[sec:UC1]{\textbf{UC1}})
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
-		\item L’amministratore ha inserito correttamente il proprio nome utente;
+		\item L’amministratore\textsuperscript{G} ha inserito correttamente il proprio nome utente\textsuperscript{G};
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item L’amministratore inserisce il proprio nome utente nel \textit{form} di accesso.
+		\item L’amministratore\textsuperscript{G} inserisce il proprio nome utente\textsuperscript{G} nel \textit{form\textsuperscript{G}} di accesso.
 	\end{itemize}
 \end{itemize}
 
-\subsubsection{UC1.2 - Inserimento \textit{password}}
+\subsubsection{UC1.2 - Inserimento \textit{password\textsuperscript{G}}}
 \label{sec:UC1.2}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
-	\item \textbf{Descrizione:} L’amministratore inserisce la propria \textit{password};
-	\item \textbf{Attori:} amministratore;
+	\item \textbf{Descrizione:} L’amministratore\textsuperscript{G} inserisce la propria \textit{password\textsuperscript{G}};
+	\item \textbf{Attori\textsuperscript{G}:} amministratore\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’amministratore possiede le credenziali di accesso;
-		\item L’amministratore non ha già effettuato l’accesso;
-		\item L’amministratore sta effettuando il \textit{login} (\hyperref[sec:UC1]{\textbf{UC1}})
+		\item L’amministratore\textsuperscript{G} possiede le credenziali di accesso;
+		\item L’amministratore\textsuperscript{G} non ha già effettuato l’accesso;
+		\item L’amministratore\textsuperscript{G} sta effettuando il \textit{login\textsuperscript{G}} (\hyperref[sec:UC1]{\textbf{UC1}})
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
-		\item L’amministratore ha inserito correttamente la propria \textit{password};
+		\item L’amministratore\textsuperscript{G} ha inserito correttamente la propria \textit{password\textsuperscript{G}};
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item L’amministratore inserisce la propria \textit{password} nel \textit{form} di accesso.
+		\item L’amministratore\textsuperscript{G} inserisce la propria \textit{password\textsuperscript{G}} nel \textit{form\textsuperscript{G}} di accesso.
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC2 - Credenziali \textit{login} errate}
+\subsection{UC2 - Credenziali\textsuperscript{G} \textit{login\textsuperscript{G}} errate}
 \label{sec:UC2}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
-	\item \textbf{Descrizione:} L’amministratore visualizza un messaggio di errore di autenticazione;
-	\item \textbf{Attori:} amministratore;
+	\item \textbf{Descrizione:} L’amministratore\textsuperscript{G} visualizza un messaggio di errore di autenticazione;
+	\item \textbf{Attori\textsuperscript{G}:} amministratore\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’amministratore possiede le credenziali di accesso;
-		\item L’amministratore non ha già effettuato l’accesso;
-		\item L’amministratore sta effettuando il \textit{login} (\hyperref[sec:UC1]{\textbf{UC1}});
-		\item L’amministratore ha inserito il proprio nome utente (\hyperref[sec:UC1.1]{\textbf{UC1.1}});
-		\item L’amministratore ha inserito la propria \textit{password} (\hyperref[sec:UC1.2]{\textbf{UC1.2}});
+		\item L’amministratore\textsuperscript{G} possiede le credenziali di accesso;
+		\item L’amministratore\textsuperscript{G} non ha già effettuato l’accesso;
+		\item L’amministratore\textsuperscript{G} sta effettuando il \textit{login\textsuperscript{G}} (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore\textsuperscript{G} ha inserito il proprio nome utente\textsuperscript{G} (\hyperref[sec:UC1.1]{\textbf{UC1.1}});
+		\item L’amministratore\textsuperscript{G} ha inserito la propria \textit{password\textsuperscript{G}} (\hyperref[sec:UC1.2]{\textbf{UC1.2}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:}
 	\begin{itemize}
-		\item L’amministratore non viene riconosciuto dal sistema e deve reinserire le proprie credenziali;
+		\item L’amministratore\textsuperscript{G} non viene riconosciuto dal sistema e deve reinserire le proprie credenziali;
 		\item L'amministrazione visualizza un messaggio di errore;
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
@@ -139,20 +139,20 @@ Il sistema dispone di due attori principali. In particolare:
 \label{sec:UC3}
 \includegraphics[scale=0.6]{UML_Use_Cases/UC3_4.png}
 \begin{itemize}
-	\item \textbf{Descrizione:} l’amministratore vuole aggiungere la struttura di un \textit{database} da poter interrogare;
-	\item \textbf{Attori:} amministratore;
+	\item \textbf{Descrizione:} l’amministratore\textsuperscript{G} vuole aggiungere la struttura di un \textit{database\textsuperscript{G}} da poter interrogare;
+	\item \textbf{Attori\textsuperscript{G}:} amministratore\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’amministratore ha effettuato il \textit{login} (\hyperref[sec:UC1]{\textbf{UC1}});
-		\item L’amministratore si trova nel pannello amministrativo;
+		\item L’amministratore\textsuperscript{G} ha effettuato il \textit{login\textsuperscript{G}} (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore\textsuperscript{G} si trova nel pannello amministrativo;
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
-		\item La struttura del \textit{database} viene salvata nel programma;
+		\item La struttura del \textit{database\textsuperscript{G}} viene salvata nel programma;
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item L’amministratore inserisce il nome (\hyperref[sec:UC3.1]{\textbf{UC3.1}}) e la descrizione (\hyperref[sec:UC3.2]{\textbf{UC3.2}}) del \textit{database};
+		\item L’amministratore\textsuperscript{G} inserisce il nome (\hyperref[sec:UC3.1]{\textbf{UC3.1}}) e la descrizione (\hyperref[sec:UC3.2]{\textbf{UC3.2}}) del \textit{database\textsuperscript{G}};
 	\end{itemize}
 	\item \textbf{Estensioni:} nel caso in cui venga inserito un nome già esistente:
 	\begin{itemize}
@@ -164,21 +164,21 @@ Il sistema dispone di due attori principali. In particolare:
 \label{sec:UC3.1}
 \includegraphics[scale=0.6]{UML_Use_Cases/UC3.1_3.2.png}
 \begin{itemize}
-	\item \textbf{Descrizione:} l’amministratore deve inserire il nome del nuovo \textit{database} da aggiungere;
-	\item \textbf{Attori:} amministratore;
+	\item \textbf{Descrizione:} l’amministratore\textsuperscript{G} deve inserire il nome del nuovo \textit{database\textsuperscript{G}} da aggiungere;
+	\item \textbf{Attori\textsuperscript{G}:} amministratore\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’amministratore ha effettuato il \textit{login} (\hyperref[sec:UC1]{\textbf{UC1}});
-		\item L’amministratore si trova nel pannello amministrativo;
-		\item L’amministratore sta creando un nuovo \textit{database} (\hyperref[sec:UC3]{\textbf{UC3}});
+		\item L’amministratore\textsuperscript{G} ha effettuato il \textit{login\textsuperscript{G}} (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore\textsuperscript{G} si trova nel pannello amministrativo;
+		\item L’amministratore\textsuperscript{G} sta creando un nuovo \textit{database\textsuperscript{G}} (\hyperref[sec:UC3]{\textbf{UC3}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
-		\item L'amministratore ha inserito correttamente il nome del nuovo \textit{database};
+		\item L'amministratore\textsuperscript{G} ha inserito correttamente il nome del nuovo \textit{database\textsuperscript{G}};
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item L’amministratore inserisce il nome del \textit{database};
+		\item L’amministratore\textsuperscript{G} inserisce il nome del \textit{database\textsuperscript{G}};
 	\end{itemize}
 \end{itemize}
 
@@ -186,21 +186,21 @@ Il sistema dispone di due attori principali. In particolare:
 \label{sec:UC3.2}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
-	\item \textbf{Descrizione:} l’amministratore deve inserire la descrizione del nuovo \textit{database} da aggiungere;
-	\item \textbf{Attori:} amministratore;
+	\item \textbf{Descrizione:} l’amministratore\textsuperscript{G} deve inserire la descrizione del nuovo \textit{database\textsuperscript{G}} da aggiungere;
+	\item \textbf{Attori\textsuperscript{G}:} amministratore\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’amministratore ha effettuato il \textit{login} (\hyperref[sec:UC1]{\textbf{UC1}});
-		\item L’amministratore si trova nel pannello amministrativo;
-		\item L’amministratore sta creando un nuovo \textit{database} (\hyperref[sec:UC3]{\textbf{UC3}});
+		\item L’amministratore\textsuperscript{G} ha effettuato il \textit{login\textsuperscript{G}} (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore\textsuperscript{G} si trova nel pannello amministrativo;
+		\item L’amministratore\textsuperscript{G} sta creando un nuovo \textit{database\textsuperscript{G}} (\hyperref[sec:UC3]{\textbf{UC3}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
-		\item L'amministratore ha inserito correttamente la descrizione del nuovo \textit{database};
+		\item L'amministratore\textsuperscript{G} ha inserito correttamente la descrizione del nuovo \textit{database\textsuperscript{G}};
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item L’amministratore inserisce la descrizione del \textit{database};
+		\item L’amministratore\textsuperscript{G} inserisce la descrizione del \textit{database\textsuperscript{G}};
 	\end{itemize}
 \end{itemize}
 
@@ -208,23 +208,23 @@ Il sistema dispone di due attori principali. In particolare:
 \label{sec:UC4}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
-	\item \textbf{Descrizione:} L’amministratore visualizza un errore di creazione del \textit{database};
-	\item \textbf{Attori:} amministratore;
+	\item \textbf{Descrizione:} L’amministratore\textsuperscript{G} visualizza un errore di creazione del \textit{database\textsuperscript{G}};
+	\item \textbf{Attori\textsuperscript{G}:} amministratore\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’amministratore ha effettuato il \textit{login} (\hyperref[sec:UC1]{\textbf{UC1}});
-		\item L’amministratore si trova nel pannello amministrativo;
-		\item L’amministratore sta creando un nuovo \textit{database} (\hyperref[sec:UC3]{\textbf{UC3}});
+		\item L’amministratore\textsuperscript{G} ha effettuato il \textit{login\textsuperscript{G}} (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore\textsuperscript{G} si trova nel pannello amministrativo;
+		\item L’amministratore\textsuperscript{G} sta creando un nuovo \textit{database\textsuperscript{G}} (\hyperref[sec:UC3]{\textbf{UC3}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
-		\item La struttura del \textit{database} non viene salvata nel programma e l'amministratore visualizza un messaggio di errore;
+		\item La struttura del \textit{database\textsuperscript{G}} non viene salvata nel programma e l'amministratore\textsuperscript{G} visualizza un messaggio di errore;
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item L’amministratore inserisce il nome del \textit{database} (\hyperref[sec:UC3.1]{\textbf{UC3.1}});
-		\item L’amministratore inserisce la descrizione del \textit{database}  (\hyperref[sec:UC3.2]{\textbf{UC3.2}});
-		\item Il sistema verifica che non esista già un \textit{database} con lo stesso nome;
+		\item L’amministratore\textsuperscript{G} inserisce il nome del \textit{database\textsuperscript{G}} (\hyperref[sec:UC3.1]{\textbf{UC3.1}});
+		\item L’amministratore\textsuperscript{G} inserisce la descrizione del \textit{database\textsuperscript{G}}  (\hyperref[sec:UC3.2]{\textbf{UC3.2}});
+		\item Il sistema verifica che non esista già un \textit{database\textsuperscript{G}} con lo stesso nome;
 		\item Il sistema visualizza un messaggio di errore per il nome inserito.
 	\end{itemize}
 \end{itemize}
@@ -233,65 +233,65 @@ Il sistema dispone di due attori principali. In particolare:
 \label{sec:UC5}
 \includegraphics[scale=0.6]{UML_Use_Cases/UC5.png}
 \begin{itemize}
-	\item \textbf{Descrizione:} l’amministratore visualizza tutte le Strutture \textit{Database} disponibili;
-	\item \textbf{Attori:} amministratore;
+	\item \textbf{Descrizione:} l’amministratore\textsuperscript{G} visualizza tutte le Strutture \textit{Database} disponibili;
+	\item \textbf{Attori\textsuperscript{G}:} amministratore\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’amministratore ha effettuato il \textit{login} (\hyperref[sec:UC1]{\textbf{UC1}});
-		\item L’amministratore si trova nel pannello amministrativo;
+		\item L’amministratore\textsuperscript{G} ha effettuato il \textit{login\textsuperscript{G}} (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore\textsuperscript{G} si trova nel pannello amministrativo;
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
-		\item L'amministratore può vedere nome e descrizione dei \textit{database} presenti;
+		\item L'amministratore\textsuperscript{G} può vedere nome e descrizione dei \textit{database\textsuperscript{G}} presenti;
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item Il programma visualizza la lista dei \textit{database} presenti, con la possibilità di modificarli, visualizzarli o eliminarli;
+		\item Il programma visualizza la lista dei \textit{database\textsuperscript{G}} presenti, con la possibilità di modificarli, visualizzarli o eliminarli;
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC6 - Visualizzazione singola Struttura \textit{Database}}
+\subsection{UC6 - Visualizzazione singola Struttura \textit{Database}\textsuperscript{G}}
 \label{sec:UC6}
 \includegraphics[scale=0.6]{UML_Use_Cases/UC6_7_8.png}
 \begin{itemize}
-	\item \textbf{Descrizione:} l’amministratore visualizza una Struttura \textit{Database};
-	\item \textbf{Attori:} amministratore;
+	\item \textbf{Descrizione:} l’amministratore\textsuperscript{G} visualizza una Struttura \textit{Database}\textsuperscript{G};
+	\item \textbf{Attori\textsuperscript{G}:} amministratore\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’amministratore ha effettuato il \textit{login} (\hyperref[sec:UC1]{\textbf{UC1}});
-		\item L’amministratore si trova nel pannello amministrativo;
-		\item L'amministratore ha selezionato una Struttura \textit{Database} dalla lista;
+		\item L’amministratore\textsuperscript{G} ha effettuato il \textit{login\textsuperscript{G}} (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore\textsuperscript{G} si trova nel pannello amministrativo;
+		\item L'amministratore\textsuperscript{G} ha selezionato una Struttura \textit{Database}\textsuperscript{G} dalla lista;
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
-		\item L'amministratore visualizza il nome della Struttura \textit{Database};
-		\item L'amministratore visualizza la descrizione della Struttura \textit{Database};
-		\item L'amministratore visualizza la lista delle tabelle della Struttura \textit{Database}  (\hyperref[sec:UC11]{\textbf{UC11}};
+		\item L'amministratore\textsuperscript{G} visualizza il nome della Struttura \textit{Database}\textsuperscript{G};
+		\item L'amministratore\textsuperscript{G} visualizza la descrizione della Struttura \textit{Database}\textsuperscript{G};
+		\item L'amministratore\textsuperscript{G} visualizza la lista delle tabelle della Struttura \textit{Database}\textsuperscript{G}  (\hyperref[sec:UC11]{\textbf{UC11}};
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item Il programma mostra la lista dei \textit{database} presenti, con la possibilità di modificarli, visualizzarli o eliminarli;
+		\item Il programma mostra la lista dei \textit{database\textsuperscript{G}} presenti, con la possibilità di modificarli, visualizzarli o eliminarli;
 	\end{itemize}
 \end{itemize}
 
 
-\subsection{UC7 - Modifica Struttura \textit{Database}}
+\subsection{UC7 - Modifica Struttura \textit{Database}\textsuperscript{G}}
 \label{sec:UC7}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
-	\item \textbf{Descrizione:} l’amministratore modifica la Struttura \textit{Database} selezionata;
-	\item \textbf{Attori:} amministratore;
+	\item \textbf{Descrizione:} l’amministratore\textsuperscript{G} modifica la Struttura \textit{Database}\textsuperscript{G} selezionata;
+	\item \textbf{Attori\textsuperscript{G}:} amministratore\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’amministratore sta visualizzando una struttura \textit{Database} (\hyperref[sec:UC6]{\textbf{UC6}});
+		\item L’amministratore\textsuperscript{G} sta visualizzando una struttura \textit{Database}\textsuperscript{G} (\hyperref[sec:UC6]{\textbf{UC6}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
-		\item Il sistema aggiorna la Struttura \textit{Database};
+		\item Il sistema aggiorna la Struttura \textit{Database}\textsuperscript{G};
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item L’amministratore modifica il nome del \textit{Database};
+		\item L’amministratore\textsuperscript{G} modifica il nome del \textit{Database};
 		\item Il sistema verifica il nome ricevuto;
 	\end{itemize}
 	\item \textbf{Estensioni:} nel caso in cui il nuovo nome sia già presente:
@@ -304,23 +304,23 @@ Il sistema dispone di due attori principali. In particolare:
 \label{sec:UC8}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
-	\item \textbf{Descrizione:} l’amministratore elimina la Struttura \textit{Database} selezionata;
-	\item \textbf{Attori:} amministratore;
+	\item \textbf{Descrizione:} l’amministratore\textsuperscript{G} elimina la Struttura \textit{Database}\textsuperscript{G} selezionata;
+	\item \textbf{Attori\textsuperscript{G}:} amministratore\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’amministratore ha effettuato il \textit{login} (\hyperref[sec:UC1]{\textbf{UC1}});
-		\item L’amministratore si trova nel pannello amministrativo;
-		\item L’amministratore sta visualizzando la lista dei \textit{database} (\hyperref[sec:UC5]{\textbf{UC5}});
+		\item L’amministratore\textsuperscript{G} ha effettuato il \textit{login\textsuperscript{G}} (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore\textsuperscript{G} si trova nel pannello amministrativo;
+		\item L’amministratore\textsuperscript{G} sta visualizzando la lista dei \textit{database\textsuperscript{G}} (\hyperref[sec:UC5]{\textbf{UC5}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
-		\item La Struttura \textit{Database} selezionata viene eliminata dal sistema;
+		\item La Struttura \textit{Database}\textsuperscript{G} selezionata viene eliminata dal sistema;
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item L'amministratore seleziona il \textit{database} da eliminare usando il pulsante di eliminazione apposito;
+		\item L'amministratore\textsuperscript{G} seleziona il \textit{database\textsuperscript{G}} da eliminare usando il pulsante di eliminazione apposito;
 		\item Il sistema visualizza un messaggio per chiedere la conferma dell'eliminazione;
-		\item Se l'amministratore conferma l'eliminazione, il \textit{database} e le tabelle collegate verranno rimossi dal sistema e verrà visualizzato un messaggio di avvenuta eliminazione.
+		\item Se l'amministratore\textsuperscript{G} conferma l'eliminazione, il \textit{database\textsuperscript{G}} e le tabelle collegate verranno rimossi dal sistema e verrà visualizzato un messaggio di avvenuta eliminazione.
 	\end{itemize}
 \end{itemize}
 
@@ -328,21 +328,21 @@ Il sistema dispone di due attori principali. In particolare:
 \label{sec:UC9}
 \includegraphics[scale=0.6]{UML_Use_Cases/UC9_10.png}
 \begin{itemize}
-	\item \textbf{Descrizione:} l’amministratore vuole aggiungere una tabella alla struttura del \textit{database} da interrogare;
-	\item \textbf{Attori:} amministratore;
+	\item \textbf{Descrizione:} l’amministratore\textsuperscript{G} vuole aggiungere una tabella alla struttura del \textit{database\textsuperscript{G}} da interrogare;
+	\item \textbf{Attori\textsuperscript{G}:} amministratore\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’amministratore ha effettuato il \textit{login} (\hyperref[sec:UC1]{\textbf{UC1}});
-		\item L’amministratore si trova nel pannello amministrativo;
-		\item L’amministratore si trova nella sezione di creazione di una nuova tabella;
+		\item L’amministratore\textsuperscript{G} ha effettuato il \textit{login\textsuperscript{G}} (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore\textsuperscript{G} si trova nel pannello amministrativo;
+		\item L’amministratore\textsuperscript{G} si trova nella sezione di creazione di una nuova tabella;
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
-		\item La tabella viene aggiunta alla struttura del \textit{database};
+		\item La tabella viene aggiunta alla struttura del \textit{database\textsuperscript{G}};
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item L’amministratore inserisce il nome, i sinonimi del nome e la descrizione della tabella;
+		\item L’amministratore\textsuperscript{G} inserisce il nome, i sinonimi del nome e la descrizione della tabella;
 	\end{itemize}
 	\item \textbf{Generalizzazioni:} 
 	\begin{itemize}
@@ -360,20 +360,20 @@ Il sistema dispone di due attori principali. In particolare:
 \label{sec:UC9.1}
 \includegraphics[scale=0.47]{UML_Use_Cases/UC9.1_9.2_9.3_10.1_10.2_10.3.png}
 \begin{itemize}
-	\item \textbf{Descrizione:} l’amministratore inserisce il nome della tabella da creare;
-	\item \textbf{Attori:} amministratore;
+	\item \textbf{Descrizione:} l’amministratore\textsuperscript{G} inserisce il nome della tabella da creare;
+	\item \textbf{Attori\textsuperscript{G}:} amministratore\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’amministratore ha effettuato il \textit{login} (\hyperref[sec:UC1]{\textbf{UC1}});
-		\item L’amministratore sta creando una nuova tabella (\hyperref[sec:UC9]{\textbf{UC9}});
+		\item L’amministratore\textsuperscript{G} ha effettuato il \textit{login\textsuperscript{G}} (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore\textsuperscript{G} sta creando una nuova tabella (\hyperref[sec:UC9]{\textbf{UC9}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
-		\item Il nome della tabella viene inserito nel \textit{form};
+		\item Il nome della tabella viene inserito nel \textit{form\textsuperscript{G}};
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item L’amministratore inserisce il nome della tabella nell'apposito \textit{form} di creazione;
+		\item L’amministratore\textsuperscript{G} inserisce il nome della tabella nell'apposito \textit{form\textsuperscript{G}} di creazione;
 	\end{itemize}
 \end{itemize}
 
@@ -381,20 +381,20 @@ Il sistema dispone di due attori principali. In particolare:
 \label{sec:UC9.2}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
-	\item \textbf{Descrizione:} l’amministratore inserisce i sinonimi associati al nome della tabella da creare;
-	\item \textbf{Attori:} amministratore;
+	\item \textbf{Descrizione:} l’amministratore\textsuperscript{G} inserisce i sinonimi associati al nome della tabella da creare;
+	\item \textbf{Attori\textsuperscript{G}:} amministratore\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’amministratore ha effettuato il \textit{login} (\hyperref[sec:UC1]{\textbf{UC1}});
-		\item L’amministratore sta creando una nuova tabella (\hyperref[sec:UC9]{\textbf{UC9}});
+		\item L’amministratore\textsuperscript{G} ha effettuato il \textit{login\textsuperscript{G}} (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore\textsuperscript{G} sta creando una nuova tabella (\hyperref[sec:UC9]{\textbf{UC9}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
-		\item I sinonimi del nome della tabella vengono inseriti nel \textit{form};
+		\item I sinonimi del nome della tabella vengono inseriti nel \textit{form\textsuperscript{G}};
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item L’amministratore inserisce i sinonimi del nome della tabella nell'apposito \textit{form} di creazione;
+		\item L’amministratore\textsuperscript{G} inserisce i sinonimi del nome della tabella nell'apposito \textit{form\textsuperscript{G}} di creazione;
 	\end{itemize}
 \end{itemize}
 
@@ -402,20 +402,20 @@ Il sistema dispone di due attori principali. In particolare:
 \label{sec:UC9.3}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
-	\item \textbf{Descrizione:} l’amministratore inserisce la descrizione della tabella da creare;
-	\item \textbf{Attori:} amministratore;
+	\item \textbf{Descrizione:} l’amministratore\textsuperscript{G} inserisce la descrizione della tabella da creare;
+	\item \textbf{Attori\textsuperscript{G}:} amministratore\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’amministratore ha effettuato il \textit{login} (\hyperref[sec:UC1]{\textbf{UC1}});
-		\item L’amministratore sta creando una nuova tabella (\hyperref[sec:UC9]{\textbf{UC9}});
+		\item L’amministratore\textsuperscript{G} ha effettuato il \textit{login\textsuperscript{G}} (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore\textsuperscript{G} sta creando una nuova tabella (\hyperref[sec:UC9]{\textbf{UC9}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
-		\item La descrizione della tabella viene inserita nel \textit{form};
+		\item La descrizione della tabella viene inserita nel \textit{form\textsuperscript{G}};
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item L’amministratore inserisce la descrizione della tabella nell'apposito \textit{form} di creazione;
+		\item L’amministratore\textsuperscript{G} inserisce la descrizione della tabella nell'apposito \textit{form\textsuperscript{G}} di creazione;
 	\end{itemize}
 \end{itemize}
 
@@ -423,12 +423,12 @@ Il sistema dispone di due attori principali. In particolare:
 \label{sec:UC10}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
-	\item \textbf{Descrizione:} L’amministratore visualizza un errore di creazione della tabella;
-	\item \textbf{Attori:} amministratore;
+	\item \textbf{Descrizione:} L’amministratore\textsuperscript{G} visualizza un errore di creazione della tabella;
+	\item \textbf{Attori\textsuperscript{G}:} amministratore\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’amministratore ha effettuato il \textit{login} (\hyperref[sec:UC1]{\textbf{UC1}});
-		\item L’amministratore sta creando una nuova tabella (\hyperref[sec:UC9]{\textbf{UC9}});
+		\item L’amministratore\textsuperscript{G} ha effettuato il \textit{login\textsuperscript{G}} (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore\textsuperscript{G} sta creando una nuova tabella (\hyperref[sec:UC9]{\textbf{UC9}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
@@ -436,9 +436,9 @@ Il sistema dispone di due attori principali. In particolare:
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item L’amministratore inserisce il nome della tabella nel \textit{form} di creazione (\hyperref[sec:UC9.1]{\textbf{UC9.1}});
-		\item L’amministratore inserisce i sinonimi del nome della tabella nel \textit{form} di creazione (\hyperref[sec:UC9.2]{\textbf{UC9.2}});
-		\item L’amministratore inserisce la descrizione della tabella nel \textit{form} di creazione (\hyperref[sec:UC9.3]{\textbf{UC9.3}});
+		\item L’amministratore\textsuperscript{G} inserisce il nome della tabella nel \textit{form\textsuperscript{G}} di creazione (\hyperref[sec:UC9.1]{\textbf{UC9.1}});
+		\item L’amministratore\textsuperscript{G} inserisce i sinonimi del nome della tabella nel \textit{form\textsuperscript{G}} di creazione (\hyperref[sec:UC9.2]{\textbf{UC9.2}});
+		\item L’amministratore\textsuperscript{G} inserisce la descrizione della tabella nel \textit{form\textsuperscript{G}} di creazione (\hyperref[sec:UC9.3]{\textbf{UC9.3}});
 		\item Il sistema verifica che non esista già una tabella con lo stesso nome e che vengano inseriti sinonimi e descrizione della tabella;
 		\item Il sistema visualizza il messaggio di errore opportuno.
 	\end{itemize}
@@ -448,12 +448,12 @@ Il sistema dispone di due attori principali. In particolare:
 \label{sec:UC10.1}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
-	\item \textbf{Descrizione:} L’amministratore visualizza un errore relativo al nome della tabella;
-	\item \textbf{Attori:} amministratore;
+	\item \textbf{Descrizione:} L’amministratore\textsuperscript{G} visualizza un errore relativo al nome della tabella;
+	\item \textbf{Attori\textsuperscript{G}:} amministratore\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’amministratore ha effettuato il \textit{login} (\hyperref[sec:UC1]{\textbf{UC1}});
-		\item L’amministratore sta creando una nuova tabella (\hyperref[sec:UC9]{\textbf{UC9}});
+		\item L’amministratore\textsuperscript{G} ha effettuato il \textit{login\textsuperscript{G}} (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore\textsuperscript{G} sta creando una nuova tabella (\hyperref[sec:UC9]{\textbf{UC9}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
@@ -470,12 +470,12 @@ Il sistema dispone di due attori principali. In particolare:
 \label{sec:UC10.2}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
-	\item \textbf{Descrizione:} L’amministratore visualizza un errore relativo ai sinonimi del nome della tabella;
-	\item \textbf{Attori:} amministratore;
+	\item \textbf{Descrizione:} L’amministratore\textsuperscript{G} visualizza un errore relativo ai sinonimi del nome della tabella;
+	\item \textbf{Attori\textsuperscript{G}:} amministratore\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’amministratore ha effettuato il \textit{login} (\hyperref[sec:UC1]{\textbf{UC1}});
-		\item L’amministratore sta creando una nuova tabella (\hyperref[sec:UC9]{\textbf{UC9}});
+		\item L’amministratore\textsuperscript{G} ha effettuato il \textit{login\textsuperscript{G}} (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore\textsuperscript{G} sta creando una nuova tabella (\hyperref[sec:UC9]{\textbf{UC9}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
@@ -492,12 +492,12 @@ Il sistema dispone di due attori principali. In particolare:
 \label{sec:UC10.3}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
-	\item \textbf{Descrizione:} L’amministratore visualizza un errore relativo alla descrizione della tabella;
-	\item \textbf{Attori:} amministratore;
+	\item \textbf{Descrizione:} L’amministratore\textsuperscript{G} visualizza un errore relativo alla descrizione della tabella;
+	\item \textbf{Attori\textsuperscript{G}:} amministratore\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’amministratore ha effettuato il \textit{login} (\hyperref[sec:UC1]{\textbf{UC1}});
-		\item L’amministratore sta creando una nuova tabella (\hyperref[sec:UC9]{\textbf{UC9}});
+		\item L’amministratore\textsuperscript{G} ha effettuato il \textit{login\textsuperscript{G}} (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore\textsuperscript{G} sta creando una nuova tabella (\hyperref[sec:UC9]{\textbf{UC9}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
@@ -510,21 +510,21 @@ Il sistema dispone di due attori principali. In particolare:
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC11 - Visualizzazione lista delle tabelle nella Struttura \textit{Database}}
+\subsection{UC11 - Visualizzazione lista delle tabelle nella Struttura \textit{Database}\textsuperscript{G}}
 \label{sec:UC11}
 \includegraphics[scale=0.6]{UML_Use_Cases/UC11.png}
 \begin{itemize}
-	\item \textbf{Descrizione:} l’amministratore visualizza tutte le tabelle della Struttura \textit{Database} selezionata;
-	\item \textbf{Attori:} amministratore;
+	\item \textbf{Descrizione:} l’amministratore\textsuperscript{G} visualizza tutte le tabelle della Struttura \textit{Database}\textsuperscript{G} selezionata;
+	\item \textbf{Attori\textsuperscript{G}:} amministratore\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’amministratore ha effettuato il \textit{login} (\hyperref[sec:UC1]{\textbf{UC1}});
-		\item L’amministratore si trova nel pannello amministrativo;
-		\item L'amministratore ha selezionato una Struttura \textit{Database} dalla lista;
+		\item L’amministratore\textsuperscript{G} ha effettuato il \textit{login\textsuperscript{G}} (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore\textsuperscript{G} si trova nel pannello amministrativo;
+		\item L'amministratore\textsuperscript{G} ha selezionato una Struttura \textit{Database}\textsuperscript{G} dalla lista;
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
-		\item L'amministratore può vedere il nome delle tabelle presenti;
+		\item L'amministratore\textsuperscript{G} può vedere il nome delle tabelle presenti;
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
@@ -536,17 +536,17 @@ Il sistema dispone di due attori principali. In particolare:
 \label{sec:UC12}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
-	\item \textbf{Descrizione:} l’amministratore visualizza la tabella della Struttura \textit{Database} selezionata;
-	\item \textbf{Attori:} amministratore;
+	\item \textbf{Descrizione:} l’amministratore\textsuperscript{G} visualizza la tabella della Struttura \textit{Database}\textsuperscript{G} selezionata;
+	\item \textbf{Attori\textsuperscript{G}:} amministratore\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L'amministratore ha visualizzato la lista delle tabelle della Struttura \textit{Database} (\hyperref[sec:UC11]{\textbf{UC11}});
-		\item L'amministratore ha selezionato una tabella dalla lista;
+		\item L'amministratore\textsuperscript{G} ha visualizzato la lista delle tabelle della Struttura \textit{Database}\textsuperscript{G} (\hyperref[sec:UC11]{\textbf{UC11}});
+		\item L'amministratore\textsuperscript{G} ha selezionato una tabella dalla lista;
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
-		\item L'amministratore può vedere nome, descrizione e sinonimi della tabella selezionata;
-		\item L'amministratore può visualizzare i campi della tabella selezionata;
+		\item L'amministratore\textsuperscript{G} può vedere nome, descrizione e sinonimi della tabella selezionata;
+		\item L'amministratore\textsuperscript{G} può visualizzare i campi della tabella selezionata;
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
@@ -558,13 +558,13 @@ Il sistema dispone di due attori principali. In particolare:
 \label{sec:UC13}
 \includegraphics[scale=0.6]{UML_Use_Cases/UC12_13_14.png}
 \begin{itemize}
-	\item \textbf{Descrizione:} l’amministratore vuole modificare una tabella del \textit{database} selezionato e da interrogare;
-	\item \textbf{Attori:} amministratore;
+	\item \textbf{Descrizione:} l’amministratore\textsuperscript{G} vuole modificare una tabella del \textit{database\textsuperscript{G}} selezionato e da interrogare;
+	\item \textbf{Attori\textsuperscript{G}:} amministratore\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’amministratore ha effettuato il \textit{login} (\hyperref[sec:UC1]{\textbf{UC1}});
-		\item L’amministratore si trova nel pannello amministrativo;
-		\item L’amministratore si trova nella sezione di modifica di una tabella;
+		\item L’amministratore\textsuperscript{G} ha effettuato il \textit{login\textsuperscript{G}} (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore\textsuperscript{G} si trova nel pannello amministrativo;
+		\item L’amministratore\textsuperscript{G} si trova nella sezione di modifica di una tabella;
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
@@ -572,7 +572,7 @@ Il sistema dispone di due attori principali. In particolare:
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item L’amministratore modifica il nome, i sinonimi del nome e la descrizione della tabella;
+		\item L’amministratore\textsuperscript{G} modifica il nome, i sinonimi del nome e la descrizione della tabella;
 	\end{itemize}
 	\item \textbf{Estensioni:} nel caso in cui non vengano rimossi completamente i sinonimi del nome della tabella, o il nome modificato è già presente:
 	\begin{itemize}
@@ -584,23 +584,23 @@ Il sistema dispone di due attori principali. In particolare:
 \label{sec:UC14}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
-	\item \textbf{Descrizione:} l’amministratore elimina la tabella selezionata;
-	\item \textbf{Attori:} amministratore;
+	\item \textbf{Descrizione:} l’amministratore\textsuperscript{G} elimina la tabella selezionata;
+	\item \textbf{Attori\textsuperscript{G}:} amministratore\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’amministratore ha effettuato il \textit{login} (\hyperref[sec:UC1]{\textbf{UC1}});
-		\item L’amministratore si trova nel pannello amministrativo;
-		\item L’amministratore sta visualizzando la lista delle tabelle (\hyperref[sec:UC11]{\textbf{UC11}});
+		\item L’amministratore\textsuperscript{G} ha effettuato il \textit{login\textsuperscript{G}} (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore\textsuperscript{G} si trova nel pannello amministrativo;
+		\item L’amministratore\textsuperscript{G} sta visualizzando la lista delle tabelle (\hyperref[sec:UC11]{\textbf{UC11}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
-		\item La Struttura \textit{Database} selezionata viene eliminata dal sistema;
+		\item La Struttura \textit{Database}\textsuperscript{G} selezionata viene eliminata dal sistema;
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item L'amministratore seleziona la tabella da eliminare usando il pulsante di eliminazione apposito;
+		\item L'amministratore\textsuperscript{G} seleziona la tabella da eliminare usando il pulsante di eliminazione apposito;
 		\item Il sistema visualizza un messaggio per chiedere la conferma dell'eliminazione;
-		\item Se l'amministratore conferma l'eliminazione, la tabella e i suoi campi verranno rimossi dal sistema e verrà visualizzato un messaggio di avvenuta eliminazione.
+		\item Se l'amministratore\textsuperscript{G} conferma l'eliminazione, la tabella e i suoi campi verranno rimossi dal sistema e verrà visualizzato un messaggio di avvenuta eliminazione.
 	\end{itemize}
 \end{itemize}
 
@@ -608,14 +608,14 @@ Il sistema dispone di due attori principali. In particolare:
 \label{sec:UC15}
 \includegraphics[scale=0.6]{UML_Use_Cases/UC15_16.png}
 \begin{itemize}
-	\item \textbf{Descrizione:} l’amministratore vuole aggiungere un campo alla tabella selezionata;
-	\item \textbf{Attori:} amministratore;
+	\item \textbf{Descrizione:} l’amministratore\textsuperscript{G} vuole aggiungere un campo alla tabella selezionata;
+	\item \textbf{Attori\textsuperscript{G}:} amministratore\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’amministratore ha effettuato il \textit{login} (\hyperref[sec:UC1]{\textbf{UC1}});
-		\item L’amministratore si trova nel pannello amministrativo;
-		\item L’amministratore si trova nella sezione di visualizzazione di una tabella (\hyperref[sec:UC12]{\textbf{UC12}});
-		\item L’amministratore sta inserendo i campi che compongono la tabella;
+		\item L’amministratore\textsuperscript{G} ha effettuato il \textit{login\textsuperscript{G}} (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore\textsuperscript{G} si trova nel pannello amministrativo;
+		\item L’amministratore\textsuperscript{G} si trova nella sezione di visualizzazione di una tabella (\hyperref[sec:UC12]{\textbf{UC12}});
+		\item L’amministratore\textsuperscript{G} sta inserendo i campi che compongono la tabella;
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
@@ -623,9 +623,9 @@ Il sistema dispone di due attori principali. In particolare:
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item L’amministratore inserisce il nome del campo \hyperref[sec:UC15.1]{\textbf{UC15.1}};
-		\item L'amministratore seleziona il tipo del campo \hyperref[sec:UC15.2]{\textbf{UC15.2}};
-		\item L'amministratore inserisce i sinonimi del campo \hyperref[sec:UC15.3]{\textbf{UC15.3}};
+		\item L’amministratore\textsuperscript{G} inserisce il nome del campo \hyperref[sec:UC15.1]{\textbf{UC15.1}};
+		\item L'amministratore\textsuperscript{G} seleziona il tipo del campo \hyperref[sec:UC15.2]{\textbf{UC15.2}};
+		\item L'amministratore\textsuperscript{G} inserisce i sinonimi del campo \hyperref[sec:UC15.3]{\textbf{UC15.3}};
 	\end{itemize}
 	\item \textbf{Estensioni:} nel caso in cui il nome inserito sia già esistente o non sia stato selezionato il tipo o inseriti i sinonimi:
 	\begin{itemize}
@@ -637,14 +637,14 @@ Il sistema dispone di due attori principali. In particolare:
 \label{sec:UC15.1}
 \includegraphics[scale=0.45]{UML_Use_Cases/UC15.1_15.2_15.3_16.1_16.2_16.3.png}
 \begin{itemize}
-	\item \textbf{Descrizione:} l’amministratore vuole inserire il nome del campo da inserire nella tabella;
-	\item \textbf{Attori:} amministratore;
+	\item \textbf{Descrizione:} l’amministratore\textsuperscript{G} vuole inserire il nome del campo da inserire nella tabella;
+	\item \textbf{Attori\textsuperscript{G}:} amministratore\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’amministratore ha effettuato il \textit{login} (\hyperref[sec:UC1]{\textbf{UC1}});
-		\item L’amministratore si trova nel pannello amministrativo;
-		\item L’amministratore si trova nella sezione di visualizzazione di una tabella (\hyperref[sec:UC12]{\textbf{UC12}});
-		\item L’amministratore sta inserendo i campi che compongono la tabella;
+		\item L’amministratore\textsuperscript{G} ha effettuato il \textit{login\textsuperscript{G}} (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore\textsuperscript{G} si trova nel pannello amministrativo;
+		\item L’amministratore\textsuperscript{G} si trova nella sezione di visualizzazione di una tabella (\hyperref[sec:UC12]{\textbf{UC12}});
+		\item L’amministratore\textsuperscript{G} sta inserendo i campi che compongono la tabella;
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
@@ -652,7 +652,7 @@ Il sistema dispone di due attori principali. In particolare:
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item L’amministratore inserisce il nome del campo nella casella di testo dedicata;
+		\item L’amministratore\textsuperscript{G} inserisce il nome del campo nella casella di testo dedicata;
 	\end{itemize}
 	\item \textbf{Estensioni:} nel caso in cui il nome inserito sia già esistente:
 	\begin{itemize}
@@ -664,14 +664,14 @@ Il sistema dispone di due attori principali. In particolare:
 \label{sec:UC15.2}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
-	\item \textbf{Descrizione:} l’amministratore vuole selezionare il tipo del campo da inserire nella tabella;
-	\item \textbf{Attori:} amministratore;
+	\item \textbf{Descrizione:} l’amministratore\textsuperscript{G} vuole selezionare il tipo del campo da inserire nella tabella;
+	\item \textbf{Attori\textsuperscript{G}:} amministratore\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’amministratore ha effettuato il \textit{login} (\hyperref[sec:UC1]{\textbf{UC1}});
-		\item L’amministratore si trova nel pannello amministrativo;
-		\item L’amministratore si trova nella sezione di visualizzazione di una tabella (\hyperref[sec:UC12]{\textbf{UC12}}) ;
-		\item L’amministratore sta inserendo i campi che compongono la tabella;
+		\item L’amministratore\textsuperscript{G} ha effettuato il \textit{login\textsuperscript{G}} (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore\textsuperscript{G} si trova nel pannello amministrativo;
+		\item L’amministratore\textsuperscript{G} si trova nella sezione di visualizzazione di una tabella (\hyperref[sec:UC12]{\textbf{UC12}}) ;
+		\item L’amministratore\textsuperscript{G} sta inserendo i campi che compongono la tabella;
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
@@ -679,7 +679,7 @@ Il sistema dispone di due attori principali. In particolare:
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item L’amministratore sceglie il tipo di campo, selezionandolo dalle scelte possibili;
+		\item L’amministratore\textsuperscript{G} sceglie il tipo di campo, selezionandolo dalle scelte possibili;
 	\end{itemize}
 	\item \textbf{Estensioni:} nel caso in cui il tipo non venga selezionato:
 	\begin{itemize}
@@ -691,14 +691,14 @@ Il sistema dispone di due attori principali. In particolare:
 \label{sec:UC15.3}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
-	\item \textbf{Descrizione:} l’amministratore vuole inserire i sinonimi del campo da inserire nella tabella;
-	\item \textbf{Attori:} amministratore;
+	\item \textbf{Descrizione:} l’amministratore\textsuperscript{G} vuole inserire i sinonimi del campo da inserire nella tabella;
+	\item \textbf{Attori\textsuperscript{G}:} amministratore\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’amministratore ha effettuato il \textit{login} (\hyperref[sec:UC1]{\textbf{UC1}});
-		\item L’amministratore si trova nel pannello amministrativo;
-		\item L’amministratore si trova nella sezione di visualizzazione di una tabella (\hyperref[sec:UC12]{\textbf{UC12}} ;
-		\item L’amministratore sta inserendo i campi che compongono la tabella;
+		\item L’amministratore\textsuperscript{G} ha effettuato il \textit{login\textsuperscript{G}} (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore\textsuperscript{G} si trova nel pannello amministrativo;
+		\item L’amministratore\textsuperscript{G} si trova nella sezione di visualizzazione di una tabella (\hyperref[sec:UC12]{\textbf{UC12}} ;
+		\item L’amministratore\textsuperscript{G} sta inserendo i campi che compongono la tabella;
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
@@ -706,7 +706,7 @@ Il sistema dispone di due attori principali. In particolare:
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item L’amministratore inserisce i sinonimi del nome del campo nella casella di testo dedicata;
+		\item L’amministratore\textsuperscript{G} inserisce i sinonimi del nome del campo nella casella di testo dedicata;
 	\end{itemize}
 	\item \textbf{Estensioni:} nel caso in cui i sinonimi non vengano inseriti:
 	\begin{itemize}
@@ -718,14 +718,14 @@ Il sistema dispone di due attori principali. In particolare:
 \label{sec:UC16}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
-	\item \textbf{Descrizione:} L’amministratore visualizza un errore di creazione del campo;
-	\item \textbf{Attori:} amministratore;
+	\item \textbf{Descrizione:} L’amministratore\textsuperscript{G} visualizza un errore di creazione del campo;
+	\item \textbf{Attori\textsuperscript{G}:} amministratore\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’amministratore ha effettuato il \textit{login} (\hyperref[sec:UC1]{\textbf{UC1}});
-		\item L’amministratore si trova nel pannello amministrativo;
-		\item L’amministratore si trova nella sezione di visualizzazione di una tabella (\hyperref[sec:UC12]{\textbf{UC12}} ;
-		\item L’amministratore sta creando un nuovo campo (\hyperref[sec:UC15]{\textbf{UC15}});
+		\item L’amministratore\textsuperscript{G} ha effettuato il \textit{login\textsuperscript{G}} (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore\textsuperscript{G} si trova nel pannello amministrativo;
+		\item L’amministratore\textsuperscript{G} si trova nella sezione di visualizzazione di una tabella (\hyperref[sec:UC12]{\textbf{UC12}} ;
+		\item L’amministratore\textsuperscript{G} sta creando un nuovo campo (\hyperref[sec:UC15]{\textbf{UC15}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
@@ -733,9 +733,9 @@ Il sistema dispone di due attori principali. In particolare:
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item L’amministratore inserisce il nome del campo nel \textit{form} di creazione (\hyperref[sec:UC15.1]{\textbf{UC15.1}});
-		\item L’amministratore seleziona il tipo del campo nel \textit{form} di creazione (\hyperref[sec:UC15.2]{\textbf{UC15.2}});
-		\item L’amministratore inserisce i sinonimi del nome campo nel \textit{form} di creazione (\hyperref[sec:UC15.3]{\textbf{UC15.3}});
+		\item L’amministratore\textsuperscript{G} inserisce il nome del campo nel \textit{form\textsuperscript{G}} di creazione (\hyperref[sec:UC15.1]{\textbf{UC15.1}});
+		\item L’amministratore\textsuperscript{G} seleziona il tipo del campo nel \textit{form\textsuperscript{G}} di creazione (\hyperref[sec:UC15.2]{\textbf{UC15.2}});
+		\item L’amministratore\textsuperscript{G} inserisce i sinonimi del nome campo nel \textit{form\textsuperscript{G}} di creazione (\hyperref[sec:UC15.3]{\textbf{UC15.3}});
 		\item Il sistema verifica che non esista già una tabella con lo stesso nome, che venga selezionato il tipo e che vengano inseriti i sinonimi del campo;
 		\item Il sistema visualizza il messaggio di errore opportuno.
 	\end{itemize}
@@ -745,14 +745,14 @@ Il sistema dispone di due attori principali. In particolare:
 \label{sec:UC16.1}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
-	\item \textbf{Descrizione:} L’amministratore visualizza un errore relativo al nome del campo;
-	\item \textbf{Attori:} amministratore;
+	\item \textbf{Descrizione:} L’amministratore\textsuperscript{G} visualizza un errore relativo al nome del campo;
+	\item \textbf{Attori\textsuperscript{G}:} amministratore\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’amministratore ha effettuato il \textit{login} (\hyperref[sec:UC1]{\textbf{UC1}});
-		\item L’amministratore si trova nel pannello amministrativo;
-		\item L’amministratore si trova nella sezione di visualizzazione di una tabella (\hyperref[sec:UC12]{\textbf{UC12}} ;
-		\item L’amministratore sta creando un nuovo campo (\hyperref[sec:UC15]{\textbf{UC15}});
+		\item L’amministratore\textsuperscript{G} ha effettuato il \textit{login\textsuperscript{G}} (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore\textsuperscript{G} si trova nel pannello amministrativo;
+		\item L’amministratore\textsuperscript{G} si trova nella sezione di visualizzazione di una tabella (\hyperref[sec:UC12]{\textbf{UC12}} ;
+		\item L’amministratore\textsuperscript{G} sta creando un nuovo campo (\hyperref[sec:UC15]{\textbf{UC15}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
@@ -769,14 +769,14 @@ Il sistema dispone di due attori principali. In particolare:
 \label{sec:UC16.2}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
-	\item \textbf{Descrizione:} L’amministratore visualizza un errore relativo al tipo del campo;
-	\item \textbf{Attori:} amministratore;
+	\item \textbf{Descrizione:} L’amministratore\textsuperscript{G} visualizza un errore relativo al tipo del campo;
+	\item \textbf{Attori\textsuperscript{G}:} amministratore\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’amministratore ha effettuato il \textit{login} (\hyperref[sec:UC1]{\textbf{UC1}});
-		\item L’amministratore si trova nel pannello amministrativo;
-		\item L’amministratore si trova nella sezione di visualizzazione di una tabella (\hyperref[sec:UC12]{\textbf{UC12}} ;
-		\item L’amministratore sta creando un nuovo campo (\hyperref[sec:UC15]{\textbf{UC15}});
+		\item L’amministratore\textsuperscript{G} ha effettuato il \textit{login\textsuperscript{G}} (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore\textsuperscript{G} si trova nel pannello amministrativo;
+		\item L’amministratore\textsuperscript{G} si trova nella sezione di visualizzazione di una tabella (\hyperref[sec:UC12]{\textbf{UC12}} ;
+		\item L’amministratore\textsuperscript{G} sta creando un nuovo campo (\hyperref[sec:UC15]{\textbf{UC15}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
@@ -793,14 +793,14 @@ Il sistema dispone di due attori principali. In particolare:
 \label{sec:UC16.3}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
-	\item \textbf{Descrizione:} L’amministratore visualizza un errore relativo ai sinonimi del nome del campo;
-	\item \textbf{Attori:} amministratore;
+	\item \textbf{Descrizione:} L’amministratore\textsuperscript{G} visualizza un errore relativo ai sinonimi del nome del campo;
+	\item \textbf{Attori\textsuperscript{G}:} amministratore\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’amministratore ha effettuato il \textit{login} (\hyperref[sec:UC1]{\textbf{UC1}});
-		\item L’amministratore si trova nel pannello amministrativo;
-		\item L’amministratore si trova nella sezione di visualizzazione di una tabella (\hyperref[sec:UC12]{\textbf{UC12}} ;
-		\item L’amministratore sta creando un nuovo campo (\hyperref[sec:UC15]{\textbf{UC15}});
+		\item L’amministratore\textsuperscript{G} ha effettuato il \textit{login\textsuperscript{G}} (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore\textsuperscript{G} si trova nel pannello amministrativo;
+		\item L’amministratore\textsuperscript{G} si trova nella sezione di visualizzazione di una tabella (\hyperref[sec:UC12]{\textbf{UC12}} ;
+		\item L’amministratore\textsuperscript{G} sta creando un nuovo campo (\hyperref[sec:UC15]{\textbf{UC15}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
@@ -817,17 +817,17 @@ Il sistema dispone di due attori principali. In particolare:
 \label{sec:UC17}
 \includegraphics[scale=0.6]{UML_Use_Cases/UC17.png}
 \begin{itemize}
-	\item \textbf{Descrizione:} l’amministratore visualizza tutti i campi della tabella selezionata;
-	\item \textbf{Attori:} amministratore;
+	\item \textbf{Descrizione:} l’amministratore\textsuperscript{G} visualizza tutti i campi della tabella selezionata;
+	\item \textbf{Attori\textsuperscript{G}:} amministratore\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’amministratore ha effettuato il \textit{login} (\hyperref[sec:UC1]{\textbf{UC1}});
-		\item L’amministratore si trova nella sezione di visualizzazione di una tabella (\hyperref[sec:UC12]{\textbf{UC12}} ;
-		\item L’amministratore si trova nel pannello amministrativo;
+		\item L’amministratore\textsuperscript{G} ha effettuato il \textit{login\textsuperscript{G}} (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore\textsuperscript{G} si trova nella sezione di visualizzazione di una tabella (\hyperref[sec:UC12]{\textbf{UC12}} ;
+		\item L’amministratore\textsuperscript{G} si trova nel pannello amministrativo;
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
-		\item L'amministratore può vedere nome, tipo e sinonimi dei campi presenti;
+		\item L'amministratore\textsuperscript{G} può vedere nome, tipo e sinonimi dei campi presenti;
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
@@ -839,18 +839,18 @@ Il sistema dispone di due attori principali. In particolare:
 \label{sec:UC18}
 \includegraphics[scale=0.6]{UML_Use_Cases/UC18_19_20.png}
 \begin{itemize}
-	\item \textbf{Descrizione:} l’amministratore visualizza tutti i campi della tabella selezionata;
-	\item \textbf{Attori:} amministratore;
+	\item \textbf{Descrizione:} l’amministratore\textsuperscript{G} visualizza tutti i campi della tabella selezionata;
+	\item \textbf{Attori\textsuperscript{G}:} amministratore\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’amministratore ha effettuato il \textit{login} (\hyperref[sec:UC1]{\textbf{UC1}});
-		\item L’amministratore si trova nella sezione di visualizzazione di una tabella (\hyperref[sec:UC12]{\textbf{UC12}});
-		\item L’amministratore si trova nel pannello amministrativo;
-		\item L'amministratore ha selezionato un campo di una tabella;
+		\item L’amministratore\textsuperscript{G} ha effettuato il \textit{login\textsuperscript{G}} (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore\textsuperscript{G} si trova nella sezione di visualizzazione di una tabella (\hyperref[sec:UC12]{\textbf{UC12}});
+		\item L’amministratore\textsuperscript{G} si trova nel pannello amministrativo;
+		\item L'amministratore\textsuperscript{G} ha selezionato un campo di una tabella;
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
-		\item L'amministratore può vedere nome, tipo e sinonimi del campo selezionatoi;
+		\item L'amministratore\textsuperscript{G} può vedere nome, tipo e sinonimi del campo selezionatoi;
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
@@ -862,14 +862,14 @@ Il sistema dispone di due attori principali. In particolare:
 \label{sec:UC19}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
-	\item \textbf{Descrizione:} l’amministratore vuole modificare un campo alla tabella selezionata;
-	\item \textbf{Attori:} amministratore;
+	\item \textbf{Descrizione:} l’amministratore\textsuperscript{G} vuole modificare un campo alla tabella selezionata;
+	\item \textbf{Attori\textsuperscript{G}:} amministratore\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’amministratore ha effettuato il \textit{login} (\hyperref[sec:UC1]{\textbf{UC1}});
-		\item L’amministratore si trova nel pannello amministrativo;
-		\item L’amministratore si trova nella sezione di visualizzazione di una tabella (\hyperref[sec:UC12]{\textbf{UC12}});
-		\item L’amministratore sta modificando i campi che compongono la tabella;
+		\item L’amministratore\textsuperscript{G} ha effettuato il \textit{login\textsuperscript{G}} (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore\textsuperscript{G} si trova nel pannello amministrativo;
+		\item L’amministratore\textsuperscript{G} si trova nella sezione di visualizzazione di una tabella (\hyperref[sec:UC12]{\textbf{UC12}});
+		\item L’amministratore\textsuperscript{G} sta modificando i campi che compongono la tabella;
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
@@ -877,9 +877,9 @@ Il sistema dispone di due attori principali. In particolare:
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item L’amministratore inserisce il nome del campo \hyperref[sec:UC15.1]{\textbf{UC15.1}};
-		\item L'amministratore seleziona il tipo del campo \hyperref[sec:UC15.2]{\textbf{UC15.2}};
-		\item L'amministratore inserisce i sinonimi del campo \hyperref[sec:UC15.3]{\textbf{UC15.3}};
+		\item L’amministratore\textsuperscript{G} inserisce il nome del campo \hyperref[sec:UC15.1]{\textbf{UC15.1}};
+		\item L'amministratore\textsuperscript{G} seleziona il tipo del campo \hyperref[sec:UC15.2]{\textbf{UC15.2}};
+		\item L'amministratore\textsuperscript{G} inserisce i sinonimi del campo \hyperref[sec:UC15.3]{\textbf{UC15.3}};
 	\end{itemize}
 
 		\item \textbf{Estensioni:} nel caso in cui il nome inserito sia già esistente o non sia stato selezionato il tipo o inseriti i sinonimi:
@@ -893,13 +893,13 @@ Il sistema dispone di due attori principali. In particolare:
 \label{sec:UC20}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
-	\item \textbf{Descrizione:} l’amministratore elimina il campo selezionato;
-	\item \textbf{Attori:} amministratore;
+	\item \textbf{Descrizione:} l’amministratore\textsuperscript{G} elimina il campo selezionato;
+	\item \textbf{Attori\textsuperscript{G}:} amministratore\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’amministratore ha effettuato il \textit{login} (\hyperref[sec:UC1]{\textbf{UC1}});
-		\item L’amministratore si trova nel pannello amministrativo;
-		\item L’amministratore sta visualizzando la lista dei campi (\hyperref[sec:UC15]{\textbf{UC15}});
+		\item L’amministratore\textsuperscript{G} ha effettuato il \textit{login\textsuperscript{G}} (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore\textsuperscript{G} si trova nel pannello amministrativo;
+		\item L’amministratore\textsuperscript{G} sta visualizzando la lista dei campi (\hyperref[sec:UC15]{\textbf{UC15}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
@@ -907,69 +907,69 @@ Il sistema dispone di due attori principali. In particolare:
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item L'amministratore seleziona il campo da eliminare;
+		\item L'amministratore\textsuperscript{G} seleziona il campo da eliminare;
 		\item Il sistema visualizza un messaggio per chiedere la conferma dell'eliminazione;
 		\item Se l'amministrazione conferma l'eliminazione, il campo verrà rimosso dal sistema e verrà visualizzato un messaggio di avvenuta eliminazione.
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC21 - Caricamento struttura \textit{Database} tramite file}
+\subsection{UC21 - Caricamento struttura \textit{Database}\textsuperscript{G} tramite file\textsuperscript{G}}
 \label{sec:UC21}
 \includegraphics[scale=0.6]{UML_Use_Cases/UC21_22.png}
 \begin{itemize}
-	\item \textbf{Descrizione:} l’amministratore vuole caricare un file che descrive una Struttura \textit{Database};
-	\item \textbf{Attori:} amministratore;
+	\item \textbf{Descrizione:} l’amministratore\textsuperscript{G} vuole caricare un file\textsuperscript{G} che descrive una Struttura \textit{Database}\textsuperscript{G};
+	\item \textbf{Attori\textsuperscript{G}:} amministratore\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’amministratore ha effettuato il \textit{login} (\hyperref[sec:UC1]{\textbf{UC1}});
-		\item L’amministratore si trova nel pannello amministrativo;
+		\item L’amministratore\textsuperscript{G} ha effettuato il \textit{login\textsuperscript{G}} (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore\textsuperscript{G} si trova nel pannello amministrativo;
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
-		\item La Struttura \textit{Database} viene caricata correttamente nel sistema;
+		\item La Struttura \textit{Database}\textsuperscript{G} viene caricata correttamente nel sistema;
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item L'amministrazione inserisce il file della Struttura \textit{Database};
+		\item L'amministrazione inserisce il file\textsuperscript{G} della Struttura \textit{Database}\textsuperscript{G};
 	\end{itemize}
-	\item \textbf{Estensioni:} nel caso il file non sia corretto:
+	\item \textbf{Estensioni:} nel caso il file\textsuperscript{G} non sia corretto:
 	\begin{itemize}
-		\item \hyperref[sec:UC22]{\textbf{UC22}} - Errore caricamento file
+		\item \hyperref[sec:UC22]{\textbf{UC22}} - Errore caricamento file\textsuperscript{G}
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC22 - Errore caricamento file}
+\subsection{UC22 - Errore caricamento file\textsuperscript{G}}
 \label{sec:UC22}
 \begin{itemize}
-	\item \textbf{Descrizione:} L’amministratore visualizza un errore di caricamento del file;
-	\item \textbf{Attori:} amministratore;
+	\item \textbf{Descrizione:} L’amministratore\textsuperscript{G} visualizza un errore di caricamento del file\textsuperscript{G};
+	\item \textbf{Attori\textsuperscript{G}:} amministratore\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’amministratore ha effettuato il \textit{login} (\hyperref[sec:UC1]{\textbf{UC1}});
-		\item L’amministratore si trova nel pannello amministrativo;
-		\item L’amministratore sta caricando un file Struttura del \textit{Database} (\hyperref[sec:UC21]{\textbf{UC21}});
+		\item L’amministratore\textsuperscript{G} ha effettuato il \textit{login\textsuperscript{G}} (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore\textsuperscript{G} si trova nel pannello amministrativo;
+		\item L’amministratore\textsuperscript{G} sta caricando un file\textsuperscript{G} Struttura del \textit{Database} (\hyperref[sec:UC21]{\textbf{UC21}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
-		\item La Struttura \textit{Database} non viene caricata e salvata, il programma visualizza un messaggio di errore;
+		\item La Struttura \textit{Database}\textsuperscript{G} non viene caricata e salvata, il programma visualizza un messaggio di errore;
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item Il sistema verifica che il \textit{form}ato del file sia corretto;
-		\item Il sistema mostra un messaggio di errore se il \textit{form}ato non è corretto;
+		\item Il sistema verifica che il formato\textsuperscript{G} del file\textsuperscript{G} sia corretto;
+		\item Il sistema mostra un messaggio di errore se il formato\textsuperscript{G} non è corretto;
 	\end{itemize}
 \end{itemize}
 
 
-\subsection{UC23 - \textit{Logout}}
+\subsection{UC23 - \textit{Logout\textsuperscript{G}}}
 \label{sec:UC23}
 \includegraphics[scale=0.6]{UML_Use_Cases/UC23_24.png}
 \begin{itemize}
-	\item \textbf{Descrizione:} l'amministratore vuole fare il \textit{logout} dall'area amministrativa; 
-	\item \textbf{Attori:} amministratore;
+	\item \textbf{Descrizione:} l'amministratore\textsuperscript{G} vuole fare il \textit{logout\textsuperscript{G}} dall'area amministrativa; 
+	\item \textbf{Attori\textsuperscript{G}:} amministratore\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’amministratore ha effettuato il \textit{login} (\hyperref[sec:UC1]{\textbf{UC1}});
+		\item L’amministratore\textsuperscript{G} ha effettuato il \textit{login\textsuperscript{G}} (\hyperref[sec:UC1]{\textbf{UC1}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
@@ -977,104 +977,104 @@ Il sistema dispone di due attori principali. In particolare:
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item L’amministratore clicca il pulsante di \textit{logout};
-		\item L’amministratore viene reindirizzato alla pagina iniziale.
+		\item L’amministratore\textsuperscript{G} clicca il pulsante di \textit{logout\textsuperscript{G}};
+		\item L’amministratore\textsuperscript{G} viene reindirizzato alla pagina iniziale.
 	\end{itemize}
-	\item \textbf{Estensioni:} nel caso in cui l'utente non fosse loggato:
+	\item \textbf{Estensioni:} nel caso in cui l'utente\textsuperscript{G} non fosse loggato:
 	\begin{itemize}
 		\item Viene visualizzato un errore - \hyperref[sec:UC24]{\textbf{UC24}}.
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC24 - Errore \textit{logout}}
+\subsection{UC24 - Errore \textit{logout\textsuperscript{G}}}
 \label{sec:UC24}
 \begin{itemize}
-	\item \textbf{Descrizione:} L’amministratore visualizza un errore di \textit{logout};
-	\item \textbf{Attori:} amministratore;
+	\item \textbf{Descrizione:} L’amministratore\textsuperscript{G} visualizza un errore di \textit{logout\textsuperscript{G}};
+	\item \textbf{Attori\textsuperscript{G}:} amministratore\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’amministratore sta tentando di fare il \textit{logout} (\hyperref[sec:UC21]{\textbf{UC21}});
-		\item La sessione corrente dell'amministratore non è presente;
+		\item L’amministratore\textsuperscript{G} sta tentando di fare il \textit{logout\textsuperscript{G}} (\hyperref[sec:UC21]{\textbf{UC21}});
+		\item La sessione\textsuperscript{G} corrente dell'amministratore\textsuperscript{G} non è presente;
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
-		\item L'amministratore viene reindirizzato alla pagina iniziale, il programma visualizza un messaggio di errore;
+		\item L'amministratore\textsuperscript{G} viene reindirizzato alla pagina iniziale, il programma visualizza un messaggio di errore;
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item Il sistema verifica la presenza della sessione di \textit{login};
-		\item Il sistema mostra un messaggio di errore se la sessione non è presente;
-		\item L'amministratore viene riportato alla pagina iniziale.
+		\item Il sistema verifica la presenza della sessione\textsuperscript{G} di \textit{login\textsuperscript{G}};
+		\item Il sistema mostra un messaggio di errore se la sessione\textsuperscript{G} non è presente;
+		\item L'amministratore\textsuperscript{G} viene riportato alla pagina iniziale.
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC25 - Selezione Struttura \textit{Database} da interrogare}
+\subsection{UC25 - Selezione Struttura \textit{Database}\textsuperscript{G} da interrogare}
 \label{sec:UC25}
 \includegraphics[scale=0.55]{UML_Use_Cases/UC25_26.png}
 \begin{itemize}
-	\item \textbf{Descrizione:} l’utente seleziona la Struttura \textit{Database} che vuole interrogare da una lista;
-	\item \textbf{Attori:} utente;
+	\item \textbf{Descrizione:} l’utente\textsuperscript{G} seleziona la Struttura \textit{Database}\textsuperscript{G} che vuole interrogare da una lista;
+	\item \textbf{Attori\textsuperscript{G}:} utente\textsuperscript{G};
 	\item \textbf{Precondizioni:}
 	\begin{itemize}
 		\item Sono presenti una o più Strutture \textit{Database} da poter selezionare;
 	\end{itemize}
 	\item \textbf{Postcondizioni:}
 	\begin{itemize}
-		\item L’utente ha selezionato una Struttura \textit{Database};
+		\item L’utente\textsuperscript{G} ha selezionato una Struttura \textit{Database}\textsuperscript{G};
 	\end{itemize}
 	\item \textbf{Scenario principale:}
 	\begin{itemize}
-		\item L’utente ha il programma aperto;
-		\item L’utente seleziona uno dei \textit{database} presenti nella lista.
+		\item L’utente\textsuperscript{G} ha il programma aperto;
+		\item L’utente\textsuperscript{G} seleziona uno dei \textit{database\textsuperscript{G}} presenti nella lista.
 	\end{itemize}
-	\item \textbf{Estensioni:} In caso l'utente non selezioni una Strttura \textit{Database};
+	\item \textbf{Estensioni:} In caso l'utente\textsuperscript{G} non selezioni una Strttura \textit{Database};
 	\begin{itemize}
-		\item Errore Struttura \textit{Database} non selezionata (\hyperref[sec:UC26]{\textbf{UC26}});
+		\item Errore Struttura \textit{Database}\textsuperscript{G} non selezionata (\hyperref[sec:UC26]{\textbf{UC26}});
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC26 - Errore Struttura \textit{Database} non selezionata}
+\subsection{UC26 - Errore Struttura \textit{Database}\textsuperscript{G} non selezionata}
 \label{sec:UC26}
 \begin{itemize}
-	\item \textbf{Descrizione:} l’utente non ha selezionato una Struttura \textit{Database};
-	\item \textbf{Attori:} utente;
+	\item \textbf{Descrizione:} l’utente\textsuperscript{G} non ha selezionato una Struttura \textit{Database}\textsuperscript{G};
+	\item \textbf{Attori\textsuperscript{G}:} utente\textsuperscript{G};
 	\item \textbf{Precondizioni:}
 	\begin{itemize}
-		\item Sono presenti una o più Strutture \textit{Database} da poter selezionare;
+		\item Sono presenti una o più Strutture \textit{Database}\textsuperscript{G} da poter selezionare;
 	\end{itemize}
 	\item \textbf{Postcondizioni:}
 	\begin{itemize}
-		\item L’utente visualizza un messaggio di errore;
+		\item L’utente\textsuperscript{G} visualizza un messaggio di errore;
 	\end{itemize}
 	\item \textbf{Scenario principale:}
 	\begin{itemize}
-		\item Il sistema non riceve una Struttura \textit{Database};
+		\item Il sistema non riceve una Struttura \textit{Database}\textsuperscript{G};
 		\item Il sistema mostra un errore;
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC27 - Inserimento frase in linguaggio naturale}
+\subsection{UC27 - Inserimento frase in linguaggio naturale\textsuperscript{G}}
 \label{sec:UC27}
 \includegraphics[scale=0.6]{UML_Use_Cases/UC27_28.png}
 \begin{itemize}
-	\item \textbf{Descrizione:} L’utente scrive una frase in linguaggio naturale;
-	\item \textbf{Attori:} utente;
+	\item \textbf{Descrizione:} L’utente\textsuperscript{G}\textsuperscript{G} scrive una frase in linguaggio naturale\textsuperscript{G};
+	\item \textbf{Attori\textsuperscript{G}:} utente\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’utente ha selezionato un file di struttura \textit{Database} (\hyperref[sec:UC25]{\textbf{UC25}});
+		\item L’utente\textsuperscript{G} ha selezionato un file\textsuperscript{G} di struttura \textit{Database}\textsuperscript{G} (\hyperref[sec:UC25]{\textbf{UC25}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
-		\item L’utente riceve un \textit{prompt} per la creazione della \textit{query} richiesta (\hyperref[sec:UC29]{\textbf{UC29}});
+		\item L’utente\textsuperscript{G} riceve un \textit{prompt\textsuperscript{G}} per la creazione della \textit{query\textsuperscript{G}} richiesta (\hyperref[sec:UC29]{\textbf{UC29}});
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item L’utente ha il programma aperto;
-		\item L’utente seleziona la casella di testo;
-		\item L’utente scrive la frase per interrogare il \textit{database};
-		\item L’utente clicca il pulsante apposito per ottenere il \textit{prompt}.
+		\item L’utente\textsuperscript{G} ha il programma aperto;
+		\item L’utente\textsuperscript{G} seleziona la casella di testo;
+		\item L’utente\textsuperscript{G} scrive la frase per interrogare il \textit{database\textsuperscript{G}};
+		\item L’utente\textsuperscript{G} clicca il pulsante apposito per ottenere il \textit{prompt\textsuperscript{G}}.
 	\end{itemize}
-	\item \textbf{Estensioni:} nel caso in cui venga inserita una frase non inerente al \textit{database}, o non comprensibile:
+	\item \textbf{Estensioni:} nel caso in cui venga inserita una frase non inerente al \textit{database\textsuperscript{G}}, o non comprensibile:
 	\begin{itemize}
 		\item Viene visualizzato un errore - \hyperref[sec:UC28]{\textbf{UC28}}.
 	\end{itemize}
@@ -1083,16 +1083,16 @@ Il sistema dispone di due attori principali. In particolare:
 \subsection{UC28 - Errore frase naturale}
 \label{sec:UC28}
 \begin{itemize}
-	\item \textbf{Descrizione:} L’utente visualizza un errore inerente alla frase inserita;
-	\item \textbf{Attori:} utente;
+	\item \textbf{Descrizione:} L’utente\textsuperscript{G} visualizza un errore inerente alla frase inserita;
+	\item \textbf{Attori\textsuperscript{G}:} utente\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’utente ha selezionato un file di struttura \textit{Database} (\hyperref[sec:UC25]{\textbf{UC25}});
-		\item L'utente ha inserito una frase in linguaggio naturale (\hyperref[sec:UC27]{\textbf{UC27}});
+		\item L’utente\textsuperscript{G} ha selezionato un file\textsuperscript{G} di struttura \textit{Database}\textsuperscript{G} (\hyperref[sec:UC25]{\textbf{UC25}});
+		\item L'utente\textsuperscript{G} ha inserito una frase in linguaggio naturale\textsuperscript{G} (\hyperref[sec:UC27]{\textbf{UC27}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
-		\item L’utente visualizza un messaggio di errore;
+		\item L’utente\textsuperscript{G} visualizza un messaggio di errore;
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
@@ -1108,17 +1108,17 @@ Il sistema dispone di due attori principali. In particolare:
 \label{sec:UC28.1}
 %\includegraphics[scale=0.6]{UML_Use_Cases/UC28.1_28.2_28.3.png}
 \begin{itemize}
-	\item \textbf{Descrizione:} L’utente visualizza un errore relativo alla frase inserita;
-	\item \textbf{Attori:} utente;
+	\item \textbf{Descrizione:} L’utente\textsuperscript{G} visualizza un errore relativo alla frase inserita;
+	\item \textbf{Attori\textsuperscript{G}:} utente\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’utente ha selezionato un file di struttura \textit{Database} (\hyperref[sec:UC25]{\textbf{UC25}});
-		\item L'utente ha inserito una frase in linguaggio naturale (\hyperref[sec:UC27]{\textbf{UC27}});
+		\item L’utente\textsuperscript{G} ha selezionato un file\textsuperscript{G} di struttura \textit{Database}\textsuperscript{G} (\hyperref[sec:UC25]{\textbf{UC25}});
+		\item L'utente\textsuperscript{G} ha inserito una frase in linguaggio naturale\textsuperscript{G} (\hyperref[sec:UC27]{\textbf{UC27}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
 		\item Il programma mostra un messaggio di errore;
-		\item Il \textit{prompt} non viene generato;
+		\item Il \textit{prompt\textsuperscript{G}} non viene generato;
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
@@ -1131,17 +1131,17 @@ Il sistema dispone di due attori principali. In particolare:
 \subsubsection{UC28.2 - Errore frase non compresa}
 \label{sec:UC28.2}
 \begin{itemize}
-	\item \textbf{Descrizione:} L’utente inserisce una frase in linguaggio naturale non comprensibile dal sistema;
-	\item \textbf{Attori:} utente;
+	\item \textbf{Descrizione:} L’utente\textsuperscript{G} inserisce una frase in linguaggio naturale\textsuperscript{G} non comprensibile dal sistema;
+	\item \textbf{Attori\textsuperscript{G}:} utente\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’utente ha selezionato un file di struttura \textit{Database} (\hyperref[sec:UC25]{\textbf{UC25}});
-		\item L'utente ha inserito una frase in linguaggio naturale (\hyperref[sec:UC27]{\textbf{UC27}});
+		\item L’utente\textsuperscript{G} ha selezionato un file\textsuperscript{G} di struttura \textit{Database}\textsuperscript{G} (\hyperref[sec:UC25]{\textbf{UC25}});
+		\item L'utente\textsuperscript{G} ha inserito una frase in linguaggio naturale\textsuperscript{G} (\hyperref[sec:UC27]{\textbf{UC27}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
 		\item Il programma mostra un messaggio di errore;
-		\item Il \textit{prompt} non viene generato;
+		\item Il \textit{prompt\textsuperscript{G}} non viene generato;
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
@@ -1156,241 +1156,241 @@ Il sistema dispone di due attori principali. In particolare:
 \label{sec:UC28.3}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
-	\item \textbf{Descrizione:} l’utente inserisce una frase in linguaggio naturale non interpretabile dal sistema come inerente al \textit{database};
-	\item \textbf{Attori:} utente;
+	\item \textbf{Descrizione:} l’utente\textsuperscript{G} inserisce una frase in linguaggio naturale\textsuperscript{G} non interpretabile dal sistema come inerente al \textit{database\textsuperscript{G}};
+	\item \textbf{Attori\textsuperscript{G}:} utente\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’utente ha selezionato un file di struttura \textit{Database} (\hyperref[sec:UC25]{\textbf{UC22}});
-		\item L’utente ha scritto una frase in linguaggio naturale nella casella di testo apposita e ne ha confermato l’inserimento (\hyperref[sec:UC27]{\textbf{UC24}});
+		\item L’utente\textsuperscript{G} ha selezionato un file\textsuperscript{G} di struttura \textit{Database}\textsuperscript{G} (\hyperref[sec:UC25]{\textbf{UC22}});
+		\item L’utente\textsuperscript{G} ha scritto una frase in linguaggio naturale\textsuperscript{G} nella casella di testo apposita e ne ha confermato l’inserimento (\hyperref[sec:UC27]{\textbf{UC24}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
 		\item Il programma mostra un messaggio di errore;
-		\item Il \textit{prompt} non viene generato;
+		\item Il \textit{prompt\textsuperscript{G}} non viene generato;
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
 		\item Il sistema verifica la frase ricevuta;
-		\item Il sistema non trova componenti inerenti alla Struttura \textit{Database} nella frase;
+		\item Il sistema non trova componenti inerenti alla Struttura \textit{Database}\textsuperscript{G} nella frase;
 		\item Il sistema visualizza un messaggio di errore.
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC29 - Visualizzazione \textit{prompt} generato}
+\subsection{UC29 - Visualizzazione \textit{prompt\textsuperscript{G}} generato}
 \label{sec:UC29}
 \includegraphics[scale=0.6]{UML_Use_Cases/UC29_30.png}
 \begin{itemize}
-	\item \textbf{Descrizione:} L’utente riceve il \textit{prompt} per la generazione della \textit{query};
-	\item \textbf{Attori:} utente;
+	\item \textbf{Descrizione:} L’utente\textsuperscript{G} riceve il \textit{prompt\textsuperscript{G}} per la generazione della \textit{query\textsuperscript{G}};
+	\item \textbf{Attori\textsuperscript{G}:} utente\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’utente ha selezionato un file di struttura \textit{Database} (\hyperref[sec:UC25]{\textbf{UC22}});
-		\item L’utente ha scritto una frase in linguaggio naturale (\hyperref[sec:UC27]{\textbf{UC24}});
+		\item L’utente\textsuperscript{G} ha selezionato un file\textsuperscript{G} di struttura \textit{Database}\textsuperscript{G} (\hyperref[sec:UC25]{\textbf{UC22}});
+		\item L’utente\textsuperscript{G} ha scritto una frase in linguaggio naturale\textsuperscript{G} (\hyperref[sec:UC27]{\textbf{UC24}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
-		\item Il programma visualizza il \textit{prompt} per la creazione della \textit{query} richiesta;
+		\item Il programma visualizza il \textit{prompt\textsuperscript{G}} per la creazione della \textit{query\textsuperscript{G}} richiesta;
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item L’utente ha il programma aperto;
-		\item L’utente ha selezionato la Struttura \textit{Database} (\hyperref[sec:UC25]{\textbf{UC25}})
-		\item L'utente ha inserito la frase in linguaggio naturale (\hyperref[sec:UC27]{\textbf{UC27}});
-		\item L’utente richiede il \textit{prompt};
-		\item Il programma visualizza il \textit{prompt} elaborato.
+		\item L’utente\textsuperscript{G} ha il programma aperto;
+		\item L’utente\textsuperscript{G} ha selezionato la Struttura \textit{Database}\textsuperscript{G} (\hyperref[sec:UC25]{\textbf{UC25}})
+		\item L'utente\textsuperscript{G} ha inserito la frase in linguaggio naturale\textsuperscript{G} (\hyperref[sec:UC27]{\textbf{UC27}});
+		\item L’utente\textsuperscript{G} richiede il \textit{prompt\textsuperscript{G}};
+		\item Il programma visualizza il \textit{prompt\textsuperscript{G}} elaborato.
 	\end{itemize}
-	\item \textbf{Estensioni:} nel caso in cui non sia possibile generare il \textit{prompt}:
+	\item \textbf{Estensioni:} nel caso in cui non sia possibile generare il \textit{prompt\textsuperscript{G}}:
 	\begin{itemize}
 		\item Viene visualizzato un errore - \hyperref[sec:UC30]{\textbf{UC30}}.
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC30 - Errore generazione \textit{prompt}}
+\subsection{UC30 - Errore generazione \textit{prompt\textsuperscript{G}}}
 \label{sec:UC30}
 \begin{itemize}
-	\item \textbf{Descrizione:} L’utente visualizza un errore inerente alla generazione del \textit{prompt};
-	\item \textbf{Attori:} utente;
+	\item \textbf{Descrizione:} L’utente\textsuperscript{G} visualizza un errore inerente alla generazione del \textit{prompt\textsuperscript{G}};
+	\item \textbf{Attori\textsuperscript{G}:} utente\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’utente ha selezionato un file di struttura \textit{Database} (\hyperref[sec:UC25]{\textbf{UC25}});
-		\item L’utente ha scritto una frase in linguaggio naturale (\hyperref[sec:UC27]{\textbf{UC27}});
-		\item L’utente richiede il \textit{prompt};
+		\item L’utente\textsuperscript{G} ha selezionato un file\textsuperscript{G} di struttura \textit{Database}\textsuperscript{G} (\hyperref[sec:UC25]{\textbf{UC25}});
+		\item L’utente\textsuperscript{G} ha scritto una frase in linguaggio naturale\textsuperscript{G} (\hyperref[sec:UC27]{\textbf{UC27}});
+		\item L’utente\textsuperscript{G} richiede il \textit{prompt\textsuperscript{G}};
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
-		\item L’utente visualizza un messaggio di errore;
+		\item L’utente\textsuperscript{G} visualizza un messaggio di errore;
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item Il sistema verifica il \textit{prompt} e ritorna l'errore adeguato;
+		\item Il sistema verifica il \textit{prompt\textsuperscript{G}} e ritorna l'errore adeguato;
 	\end{itemize}
 \end{itemize}
 
-\subsubsection{UC30.1 - Errore comunicazione con \textit{LLM}}
+\subsubsection{UC30.1 - Errore comunicazione con \textit{LLM\textsuperscript{G}}}
 \label{sec:UC30.1}
 \includegraphics[scale=0.6]{UML_Use_Cases/UC30.1_30.2.png}
 \begin{itemize}
-	\item \textbf{Descrizione:} L’utente visualizza un errore inerente alla comunicazione con il modello \textit{LLM};
-	\item \textbf{Attori:} utente;
+	\item \textbf{Descrizione:} L’utente\textsuperscript{G} visualizza un errore inerente alla comunicazione con il modello\textsuperscript{G} \textit{LLM\textsuperscript{G}};
+	\item \textbf{Attori\textsuperscript{G}:} utente\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’utente ha selezionato un file di struttura \textit{Database} (\hyperref[sec:UC25]{\textbf{UC25}});
-		\item L’utente ha scritto una frase in linguaggio naturale (\hyperref[sec:UC27]{\textbf{UC27}});
-		\item L’utente richiede il \textit{prompt};
+		\item L’utente\textsuperscript{G} ha selezionato un file\textsuperscript{G} di struttura \textit{Database}\textsuperscript{G} (\hyperref[sec:UC25]{\textbf{UC25}});
+		\item L’utente\textsuperscript{G} ha scritto una frase in linguaggio naturale\textsuperscript{G} (\hyperref[sec:UC27]{\textbf{UC27}});
+		\item L’utente\textsuperscript{G} richiede il \textit{prompt\textsuperscript{G}};
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
-		\item L’utente visualizza un messaggio di errore;
+		\item L’utente\textsuperscript{G} visualizza un messaggio di errore;
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item Il sistema riceve il \textit{prompt};
-		\item Il sistema non riesce a comunicare con il modello \textit{LLM};
+		\item Il sistema riceve il \textit{prompt\textsuperscript{G}};
+		\item Il sistema non riesce a comunicare con il modello\textsuperscript{G} \textit{LLM\textsuperscript{G}};
 		\item Il sistema mostra un errore;
 	\end{itemize}
 \end{itemize}
 
-\subsubsection{UC30.2 - Errore dati mancanti per creazione \textit{prompt}}
+\subsubsection{UC30.2 - Errore dati mancanti per creazione \textit{prompt\textsuperscript{G}}}
 \label{sec:UC30.2}
 \begin{itemize}
-	\item \textbf{Descrizione:} L’utente visualizza un errore inerente alla frase in linguaggio naturale;
-	\item \textbf{Attori:} utente;
+	\item \textbf{Descrizione:} L’utente\textsuperscript{G} visualizza un errore inerente alla frase in linguaggio naturale\textsuperscript{G};
+	\item \textbf{Attori\textsuperscript{G}:} utente\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’utente ha selezionato un file di struttura \textit{Database} (\hyperref[sec:UC25]{\textbf{UC25}});
-		\item L’utente ha scritto una frase in linguaggio naturale (\hyperref[sec:UC27]{\textbf{UC27}});
-		\item L’utente richiede il \textit{prompt};
+		\item L’utente\textsuperscript{G} ha selezionato un file\textsuperscript{G} di struttura \textit{Database}\textsuperscript{G} (\hyperref[sec:UC25]{\textbf{UC25}});
+		\item L’utente\textsuperscript{G} ha scritto una frase in linguaggio naturale\textsuperscript{G} (\hyperref[sec:UC27]{\textbf{UC27}});
+		\item L’utente\textsuperscript{G} richiede il \textit{prompt\textsuperscript{G}};
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
-		\item L’utente visualizza un messaggio di errore;
+		\item L’utente\textsuperscript{G} visualizza un messaggio di errore;
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item Il sistema riceve il \textit{prompt};
-		\item Il sistema non trova tutti i dati necessari per la generazione del \textit{prompt} ;
+		\item Il sistema riceve il \textit{prompt\textsuperscript{G}};
+		\item Il sistema non trova tutti i dati necessari per la generazione del \textit{prompt\textsuperscript{G}} ;
 		\item Il sistema mostra un errore;
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC31 - Richiesta generazione \textit{query SQL}}
+\subsection{UC31 - Richiesta generazione \textit{query\textsuperscript{G} SQL\textsuperscript{G}}}
 \label{sec:UC31}
 \includegraphics[scale=0.55]{UML_Use_Cases/UC31_32.png}
 \begin{itemize}
-    \item \textbf{Descrizione:} L'utente richiede la generazione della \textit{query SQL};
-    \item \textbf{Attori:} utente;
+    \item \textbf{Descrizione:} L'utente\textsuperscript{G} richiede la generazione della \textit{query\textsuperscript{G} SQL\textsuperscript{G}};
+    \item \textbf{Attori\textsuperscript{G}:} utente\textsuperscript{G};
     \item \textbf{Precondizioni:} 
     \begin{itemize}
-    	\item L'utente ha visualizzato il \textit{prompt} (\hyperref[sec:UC29]{\textbf{UC29}});
+    	\item L'utente\textsuperscript{G} ha visualizzato il \textit{prompt\textsuperscript{G}} (\hyperref[sec:UC29]{\textbf{UC29}});
     \end{itemize}
     \item \textbf{Postcondizioni:} 
     \begin{itemize}
-    	\item L'utente visualizza la \textit{query SQL} richiesta (\hyperref[sec:UC33]{\textbf{UC33}});
+    	\item L'utente\textsuperscript{G} visualizza la \textit{query\textsuperscript{G} SQL\textsuperscript{G}} richiesta (\hyperref[sec:UC33]{\textbf{UC33}});
     \end{itemize}
     \item \textbf{Scenario principale:}
     \begin{itemize}
-    	\item L'utente richiede la generazione della \textit{query SQL} a partire dal \textit{prompt} ricevuto;
-    	\item Il sistema verifica il \textit{prompt} ricevuto;
-    	\item Il sistema invia il \textit{prompt} al servizio \textit{LLM} esterno;
+    	\item L'utente\textsuperscript{G} richiede la generazione della \textit{query\textsuperscript{G} SQL\textsuperscript{G}} a partire dal \textit{prompt\textsuperscript{G}} ricevuto;
+    	\item Il sistema verifica il \textit{prompt\textsuperscript{G}} ricevuto;
+    	\item Il sistema invia il \textit{prompt\textsuperscript{G}} al servizio \textit{LLM\textsuperscript{G}} esterno;
     \end{itemize}
-    \item \textbf{Estensioni:} In caso non sia possibile generare la \textit{query SQL}:
+    \item \textbf{Estensioni:} In caso non sia possibile generare la \textit{query\textsuperscript{G} SQL\textsuperscript{G}}:
     \begin{itemize}
-    	\item Errore generazione \textit{query SQL} (\hyperref[sec:UC32]{\textbf{UC32}});
+    	\item Errore generazione \textit{query\textsuperscript{G} SQL\textsuperscript{G}} (\hyperref[sec:UC32]{\textbf{UC32}});
     \end{itemize}
 \end{itemize}
 
-\subsection{UC32 - Errore generazione \textit{query SQL}}
+\subsection{UC32 - Errore generazione \textit{query\textsuperscript{G} SQL\textsuperscript{G}}}
 \label{sec:UC32}
 %   \includegraphics[]{diagramma_UML}
 \begin{itemize}
-	\item \textbf{Descrizione:} L'utente visualizza un messaggio di errore inerente alla generazione della \textit{query SQL};
-	\item \textbf{Attori:} utente;
+	\item \textbf{Descrizione:} L'utente\textsuperscript{G} visualizza un messaggio di errore inerente alla generazione della \textit{query\textsuperscript{G} SQL\textsuperscript{G}};
+	\item \textbf{Attori\textsuperscript{G}:} utente\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L'utente ha visualizzato il \textit{prompt} (\hyperref[sec:UC29]{\textbf{UC29}});
-		\item L'utente richiede la generazione della \textit{query SQL} (\hyperref[sec:UC31]{\textbf{UC31}});
+		\item L'utente\textsuperscript{G} ha visualizzato il \textit{prompt\textsuperscript{G}} (\hyperref[sec:UC29]{\textbf{UC29}});
+		\item L'utente\textsuperscript{G} richiede la generazione della \textit{query\textsuperscript{G} SQL\textsuperscript{G}} (\hyperref[sec:UC31]{\textbf{UC31}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
-		\item L'utente visualizza un messaggio di errore;
+		\item L'utente\textsuperscript{G} visualizza un messaggio di errore;
 	\end{itemize}
 	\item \textbf{Scenario principale:}
 	\begin{itemize}
-		\item L'utente richiede la generazione della \textit{query SQL} a partire dal \textit{prompt} ricevuto;
-		\item Il sistema verifica il \textit{prompt} ricevuto;
-		\item Il sistema invia il \textit{prompt} al servizio \textit{LLM} esterno;
+		\item L'utente\textsuperscript{G} richiede la generazione della \textit{query\textsuperscript{G} SQL\textsuperscript{G}} a partire dal \textit{prompt\textsuperscript{G}} ricevuto;
+		\item Il sistema verifica il \textit{prompt\textsuperscript{G}} ricevuto;
+		\item Il sistema invia il \textit{prompt\textsuperscript{G}} al servizio \textit{LLM\textsuperscript{G}} esterno;
 		\item Il sistema mostra un messaggio di errore;
 	\end{itemize}
 \end{itemize}
 
-\subsubsection{UC32.1 - Errore comunicazione con API}
+\subsubsection{UC32.1 - Errore comunicazione con API\textsuperscript{G}}
 \label{sec:UC32.1}
 \includegraphics[scale=0.6]{UML_Use_Cases/UC32.1_32.2.png}
 \begin{itemize}
-	\item \textbf{Descrizione:} L'utente visualizza un messaggio di errore inerente alla comunicazione con il servizio di API esterno;
-	\item \textbf{Attori:} utente;
+	\item \textbf{Descrizione:} L'utente\textsuperscript{G} visualizza un messaggio di errore inerente alla comunicazione con il servizio di API\textsuperscript{G} esterno;
+	\item \textbf{Attori\textsuperscript{G}:} utente\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L'utente ha visualizzato il \textit{prompt} (\hyperref[sec:UC29]{\textbf{UC29}});
-		\item L'utente richiede la generazione della \textit{query SQL} (\hyperref[sec:UC31]{\textbf{UC31}});
+		\item L'utente\textsuperscript{G} ha visualizzato il \textit{prompt\textsuperscript{G}} (\hyperref[sec:UC29]{\textbf{UC29}});
+		\item L'utente\textsuperscript{G} richiede la generazione della \textit{query\textsuperscript{G} SQL\textsuperscript{G}} (\hyperref[sec:UC31]{\textbf{UC31}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
-		\item L'utente un messaggio di errore;
+		\item L'utente\textsuperscript{G} un messaggio di errore;
 	\end{itemize}
 	\item \textbf{Scenario principale:}
 	\begin{itemize}
-		\item L'utente richiede la generazione della \textit{query SQL} a partire dal \textit{prompt} ricevuto;
-		\item Il sistema verifica il \textit{prompt} ricevuto;
-		\item Il sistema invia il \textit{prompt} al servizio \textit{LLM} esterno;
-		\item Il sistema non riesce a comunicare con il servizio \textit{LLM} esterno;
+		\item L'utente\textsuperscript{G} richiede la generazione della \textit{query\textsuperscript{G} SQL\textsuperscript{G}} a partire dal \textit{prompt\textsuperscript{G}} ricevuto;
+		\item Il sistema verifica il \textit{prompt\textsuperscript{G}} ricevuto;
+		\item Il sistema invia il \textit{prompt\textsuperscript{G}} al servizio \textit{LLM\textsuperscript{G}} esterno;
+		\item Il sistema non riesce a comunicare con il servizio \textit{LLM\textsuperscript{G}} esterno;
 		\item Il sistema mostra un messaggio di errore;
 	\end{itemize}
 \end{itemize}
 
-\subsubsection{UC32.2 - Errore \textit{form}attazione \textit{prompt}}
+\subsubsection{UC32.2 - Errore formattazione \textit{prompt\textsuperscript{G}}}
 \label{sec:UC32.2}
 \begin{itemize}
-	\item \textbf{Descrizione:} L'utente visualizza un messaggio di errore inerente alla \textit{form}attazione del \textit{prompt} creato;
-	\item \textbf{Attori:} utente;
+	\item \textbf{Descrizione:} L'utente\textsuperscript{G} visualizza un messaggio di errore inerente alla formattazione del \textit{prompt\textsuperscript{G}} creato;
+	\item \textbf{Attori\textsuperscript{G}:} utente\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L'utente ha visualizzato il \textit{prompt} (\hyperref[sec:UC29]{\textbf{UC29}});
-		\item L'utente richiede la generazione della \textit{query SQL} (\hyperref[sec:UC31]{\textbf{UC31}});
+		\item L'utente\textsuperscript{G} ha visualizzato il \textit{prompt\textsuperscript{G}} (\hyperref[sec:UC29]{\textbf{UC29}});
+		\item L'utente\textsuperscript{G} richiede la generazione della \textit{query\textsuperscript{G} SQL\textsuperscript{G}} (\hyperref[sec:UC31]{\textbf{UC31}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
-		\item L'utente visualizza un messaggio di errore;
+		\item L'utente\textsuperscript{G} visualizza un messaggio di errore;
 	\end{itemize}
 	\item \textbf{Scenario principale:}
 	\begin{itemize}
-		\item L'utente richiede la generazione della \textit{query SQL} a partire dal \textit{prompt} ricevuto;
-		\item Il sistema verifica il \textit{prompt} ricevuto;
-		\item Il sistema invia il \textit{prompt} al servizio \textit{LLM} esterno;
-		\item Il sistema riceve un errore dal servizio \textit{LLM} esterno;
+		\item L'utente\textsuperscript{G} richiede la generazione della \textit{query\textsuperscript{G} SQL\textsuperscript{G}} a partire dal \textit{prompt\textsuperscript{G}} ricevuto;
+		\item Il sistema verifica il \textit{prompt\textsuperscript{G}} ricevuto;
+		\item Il sistema invia il \textit{prompt\textsuperscript{G}} al servizio \textit{LLM\textsuperscript{G}} esterno;
+		\item Il sistema riceve un errore dal servizio \textit{LLM\textsuperscript{G}} esterno;
 		\item Il sistema mostra un messaggio di errore;
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC33 - Visualizzazione \textit{query SQL}}
+\subsection{UC33 - Visualizzazione \textit{query\textsuperscript{G} SQL\textsuperscript{G}}}
 \label{sec:UC33}
 \begin{itemize}
-	\item \textbf{Descrizione:} L’utente visualizza la \textit{query SQL} ricevuta dal servizio \textit{LLM} esterno;
-	\item \textbf{Attori:} utente;
+	\item \textbf{Descrizione:} L’utente\textsuperscript{G} visualizza la \textit{query\textsuperscript{G} SQL\textsuperscript{G}} ricevuta dal servizio \textit{LLM\textsuperscript{G}} esterno;
+	\item \textbf{Attori\textsuperscript{G}:} utente\textsuperscript{G};
 	\item \textbf{Precondizioni:} 
 	\begin{itemize}
-		\item L’utente ha selezionato un file di struttura \textit{Database} (\hyperref[sec:UC25]{\textbf{UC25}});
-		\item L’utente ha inserito una frase in linguaggio naturale (\hyperref[sec:UC27]{\textbf{UC27}});
-		\item Il programma visualizza il \textit{prompt} elaborato (\hyperref[sec:UC29]{\textbf{UC29}});
-		\item L’utente richiesto la generazione della \textit{query SQL} (\hyperref[sec:UC31]{\textbf{UC31}});
+		\item L’utente\textsuperscript{G} ha selezionato un file\textsuperscript{G} di struttura \textit{Database}\textsuperscript{G} (\hyperref[sec:UC25]{\textbf{UC25}});
+		\item L’utente\textsuperscript{G} ha inserito una frase in linguaggio naturale\textsuperscript{G} (\hyperref[sec:UC27]{\textbf{UC27}});
+		\item Il programma visualizza il \textit{prompt\textsuperscript{G}} elaborato (\hyperref[sec:UC29]{\textbf{UC29}});
+		\item L’utente\textsuperscript{G} richiesto la generazione della \textit{query\textsuperscript{G} SQL\textsuperscript{G}} (\hyperref[sec:UC31]{\textbf{UC31}});
 	\end{itemize}
 	\item \textbf{Postcondizioni:} 
 	\begin{itemize}
-		\item Il programma visualizza la \textit{query SQL} richiesta;
+		\item Il programma visualizza la \textit{query\textsuperscript{G} SQL\textsuperscript{G}} richiesta;
 	\end{itemize}
 	\item \textbf{Scenario principale:} 
 	\begin{itemize}
-		\item L'utente richiede la generazione della \textit{query SQL} (\hyperref[sec:UC31]{\textbf{UC31}});
-		\item L'utente visualizza la \textit{query SQL} richiesta;
+		\item L'utente\textsuperscript{G} richiede la generazione della \textit{query\textsuperscript{G} SQL\textsuperscript{G}} (\hyperref[sec:UC31]{\textbf{UC31}});
+		\item L'utente\textsuperscript{G} visualizza la \textit{query\textsuperscript{G} SQL\textsuperscript{G}} richiesta;
 	\end{itemize}
 \end{itemize}
