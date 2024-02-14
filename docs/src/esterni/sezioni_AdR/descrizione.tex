@@ -1,0 +1,19 @@
+\section{Descrizione}
+\subsection{Obiettivi del prodotto}
+Il prodotto ha come obiettivo dare la possibilità di interrogare un \textit{database\textsuperscript{G}} partendo da una richiesta in linguaggio naturale\textsuperscript{G}, trasformandola in un \textit{prompt\textsuperscript{G}} da sottoporre ad un sistema di \textit{AI\textsuperscript{G}} per ottenere una \textit{query SQL\textsuperscript{G}} corretta in base alla struttura del \textit{database\textsuperscript{G}} interrogato.
+
+\subsection{Funzioni del prodotto}
+Il prodotto dovrà quindi, dati:
+\begin{itemize}
+	\item una struttura \textit{database}\textsuperscript{G} contenente le tabelle e le relazioni di un \textit{database\textsuperscript{G}};
+	\item una frase in linguaggio naturale\textsuperscript{G} per interrogare suddetto \textit{database\textsuperscript{G}}.
+\end{itemize}
+Trovare nella frase le parole chiave, capendo quali sono i dati da visualizzare, in quali tabelle sono salvate, tenendo conto di eventuali condizioni imposte.
+In seguito dovrà riscrivere la frase in modo da generare un \textit{prompt\textsuperscript{G}} che possa essere passato ad un sistema \textit{AI\textsuperscript{G}} che creerà la \textit{query\textsuperscript{G}} richiesta in linguaggio \textit{SQL\textsuperscript{G}}. \\
+Il \textit{prompt\textsuperscript{G}} generato potrà essere semplicemente mostrato all’utente\textsuperscript{G}, che sarà tenuto ad inserirlo nel sistema \textit{AI\textsuperscript{G}} da lui scelto, oppure utilizzare le \textit{API\textsuperscript{G}} di un servizio di \textit{AI\textsuperscript{G}} per sottoporre direttamente il \textit{prompt\textsuperscript{G}} e mostrare all’utente\textsuperscript{G} il codice \textit{SQL\textsuperscript{G}}. \\ 
+Il prodotto dovrà inoltre dare la possibilità agli utenti amministratori\textsuperscript{G}, dopo aver effettuato l’accesso, di:
+\begin{itemize}
+	\item aggiungere strutture \textit{database}\textsuperscript{G} selezionabili dagli utenti;
+	\item modificare strutture \textit{database}\textsuperscript{G};
+	\item eliminare  strutture \textit{database}\textsuperscript{G} non più necessarie.
+\end{itemize}
