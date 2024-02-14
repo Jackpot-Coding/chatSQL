@@ -90,4 +90,4 @@ else:
 #Stampa prompt e istruzioni
 print(Text("Prompt Generato:\n",style="blue"))
 print("[italic green]"+prompt+"\n[/italic green]")
-print("Copia il testo generato in https://chat.openai.com/ per ricere la query SQL")
+print("Copia il testo generato in https://chat.openai.com/ per ricevere la query SQL")
