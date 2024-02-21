@@ -914,7 +914,7 @@ Il sistema dispone di due attori principali. In particolare:
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC21 - Caricamento Struttura \textit{Database}\textsuperscript{G} tramite file\textsuperscript{G}}
+\subsection{UC21 - Caricamento Struttura \textit{Database} tramite file}
 \label{sec:UC21}
 \includegraphics[scale=0.6]{UML_Use_Cases/UC21_22.png}
 \begin{itemize}
@@ -939,7 +939,7 @@ Il sistema dispone di due attori principali. In particolare:
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC22 - Errore caricamento file\textsuperscript{G}}
+\subsection{UC22 - Errore caricamento file}
 \label{sec:UC22}
 \begin{itemize}
 	\item \textbf{Descrizione:} L’amministratore\textsuperscript{G} visualizza un errore di caricamento del file\textsuperscript{G};
@@ -962,7 +962,7 @@ Il sistema dispone di due attori principali. In particolare:
 \end{itemize}
 
 
-\subsection{UC23 - \textit{Logout\textsuperscript{G}}}
+\subsection{UC23 - \textit{Logout}}
 \label{sec:UC23}
 \includegraphics[scale=0.6]{UML_Use_Cases/UC23_24.png}
 \begin{itemize}
@@ -987,7 +987,7 @@ Il sistema dispone di due attori principali. In particolare:
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC24 - Errore \textit{logout\textsuperscript{G}}}
+\subsection{UC24 - Errore \textit{logout}}
 \label{sec:UC24}
 \begin{itemize}
 	\item \textbf{Descrizione:} L’amministratore\textsuperscript{G} visualizza un errore di \textit{logout\textsuperscript{G}};
@@ -1009,9 +1009,37 @@ Il sistema dispone di due attori principali. In particolare:
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC25 - Selezione Struttura \textit{Database}\textsuperscript{G} da interrogare}
-\label{sec:UC25}
-\includegraphics[scale=0.55]{UML_Use_Cases/UC25_26.png}
+\subsection{UC25 - Richiesta di generazione \textit{prompt}}
+\label{sec:UC25X}
+\includegraphics[scale=0.55]{UML_Use_Cases/UC25.png}
+\begin{itemize}
+	\item \textbf{Descrizione:} l’utente\textsuperscript{G} richiede la generazione del \textit{prompt}\textsuperscript{G};
+	\item \textbf{Attori\textsuperscript{G}:} utente;
+	\item \textbf{Precondizioni:}
+	\begin{itemize}
+		\item L’utente\textsuperscript{G} ha il programma aperto;
+		\item Sono presenti una o più Strutture \textit{Database}\textsuperscript{G} da poter selezionare;
+	\end{itemize}
+	\item \textbf{Postcondizioni:}
+	\begin{itemize}
+		\item L’utente\textsuperscript{G} riceve il \textit{prompt}\textsuperscript{G};
+	\end{itemize}
+	\item \textbf{Scenario principale:}
+	\begin{itemize}
+		\item L’utente seleziona uno delle Struttura \textit{Database}\textsuperscript{G} presenti nella lista  \hyperref[sec:UC25.1]{\textbf{UC25.1}};
+		\item L'utente scrive una frase in linguaggio naturale\textsuperscript{G}  \hyperref[sec:UC25.3]{\textbf{UC25.3}};
+		\item L'utente richiede la generazione del \textit{prompt};
+	\end{itemize}
+	\item \textbf{Estensioni:}
+	\begin{itemize}
+		\item Errore Struttura \textit{Database}\textsuperscript{G} non selezionata (\hyperref[sec:UC25.2]{\textbf{UC25.2}});
+		\item Errore frase naturale\textsuperscript{G} (\hyperref[sec:UC25.4]{\textbf{UC25.4}});
+	\end{itemize}
+\end{itemize}
+
+\subsection{UC25.1 - Selezione Struttura \textit{Database}}
+\label{sec:UC25.1}
+%\includegraphics[scale=0.55]{UML_Use_Cases/UC25_26.png}
 \begin{itemize}
 	\item \textbf{Descrizione:} l’utente\textsuperscript{G} seleziona la Struttura \textit{Database}\textsuperscript{G} che vuole interrogare da una lista;
 	\item \textbf{Attori\textsuperscript{G}:} utente\textsuperscript{G};
@@ -1034,8 +1062,8 @@ Il sistema dispone di due attori principali. In particolare:
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC26 - Errore Struttura \textit{Database}\textsuperscript{G} non selezionata}
-\label{sec:UC26}
+\subsection{UC25.2 - Errore Struttura \textit{Database}\textsuperscript{G} non selezionata}
+\label{sec:UC25.2}
 \begin{itemize}
 	\item \textbf{Descrizione:} l’utente\textsuperscript{G} non ha selezionato una Struttura \textit{Database}\textsuperscript{G};
 	\item \textbf{Attori\textsuperscript{G}:} utente\textsuperscript{G};
@@ -1054,9 +1082,9 @@ Il sistema dispone di due attori principali. In particolare:
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC27 - Inserimento frase in linguaggio naturale\textsuperscript{G}}
-\label{sec:UC27}
-\includegraphics[scale=0.6]{UML_Use_Cases/UC27_28.png}
+\subsection{UC25.3 - Inserimento frase in linguaggio naturale\textsuperscript{G}}
+\label{sec:UC25.3}
+% \includegraphics[scale=0.6]{UML_Use_Cases/UC27_28.png}
 \begin{itemize}
 	\item \textbf{Descrizione:} L’utente\textsuperscript{G} scrive una frase in linguaggio naturale\textsuperscript{G};
 	\item \textbf{Attori\textsuperscript{G}:} utente\textsuperscript{G};
@@ -1080,8 +1108,8 @@ Il sistema dispone di due attori principali. In particolare:
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC28 - Errore frase naturale}
-\label{sec:UC28}
+\subsection{UC25.4 - Errore frase naturale}
+\label{sec:UC25.4}
 \begin{itemize}
 	\item \textbf{Descrizione:} L’utente\textsuperscript{G} visualizza un errore inerente alla frase inserita;
 	\item \textbf{Attori\textsuperscript{G}:} utente\textsuperscript{G};
@@ -1102,10 +1130,10 @@ Il sistema dispone di due attori principali. In particolare:
 	\end{itemize}
 \end{itemize}
 
-\includegraphics[scale=0.6]{UML_Use_Cases/UC28.1_28.2_28.3.png}
+\includegraphics[scale=0.6]{UML_Use_Cases/UC25.4.1_25.4.2_25.4.3.png}
 
-\subsubsection{UC28.1 - Errore frase non inserita}
-\label{sec:UC28.1}
+\subsubsection{UC25.4.1 - Errore frase non inserita}
+\label{sec:UC25.4.1}
 %\includegraphics[scale=0.6]{UML_Use_Cases/UC28.1_28.2_28.3.png}
 \begin{itemize}
 	\item \textbf{Descrizione:} L’utente\textsuperscript{G} visualizza un errore relativo alla frase inserita;
@@ -1128,8 +1156,8 @@ Il sistema dispone di due attori principali. In particolare:
 \end{itemize}
 
 
-\subsubsection{UC28.2 - Errore frase non compresa}
-\label{sec:UC28.2}
+\subsubsection{UC25.4.2 - Errore frase non compresa}
+\label{sec:UC25.4.2}
 \begin{itemize}
 	\item \textbf{Descrizione:} L’utente\textsuperscript{G} inserisce una frase in linguaggio naturale\textsuperscript{G} non comprensibile dal sistema;
 	\item \textbf{Attori\textsuperscript{G}:} utente\textsuperscript{G};
@@ -1152,8 +1180,8 @@ Il sistema dispone di due attori principali. In particolare:
 \end{itemize}
 
 
-\subsubsection{UC28.3 - Errore frase non inerente}
-\label{sec:UC28.3}
+\subsubsection{UC25.4.3 - Errore frase non inerente}
+\label{sec:UC25.4.3}
 %\includegraphics[]{diagramma_UML}
 \begin{itemize}
 	\item \textbf{Descrizione:} l’utente\textsuperscript{G} inserisce una frase in linguaggio naturale\textsuperscript{G} non interpretabile dal sistema come inerente al \textit{database\textsuperscript{G}};
@@ -1176,9 +1204,9 @@ Il sistema dispone di due attori principali. In particolare:
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC29 - Visualizzazione \textit{prompt\textsuperscript{G}} generato}
-\label{sec:UC29}
-\includegraphics[scale=0.6]{UML_Use_Cases/UC29_30.png}
+\subsection{UC25.5 - Visualizzazione \textit{prompt\textsuperscript{G}} generato}
+\label{sec:UC25.5}
+\includegraphics[scale=0.6]{UML_Use_Cases/UC25.5_26.png}
 \begin{itemize}
 	\item \textbf{Descrizione:} L’utente\textsuperscript{G} riceve il \textit{prompt\textsuperscript{G}} per la generazione della \textit{query\textsuperscript{G}};
 	\item \textbf{Attori\textsuperscript{G}:} utente\textsuperscript{G};
@@ -1205,8 +1233,8 @@ Il sistema dispone di due attori principali. In particolare:
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC30 - Errore generazione \textit{prompt\textsuperscript{G}}}
-\label{sec:UC30}
+\subsection{UC26 - Errore generazione \textit{prompt\textsuperscript{G}}}
+\label{sec:UC26}
 \begin{itemize}
 	\item \textbf{Descrizione:} L’utente\textsuperscript{G} visualizza un errore inerente alla generazione del \textit{prompt\textsuperscript{G}};
 	\item \textbf{Attori\textsuperscript{G}:} utente\textsuperscript{G};
@@ -1226,9 +1254,9 @@ Il sistema dispone di due attori principali. In particolare:
 	\end{itemize}
 \end{itemize}
 
-\subsubsection{UC30.1 - Errore comunicazione con \textit{LLM\textsuperscript{G}}}
-\label{sec:UC30.1}
-\includegraphics[scale=0.6]{UML_Use_Cases/UC30.1_30.2.png}
+\subsubsection{UC26.1 - Errore comunicazione con \textit{LLM}}
+\label{sec:UC26.1}
+\includegraphics[scale=0.6]{UML_Use_Cases/UC26.1_26.2.png}
 \begin{itemize}
 	\item \textbf{Descrizione:} L’utente\textsuperscript{G} visualizza un errore inerente alla comunicazione con il modello\textsuperscript{G} \textit{LLM\textsuperscript{G}};
 	\item \textbf{Attori\textsuperscript{G}:} utente\textsuperscript{G};
@@ -1250,8 +1278,8 @@ Il sistema dispone di due attori principali. In particolare:
 	\end{itemize}
 \end{itemize}
 
-\subsubsection{UC30.2 - Errore dati mancanti per creazione \textit{prompt\textsuperscript{G}}}
-\label{sec:UC30.2}
+\subsubsection{UC26.2 - Errore dati mancanti per creazione \textit{prompt\textsuperscript{G}}}
+\label{sec:UC26.2}
 \begin{itemize}
 	\item \textbf{Descrizione:} L’utente\textsuperscript{G} visualizza un errore inerente alla frase in linguaggio naturale\textsuperscript{G};
 	\item \textbf{Attori\textsuperscript{G}:} utente\textsuperscript{G};
@@ -1273,9 +1301,9 @@ Il sistema dispone di due attori principali. In particolare:
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC31 - Richiesta generazione \textit{query SQL}\textsuperscript{G}}
-\label{sec:UC31}
-\includegraphics[scale=0.55]{UML_Use_Cases/UC31_32.png}
+\subsection{UC27 - Richiesta generazione \textit{query SQL}\textsuperscript{G}}
+\label{sec:UC27}
+\includegraphics[scale=0.55]{UML_Use_Cases/UC27_28.png}
 \begin{itemize}
     \item \textbf{Descrizione:} L'utente\textsuperscript{G} richiede la generazione della \textit{query SQL\textsuperscript{G}};
     \item \textbf{Attori\textsuperscript{G}:} utente\textsuperscript{G}, Servizio \textit{LLM}\textsuperscript{G};
@@ -1299,8 +1327,8 @@ Il sistema dispone di due attori principali. In particolare:
     \end{itemize}
 \end{itemize}
 
-\subsection{UC32 - Errore generazione \textit{query SQL\textsuperscript{G}}}
-\label{sec:UC32}
+\subsection{UC28 - Errore generazione \textit{query SQL\textsuperscript{G}}}
+\label{sec:UC28}
 %   \includegraphics[]{diagramma_UML}
 \begin{itemize}
 	\item \textbf{Descrizione:} L'utente\textsuperscript{G} visualizza un messaggio di errore inerente alla generazione della \textit{query SQL\textsuperscript{G}};
@@ -1323,9 +1351,9 @@ Il sistema dispone di due attori principali. In particolare:
 	\end{itemize}
 \end{itemize}
 
-\subsubsection{UC32.1 - Errore comunicazione con API\textsuperscript{G}}
-\label{sec:UC32.1}
-\includegraphics[scale=0.6]{UML_Use_Cases/UC32.1_32.2.png}
+\subsubsection{UC28.1 - Errore comunicazione con API\textsuperscript{G}}
+\label{sec:UC28.1}
+\includegraphics[scale=0.6]{UML_Use_Cases/UC28.1_28.2.png}
 \begin{itemize}
 	\item \textbf{Descrizione:} L'utente\textsuperscript{G} visualizza un messaggio di errore inerente alla comunicazione con il servizio di API\textsuperscript{G} esterno;
 	\item \textbf{Attori\textsuperscript{G}:} utente\textsuperscript{G}, Servizio \textit{LLM}\textsuperscript{G};
@@ -1348,8 +1376,8 @@ Il sistema dispone di due attori principali. In particolare:
 	\end{itemize}
 \end{itemize}
 
-\subsubsection{UC32.2 - Errore formattazione \textit{prompt\textsuperscript{G}}}
-\label{sec:UC32.2}
+\subsubsection{UC28.2 - Errore formattazione \textit{prompt\textsuperscript{G}}}
+\label{sec:UC28.2}
 \begin{itemize}
 	\item \textbf{Descrizione:} L'utente\textsuperscript{G} visualizza un messaggio di errore inerente alla formattazione del \textit{prompt\textsuperscript{G}} creato;
 	\item \textbf{Attori\textsuperscript{G}:} utente\textsuperscript{G}, Servizio \textit{LLM}\textsuperscript{G};
@@ -1372,8 +1400,8 @@ Il sistema dispone di due attori principali. In particolare:
 	\end{itemize}
 \end{itemize}
 
-\subsection{UC33 - Visualizzazione \textit{query SQL\textsuperscript{G}}}
-\label{sec:UC33}
+\subsection{UC29 - Visualizzazione \textit{query SQL\textsuperscript{G}}}
+\label{sec:UC29}
 \begin{itemize}
 	\item \textbf{Descrizione:} L’utente\textsuperscript{G} visualizza la \textit{query SQL\textsuperscript{G}} ricevuta dal servizio \textit{LLM\textsuperscript{G}} esterno;
 	\item \textbf{Attori\textsuperscript{G}:} utente\textsuperscript{G}, Servizio \textit{LLM}\textsuperscript{G};
