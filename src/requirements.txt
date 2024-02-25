@@ -1,3 +1,4 @@
 transformers
 rich
 six
+django (per applicazione web all'interno di chatSQL)

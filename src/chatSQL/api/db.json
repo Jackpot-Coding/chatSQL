@@ -1,0 +1,110 @@
+{
+    "database":{
+        "nome":"Test DB",
+        "descrizione":"Database di prova per il proof of concept",
+        "tabelle":[
+            {
+                "nome":"CUS",
+                "sinonimiEn":"clients,client",
+                "sinonimiIt":"clienti,cliente,acquirente,acquirenti,clients",
+                "descrizione": "Tabella contenente i clienti dell'azienda",
+                "campi":[
+                    {
+                        "nome":"id",
+                        "tipo":"INT",
+                        "sinonimiEn":"identifier",
+                        "sinonimiIt":"identificatore"
+                    },
+                    {
+                        "nome":"c1",
+                        "tipo":"VARCHAR",
+                        "sinonimiEn":"name,business name",
+                        "sinonimiIt":"ragione sociale,nome"
+                    },
+                    {
+                        "nome":"c2",
+                        "tipo":"VARCHAR",
+                        "sinonimiEn":"address",
+                        "sinonimiIt":"indirizzo,posizione,recapito,strada,abitazione,residenza,domicilio,via,strada"
+                    },
+                    {
+                        "nome":"c3",
+                        "tipo":"BOOL",
+                        "sinonimiEn":"active,in business",
+                        "sinonimiIt":"attivo,attivi,abilitato,abilitati"
+                    }
+                ]
+            },
+            {
+                "nome":"FAT",
+                "sinonimiEn":"invoice,invoices,turnover,sales",
+                "sinonimiIt":"fatture,fattura,vendite,vendita,fatturato",
+                "descrizione":"Fatture emesse",
+                "campi":[
+                    {
+                        "nome":"id",
+                        "tipo":"INT",
+                        "sinonimiEn":"identifier",
+                        "sinonimiIt":"identificatore"
+                    },
+                    {
+                        "nome":"c1",
+                        "tipo":"INT",
+                        "sinonimiEn":"clients,client,buyer",
+                        "sinonimiIt":"clienti,cliente,acquirente,acquirenti"
+                    },
+                    {
+                        "nome":"c2",
+                        "tipo":"FLOAT",
+                        "sinonimiEn":"amount,total,cost,price",
+                        "sinonimiIt":"importo,costo,prezzo,ammontare,somma,totale,spesa"
+                    },
+                    {
+                        "nome":"c3",
+                        "tipo":"DATE",
+                        "sinonimiEn":"date,year,month,day",
+                        "sinonimiIt":"data,anno,mese,giorno,tempo,scadenza,termine"
+                    }
+                ]
+            },
+            {
+                "nome":"EMP",
+                "sinonimiEn":"employees,employee,worker",
+                "sinonimiIt":"dipendenti,dipendente,impiegato,impiegati,impiegata,lavoratore,lavoratrice,lavoratori",
+                "descrizione":"Dipendenti dell'azienda",
+                "campi":[
+                    {
+                        "nome":"id",
+                        "tipo":"INT",
+                        "sinonimiEn":"identifier",
+                        "sinonimiIt":"identificatore"
+                    },
+                    {
+                        "nome":"nm",
+                        "tipo":"VARCHAR",
+                        "sinonimiEn":"name,firstname",
+                        "sinonimiIt":"nome"
+                    },
+                    {
+                        "nome":"lm",
+                        "tipo":"VARCHAR",
+                        "sinonimiEn":"surname,lastname",
+                        "sinonimiIt":"cognome,nome di famiglia"
+                    },
+                    {
+                        "nome":"sd",
+                        "tipo":"INT",
+                        "sinonimiEn":"hire date,hired",
+                        "sinonimiIt":"data di assunzione,data di inizio"
+                    },
+                    {
+                        "nome":"ed",
+                        "tipo":"INT",
+                        "sinonimiEn":"dismissal date,fired",
+                        "sinonimiIt":"data di licenziamento,data di fine"
+                    }
+                ]
+            }
+        ]
+    }
+}

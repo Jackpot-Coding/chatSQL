@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ChatSQL</title>
+        <style>
+            *{
+                margin:0;
+                box-sizing: border-box;
+            }
+            main{
+                width: 75%;
+                max-width: 1024px;
+                margin:auto;
+            }
+            h1{
+                background-color: #004e4e;
+                color:white;
+                padding:1em 0em 1em 1em;
+            }
+            h2{
+                margin-top:3em;
+                display:block;
+                margin-bottom:1em;
+                font-size:1.5em;
+            }
+            .content{
+                margin:auto;
+                max-width:768px;
+            }
+            textarea{
+                font-size:1.5em;
+                width:100%;
+                height:15em;
+                resize:vertical;
+                padding:0.5em 1em;
+                line-height:1.25em;
+                border:1px solid black;
+                border-radius:20px 20px 0px 0px;
+            }
+            .textarea{
+                font-size:1.5em;
+                width:100%;
+                resize:vertical;
+                padding:0.5em 1em;
+                line-height:1.25em;
+                border-radius:20px 20px 0px 0px;
+                overflow: hidden;
+                min-height: 40px;
+            }
+            .textarea[contenteditable]:empty::before {
+                content: "Placeholder still possible";
+                color: gray;
+            }
+            p{
+                text-align:center;
+                margin-bottom:5em;
+            }
+            button{
+                width:100%;
+                font-size:1.5em;
+                padding:0.5em;
+                margin-bottom:0.25em;
+                border-radius:0px 0px 20px 20px;
+                border:1px solid black;
+                cursor:pointer;
+                background-color:#c98702;
+                color:white;
+            }
+        </style>
+        <script>
+            function copyText() {
+                var copyText = document.getElementById("prompttext");
+                copyText.select();
+                copyText.setSelectionRange(0, 99999); // For mobile devices
+                navigator.clipboard.writeText(copyText.value);
+                window.getSelection().removeAllRanges();
+                copyText.blur();
+                var copyButton=document.getElementById("copytext");
+                copyButton.innerHTML="Copied";
+                copyButton.style.backgroundColor="#004e4e";
+              }
+        </script>
+    </head>
+    <body>
+        <header>
+            <h1>Welcome to ChatSQL, {{username}}</h1>
+        </header>
+        <main>
+            <div class="content">
+                <h2>Generated prompt</h2>
+                <textarea id="prompttext">{{promptresponse}}</textarea>
+                <button id="copytext" onclick="copyText()">Copy</button>
+                <p>Paste this in <a href="https://chat.openai.com/" target="_blank">ChatGPT</a> to get your SQL query</p>
+            </div>
+        </main>
+    </body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ChatSQL</title>
+        <style>
+            *{
+                margin:0;
+                box-sizing: border-box;
+            }
+            main{
+                width: 75%;
+                max-width: 1024px;
+                margin:auto;
+            }
+            h1{
+                background-color: #004e4e;
+                color:white;
+                padding:1em 0em 1em 1em;
+            }
+            form{
+                margin-top:10em;
+            }
+            label{
+                display: block;
+                font-size:1.5em;
+                font-weight:bold;
+            }
+            input{
+                width: 500px;
+                display: block;
+                margin-top:1em;
+                margin-left:1em;
+                padding:1em;
+                border-radius: 20px;
+                border:1px solid black;
+                font-size:1em;
+            }
+            .content{
+                display: flex;
+                justify-content: center;
+            }
+            .submit{
+                cursor:pointer;
+                background-color:#004e4e;
+                color:white
+            }
+            .lanselect{
+                height:3em;
+                width:500px;
+                margin-left:1em;
+                margin-top:1em;
+                display:flex;
+                text-align:center;
+            }
+            .lanhalf{
+                width:50%;
+                float:left;
+                font-weight:bold;
+                line-height:2.25em;
+                font-size:1.25em;
+            }
+            .lanhalf:hover{
+                border-bottom:3px solid #004e4e;
+                cursor:pointer;
+            }
+            .lanselecten{
+                background-color:#004e4e;
+                color:white;
+                border-radius: 20px 0px 0px 20px;
+                border-top:1px solid black;
+                border-bottom:1px solid black;
+                border-left:1px solid black;
+            }
+            .lanselectit{
+                border-radius: 0px 20px 20px 0px;
+                border-top:1px solid black;
+                border-bottom:1px solid black;
+                border-right:1px solid black;
+            }
+        </style>
+        <script>
+            function changetoen() {
+                var form = document.getElementById("formnattoprompt");
+                form.action="prompt/en";
+                toSelect(document.getElementById("enbutton"));
+                toBlur(document.getElementById("itbutton"));
+            }
+            function changetoit() {
+                var form = document.getElementById("formnattoprompt");
+                form.action="prompt/it";
+                toSelect(document.getElementById("itbutton"));
+                toBlur(document.getElementById("enbutton"));
+            }
+            function toSelect(btn){
+                btn.style.backgroundColor="#004e4e";
+                btn.style.color="white";
+            }
+            function toBlur(btn){
+                btn.style.backgroundColor="white";
+                btn.style.color="black";
+            }
+        </script>
+    </head>
+    <body>
+        <header>
+            <h1>Welcome to ChatSQL, {{username}}</h1>
+        </header>
+        <main>
+            <div class="content">
+                <form action="prompt/en" method="post" id="formnattoprompt">{% csrf_token %}
+                    <label for="natural">What do you want to search?</label>
+                    <div class="lanselect"><div id="enbutton" class="lanselecten lanhalf" onclick="changetoen()">EN</div><div id="itbutton" class="lanselectit lanhalf"onclick="changetoit()">IT</div></div>
+                    <input type="text" id="natural" name="natural" placeholder="Your request...">
+                    <input type="submit" value="Submit" name="submit" class="submit">
+                </form>
+            </div>
+        </main>
+    </body>
+</html>
