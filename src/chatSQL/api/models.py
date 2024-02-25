@@ -60,7 +60,7 @@ def generatePromptITA(natural):
         prompt+="\n"
         prompt += "Crea una query SQL per la seguente richiesta: "+natural
     else:
-        return "Errore: Frase non inerente al database. (Prova a cambiare la lingua in una supportata)"
+        return "Errore: Frase non inerente al database.\n(Prova a cambiare la lingua in una supportata)"
     return prompt
 
 def generatePromptENG(natural):
@@ -107,5 +107,5 @@ def generatePromptENG(natural):
         prompt+="\n"
         prompt += "Create a SQL query for the following request: "+natural
     else:
-        return "Error: Input not database related. (Try changing the language to one that's supported)"
+        return "Error: Input not database related.\n(Try changing the language to one that's supported)"
     return prompt

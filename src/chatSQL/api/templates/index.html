@@ -112,7 +112,7 @@
                 <form action="prompt/en" method="post" id="formnattoprompt">{% csrf_token %}
                     <label for="natural">What do you want to search?</label>
                     <div class="lanselect"><div id="enbutton" class="lanselecten lanhalf" onclick="changetoen()">EN</div><div id="itbutton" class="lanselectit lanhalf"onclick="changetoit()">IT</div></div>
-                    <input type="text" id="natural" name="natural" placeholder="Your request...">
+                    <input type="text" id="natural" name="natural" placeholder="Your request..." required="true">
                     <input type="submit" value="Submit" name="submit" class="submit">
                 </form>
             </div>
