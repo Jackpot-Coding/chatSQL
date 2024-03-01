@@ -1,0 +1,175 @@
+\documentclass[5pt]{article}
+
+\usepackage{sectsty}
+\usepackage{graphicx}
+\usepackage{lipsum} % for generating dummy text
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{array}
+\usepackage{cellspace}
+
+
+\usepackage{hyperref}
+\usepackage{scrextend}
+\graphicspath{ {../../assets} }
+
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\title{ Verbale - data }
+\date{\today}
+
+%STARTOF THE DOCUMENT
+\begin{document}
+
+%-------------------------
+
+% Reduce top margin only on the first page
+\newgeometry{top=0.5in}
+
+%UNIPD LOGO
+    \vspace{8pt}
+    \includegraphics[scale=0.2]{UNIPDFull.png}
+%END UNIPD LOGO
+
+\vspace{25pt}
+
+%COURSE INFO
+\begin{minipage}[t]{0.48\textwidth}
+    %COURSE TITLE
+        \begin{flushleft}
+            Informatica\\
+            \vspace{5pt}
+            \textbf{\LARGE Ingegneria del Software}\\
+            Anno Accademico: 2023/2024
+        \end{flushleft}
+    %END COURSE TITLE
+\end{minipage}
+%END COURSE INFO
+
+
+\vspace{5px}
+
+
+%BLACK LINE
+\textcolor{}{\rule{\textwidth}{5pt}}
+
+%JACKPOT CODING INFO
+\begin{minipage}[t]{0.50\textwidth}
+    %LOGO JACKPOT CODING
+    \begin{flushleft}
+        \hspace{10pt}
+        \includegraphics[scale=0.65]{jackpot-logo.png} 
+    \end{flushleft}
+\end{minipage}
+\hspace{-60pt} % This adds horizontal space between the minipages
+\begin{flushright}
+    \begin{minipage}[t]{0.50\textwidth}
+        %INFO JACKPOT CODING
+        \begin{flushright}
+            Gruppo: {\Large Jackpot Coding}\\
+            Email: \href{mailto:jackpotcoding@gmail.com}{jackpotcoding@gmail.com}
+        \end{flushright}
+    \end{minipage}
+\end{flushright}
+%END JACKPOT CODING INFO
+
+\vspace{15pt}
+
+%TITLE
+\begin{center}
+    \textbf{\large VERBALE }
+    \textbf{\large 28/11/2023} \\
+    \textbf{\Large INCONTRO SETTIMANALE PER LA GESTIONE DEL PROGETTO DIDATTICO}
+\end{center}
+%END TITLE
+
+\vspace{13pt}
+
+\begin{flushleft}
+    \begin{spacing}{1.5}
+        REDATTORE:  M. Favaretto\\%INSERT HERE THE NAMES
+        VERIFICATORE: G. Moretto  \\%INSERT HERE THE NAMES
+        RESPONSABILE:   R. Simionato\\%INSERT HERE THE NAMES
+        \vspace{7pt}
+        SCRIBA: M. Favaretto\\%INSERT HERE THE NAMES
+    \end{spacing}
+\end{flushleft}
+
+\begin{flushright}
+    \begin{spacing}{1}
+        USO: INTERNO\\
+        VERSIONE: 1.0\\ % secondo numerazione proposta da Riccardo
+    \end{spacing}
+\end{flushright}
+
+
+% Restore original margins from the second page onwards
+\restoregeometry
+
+\pagebreak
+
+
+
+
+% Optional TOC
+% \tableofcontents
+% \pagebreak
+
+%--Paper--
+
+\section{\Large ORARIO}
+\begin{spacing}{1.5}
+    {\large Inizio incontro: 18:00}\\
+    {\large Fine incontro: 18:50}
+\end{spacing}
+
+\section{PARTECIPANTI}
+% Define minimal spacing at the top and bottom of cells
+\setlength\cellspacetoplimit{6pt}
+\setlength\cellspacebottomlimit{6pt}
+
+\begin{table}[ht]
+  \begin{tabular}{|Sc|Sc|}
+    \hline
+    \textbf{Nome Componente} & \textbf{Durata della presenza} \\
+    \hline
+    Camillo Matteo & 50 minuti \\
+    Favaretto Marco & 50 minuti \\
+    Gallo Edoardo & 50 minuti \\
+    Gobbo Marco & 50 minuti \\
+    Moretto Giulio & 50 minuti \\
+    Simionato Riccardo & 35 minuti \\
+    \hline
+  \end{tabular}
+  \label{tab:conference}
+\end{table}
+
+\section{SINTESI DELL'INCONTRO}
+Durante l'incontro è stata eliminata la repository dei documenti ed è stata integrata a quella del progetto.\\
+È stata inviata una mail al proponente per la discussione dei casi d'uso analizzati.\\
+Il gruppo presente nell'applicazione comunicativa Telegram è stato diviso nei seguenti sottocanali: General, Analisi dei Requisiti, Norme di Progetto; a seconda dell'argomento.\\
+Infine, si è discussa la procedura di gestione e caricamento dei verbali su GitHub e si è applicata la seguente suddivisione dei ruoli:
+\section{RUOLI}
+\begin{itemize}
+    \item Marco Favaretto: Responsabile
+    \item Giulio Moretto: Analista
+    \item Riccardo Simionato: Analista
+    \item Edoardo Gallo: Analista
+    \item Matteo Camillo: Verificatore
+    \item Marco Gobbo: Verificatore
+\end{itemize}
+
+\section{DECISIONI}
+\begin{itemize}
+    \item Introduzione di un apice all'interno dei documenti, al fine di richiamare la parola nel glossario.
+\end{itemize}
+%--/Paper--
+
+\end{document}
