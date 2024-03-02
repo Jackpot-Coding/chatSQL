@@ -8,6 +8,10 @@
 \usepackage{array}
 \usepackage{cellspace}
 \usepackage{tabularx}
+\usepackage[table]{xcolor}
+\usepackage{tabularray}
+\usepackage{wrapfig}
+\usepackage{flafter} 
 
 
 \usepackage{hyperref}
@@ -27,6 +31,13 @@
 \author{Jackpot Coding}
 \renewcommand*\contentsname{Indice}
 \date{\today}
+
+%longtblr
+\DefTblrTemplate{contfoot-text}{default}{}
+\DefTblrTemplate{conthead-text}{default}{}
+\DefTblrTemplate{caption}{default}{}
+\DefTblrTemplate{conthead}{default}{}
+\DefTblrTemplate{capcont}{default}{}
 
 %STARTOF THE DOCUMENT
 \begin{document}
@@ -96,7 +107,7 @@
 \begin{flushleft}
     \begin{spacing}{1.5}
         REDATTORE: E. Gallo, G. Moretto\\%INSERT HERE THE NAMES
-        VERIFICATORI: \\
+        VERIFICATORI: E. Gallo \\
         \vspace{7pt}
         DESTINATARI: Prof. T. Vardanega, Prof. R. Cardin, Zucchetti S.p.A.\\%INSERT HERE THE NAMES
     \end{spacing}
@@ -116,24 +127,33 @@
 \pagebreak
 
 \textbf{\Large Registro delle modifiche}
-\begin{table}[ht]
-\centerline{%
-  \begin{tabular}{|c|c|c|c|c|}
+\begin{longtblr}
+	{
+		colspec={|Q[0.10\linewidth]|Q[0.10\linewidth]|Q[0.15\linewidth]|Q[0.15\linewidth]|Q[0.45\linewidth]|},
+		rows={halign=l},
+		column{1}={halign=c},
+		column{3}={halign=c},
+		column{4}={halign=c},
+		row{1}={halign=c},
+		row{odd} = {gray!20},
+		row{1}={teal!50},
+	}
     \hline
     \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Modifica} \\
     \hline
     % versione & data & autore & verificatore & descrizioneModifica \\
     % \hline
-    V0.0.3 & 16/02/2024 & G.Moretto & - & Inserito definizioni per i termini nelle sezioni B-U \\
+    V0.1.1 & 02/03/2024 & E. Gallo & - & Migliorata struttura documento e leggibilità del registro delle modifiche \\
     \hline
-    V0.0.2 & 13/02/2024 & G.Moretto & - & Aggiunto termini, inserito definizioni per i termini nella sezione A \\
+    V0.1.0 & 02/03/2024 & E. Gallo & - & Inserita sezione Introduzione e struttura. Verifica del documento \\
+    \hline
+    V0.0.3 & 16/02/2024 & G. Moretto & E. Gallo & Inserito definizioni per i termini nelle sezioni B-U \\
+    \hline
+    V0.0.2 & 13/02/2024 & G. Moretto & E. Gallo & Aggiunto termini, inserito definizioni per i termini nella sezione A \\
     \hline
     V0.0.1 & 15/11/2023 & E. Gallo & G. Moretto & Creata struttura del documento \\
     \hline
-  \end{tabular}%
-  }
-  \label{tab:conference}
-\end{table}
+\end{longtblr}
 
 
 
@@ -143,22 +163,21 @@
 
 \section*{Introduzione e struttura}
 \addcontentsline{toc}{section}{Introduzione e struttura}
-\subsection*{Riferimenti informativi}
-\addcontentsline{toc}{subsection}{Riferimenti informativi}
+Il presente documento ha lo scopo di individuare le terminologie di progetto e facilitarne la comprensione sia ai membri del gruppo sia soprattutto alle persone esterne o eventuali interessati. È suddiviso in sezioni, inserite in ordine alfabetico per facilitarne la ricerca e la lettura.\\ \\
+Ciascun documento inoltre, riporta al proprio interno una sezione dedicata al glossario, con annesso collegamento. Ogni termine presente in questo documento, è indicato con una \textsuperscript{G} al termine della parola.
 \pagebreak
 
 
 
 \section*{A}
 \addcontentsline{toc}{section}{A}
-
 \begin{flushleft}
 
 \addcontentsline{toc}{subsection}{AI/IA}
-\textbf{AI/IA}: Sigla per \textit{Artificial Intelligence} (o Intelligenza Artificiale) identifica una disciplina che studia come simulare il pensiero umano con l'utilizzo di sistemi informatici\newline
+\textbf{AI/IA}: Sigla per \textit{Artificial Intelligence} (o Intelligenza Artificiale), identifica una disciplina che studia come simulare il pensiero umano con l'utilizzo di sistemi informatici\newline
 
 \addcontentsline{toc}{subsection}{Amministratore}
-\textbf{Amministratore}: Utente autenticato con la possibilità di poter effettuare tutte le operazioni possibili nell'applicazione . \newline
+\textbf{Amministratore}: Utente autenticato con la possibilità di poter effettuare tutte le operazioni eseguibili nell'applicazione . \newline
 
 \addcontentsline{toc}{subsection}{Analisi dei Requisiti}
 \textbf{Analisi dei Requisiti}: Attività nella quale vengono raccolte le necessità di un proponente per quanto riguarda un programma software. Queste necessità vengono poi trasformate in requisiti descritti in un documento dedicato. \newline
@@ -171,17 +190,21 @@
 
 \end{flushleft}
 
+\pagebreak
+
 \section*{B}
 \addcontentsline{toc}{section}{B}
 \begin{flushleft}
+	
 \addcontentsline{toc}{subsection}{Browser}
 \textbf{\textit{Browser}}: Applicazione utilizzata per la navigazione di risorse nel web. 	
 	
 \end{flushleft}
 
+\pagebreak
+
 \section*{C}
 \addcontentsline{toc}{section}{C}
-
 \begin{flushleft}
 
 \addcontentsline{toc}{subsection}{Capitolato}
@@ -197,13 +220,14 @@
 \textbf{Credenziali}: Combinazione di dati che permettono ad un utente di identificarsi. Di norma si tratta di nome utente e password.\newline
 
 \addcontentsline{toc}{subsection}{CSS}
-\textbf{CSS}: Sigla per \textit{Cascading Style Sheets}, (fogli di stile a cascata), si tratta di un linguaggio utilizzato per applicare formattazione a pagine HTML utilizzate in siti internet e applicazioni web.\\
+\textbf{CSS}: Sigla per \textit{Cascading Style Sheets} (fogli di stile a cascata), si tratta di un linguaggio utilizzato per applicare formattazione a pagine HTML utilizzate in siti internet e applicazioni web.\\
 
 \end{flushleft}
 
+\pagebreak
+
 \section*{D}
 \addcontentsline{toc}{section}{D}
-
 \begin{flushleft}
 
 \addcontentsline{toc}{subsection}{Database}
@@ -214,8 +238,12 @@
 
 \end{flushleft}
 
+\pagebreak
+
 \section*{E}
 \addcontentsline{toc}{section}{E}
+
+\pagebreak
 
 \section*{F}
 \addcontentsline{toc}{section}{F}
@@ -232,39 +260,64 @@
 
 \end{flushleft}
 
+\pagebreak
+
 \section*{G}
 \addcontentsline{toc}{section}{G}
 \begin{flushleft}
 
-\addcontentsline{toc}{subsection}{git}
-\textbf{git}: \textit{Software} creato per la gestione del codice sorgente ed il tracciamento delle modifiche apportate ad esso.\newline
+\addcontentsline{toc}{subsection}{Git}
+\textbf{Git}: \textit{Software} creato per la gestione del codice sorgente ed il tracciamento delle modifiche apportate ad esso.\newline
 
 \addcontentsline{toc}{subsection}{GitHub}
 \textbf{\textit{GitHub}}: Si tratta di un servizio creato per poter ospitare progetti che utilizzano git.
 
 \end{flushleft}
 
+\pagebreak
+
 \section*{H}
 \addcontentsline{toc}{section}{H}
+\begin{flushleft}
 
 \addcontentsline{toc}{subsection}{HTML}
 \textbf{HTML}: Sigla per \textit{HyperText Markup Language} (Linguaggio di marcatura d'ipertesto). Si tratta di un linguaggio utilizzato per definire la struttura di un documento ipertestuale visualizzato da un browser.
 
+\end{flushleft}
+
+\pagebreak
+
 \section*{I}
 \addcontentsline{toc}{section}{I}
-
+\begin{flushleft}
+	
 \addcontentsline{toc}{section}{Input}
 \textbf{\textit{Input}}: Termine inglese che ha come significato l'atto di immettere dati o informazioni, tramite una periferica adibita a tale scopo, verso un sistema che li elabori.
 
+\end{flushleft}
+
+\pagebreak
+
 \section*{J}
 \addcontentsline{toc}{section}{J}
+\begin{flushleft}
+	
+\end{flushleft}
+
+\pagebreak
 
 \section*{K}
 \addcontentsline{toc}{section}{K}
+\begin{flushleft}
+	
+\end{flushleft}
+
+\pagebreak
 
 \section*{L}
 \addcontentsline{toc}{section}{L}
 \begin{flushleft}
+	
 \addcontentsline{toc}{subsection}{Linguaggio naturale}
 \textbf{Linguaggio naturale}: Modalità di espressione utilizzata dagli essere umani.\newline
 
@@ -276,33 +329,53 @@
 
 \addcontentsline{toc}{subsection}{Logout}
 \textbf{\textit{Logout}}: indentifica il processo di uscita di un utente da un sistema informatico.
+
 \end{flushleft}
+
+\pagebreak
+
 \section*{M}
 \addcontentsline{toc}{section}{M}
-
+\begin{flushleft}
+	
 \addcontentsline{toc}{subsection}{Modello}
 \textbf{Modello}: Un programma utilizzato nell'ambito dell'intelligenza artificiale, addestrato su un gruppo di dati, utilizzato per riconoscere alcuni pattern e effettuare decisioni senza intervento umano.
 
+\end{flushleft}
+
+\pagebreak
+
 \section*{N}
 \addcontentsline{toc}{section}{N}
+\begin{flushleft}
 
 \addcontentsline{toc}{subsection}{Norme di Progetto}
-\textbf{Norme di Progetto}: Documento che raccoglie le norme e procedure che il gruppo di sviluppo deve utilizzare durante il ciclo di vita del \textit{software}.
+\textbf{Norme di Progetto}: Documento che raccoglie le norme e le procedure che il gruppo di sviluppo deve utilizzare durante il ciclo di vita del \textit{software}.
+
+\end{flushleft}
+
+\pagebreak
 
 \section*{O}
 \addcontentsline{toc}{section}{O}
+\begin{flushleft}
+	
+\end{flushleft}
+
+\pagebreak
 
 \section*{P}
 \addcontentsline{toc}{section}{P}
+\begin{flushleft}
 
 \addcontentsline{toc}{subsection}{Password}
-\textbf{Password}: Traducibile come "codice di accesso", consiste nella sequenza di caratteri alfanumerici e simboli utilizzata da un utente per l'accesso esclusivo ad un risorsa informatica. \newline
+\textbf{Password}: Traducibile come "codice di accesso", consiste in una sequenza di caratteri alfanumerici e simboli, utilizzata da un utente per l'accesso esclusivo ad un risorsa informatica. \newline
 
 \addcontentsline{toc}{subsection}{PoC}
 \textbf{\textit{PoC}}: Sigla per \textit{Proof of Concept}, si tratta di un \textit{software} che il gruppo di sviluppo utilizza per verificare l'applicazione delle tecnologie selezionate alle necessità espresse dal proponente.\newline
 
 \addcontentsline{toc}{subsection}{Prompt}
-\textbf{\textit{Prompt}}: Un testo in lijnguaggio naturale interpretabile dal un modello di intelligenza artificiale.\newline
+\textbf{\textit{Prompt}}: Un testo in linguaggio naturale interpretabile dal un modello di intelligenza artificiale.\newline
 
 \addcontentsline{toc}{subsection}{Proponente}
 \textbf{Proponente}: Figura che propone un lavoro o un progetto per la sua realizzazione. \newline
@@ -310,14 +383,24 @@
 \addcontentsline{toc}{subsection}{Python}
 \textbf{\textit{Python}}: Linguaggio di programmazione ad alto livello, orientato agli oggetti.
 
+\end{flushleft}
+
+\pagebreak
+
 \section*{Q}
 \addcontentsline{toc}{section}{Q}
+\begin{flushleft}
 
 \addcontentsline{toc}{subsection}{Query SQL}
 \textbf{\textit{Query SQL}}: Traducibile come "interrogazione". Si tratta di un comando inserito da un utente per la richiesta di dati o modifiche su dati presenti in un \textit{database} (in questo caso di tipo SQL).
 
+\end{flushleft}
+
+\pagebreak
+
 \section*{R}
 \addcontentsline{toc}{section}{R}
+\begin{flushleft}
 
 \addcontentsline{toc}{subsection}{Repository}
 \textbf{\textit{Repository}}: Si tratta di un ambiente dove vengono "depositati" in modo digitale dati ed informazioni che compongono il progetto.\newline
@@ -325,8 +408,13 @@
 \addcontentsline{toc}{subsection}{Requisito}
 \textbf{Requisito}: Funzionalità e/o caratteristica di un sistema e/o le sue componenti. Questo viene descritto specificando il suo comportamento, i suoi ingressi, le sue uscite ed il suo obiettivo.
 
+\end{flushleft}
+
+\pagebreak
+
 \section*{S}
 \addcontentsline{toc}{section}{S}
+\begin{flushleft}
 
 \addcontentsline{toc}{subsection}{Sinonimi}
 \textbf{Sinonimi}: Relazione tra due parole con lo stesso significato. Utilizzato in questo progetto per individuare il soggetto della richiesta da parte dell'utente.\newline
@@ -334,35 +422,74 @@
 \addcontentsline{toc}{subsection}{SQL}
 \textbf{\textit{SQL}}: Sigla per \textit{Structured Query Language}, si tratta di un linguaggio standardizzato per interrogare e amministrare un \textit{database} basato su modello relazionale.\newline
 
-\addcontentsline{toc}{subsection}{Database}
+\addcontentsline{toc}{subsection}{Struttura database}
 \textbf{Struttura \textit{Database}}: Definizione della composizione di un \textit{database} definendo le sue tabelle e la loro composizione.
+
+\end{flushleft}
+
+\pagebreak
 
 \section*{T}
 \addcontentsline{toc}{section}{T}
+\begin{flushleft}
 
 \addcontentsline{toc}{subsection}{Tabella}
 \textbf{Tabella}: Struttura utilizzata da un \textit{database} basato su modello relazionale per la gestione dei dati. Questa è composta da dei campi che indicano il tipo di dato che esso contiene e altri dati utili all'utilizzo e l'amministrazione della tabella.
 
+\end{flushleft}
+
+\pagebreak
+
 \section*{U}
 \addcontentsline{toc}{section}{U}
+\begin{flushleft}
 
 \addcontentsline{toc}{subsection}{Utente}
 \textbf{Utente}: Colui che interagisce con un prodotto \textit{software}.
 
+\end{flushleft}
+
+\pagebreak
+
 \section*{V}
 \addcontentsline{toc}{section}{V}
+\begin{flushleft}
+	
+\end{flushleft}
+
+\pagebreak
 
 \section*{W}
 \addcontentsline{toc}{section}{W}
+\begin{flushleft}
+	
+\end{flushleft}
+
+\pagebreak
 
 \section*{X}
 \addcontentsline{toc}{section}{X}
+\begin{flushleft}
+	
+\end{flushleft}
+
+\pagebreak
 
 \section*{Y}
 \addcontentsline{toc}{section}{Y}
+\begin{flushleft}
+	
+\end{flushleft}
+
+\pagebreak
 
 \section*{Z}
 \addcontentsline{toc}{section}{Z}
+\begin{flushleft}
+	
+\end{flushleft}
+
+\pagebreak
 
 
 
