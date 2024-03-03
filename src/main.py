@@ -7,6 +7,12 @@ from rich.text import Text
 from rich.console import Console
 from rich.prompt import Prompt
 
+#Moduli NLP
+from pattern3.text.it import singularize
+from pattern3.text.it import pluralize
+from PyMultiDictionary import MultiDictionary
+dictionary = MultiDictionary()
+
 #Moduli LLM
 from transformers import pipeline
 
@@ -62,8 +68,34 @@ for noun in nouns:
         try:
             if synonyms.index(noun)>=0:
                 foundTables.append(table)
+                nouns.remove(noun)
         except:
             pass
+
+#print(nouns)
+
+#Genera sinonimi per i nomi non trovati
+synonous = []
+if len(nouns)!=0:
+    for noun in nouns:
+        singularized_noun = singularize(noun)
+        syn = dictionary.synonym('it', singularized_noun)
+        synonous.append(pluralize(singularized_noun))
+        for s in syn:
+            synonous.append(s)
+            synonous.append(pluralize(s))
+    
+    #print(synonous)
+    #Cerca tabelle da sinonimi
+    for syn in synonous:
+        for table in tables:
+            synonyms = table['sinonimi'].split(",")
+            try:
+                if synonyms.index(syn)>=0:
+                    foundTables.append(table)
+                    synonous.remove(syn)
+            except:
+                pass
 
 #Crea prompt dalle tabelle trovate
 prompt = ""
@@ -76,8 +108,7 @@ if len(foundTables)>0:
     for index, table in enumerate(foundTables):
         prompt += table["nome"]+" composta dai campi "
         for field in table["campi"]:
-            fieldSynonyms = field["sinonimi"].split(",")
-            prompt += field["nome"]+" di tipo "+field["tipo"]+" contenente "+fieldSynonyms[0]+","
+            prompt += field["nome"]+" di tipo "+field["tipo"]+" "
         if(index < len(foundTables)-1):
             prompt += " e la tabella "
 
@@ -90,4 +121,4 @@ else:
 #Stampa prompt e istruzioni
 print(Text("Prompt Generato:\n",style="blue"))
 print("[italic green]"+prompt+"\n[/italic green]")
-print("Copia il testo generato in https://chat.openai.com/ per ricevere la query SQL")
+print("Copia il testo generato in https://chat.openai.com/ per ricere la query SQL")

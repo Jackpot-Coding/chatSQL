@@ -37,7 +37,7 @@
             },
             {
                 "nome":"FAT",
-                "sinonimiEn":"turnover,sales",
+                "sinonimiEn":"turnover,sales,receipts",
                 "sinonimiIt":"fatture,fattura,vendite,vendita,fatturato",
                 "descrizione":"Fatture emesse",
                 "campi":[

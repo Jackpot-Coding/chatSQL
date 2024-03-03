@@ -2,6 +2,8 @@ import json
 import os
 from transformers import pipeline
 
+import nltk
+
 def generatePromptITA(natural):
     classifier = pipeline("token-classification", model = "sachaarbonel/bert-italian-cased-finetuned-pos")
     #Preleva struttura DB da file
@@ -50,8 +52,11 @@ def generatePromptITA(natural):
     return prompt
 
 def generatePromptENG(natural):
-    classifier = pipeline("token-classification", model = "vblagoje/bert-english-uncased-finetuned-pos")
+    #classifier = pipeline("token-classification", model = "vblagoje/bert-english-uncased-finetuned-pos")
     #Preleva struttura DB da file
+    nltk.download('punkt')
+    nltk.download('averaged_perceptron_tagger')
+    nltk.download('wordnet')
     module_dir = os.path.dirname(__file__)  
     file_path = os.path.join(module_dir, 'db.json')
     dbFile = open(file_path,"r")
@@ -59,14 +64,12 @@ def generatePromptENG(natural):
     dbFile.close()
     #Preleva tabelle
     tables = db['database']['tabelle']
-    tokens = classifier(natural)
-    if(len(tokens)==0):
+    tokens = nltk.word_tokenize(natural)
+    parts_of_speech = nltk.pos_tag(tokens)
+    nouns = list(filter(lambda x: x[1] == "NN" or x[1] == "NNS" , parts_of_speech))
+    nouns = list(map(lambda x: x[0], nouns))
+    if(len(nouns)==0):
         return "Error: cannot interpret input."
-    #Preleva i nomi
-    nouns = []
-    for token in tokens:
-        if token['entity'] == 'NOUN':
-            nouns.append(token['word'])
     #Trova le tabelle interessate
     foundTables = []
     #Cerca tabelle da nomi
@@ -76,8 +79,31 @@ def generatePromptENG(natural):
             try:
                 if synonyms.index(noun)>=0:
                     foundTables.append(table)
+                    nouns.remove(noun)
             except:
                 pass
+    #Genera sinonimi per i nomi non trovati
+    synonous = []
+    if len(nouns)!=0:
+        for noun in nouns:
+            syn = nltk.corpus.wordnet.synsets(noun)
+            synonous.append(noun)
+            for s in syn:
+                synonous.append(s.lemmas()[0].name())
+                for lem in s.lemma_names():
+                    synonous.append(lem)
+        print(synonous)
+        #Cerca tabelle da sinonimi
+        for syn in synonous:
+            for table in tables:
+                synonyms = table['sinonimiEn'].split(",")
+                try:
+                    if synonyms.index(syn)>=0:
+                        foundTables.append(table)
+                        synonous.remove(syn)
+                except:
+                    pass
+
     #Crea prompt dalle tabelle trovate
     prompt = ""
     if len(foundTables)>0:
