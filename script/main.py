@@ -139,7 +139,7 @@ def compile_latex(dir_path,file_name):
 
         os.chdir(ROOT_PATH)
         os.chdir(dir_path)
-        os.system("latexmk -pdf -f -output-directory="+ temp_dir +"  " + file_name)
+        os.system("latexmk -pdf -f -output-directory="+ temp_dir +" -interaction=batchmode " + file_name)
 
         created_file_path = os.path.join(temp_dir,pdf_file_name)
         shutil.move(created_file_path,os.path.join(dist_dir,pdf_file_name))
