@@ -2,6 +2,7 @@
 <Descrizione e utilizzo script>
 """
 
+import re
 import os
 import pathlib
 import shutil
@@ -73,6 +74,30 @@ Ritorna il path alla cartella temporanea corrispondente
 def get_temp_dir_path(path):
     return path.replace(SRC_PATH,TEMP_PATH)
 
+def extract_version(filename):
+    # Convert the filename to a string if it's a Path object
+    filename_str = str(filename)
+    # Use a regular expression to extract the version numbers
+    match = re.search(r'-v(\d+\.\d+)', filename_str)
+    if match:
+        return match.group(1)
+    else:
+        return None
+
+def compare_files(file1, file2):
+    # Extract names and versions from the filenames
+    version1 = extract_version(file1)
+    version2 = extract_version(file2)
+
+    # Remove the version number from the name
+    name1 = re.sub(r'-v(\d+\.\d+)', '', os.path.splitext(file1)[0])
+    name2 = re.sub(r'-v(\d+\.\d+)', '', os.path.splitext(file2)[0])
+    print(name1, version1, name2, version2)
+
+    # Compare names and versions
+    return name1 == name2 and version1 is not None and version2 is not None and version1 != version2
+
+
 """
 Elimina i file ausiliari creati da latxmk
     folder  : directory con i file ausiliari
@@ -101,6 +126,14 @@ def compile_latex(dir_path,file_name):
     
     p = pathlib.Path(file_name)
     pdf_file_name = p.with_suffix('.pdf');
+
+    for existing_file in os.listdir(dist_dir):
+        existing_file_path = os.path.join(dist_dir, existing_file)
+
+        # Check if the file is a PDF and has the same base name
+        if os.path.isfile(existing_file_path) and existing_file.lower().endswith('.pdf') and compare_files(pdf_file_name, existing_file):
+            # Remove the existing file
+            os.remove(existing_file_path)
 
     if( not os.path.exists( os.path.join(dist_dir,pdf_file_name) ) ): # se il file PDF corrispondente non esiste crealo
 
