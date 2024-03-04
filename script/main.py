@@ -92,7 +92,6 @@ def compare_files(file1, file2):
     # Remove the version number from the name
     name1 = re.sub(r'-v(\d+\.\d+)', '', os.path.splitext(file1)[0])
     name2 = re.sub(r'-v(\d+\.\d+)', '', os.path.splitext(file2)[0])
-    print(name1, version1, name2, version2)
 
     # Compare names and versions
     return name1 == name2 and version1 is not None and version2 is not None and version1 != version2
