@@ -1,0 +1,165 @@
+\documentclass[5pt]{article}
+
+\usepackage{sectsty}
+\usepackage{graphicx}
+\usepackage{lipsum} % for generating dummy text
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{array}
+\usepackage{cellspace}
+
+
+\usepackage{hyperref}
+\usepackage{scrextend}
+\graphicspath{ {../../assets} }
+
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\title{ Verbale - 4/12/2023 }
+\date{\today}
+
+%STARTOF THE DOCUMENT
+\begin{document}
+
+%-------------------------
+
+% Reduce top margin only on the first page
+\newgeometry{top=0.5in}
+
+%UNIPD LOGO
+    \vspace{8pt}
+    \includegraphics[scale=0.2]{UNIPDFull.png}
+%END UNIPD LOGO
+
+\vspace{10pt}
+
+%COURSE INFO
+\begin{minipage}[t]{0.48\textwidth}
+    %COURSE TITLE
+        \begin{flushleft}
+            Informatica\\
+            \vspace{5pt}
+            \textbf{\LARGE Ingegneria del Software}\\
+            Anno Accademico: 2023/2024
+        \end{flushleft}
+    %END COURSE TITLE
+\end{minipage}
+%END COURSE INFO
+
+
+\vspace{5px}
+
+
+%BLACK LINE
+\rule{\textwidth}{5pt}
+
+%JACKPOT CODING INFO
+\begin{minipage}[t]{0.50\textwidth}
+    %LOGO JACKPOT CODING
+    \begin{flushleft}
+        \hspace{10pt}
+        \includegraphics[scale=0.65]{jackpot-logo.png} 
+    \end{flushleft}
+\end{minipage}
+\hspace{-60pt} % This adds horizontal space between the minipages
+\begin{flushright}
+    \begin{minipage}[t]{0.50\textwidth}
+        %INFO JACKPOT CODING
+        \begin{flushright}
+            Gruppo: {\Large Jackpot Coding}\\
+            Email: \href{mailto:jackpotcoding@gmail.com}{jackpotcoding@gmail.com}
+        \end{flushright}
+    \end{minipage}
+\end{flushright}
+%END JACKPOT CODING INFO
+
+\vspace{20pt}
+
+%TITLE
+\begin{center}
+    \textbf{\large VERBALE }
+    \textbf{\large 04/03/2023} \\
+    \textbf{\LARGE DIMOSTRAZIONE DEL POC}
+\end{center}
+%END TITLE
+
+\vspace{13pt}
+
+\begin{flushleft}
+    \begin{spacing}{1.5}
+        REDATTORE: E. Gallo\\ 
+        VERIFICATORE: \\ 
+        RESPONSABILE: M. Camillo\\ 
+        \vspace{7pt}
+        SCRIBA: E. Gallo\\ 
+        \vspace{7pt}
+        DESTINATARI: Sig. G. Piccoli, Prof. T. Vardanega, Prof. R. Cardin\\ 
+    \end{spacing}
+\end{flushleft}
+
+\begin{flushright}
+    \begin{spacing}{1}
+        USO: ESTERNO\\
+        VERSIONE: 1.0\\
+    \end{spacing}
+\end{flushright}
+
+
+% Restore original margins from the second page onwards
+\restoregeometry
+
+\pagebreak
+
+% Optional TOC
+% \tableofcontents
+% \pagebreak
+
+\section{ORARIO}
+\begin{spacing}{1.5}
+    {\large Inizio incontro: 17:30}\\
+    {\large Fine incontro: 18:10} 
+\end{spacing}
+
+\section{PARTECIPANTI}
+% Define minimal spacing at the top and bottom of cells
+\setlength\cellspacetoplimit{6pt}
+\setlength\cellspacebottomlimit{6pt}
+
+\begin{table}[ht]
+  \begin{tabular}{|Sc|Sc|}
+    \hline
+    \textbf{Nome Componente} & \textbf{Durata della presenza} \\
+    \hline
+    Camillo Matteo & 40 minuti \\
+    Favaretto Marco & 40 minuti \\
+    Gallo Edoardo & 40 minuti \\
+    Gobbo Marco & 40 minuti \\
+    Moretto Giulio & 40 minuti \\
+    Simionato Riccardo &- \\
+    Gregorio Piccoli (Zucchetti S.p.A.) & 40 minuti \\
+    \hline
+  \end{tabular}
+  \label{tab:conference}
+\end{table}
+
+\section{SINTESI DELL'INCONTRO}
+Durante l'incontro è stato presentato e descritto il POC (\textit{Proof of Concept}), realizzato per lo studio delle tecnologie, al proponente.\\ \\
+Dopo aver ottenuto un riscontro positivo da parte del proponente, il tema dell'incontro si è spostato maggiormente su una prova pratica dei prompt generati dal programma. In particolare, si è provato a dare in input la stessa richiesta a LLM diversi (e non solo a \textit{ChatGPT}), evidenziando come il prompt generato sia scritto in maniera corretta mentre molti linguaggi non sono ancora in grado di capire a pieno la richiesta data.\\ \\
+Infine, il proponente ha suggerito un programma per eseguire gli LLM direttamente dal proprio dispositivo. Utile se si vuole collegare il programma di generazione prompt tramite API ma non si vuole pagare per ottenere questo servizio.
+
+\section{CONCLUSIONI}
+Dall'incontro sono emerse le seguenti attività: 
+\begin{itemize}
+    \item Proseguire con lo sviluppo del software, implementando le diverse funzionalità.
+    \item Possibilità di implementare e soddisfare alcuni requisiti opzionali tramite le risorse condivise dal proponente
+\end{itemize}
+
+
+\end{document}
