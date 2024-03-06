@@ -1,3 +1,8 @@
+docs/src/*.aux
+docs/src/*.out
+docs/src/*.synctex.gz
+docs/src/*.pdf
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

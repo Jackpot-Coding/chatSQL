@@ -1,0 +1,164 @@
+\documentclass[5pt]{article}
+
+\usepackage{sectsty}
+\usepackage{graphicx}
+\usepackage{lipsum} % for generating dummy text
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{array}
+\usepackage{cellspace}
+
+
+
+\usepackage{hyperref}
+\usepackage{scrextend}
+\graphicspath{ {../../assets} }
+
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\title{ Verbale - data }
+\date{\today}
+
+%STARTOF THE DOCUMENT
+\begin{document}
+
+%-------------------------
+
+% Reduce top margin only on the first page
+\newgeometry{top=0.5in}
+
+%UNIPD LOGO
+    \vspace{8pt}
+    \includegraphics[scale=0.2]{UNIPDFull.png}
+%END UNIPD LOGO
+
+\vspace{25pt}
+
+%COURSE INFO
+\begin{minipage}[t]{0.48\textwidth}
+    %COURSE TITLE
+        \begin{flushleft}
+            Informatica\\
+            \vspace{5pt}
+            \textbf{\LARGE Ingegneria del Software}\\
+            Anno Accademico: 2023/2024
+        \end{flushleft}
+    %END COURSE TITLE
+\end{minipage}
+%END COURSE INFO
+
+
+\vspace{5px}
+
+
+%BLACK LINE
+\hrule
+%JACKPOT CODING INFO
+\begin{minipage}[t]{0.50\textwidth}
+    %LOGO JACKPOT CODING
+    \begin{flushleft}
+        \hspace{10pt}
+        \includegraphics[scale=0.65]{jackpot-logo.png} 
+    \end{flushleft}
+\end{minipage}
+\hspace{-60pt} % This adds horizontal space between the minipages
+\begin{flushright}
+    \begin{minipage}[t]{0.50\textwidth}
+        %INFO JACKPOT CODING
+        \begin{flushright}
+            Gruppo: {\Large Jackpot Coding}\\
+            Email: \href{mailto:jackpotcoding@gmail.com}{jackpotcoding@gmail.com}
+        \end{flushright}
+    \end{minipage}
+\end{flushright}
+%END JACKPOT CODING INFO
+
+\vspace{15pt}
+
+%TITLE
+\begin{center}
+    \textbf{\large VERBALE }
+    \textbf{\large 14/02/2024} \\
+    \textbf{\Large}
+\end{center}
+%END TITLE
+
+\vspace{13pt}
+
+\begin{flushleft}
+    \begin{spacing}{1.5}
+        REDATTORE:  R. Simionato \\
+        VERIFICATORE:  G. Moretto\\%INSERT HERE THE NAMES
+        RESPONSABILE:  M. Gobbo\\%INSERT HERE THE NAMES
+        \vspace{7pt}
+        SCRIBA: R. Simionato\\%INSERT HERE THE NAMES
+    \end{spacing}
+\end{flushleft}
+
+\begin{flushright}
+    \begin{spacing}{1}
+        USO: INTERNO\\
+        VERSIONE: 0.1\\ % secondo numerazione proposta da Riccardo
+    \end{spacing}
+\end{flushright}
+
+
+% Restore original margins from the second page onwards
+\restoregeometry
+
+\pagebreak
+
+% Optional TOC
+% \tableofcontents
+% \pagebreak
+
+\section{\Large ORARIO}
+\begin{spacing}{1.5}
+    {\large Inizio incontro: 18:00}\\
+    {\large Fine incontro: 19:10}
+\end{spacing}
+
+\section{PARTECIPANTI}
+% Define minimal spacing at the top and bottom of cells
+\setlength\cellspacetoplimit{6pt}
+\setlength\cellspacebottomlimit{6pt}
+
+\begin{table}[ht]
+  \begin{tabular}{|Sc|Sc|}
+    \hline
+    \textbf{Nome Componente} & \textbf{Durata della presenza} \\
+    \hline
+    Camillo Matteo & 1 ora e 10 minuti \\
+    Favaretto Marco & 1 ora e 10 minuti \\
+    Gallo Edoardo & 1 ora e 10 minuti \\
+    Gobbo Marco & 1 ora e 10 minuti \\
+    Moretto Giulio & 1 ora e 10 minuti \\
+    Simionato Riccardo & 1 ora \\
+    \hline
+  \end{tabular}
+  \label{tab:conference}
+\end{table}
+
+\section{SINTESI DELL'INCONTRO}
+La prima parte dell'incontro è servita al gruppo per vedere l'avanzamento del \textit{PoC}, a cui è stato aggiunto il \textit{web framework Django} che andremo ad utilizzare nello sviluppo del programma. Giulio ed Edoardo hanno mostrato il codice da loro scritto presentando le diverse funzionalità di \textit{Django}, in particolare come utilizzare i \textit{Templates}, le \textit{view}, i modelli e la gestione dei \textit{database} che \textit{Django} offre attraverso le \textit{Migrations}. \\
+\\
+Si è poi parlato della possibilità di includere un modello per la creazione del dizionario dei sinonimi che potranno poi venire inclusi all'interno del \textit{prompt}. Questo servirà a facilitare l'amministratore nella fase di aggiunta dei sinonimi ai nomi di tabelle e campi presenti all'interno del \textit{database}. Questa funzione è stata fortemente consigliata dal prof. Cardin durante l'incontro per l'\textit{RTB}. \\
+\\
+Infine è stato fatto il passaggio da \textit{Trello} a \textit{Jira} come \textit{Issue Tracking System}. \textit{Jira} offre più funzionalità per la gestione delle \textit{issues}, degli \textit{sprint} settimanali che ci siamo preposti e per il tracciamento delle \textit{milestones}. 
+
+\section{DECISIONI}
+In preparazione alla seconda parte dell'RTB con il prof. Vardanega sono state individuate le seguenti task:
+\begin{itemize}
+	\item Sistemazione e verifica finale del documento Norme di Progetto;
+	\item Sistemazione documento Analisi dei Requisiti in seguito al feedback del prof. Cardin;
+	\item Aggiornamento del documento Glossario
+\end{itemize}
+
+\end{document}

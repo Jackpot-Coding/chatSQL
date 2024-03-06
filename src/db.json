@@ -1,0 +1,94 @@
+{
+    "database":{
+        "nome":"Test DB",
+        "descrizione":"Database di prova per il proof of concept",
+        "tabelle":[
+            {
+                "nome":"CUS",
+                "sinonimi":"clienti,cliente,acquirente,acquirenti",
+                "descrizione": "Tabella contenente i clienti dell'azienda",
+                "campi":[
+                    {
+                        "nome":"id",
+                        "tipo":"INT",
+                        "sinonimi":"identificatore"
+                    },
+                    {
+                        "nome":"c1",
+                        "tipo":"VARCHAR",
+                        "sinonimi":"ragione sociale,nome"
+                    },
+                    {
+                        "nome":"c2",
+                        "tipo":"VARCHAR",
+                        "sinonimi":"indirizzo,posizione,recapito,strada,abitazione,residenza,domicilio,via,strada"
+                    },
+                    {
+                        "nome":"c3",
+                        "tipo":"BOOL",
+                        "sinonimi":"attivo,attivi,abilitato,abilitati"
+                    }
+                ]
+            },
+            {
+                "nome":"FAT",
+                "sinonimi":"fatture,fattura,vendite,vendita,fatturato",
+                "descrizione":"Fatture emesse",
+                "campi":[
+                    {
+                        "nome":"id",
+                        "tipo":"INT",
+                        "sinonimi":"identificatore"
+                    },
+                    {
+                        "nome":"c1",
+                        "tipo":"INT",
+                        "sinonimi":"clienti,cliente,acquirente,acquirenti"
+                    },
+                    {
+                        "nome":"c2",
+                        "tipo":"FLOAT",
+                        "sinonimi":"importo,costo,prezzo,ammontare,somma,totale,spesa"
+                    },
+                    {
+                        "nome":"c3",
+                        "tipo":"DATE",
+                        "sinonimi":"data,anno,mese,giorno,tempo,scadenza,termine"
+                    }
+                ]
+            },
+            {
+                "nome":"EMP",
+                "sinonimi":"dipendenti,dipendente,impiegato,impiegati,impiegata,lavoratore,lavoratrice,lavoratori",
+                "descrizione":"Dipendenti dell'azienda",
+                "campi":[
+                    {
+                        "nome":"id",
+                        "tipo":"INT",
+                        "sinonimi":"identificatore"
+                    },
+                    {
+                        "nome":"nm",
+                        "tipo":"VARCHAR",
+                        "sinonimi":"nome"
+                    },
+                    {
+                        "nome":"lm",
+                        "tipo":"VARCHAR",
+                        "sinonimi":"cognome,nome di famiglia"
+                    },
+                    {
+                        "nome":"sd",
+                        "tipo":"INT",
+                        "sinonimi":"data di assunzione,data di inizio"
+                    },
+                    {
+                        "nome":"ed",
+                        "tipo":"INT",
+                        "sinonimi":"data di licenziamento,data di fine"
+                    }
+                ]
+            }
+        ]
+    }
+}
