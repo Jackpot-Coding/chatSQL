@@ -10,6 +10,7 @@
 \usepackage{tabularx}
 
 % package and setup for tables
+\usepackage{float}
 \usepackage[table]{xcolor}
 \renewcommand{\arraystretch}{1.5}
 \arrayrulecolor{black}
@@ -120,7 +121,7 @@
 \pagebreak
 
 \textbf{\Large Registro delle modifiche}
-\begin{table}[ht]
+\begin{table}[H]
 \centering
 \begin{tabular}{|c|c|c|c|c|}
 \hline
@@ -427,9 +428,12 @@ In caso di necessità, verranno aggiunte le necessarie correzioni risultate dai 
 Il fine di questo periodo è la seconda revisione del progetto, ossia la \textit{Product Baseline\textsuperscript{G}}.
 
 \section{Preventivo}
-\subsection{Periodo \textit{RTB}}
+Di seguito sono presentate le tabelle con le ore e i costi preventivati per i periodi \textit{RTB} e \textit{PB} e i loro relativi sottoperiodi.
+Questa pianificazione rispetta quanto è stato dichiarto nel \href{https://jackpot-coding.github.io/chatSQL/docs/esterni/documento-impegni-v.1.1.pdf}{documento di impegni} 
+presentato ad inizio progetto.
 
-\begin{table}[ht]
+\subsection{Periodo \textit{RTB}}
+\begin{table}[H]
   \centering
   \rowcolors{2}{black!15}{}
   \resizebox{\linewidth}{!}{
@@ -445,10 +449,27 @@ Il fine di questo periodo è la seconda revisione del progetto, ossia la \textit
       Edoardo	Gallo & * & 6 & 12 & 10 & 7 & 6 & 41 \\ \hline
     \end{tabular}
   }
+  \caption{Piano ore preventivate per il primo periodo}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \rowcolors{2}{black!15}{}
+  \resizebox{\linewidth}{!}{
+    \begin{tabular}{|c|c|c|c|c|c|c||c|}
+      \rowcolor{yellow!50}
+      \hline
+      MEMBRI & Responsabile & Amministratore & Analista & Progettista &	Programmatore	& Verificatore & Totale \\ \hline \hline
+      Totale per ruolo & 24 & 24 & 72 & 40 & 21 & 65 & 246 \\ \hline
+      Costo per ora & € 30,00 & € 20,00 & € 25,00 & € 25,00 & € 15,00 & € 15,00 & \\ \hline \hline
+      Costo totale per ruolo & € 720,00 & € 480,00 & € 1.800,00 & € 1.000,00 & € 315,00 & € 975,00 & € 5.290,00 \\ \hline
+    \end{tabular}
+  }
+  \caption{Tabella costi preventivati per il primo periodo}
 \end{table}
 
 \subsection{Periodo \textit{PB}}
-\begin{table}[ht]
+\begin{table}[H]
   \centering
   \rowcolors{2}{black!15}{}
   \resizebox{\linewidth}{!}{
@@ -464,6 +485,23 @@ Il fine di questo periodo è la seconda revisione del progetto, ossia la \textit
       Edoardo	Gallo & 8 & 5 & * & 5 & 18 & 15 & 51 \\ \hline
     \end{tabular}
   }
+  \caption{Piano ore preventivate per il secondo periodo}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \rowcolors{2}{black!15}{}
+  \resizebox{\linewidth}{!}{
+    \begin{tabular}{|c|c|c|c|c|c|c||c|}
+      \rowcolor{yellow!50}
+      \hline
+      MEMBRI & Responsabile & Amministratore & Analista & Progettista &	Programmatore	& Verificatore & Totale \\ \hline \hline
+      Totale per ruolo & 24 & 24 & 0 & 68 & 111 & 79 & 306 \\ \hline
+      Costo per ora & € 30,00 & € 20,00 & € 25,00 & € 25,00 & € 15,00 & € 15,00 & \\ \hline \hline
+      Costo totale per ruolo & € 720,00 & € 480,00 & € - & € 1.700,00 & € 1.665,00 & € 1.185,00 & € 5.750,00 \\ \hline
+    \end{tabular}
+  }
+  \caption{Tabella costi preventivati per il secondo periodo}
 \end{table}
 
 \section{Consuntivo}
