@@ -9,6 +9,10 @@
 \usepackage{cellspace}
 \usepackage{tabularx}
 
+% package and setup for tables
+\usepackage[table]{xcolor}
+\renewcommand{\arraystretch}{1.5}
+\arrayrulecolor{black}
 
 \usepackage{hyperref}
 \usepackage{scrextend}
@@ -37,8 +41,8 @@
 \newgeometry{top=0.5in}
 
 %UNIPD LOGO
-    \vspace{8pt}
-    \includegraphics[scale=0.2]{UNIPDFull.png}
+  \vspace{8pt}
+  \includegraphics[scale=0.2]{UNIPDFull.png}
 %END UNIPD LOGO
 
 \vspace{30pt}
@@ -424,8 +428,38 @@ Il fine di questo periodo è la seconda revisione del progetto, ossia la \textit
 
 \section{Preventivo}
 \subsection{Periodo \textit{RTB}}
+
+\rowcolors{2}{black!15}{}
+\begin{tabular}{|c|c|c|c|c|c|c||c|}
+  \hline
+  \rowcolor{yellow!50}
+  MEMBRI & Responsabile & Amministratore & Analista & Progettista &	Programmatore	& Verificatore & Totale \\ \hline \hline
+  Giulio Moretto & 3 & 3 & 12	& 15 & 7 & 1 & 41 \\ \hline
+  Riccardo Simionato & 3 & * & 12	& 5	& * & 21 & 41 \\ \hline
+  Marco Favaretto & 10 & 2 & 12 & * & * & 17 & 41 \\ \hline
+  Marco Gobbo & 8 & 6 & 12 & * & * & 15 & 41 \\ \hline
+  Matteo Camillo & * & 7 & 12 & 10 & 7 & 5 & 41 \\ \hline
+  Edoardo	Gallo & * & 6 & 12 & 10 & 7 & 6 & 41 \\ \hline
+\end{tabular}
+
 \subsection{Periodo \textit{PB}}
-\subsection{Periodo \textit{CA}}
+\begin{table}[ht]
+  \centering
+  \rowcolors{2}{black!15}{}
+  \resizebox{\linewidth}{!}{
+    \begin{tabular}{|c|c|c|c|c|c|c||c|}
+      \rowcolor{yellow!50}
+      \hline
+      MEMBRI & Responsabile & Amministratore & Analista & Progettista &	Programmatore	& Verificatore & Totale \\ \hline \hline
+      Giulio Moretto & 4 & 5 & * & 10 & 19 & 13 & 51 \\ \hline
+      Riccardo Simionato & 4 & 8 & * & 9 & 19 & 11 & 51 \\ \hline
+      Marco Favaretto & * & 2 & * & 18 & 19 & 12 & 51 \\ \hline
+      Marco Gobbo & * & * & * & 18 & 18 & 15 & 51 \\ \hline
+      Matteo Camillo & 8 & 4 & * & 8 & 18 & 13 & 51 \\ \hline
+      Edoardo	Gallo & 8 & 5 & * & 5 & 18 & 15 & 51 \\ \hline
+    \end{tabular}
+  }
+\end{table}
 
 \section{Consuntivo}
 Di seguito verranno mostrate le spese effettivamente avvenute nelle fasi citate
