@@ -122,11 +122,15 @@
 		\centerline{%
 			\begin{tabular}{|c|c|c|c|c|}
 				\hline
-				v.0.0.3 & 14/03/2024 & G. Moretto & - & Aggiunta sezione Valutazione attività di verifica \\
+				v.0.1.1 & 16/03/2024 & R. Simionato & - & \shortstack{Prima stesura sezione Qualità di Processo\\e inserimento tabelle} \\
 				\hline
-				v.0.0.2 & 13/02/2024 &G. Moretto & -  &  Aggiunte descrizioni test\\
+				v.0.1.0 & 16/03/2024 & - & R. Simionato & Verifica Documento \\
 				\hline
-				v.0.0.1 & 03/02/2024 &G. Moretto & -  & Creata struttura del documento \\
+				v.0.0.3 & 14/03/2024 & G. Moretto & R. Simionato & Aggiunta sezione Valutazione attività di verifica \\
+				\hline
+				v.0.0.2 & 13/02/2024 & G. Moretto & R. Simionato  &  Aggiunte descrizioni test\\
+				\hline
+				v.0.0.1 & 03/02/2024 & G. Moretto & R. Simionato  & Creata struttura del documento \\
 				\hline
 			\end{tabular}%
 		}
@@ -160,24 +164,124 @@
 	\subsection{Scopo del prodotto}
 	Il capitolato proposto dall'azienda Zucchetti manifesta l'esigenza di avere un prodotto \textit{Software}\textsuperscript{G} per la creazione di \textit{prompt}\textsuperscript{G} da fornire ad un modello\textsuperscript{G} \textit{LLM}\textsuperscript{G} per la creazione di \textit{query} SQL\textsuperscript{G} per l'interrogazione di \textit{database}\textsuperscript{G} con struttura nota.
 	
-	
-	\section{Qualità di Prodotto}
-	
-	\subsection{Obiettivi}
-	
-	
-	\subsection{Metriche}
-
-
 
 	\section{Qualità di Processo}
+	Per garantire la qualità del prodotto bisogna essere in grado di assicurarsi che i processi raggiungano gli obiettivi di qualità richiesti. In questa sezione vengono definite le metriche utilizzate per valutare i processi e per migliorarli secondo il Ciclo PDCA (Plan-Do-Check-Act). Questo metodo permette un miglioramento continuo nell’applicazione dei processi e l’utilizzo delle risorse a disposizione tramite la pianificazione, seguita dalla messa in atto, verifica utilizzando le metriche a disposizione e infine miglioramento dei processi.
 	
 	\subsection{Processi primari}
+	\subsubsection{Fornitura}
+	Processo basato sulla scelta delle risorse e procedure da utilizzare per lo sviluppo del progetto.
+	\begin{longtblr}
+		{
+			colspec={|Q[0.15\linewidth]|Q[0.20\linewidth]|Q[0.25\linewidth]|Q[0.25\linewidth]|},
+			rows={halign=l},
+			columns={halign=c},
+			row{1}={halign=c},
+			row{odd} = {gray!20},
+			row{1}={teal!50},
+			%caption=Tabella 1
+		}
+		\hline
+		\textbf{Metrica} & \textbf{Descrizione} & \textbf{Valore Accettabile} & \textbf{Valore Ottimale} \\
+		%codice & descrizione & valAcc & valOtt \\
+		\hline
+		MPC-EAC & Estimated At Completion & Errore del $\pm$5\% rispetto al preventivo & Corrispondente al preventivo \\
+		\hline
+		MPC-ETC & Estimated To Completion & $\geq$ 0\% & $\leq$ EAC \\
+		\hline
+		MPC-EV & Earned Value & $\geq$ 0 & $\leq$ EAC \\
+		\hline
+		MPC-PV & Planned Value & $\geq$ 0 & $\leq$ Costo totale del preventivo \\
+		\hline
+		MPC-AC & Actual Cost & $\geq$ 0 & $\leq$ EAC \\
+		\hline
+		MPC-CV & Cost Variance & $\geq$ -5\% & $\geq$ 0\% \\
+		\hline
+		MPC-SV & Schedule Variance & $\geq$ -10\% & $\geq$ 0\% \\
+		\hline
+		MPC-BV & Budget Variance & $\pm$10\% & $\leq$ 0\% \\
+		\hline
+	\end{longtblr}
+	
+	\subsubsection{Sviluppo}
+	Processo basato sulla scelta delle attività e dei compiti necessari per la realizzazione del prodotto software.
+	\begin{longtblr}
+		{
+			colspec={|Q[0.15\linewidth]|Q[0.20\linewidth]|Q[0.25\linewidth]|Q[0.25\linewidth]|},
+			rows={halign=l},
+			columns={halign=c},
+			row{1}={halign=c},
+			row{odd} = {gray!20},
+			row{1}={teal!50},
+			%caption=Tabella 1
+		}
+		\hline
+		\textbf{Metrica} & \textbf{Descrizione} & \textbf{Valore Accettabile} & \textbf{Valore Ottimale} \\
+		%codice & descrizione & valAcc & valOtt \\
+		\hline
+	\end{longtblr}
 	
 	\subsection{Processi di supporto}
+	\subsubsection{Gestione della qualità}
+	Processo necessario a garantire gli obiettivi di qualità del prodotto e dei servizi offerti.
+	\begin{longtblr}
+		{
+			colspec={|Q[0.15\linewidth]|Q[0.20\linewidth]|Q[0.25\linewidth]|Q[0.25\linewidth]|},
+			rows={halign=l},
+			columns={halign=c},
+			row{1}={halign=c},
+			row{odd} = {gray!20},
+			row{1}={teal!50},
+			%caption=Tabella 1
+		}
+		\hline
+		\textbf{Metrica} & \textbf{Descrizione} & \textbf{Valore Accettabile} & \textbf{Valore Ottimale} \\
+		%codice & descrizione & valAcc & valOtt \\
+		\hline
+	\end{longtblr}
+	
+	\subsubsection{Verifica}
+	Processo che ha lo scopo di controllare lo sviluppo del software dal lato della codifica.
+	\begin{longtblr}
+		{
+			colspec={|Q[0.15\linewidth]|Q[0.20\linewidth]|Q[0.25\linewidth]|Q[0.25\linewidth]|},
+			rows={halign=l},
+			columns={halign=c},
+			row{1}={halign=c},
+			row{odd} = {gray!20},
+			row{1}={teal!50},
+			%caption=Tabella 1
+		}
+		\hline
+		\textbf{Metrica} & \textbf{Descrizione} & \textbf{Valore Accettabile} & \textbf{Valore Ottimale} \\
+		%codice & descrizione & valAcc & valOtt \\
+		\hline
+	\end{longtblr}
 	
 	\subsection{Processi organizzativi}
+	\subsubsection{Gestione organizzativa}
+	Processo che controlla le modalità di coordinamento del gruppo.
+	\begin{longtblr}
+		{
+			colspec={|Q[0.15\linewidth]|Q[0.20\linewidth]|Q[0.25\linewidth]|Q[0.25\linewidth]|},
+			rows={halign=l},
+			columns={halign=c},
+			row{1}={halign=c},
+			row{odd} = {gray!20},
+			row{1}={teal!50},
+			%caption=Tabella 1
+		}
+		\hline
+		\textbf{Metrica} & \textbf{Descrizione} & \textbf{Valore Accettabile} & \textbf{Valore Ottimale} \\
+		%codice & descrizione & valAcc & valOtt \\
+		\hline
+	\end{longtblr}
 	
+	
+	\section{Qualità di Prodotto}
+	\subsection{Obiettivi}
+	
+	\subsection{Metriche}
 	
 	
 	\section{Specifica dei Test}
@@ -208,7 +312,7 @@
 	\title{Tabella 1}
 	\begin{longtblr}
 		{
-			colspec={|Q[0.12\linewidth]|Q[0.40\linewidth]|Q[0.08\linewidth]|Q[0.40\linewidth]|},
+			colspec={|Q[0.12\linewidth]|Q[0.35\linewidth]|Q[0.08\linewidth]|Q[0.35\linewidth]|},
 			rows={halign=l},
 			column{1}={halign=c},
 			column{3}={halign=c},
@@ -232,7 +336,7 @@
 	\title{Tabella 2}
 	\begin{longtblr}
 		{
-			colspec={|Q[0.12\linewidth]|Q[0.40\linewidth]|Q[0.08\linewidth]|Q[0.40\linewidth]|},
+			colspec={|Q[0.12\linewidth]|Q[0.35\linewidth]|Q[0.08\linewidth]|Q[0.35\linewidth]|},
 			rows={halign=l},
 			column{1}={halign=c},
 			column{3}={halign=c},
