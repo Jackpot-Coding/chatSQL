@@ -25,6 +25,8 @@
 \textheight=9.0in
 \headsep=0.25in
 
+\setlength{\parindent}{0pt}
+
 \title{Analisi dei Requisiti}
 \author{Jackpot Coding}
 \renewcommand*\contentsname{Indice}
@@ -173,8 +175,7 @@
 	Processo basato sulla scelta delle risorse e procedure da utilizzare per lo sviluppo del progetto.
 	\begin{longtblr}
 		{
-			colspec={|Q[0.15\linewidth]|Q[0.20\linewidth]|Q[0.25\linewidth]|Q[0.25\linewidth]|},
-			rows={halign=l},
+			colspec={|Q[0.15\linewidth]|Q[0.25\linewidth]|Q[0.25\linewidth]|Q[0.25\linewidth]|},
 			columns={halign=c},
 			row{1}={halign=c},
 			row{odd} = {gray!20},
@@ -207,8 +208,7 @@
 	Processo basato sulla scelta delle attività e dei compiti necessari per la realizzazione del prodotto software.
 	\begin{longtblr}
 		{
-			colspec={|Q[0.15\linewidth]|Q[0.20\linewidth]|Q[0.25\linewidth]|Q[0.25\linewidth]|},
-			rows={halign=l},
+			colspec={|Q[0.15\linewidth]|Q[0.25\linewidth]|Q[0.25\linewidth]|Q[0.25\linewidth]|},
 			columns={halign=c},
 			row{1}={halign=c},
 			row{odd} = {gray!20},
@@ -226,8 +226,7 @@
 	Processo necessario a garantire gli obiettivi di qualità del prodotto e dei servizi offerti.
 	\begin{longtblr}
 		{
-			colspec={|Q[0.15\linewidth]|Q[0.20\linewidth]|Q[0.25\linewidth]|Q[0.25\linewidth]|},
-			rows={halign=l},
+			colspec={|Q[0.15\linewidth]|Q[0.25\linewidth]|Q[0.25\linewidth]|Q[0.25\linewidth]|},
 			columns={halign=c},
 			row{1}={halign=c},
 			row{odd} = {gray!20},
@@ -244,8 +243,7 @@
 	Processo che ha lo scopo di controllare lo sviluppo del software dal lato della codifica.
 	\begin{longtblr}
 		{
-			colspec={|Q[0.15\linewidth]|Q[0.20\linewidth]|Q[0.25\linewidth]|Q[0.25\linewidth]|},
-			rows={halign=l},
+			colspec={|Q[0.15\linewidth]|Q[0.25\linewidth]|Q[0.25\linewidth]|Q[0.25\linewidth]|},
 			columns={halign=c},
 			row{1}={halign=c},
 			row{odd} = {gray!20},
@@ -263,8 +261,7 @@
 	Processo che controlla le modalità di coordinamento del gruppo.
 	\begin{longtblr}
 		{
-			colspec={|Q[0.15\linewidth]|Q[0.20\linewidth]|Q[0.25\linewidth]|Q[0.25\linewidth]|},
-			rows={halign=l},
+			colspec={|Q[0.15\linewidth]|Q[0.25\linewidth]|Q[0.25\linewidth]|Q[0.25\linewidth]|},
 			columns={halign=c},
 			row{1}={halign=c},
 			row{odd} = {gray!20},
@@ -280,8 +277,85 @@
 	
 	\section{Qualità di Prodotto}
 	\subsection{Obiettivi}
+	\textbf{Documenti}
+	\begin{longtblr}
+		{
+			colspec={|Q[0.25\linewidth]|Q[0.50\linewidth]|Q[0.15\linewidth]|},
+			columns={halign=c},
+			row{1}={halign=c},
+			row{odd} = {gray!20},
+			row{1}={teal!50},
+			%caption=Tabella 1
+		}
+		\hline
+		\textbf{Obiettivo} & \textbf{Descrizione} & \textbf{Metrica} \\
+		%codice & descrizione & valAcc \\
+		\hline
+		Comprensione & descrizione & metriche \\
+		\hline
+	\end{longtblr}
+	
+	\textbf{Software}
+	\begin{longtblr}
+		{
+			colspec={|Q[0.25\linewidth]|Q[0.50\linewidth]|Q[0.15\linewidth]|},
+			columns={halign=c},
+			row{1}={halign=c},
+			row{odd} = {gray!20},
+			row{1}={teal!50},
+			%caption=Tabella 1
+		}
+		\hline
+		\textbf{Obiettivo} & \textbf{Descrizione} & \textbf{Metrica} \\
+		%obiettivo & descrizione & metriche \\
+		\hline
+		Funzionalità & descrizione & metriche \\
+		\hline
+		Efficienza & descrizione & metriche \\
+		\hline
+		Usabilità & descrizione & metriche \\
+		\hline
+		Affidabilità & descrizione & metriche \\
+		\hline
+		Manutenibilità & descrizione & metriche \\
+		\hline
+		Portabilità & descrizione & metriche \\
+		\hline
+	\end{longtblr}
+	
 	
 	\subsection{Metriche}
+	\textbf{Documenti}
+	\begin{longtblr}
+		{
+			colspec={|Q[0.15\linewidth]|Q[0.25\linewidth]|Q[0.25\linewidth]|Q[0.25\linewidth]|},
+			columns={halign=c},
+			row{1}={halign=c},
+			row{odd} = {gray!20},
+			row{1}={teal!50},
+			%caption=Tabella 1
+		}
+		\hline
+		\textbf{Metrica} & \textbf{Descrizione} & \textbf{Valore Accettabile} & \textbf{Valore Ottimale} \\
+		%codice & descrizione & valAcc & valOtt \\
+		\hline
+	\end{longtblr}
+	
+	\textbf{Software}
+	\begin{longtblr}
+		{
+			colspec={|Q[0.15\linewidth]|Q[0.25\linewidth]|Q[0.25\linewidth]|Q[0.25\linewidth]|},
+			columns={halign=c},
+			row{1}={halign=c},
+			row{odd} = {gray!20},
+			row{1}={teal!50},
+			%caption=Tabella 1
+		}
+		\hline
+		\textbf{Metrica} & \textbf{Descrizione} & \textbf{Valore Accettabile} & \textbf{Valore Ottimale} \\
+		%codice & descrizione & valAcc & valOtt \\
+		\hline
+	\end{longtblr}
 	
 	
 	\section{Specifica dei Test}
