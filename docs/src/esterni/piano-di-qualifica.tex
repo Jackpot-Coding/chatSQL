@@ -28,7 +28,7 @@
 
 \setlength{\parindent}{0pt}
 
-\title{Analisi dei Requisiti}
+\title{Piano di Qualifica}
 \author{Jackpot Coding}
 \renewcommand*\contentsname{Indice}
 \date{\today}
@@ -110,7 +110,7 @@
 	\begin{flushright}
 		\begin{spacing}{1}
 			USO: ESTERNO\\
-			VERSIONE: 0.1.4\\
+			VERSIONE: 0.1.5\\
 		\end{spacing}
 	\end{flushright}
 	
@@ -124,6 +124,8 @@
 	\begin{table}[ht]
 		\centerline{%
 			\begin{tabular}{|c|c|c|c|c|}
+				\hline
+				v.0.1.5 & 18/03/2024 & G. Moretto & - & Verifica termini di glossario \\
 				\hline
 				v.0.1.4 & 18/03/2024 & R. Simionato & G. Moretto & Stesura sezioni 2.1.2, 2.2, 2.3 \\
                 \hline
@@ -171,7 +173,7 @@
 	\end{itemize}
 	
 	\subsection{Scopo del prodotto}
-	Il capitolato proposto dall'azienda Zucchetti manifesta l'esigenza di avere un prodotto \textit{Software}\textsuperscript{G} per la creazione di \textit{prompt}\textsuperscript{G} da fornire ad un modello\textsuperscript{G} \textit{LLM}\textsuperscript{G} per la creazione di \textit{query} SQL\textsuperscript{G} per l'interrogazione di \textit{database}\textsuperscript{G} con struttura nota.
+	Il capitolato\textsuperscript{G} proposto dall'azienda Zucchetti manifesta l'esigenza di avere un prodotto \textit{Software}\textsuperscript{G} per la creazione di \textit{prompt}\textsuperscript{G} da fornire ad un modello\textsuperscript{G} \textit{LLM}\textsuperscript{G} per la creazione di \textit{query} SQL\textsuperscript{G} per l'interrogazione di \textit{database}\textsuperscript{G} con struttura nota.
 	
 
 	\section{Qualità di Processo}
@@ -193,26 +195,26 @@
 		\textbf{Metrica} & \textbf{Descrizione} & \textbf{Valore Accettabile} & \textbf{Valore Ottimale} \\
 		%codice & descrizione & valAcc & valOtt \\
 		\hline
-		MPC-EAC & Estimated At Completion & Errore del $\pm$5\% rispetto al preventivo & Corrispondente al preventivo \\
+		MPC-EAC & \textit{Estimated At Completion} & Errore del $\pm$5\% rispetto al preventivo & Corrispondente al preventivo \\
 		\hline
-		MPC-ETC & Estimated To Completion & $\geq$ 0\% & $\leq$ EAC \\
+		MPC-ETC & \textit{Estimated To Completion} & $\geq$ 0\% & $\leq$ EAC \\
 		\hline
-		MPC-EV & Earned Value & $\geq$ 0 & $\leq$ EAC \\
+		MPC-EV & \textit{Earned Value} & $\geq$ 0 & $\leq$ EAC \\
 		\hline
-		MPC-PV & Planned Value & $\geq$ 0 & $\leq$ Costo totale del preventivo \\
+		MPC-PV & \textit{ Planned Value} & $\geq$ 0 & $\leq$ Costo totale del preventivo \\
 		\hline
-		MPC-AC & Actual Cost & $\geq$ 0 & $\leq$ EAC \\
+		MPC-AC & \textit{Actual Cost} & $\geq$ 0 & $\leq$ EAC \\
 		\hline
-		MPC-CV & Cost Variance & $\geq$ -5\% & $\geq$ 0\% \\
+		MPC-CV & \textit{Cost Variance} & $\geq$ -5\% & $\geq$ 0\% \\
 		\hline
-		MPC-SV & Schedule Variance & $\geq$ -10\% & $\geq$ 0\% \\
+		MPC-SV & \textit{Schedule Variance} & $\geq$ -10\% & $\geq$ 0\% \\
 		\hline
-		MPC-BV & Budget Variance & $\pm$10\% & $\leq$ 0\% \\
+		MPC-BV & \textit{Budget Variance} & $\pm$10\% & $\leq$ 0\% \\
 		\hline
 	\end{longtblr}
 	
 	\subsubsection{Sviluppo}
-	Processo basato sulla scelta delle attività e dei compiti necessari per la realizzazione del prodotto software.
+	Processo basato sulla scelta delle attività e dei compiti necessari per la realizzazione del prodotto \textit{software}\textsuperscript{G}.
 	\begin{longtblr}
 		{
 			colspec={|Q[0.15\linewidth]|Q[0.25\linewidth]|Q[0.25\linewidth]|Q[0.25\linewidth]|},
@@ -226,9 +228,9 @@
 		\textbf{Metrica} & \textbf{Descrizione} & \textbf{Valore Accettabile} & \textbf{Valore Ottimale} \\
 		%codice & descrizione & valAcc & valOtt \\
 		\hline
-		MPC-RSI & Requirements Stability Index & $\geq$ 80\% & 100\% \\
+		MPC-RSI & \textit{Requirements Stability Index} & $\geq$ 80\% & 100\% \\
 		\hline
-		MPC-SOR & Satisfied Obligatory Requirements & 100\% & 100\% \\
+		MPC-SOR & \textit{Satisfied Obligatory Requirements} & 100\% & 100\% \\
 		\hline
 	\end{longtblr}
 	
@@ -248,12 +250,12 @@
 		\textbf{Metrica} & \textbf{Descrizione} & \textbf{Valore Accettabile} & \textbf{Valore Ottimale} \\
 		%codice & descrizione & valAcc & valOtt \\
 		\hline
-		MPC-QMS & Quality Metric Satisfied & $\geq$ 90\% & 100\% \\
+		MPC-QMS &\textit{ Quality Metric Satisfied} & $\geq$ 90\% & 100\% \\
 		\hline
 	\end{longtblr}
 	
 	\subsubsection{Verifica}
-	Processo che ha lo scopo di controllare lo sviluppo del software dal lato della codifica.
+	Processo che ha lo scopo di controllare lo sviluppo del \textit{software}\textsuperscript{G} dal lato della codifica.
 	\begin{longtblr}
 		{
 			colspec={|Q[0.15\linewidth]|Q[0.25\linewidth]|Q[0.25\linewidth]|Q[0.25\linewidth]|},
@@ -267,9 +269,9 @@
 		\textbf{Metrica} & \textbf{Descrizione} & \textbf{Valore Accettabile} & \textbf{Valore Ottimale} \\
 		%codice & descrizione & valAcc & valOtt \\
 		\hline
-		MPC-CC & Code Coverage & $\geq$ 70\% & $\geq$ 90\% \\
+		MPC-CC & \textit{Code Coverage} & $\geq$ 70\% & $\geq$ 90\% \\
 		\hline
-		MPC-PTP & Passed Tests Percentage & $\geq$ 90\% & 100\% \\
+		MPC-PTP & \textit{Passed Tests Percentage} & $\geq$ 90\% & 100\% \\
 		\hline
 	\end{longtblr}
 	
@@ -289,13 +291,13 @@
 		\textbf{Metrica} & \textbf{Descrizione} & \textbf{Valore Accettabile} & \textbf{Valore Ottimale} \\
 		%codice & descrizione & valAcc & valOtt \\
 		\hline
-		MPC-NCR & Non-Calculated Risks & $\leq$ 5 & 0 \\
+		MPC-NCR & \textit{Non-Calculated Risks} & $\leq$ 5 & 0 \\
 		\hline
 	\end{longtblr}
 	
 	
 	\section{Qualità di Prodotto}
-        Dopo aver individuato le caratteristiche necessarie ed utili per la gestione del ciclo di vita del \textit{software}, il gruppo \textit{Jackpot Coding} ha rivolto lo sguardo a quali potessero essere le caratteristiche fondamentali per la realizzazione di un prodotto di qualità.
+        Dopo aver individuato le caratteristiche necessarie ed utili per la gestione del ciclo di vita del \textit{software}\textsuperscript{G}, il gruppo \textit{Jackpot Coding} ha rivolto lo sguardo a quali potessero essere le caratteristiche fondamentali per la realizzazione di un prodotto di qualità.
 
 	\subsection{Obiettivi}
 	\textbf{Documenti}
@@ -316,7 +318,7 @@
 		\hline
 	\end{longtblr}
 	
-	\textbf{Software}
+	\textbf{\textit{Software}}
 	\begin{longtblr}
 		{
 			colspec={|Q[0.25\linewidth]|Q[0.50\linewidth]|Q[0.15\linewidth]|},
@@ -330,23 +332,23 @@
 		\textbf{Obiettivo} & \textbf{Descrizione} & \textbf{Metrica} \\
 		%obiettivo & descrizione & metriche \\
 		\hline
-		Funzionalità & La capacità del prodotto software di soddisfare 
-        i requisiti trovati e descritti all’interno dell’Analisi dei Requisiti. & MPD-CR \\
+		Funzionalità & La capacità del prodotto \textit{software}\textsuperscript{G} di soddisfare 
+        i requisiti\textsuperscript{G} trovati e descritti all’interno dell’Analisi dei Requisiti\textsuperscript{G}. & MPD-CR \\
 		\hline
-		Efficienza & Svolgere il lavoro in un tempo consono alla quantità 
+		Efficienza\textsuperscript{G} & Svolgere il lavoro in un tempo consono alla quantità 
         di risorse utilizzate & MPD-TM \\
 		\hline
-		Usabilità & Creazione di un software che sia semplice ed 
-        intuitivo da utilizzare e comprendere, alla portata di ogni utente & MPD-TA MPD-RO MPD-EU \\
+		Usabilità & Creazione di un \textit{software} che sia semplice ed 
+        intuitivo da utilizzare e comprendere, alla portata di ogni utente\textsuperscript{G} & MPD-TA MPD-RO MPD-EU \\
 		\hline
-		Affidabilità & La tolleranza del prodotto software agli errori 
+		Affidabilità & La tolleranza del prodotto \textit{software} agli errori 
         quando usato in date condizioni per un dato periodo. & MPD-FD \\
 		\hline
-		Manutenibilità & La capacità del software ad essere incline a 
+		Manutenibilità & La capacità del \textit{software} ad essere incline a 
         modifiche, miglioramenti in corso d'opera & MPD-CC \\
 		\hline
-		Portabilità & La capacità del software di poter essere utilizzato 
-        senza problemi in altri browser oltre a quello di sviluppo & MPD-BS \\
+		Portabilità & La capacità del \textit{software} di poter essere utilizzato 
+        senza problemi in altri browser\textsuperscript{G} oltre a quello di sviluppo & MPD-BS \\
 		\hline
 	\end{longtblr}
 	
@@ -366,13 +368,13 @@
 		\textbf{Metrica} & \textbf{Descrizione} & \textbf{Valore Accettabile} & \textbf{Valore Ottimale} \\
 		%codice & descrizione & valAcc & valOtt \\
 		\hline
-            MPD-IG  & Indice Gulpease - Misura la leggibilità del testo & 40/100 & 60/100\\
+            MPD-IG  & Indice \textit{Gulpease} - Misura la leggibilità del testo & 40/100 & 60/100\\
             \hline
             MPD-CO & Correttezza Ortografica - Numero di errori grammaticali o ortografici & 0 & 0\\
             \hline
 	\end{longtblr}
 	
-	\textbf{Software}
+	\textbf{\textit{software}}
 	\begin{longtblr}
 		{
 			colspec={|Q[0.15\linewidth]|Q[0.25\linewidth]|Q[0.25\linewidth]|Q[0.25\linewidth]|},
@@ -386,7 +388,7 @@
 		\textbf{Metrica} & \textbf{Descrizione} & \textbf{Valore Accettabile} & \textbf{Valore Ottimale} \\
 		%codice & descrizione & valAcc & valOtt \\
             \hline
-            MPD-CR & Copertura dei Requisiti & 100 \% & 100 \% \\
+            MPD-CR & Copertura dei Requisiti\textsuperscript{G} & 100 \% & 100 \% \\
             \hline
             MPD-TM & Tempo di risposta Medio & ? & ? \\
             \hline
@@ -394,13 +396,13 @@
             \hline
             MPD-RO & Raggiunta dell’Obiettivo & 6 click & 4 click \\
             \hline
-            MPD-EU & Errori Utente & 2 & 0 \\
+            MPD-EU & Errori Utente\textsuperscript{G} & 2 & 0 \\
             \hline
-            MPD-FD & Failure Density & 100\% & 100\% \\
+            MPD-FD &\textit{ Failure Density} & 100\% & 100\% \\
             \hline
             MPD-CC & Complessità del Codice & ? & ? \\
             \hline
-            MPD-BS & Browser Supportati & 75\% & 100\% \\
+            MPD-BS & \textit{Browser}\textsuperscript{G} Supportati & 75\% & 100\% \\
 		\hline
 	\end{longtblr}
 	
@@ -414,7 +416,7 @@
 	Vengono impiegati per la verifica delle interazioni fra le unità sopra descritte.
 	
 	\subsection{Test di Sistema}
-	Vengono impiegati per verificare che l'esecuzione del sistema soddisfi i requisiti\textsuperscript{G} prestabiliti nel documento di Analisi dei Requisiti.
+	Vengono impiegati per verificare che l'esecuzione del sistema soddisfi i requisiti\textsuperscript{G} prestabiliti nel documento di Analisi dei Requisiti\textsuperscript{G}.
 	
 	\subsection{Test di Regressione}
 	Vengono impiegati per accertarsi che correzioni o aggiunte effettuate sul specifiche unità non interferiscano sul funzionamento del programma.
@@ -444,7 +446,7 @@
 		\hline
 		\textbf{Criticità} & \textbf{Descrizione} & \textbf{Gravità} & \textbf{Soluzione} \\
 		\hline
-		Suddivisione dei compiti & Utilizzando Trello come sistema di \textit{Issue Tracking} non era chiaro come suddividere i compiti  & Media & Si è passati a Jira che permette una netta divisione dei compiti per ruolo e arco temporale \\
+		Suddivisione dei compiti & Utilizzando Trello come sistema di \textit{Issue\textsuperscript{G} Tracking} non era chiaro come suddividere i compiti  & Media & Si è passati a Jira\textsuperscript{G} che permette una netta divisione dei compiti per ruolo e arco temporale \\
 		\hline
 		Verifica & Nei periodi iniziali del progetto non era chiaro quando effettuare l'attività di verifica & Media & Si è aggiunto uno \textit{step} di verifica da completare prima della terminazione del'attività \\
 		\hline
@@ -466,9 +468,9 @@
 		\hline
 		\textbf{Criticità} & \textbf{Descrizione} & \textbf{Gravità} & \textbf{Soluzione} \\
 		\hline
-		Trello & Utile all'inizio del progetto ma non permette la gestione delle attività con \textit{Scrum} & Media & Si è passati a Jira come \textit{Issue Tracking System} \\
+		Trello & Utile all'inizio del progetto ma non permette la gestione delle attività con \textit{Scrum} & Media & Si è passati a Jira\textsuperscript{G} come \textit{Issue Tracking System} \\
 		\hline
-		Jira & Molti componenti del gruppo non conoscevano il programma & Bassa & Sono state consultate le guide a disposizione ed il progetto è stato impostato da chi aveva più familiarità con esso\\
+		Jira\textsuperscript{G} & Molti componenti del gruppo non conoscevano il programma & Bassa & Sono state consultate le guide a disposizione ed il progetto è stato impostato da chi aveva più familiarità con esso\\
 		\hline
 		
 		
