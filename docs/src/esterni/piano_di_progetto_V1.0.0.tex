@@ -9,6 +9,10 @@
 \usepackage{cellspace}
 \usepackage{tabularx}
 \usepackage{eurosym}
+\usepackage[table]{xcolor}
+\usepackage{tabularray}
+\usepackage{wrapfig}
+\usepackage{flafter} 
 
 % package and setup for tables
 \usepackage{float}
@@ -33,6 +37,12 @@
 \author{Jackpot Coding}
 \renewcommand*\contentsname{Indice}
 \date{\today}
+
+\DefTblrTemplate{contfoot-text}{default}{}
+\DefTblrTemplate{conthead-text}{default}{}
+\DefTblrTemplate{caption}{default}{}
+\DefTblrTemplate{conthead}{default}{}
+\DefTblrTemplate{capcont}{default}{}
 
 %STARTOF THE DOCUMENT
 \begin{document}
@@ -102,7 +112,7 @@
 \begin{flushleft}
     \begin{spacing}{1.5}
         REDATTORE: M. Gobbo, M. Favaretto\\%INSERT HERE THE NAMES
-        VERIFICATORI: \\
+        VERIFICATORI: G. Moretto, E. Gallo\\
         \vspace{7pt}
         DESTINATARI: Prof. T. Vardanega, Prof. R. Cardin\\%INSERT HERE THE NAMES
     \end{spacing}
@@ -111,7 +121,7 @@
 \begin{flushright}
     \begin{spacing}{1}
         USO: ESTERNO\\
-        VERSIONE: 0.0.5\\
+        VERSIONE: 1.0.0\\
     \end{spacing}
 \end{flushright}
 
@@ -122,11 +132,21 @@
 \pagebreak
 
 \textbf{\Large Registro delle modifiche}
-\begin{table}[H]
-  \centering
-  \begin{tabular}{|c|c|c|c|c|}
-    \hline
+\begin{longtblr}
+	{
+		colspec={|Q[0.10\linewidth]|Q[0.10\linewidth]|Q[0.15\linewidth]|Q[0.15\linewidth]|Q[0.45\linewidth]|},
+		rows={halign=l},
+		column{1}={halign=c},
+		column{3}={halign=c},
+		column{4}={halign=c},
+		row{1}={halign=c},
+		row{odd} = {gray!20},
+		row{1}={teal!50},
+	}
+	\hline
     \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Modifica} \\
+    \hline
+    v1.0.0 & 18/03/2024 & - & E. Gallo & Approvazione documento \\
     \hline
     v0.0.17 & 15/03/2024 & M. Gobbo - M. Favaretto & G. Moretto & Scrittura sezione 6 \\
     \hline
@@ -162,15 +182,32 @@
     \hline
     v0.0.2 & 10/11/2023 & M. Gobbo - M. Favaretto & G. Moretto & Scrittura sezione 1 \\
     \hline
-    V0.0.1 & 03/11/2023 & M. Gobbo - M. Favaretto & G. Moretto & Creata struttura del documento \\
+    v0.0.1 & 03/11/2023 & M. Gobbo - M. Favaretto & G. Moretto & Creata struttura del documento \\
     \hline
-  \end{tabular}
-  \caption{Cronologia delle modifiche}
-  \label{tab:conference}
-\end{table}
+\end{longtblr}
 
 \pagebreak
 \tableofcontents
+\pagebreak
+
+\begin{flushleft}
+	\textbf{\Large Elenco delle tabelle}
+	\begin{spacing}{1.5}
+		Tabella 1: Preventivo prima parte RTB \\
+		Tabella 2: Preventivo seconda parte RTB \\
+		Tabella 3: Preventivo rifiniture RTB \\
+		Tabella 4: Piano ore preventivate per il primo periodo \\
+		Tabella 5: Costi preventivati primo periodo \\
+		Tabella 6: Preventivo fase preliminare PB \\
+		Tabella 7: Preventivo progettazione e programmazione PB \\
+		Tabella 8: Preventivo progettazione secondaria PB \\
+		Tabella 9: Preventivo fase finale PB \\
+		Tabella 10: Piano ore preventivate per il secondo periodo \\
+		Tabella 11: Costi preventivati primo periodo \\
+		Tabella 12: Resoconto ore e costi RTB \\
+	\end{spacing}
+\end{flushleft}
+
 \pagebreak
 
 \section{Introduzione}
