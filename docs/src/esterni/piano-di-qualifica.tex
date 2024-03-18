@@ -110,7 +110,7 @@
 	\begin{flushright}
 		\begin{spacing}{1}
 			USO: ESTERNO\\
-			VERSIONE: 0.1.3\\
+			VERSIONE: 0.1.4\\
 		\end{spacing}
 	\end{flushright}
 	
@@ -124,8 +124,10 @@
 	\begin{table}[ht]
 		\centerline{%
 			\begin{tabular}{|c|c|c|c|c|}
+				\hline
+				v.0.1.4 & 18/03/2024 & R. Simionato & - & Stesura sezioni 2.1.2, 2.2, 2.3 \\
                 \hline
-                v.0.1.3 & 17/03/2024 & M. Gobbo & - & Aggiunta Sezione 3 -Qualità di Prodotto \\
+                v.0.1.3 & 17/03/2024 & M. Gobbo & - & Aggiunta Sezione 3-Qualità di Prodotto \\
 				\hline
 				v.0.1.2 & 17/03/2024 & R. Simionato & - & Aggiunta struttura Sezione 3-Qualità di Prodotto \\
 				\hline
@@ -224,6 +226,10 @@
 		\textbf{Metrica} & \textbf{Descrizione} & \textbf{Valore Accettabile} & \textbf{Valore Ottimale} \\
 		%codice & descrizione & valAcc & valOtt \\
 		\hline
+		MPC-RSI & Requirements Stability Index & $\geq$ 80\% & 100\% \\
+		\hline
+		MPC-SOR & Satisfied Obligatory Requirements & 100\% & 100\% \\
+		\hline
 	\end{longtblr}
 	
 	\subsection{Processi di supporto}
@@ -242,6 +248,8 @@
 		\textbf{Metrica} & \textbf{Descrizione} & \textbf{Valore Accettabile} & \textbf{Valore Ottimale} \\
 		%codice & descrizione & valAcc & valOtt \\
 		\hline
+		MPC-QMS & Quality Metric Satisfied & $\geq$ 90\% & 100\% \\
+		\hline
 	\end{longtblr}
 	
 	\subsubsection{Verifica}
@@ -258,6 +266,10 @@
 		\hline
 		\textbf{Metrica} & \textbf{Descrizione} & \textbf{Valore Accettabile} & \textbf{Valore Ottimale} \\
 		%codice & descrizione & valAcc & valOtt \\
+		\hline
+		MPC-CC & Code Coverage & $\geq$ 70\% & $\geq$ 90\% \\
+		\hline
+		MPC-PTP & Passed Tests Percentage & $\geq$ 90\% & 100\% \\
 		\hline
 	\end{longtblr}
 	
@@ -276,6 +288,8 @@
 		\hline
 		\textbf{Metrica} & \textbf{Descrizione} & \textbf{Valore Accettabile} & \textbf{Valore Ottimale} \\
 		%codice & descrizione & valAcc & valOtt \\
+		\hline
+		MPC-NCR & Non-Calculated Risks & $\leq$ 5 & 0 \\
 		\hline
 	\end{longtblr}
 	
@@ -298,7 +312,7 @@
 		\textbf{Obiettivo} & \textbf{Descrizione} & \textbf{Metrica} \\
 		%codice & descrizione & valAcc \\
 		\hline
-		Comprensione & Il corretto redigere dei documenti è cruciale per la qualità del nostro prodotto. È fondamentale assicurarsi che siano comprensibili e privi di errori, sia a livello lessicale che grammaticale & MPD - IG MPD - CO \\
+		Comprensione & Il corretto redigere dei documenti è cruciale per la qualità del nostro prodotto. È fondamentale assicurarsi che siano comprensibili e privi di errori, sia a livello lessicale che grammaticale & MPD-IG MPD-CO \\
 		\hline
 	\end{longtblr}
 	
@@ -317,22 +331,22 @@
 		%obiettivo & descrizione & metriche \\
 		\hline
 		Funzionalità & La capacità del prodotto software di soddisfare 
-            i requisiti trovati e descritti all’interno dell’Analisi dei Requisiti V.1.0.0. & MPD - CR \\
+        i requisiti trovati e descritti all’interno dell’Analisi dei Requisiti V.1.0.0. & MPD-CR \\
 		\hline
 		Efficienza & Svolgere il lavoro in un tempo consono alla quantità 
-            di risorse utilizzate & MPD - TM \\
+        di risorse utilizzate & MPD-TM \\
 		\hline
 		Usabilità & Creazione di un software che sia semplice ed 
-            intuitivo da utilizzare e comprendere, alla portata di ogni utente & MPD - TA MPD - RO  MPD - EU \\
+        intuitivo da utilizzare e comprendere, alla portata di ogni utente & MPD-TA MPD-RO MPD-EU \\
 		\hline
 		Affidabilità & La tolleranza del prodotto software agli errori 
-            quando usato in date condizioni per un dato periodo. & MPD - FD \\
+        quando usato in date condizioni per un dato periodo. & MPD-FD \\
 		\hline
-		Manutenibilità & La caoacità del software ad essere incline a 
-            modifiche, miglioramenti in corso d'opera & MPD - CC \\
+		Manutenibilità & La capacità del software ad essere incline a 
+        modifiche, miglioramenti in corso d'opera & MPD-CC \\
 		\hline
-		Portabilità & La capacità del softwarer di poter essre utilizzato 
-            senza problemi in altri browser oltre a quello di sviluppo & MPD - BS \\
+		Portabilità & La capacità del software di poter essere utilizzato 
+        senza problemi in altri browser oltre a quello di sviluppo & MPD-BS \\
 		\hline
 	\end{longtblr}
 	
@@ -352,9 +366,9 @@
 		\textbf{Metrica} & \textbf{Descrizione} & \textbf{Valore Accettabile} & \textbf{Valore Ottimale} \\
 		%codice & descrizione & valAcc & valOtt \\
 		\hline
-            MPD - IG  & Indice Gulpease - Misura la leggibilità del testo & 40/100 & 60/100\\
+            MPD-IG  & Indice Gulpease - Misura la leggibilità del testo & 40/100 & 60/100\\
             \hline
-            MPD - CO & Correttezza Ortografica - Numero di errori grammaticali o ortografici & 0 & 0\\
+            MPD-CO & Correttezza Ortografica - Numero di errori grammaticali o ortografici & 0 & 0\\
             \hline
 	\end{longtblr}
 	
@@ -372,21 +386,21 @@
 		\textbf{Metrica} & \textbf{Descrizione} & \textbf{Valore Accettabile} & \textbf{Valore Ottimale} \\
 		%codice & descrizione & valAcc & valOtt \\
             \hline
-            MPD - CR & Copertura dei Requisiti & 100 \% & 100 \% \\
+            MPD-CR & Copertura dei Requisiti & 100 \% & 100 \% \\
             \hline
-            MPD - TM & Tempo di risposta Medio & ? & ? \\
+            MPD-TM & Tempo di risposta Medio & ? & ? \\
             \hline
-            MPD - TA & Tempo di Apprendimento & 10 min & 5 min \\
+            MPD-TA & Tempo di Apprendimento & 10 min & 5 min \\
             \hline
-            MPD - RO & Raggiunta dell’Obiettivo & 6 click & 4 click \\
+            MPD-RO & Raggiunta dell’Obiettivo & 6 click & 4 click \\
             \hline
-            MPD - EU & Errori Utente & 2 & 0 \\
+            MPD-EU & Errori Utente & 2 & 0 \\
             \hline
-            MPD - FD & Failure Density & 100\% & 100\% \\
+            MPD-FD & Failure Density & 100\% & 100\% \\
             \hline
-            MPD - CC & Complessità del Codice & ? & ? \\
+            MPD-CC & Complessità del Codice & ? & ? \\
             \hline
-            MPD - BS & Browser Supportati & 75\% & 100\% \\
+            MPD-BS & Browser Supportati & 75\% & 100\% \\
 		\hline
 	\end{longtblr}
 	
