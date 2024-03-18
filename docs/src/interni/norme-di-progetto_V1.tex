@@ -8,7 +8,13 @@
 \usepackage{array}
 \usepackage{cellspace}
 \usepackage{tabularx}
+\usepackage[table]{xcolor}
+\usepackage{tabularray}
+\usepackage{wrapfig}
+\usepackage{flafter} 
 
+\usepackage{hyperref}
+\usepackage{scrextend}
 \graphicspath{ {../} }
 
 
@@ -25,6 +31,15 @@
 \title{Norme di Progetto}
 \author{Jackpot Coding}
 \renewcommand*\contentsname{Indice}
+\renewcommand{\figurename}{Immagine}
+\date{\today}
+
+%longtblr
+\DefTblrTemplate{contfoot-text}{default}{}
+\DefTblrTemplate{conthead-text}{default}{}
+\DefTblrTemplate{caption}{default}{}
+\DefTblrTemplate{conthead}{default}{}
+\DefTblrTemplate{capcont}{default}{}
 
 \begin{document}
 
@@ -90,15 +105,15 @@
 
 \begin{flushleft}
 	\begin{spacing}{1.5}
-		REDATTORE: \\%INSERT HERE THE NAMES
-		VERIFICATORI: \\
+		REDATTORE: G. Moretto, M. Gobbo, E. Gallo, R. Simionato\\%INSERT HERE THE NAMES
+		VERIFICATORI: G. Moretto, M. Gobbo, E. Gallo, R. Simionato\\
 	\end{spacing}
 \end{flushleft}
 
 \begin{flushright}
 	\begin{spacing}{1}
 		USO: INTERNO\\
-		VERSIONE: 1.0.1\\
+		VERSIONE: 1.0.2\\
 	\end{spacing}
 \end{flushright}
 
@@ -111,15 +126,26 @@
 
 \pagebreak
 
-\begin{table}[ht]
-\centerline{%
-  \begin{tabular}{|c|c|c|c|c|}
+\textbf{\Large Registro delle modifiche}
+\begin{longtblr}
+	{
+		colspec={|Q[0.10\linewidth]|Q[0.10\linewidth]|Q[0.15\linewidth]|Q[0.15\linewidth]|Q[0.45\linewidth]|},
+		rows={halign=l},
+		column{1}={halign=c},
+		column{3}={halign=c},
+		column{4}={halign=c},
+		row{1}={halign=c},
+		row{odd} = {gray!20},
+		row{1}={teal!50},
+	}
     \hline
     \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Modifica} \\
     \hline
     % versione & data & autore & verificatore & descrizioneModifica \\
     % \hline
-    V1.0.1 & 14/03/2024 & G. Moretto & - & Aggiunto stato "in review" a Jira e prima pagina come altri documenti.\\
+    V1.0.2 & 18/03/2024 & E. Gallo & - & Modifica al Registro delle modifiche\\
+    \hline
+    V1.0.1 & 14/03/2024 & G. Moretto & E. Gallo & Aggiunto stato "in review" a Jira e prima pagina come altri documenti.\\
     \hline
     V1.0.0 & 10/03/2024 & - & R. Simionato & Approvazione versione 1.0.0 \\
     \hline
@@ -147,10 +173,7 @@
     \hline
     V0.0.1 & 15/11/2023 & G. Moretto & R. Simionato & Creata struttura del documento \\
     \hline
-  \end{tabular}%
-  }
-  \label{tab:conference}
-\end{table}
+\end{longtblr}
 
 
 
