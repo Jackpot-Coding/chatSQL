@@ -111,7 +111,7 @@
 	\begin{flushright}
 		\begin{spacing}{1}
 			USO: ESTERNO\\
-			VERSIONE: 0.1.5\\
+			VERSIONE: 0.1.7\\
 		\end{spacing}
 	\end{flushright}
 	
@@ -126,13 +126,15 @@
 		\centerline{%
 			\begin{tabular}{|c|c|c|c|c|}
 				\hline
+				v.0.1.7 & 19/03/2024 & G. Moretto & - & Aggiunta grafico MPD-I \\
+				\hline
 				v.0.1.6 & 19/03/2024 & G. Moretto & - & Aggiunta grafici MPC-SV e MPC-NCR \\
 				\hline
 				v.0.1.5 & 18/03/2024 & G. Moretto & - & Verifica termini di glossario \\
 				\hline
 				v.0.1.4 & 18/03/2024 & R. Simionato & G. Moretto & Stesura sezioni 2.1.2, 2.2, 2.3 \\
-                \hline
-                v.0.1.3 & 17/03/2024 & M. Gobbo & G. Moretto & Aggiunta Sezione 3-Qualità di Prodotto \\
+				\hline
+				v.0.1.3 & 17/03/2024 & M. Gobbo & G. Moretto & Aggiunta Sezione 3-Qualità di Prodotto \\
 				\hline
 				v.0.1.2 & 17/03/2024 & R. Simionato & G. Moretto & Aggiunta struttura Sezione 3-Qualità di Prodotto \\
 				\hline
@@ -161,7 +163,7 @@
 	% Elenco Tabelle
 	
 	\section{Introduzione}
-
+	
 	\subsection{Premessa}
 	Questo documento viene modificato durante la durata del progetto ed i suoi contenuti verranno aggiornati in base alle pratiche adottate dal gruppo.
 	
@@ -178,7 +180,7 @@
 	\subsection{Scopo del prodotto}
 	Il capitolato\textsuperscript{G} proposto dall'azienda Zucchetti manifesta l'esigenza di avere un prodotto \textit{Software}\textsuperscript{G} per la creazione di \textit{prompt}\textsuperscript{G} da fornire ad un modello\textsuperscript{G} \textit{LLM}\textsuperscript{G} per la creazione di \textit{query} SQL\textsuperscript{G} per l'interrogazione di \textit{database}\textsuperscript{G} con struttura nota.
 	
-
+	
 	\section{Qualità di Processo}
 	Per garantire la qualità del prodotto bisogna essere in grado di assicurarsi che i processi raggiungano gli obiettivi di qualità richiesti. In questa sezione vengono definite le metriche utilizzate per valutare i processi e per migliorarli secondo il Ciclo PDCA (\textit{Plan-Do-Check-Act}). Questo metodo permette un miglioramento continuo nell’applicazione dei processi e l’utilizzo delle risorse a disposizione tramite la pianificazione, seguita dalla messa in atto, verifica utilizzando le metriche a disposizione e infine miglioramento dei processi.
 	
@@ -300,8 +302,8 @@
 	
 	
 	\section{Qualità di Prodotto}
-        Dopo aver individuato le caratteristiche necessarie ed utili per la gestione del ciclo di vita del \textit{software}\textsuperscript{G}, il gruppo \textit{Jackpot Coding} ha rivolto lo sguardo a quali potessero essere le caratteristiche fondamentali per la realizzazione di un prodotto di qualità.
-
+	Dopo aver individuato le caratteristiche necessarie ed utili per la gestione del ciclo di vita del \textit{software}\textsuperscript{G}, il gruppo \textit{Jackpot Coding} ha rivolto lo sguardo a quali potessero essere le caratteristiche fondamentali per la realizzazione di un prodotto di qualità.
+	
 	\subsection{Obiettivi}
 	\textbf{Documenti}
 	\begin{longtblr}
@@ -336,22 +338,22 @@
 		%obiettivo & descrizione & metriche \\
 		\hline
 		Funzionalità & La capacità del prodotto \textit{software}\textsuperscript{G} di soddisfare 
-        i requisiti\textsuperscript{G} trovati e descritti all’interno dell’Analisi dei Requisiti\textsuperscript{G}. & MPD-CR \\
+		i requisiti\textsuperscript{G} trovati e descritti all’interno dell’Analisi dei Requisiti\textsuperscript{G}. & MPD-CR \\
 		\hline
 		Efficienza\textsuperscript{G} & Svolgere il lavoro in un tempo consono alla quantità 
-        di risorse utilizzate & MPD-TM \\
+		di risorse utilizzate & MPD-TM \\
 		\hline
 		Usabilità & Creazione di un \textit{software} che sia semplice ed 
-        intuitivo da utilizzare e comprendere, alla portata di ogni utente\textsuperscript{G} & MPD-TA MPD-RO MPD-EU \\
+		intuitivo da utilizzare e comprendere, alla portata di ogni utente\textsuperscript{G} & MPD-TA MPD-RO MPD-EU \\
 		\hline
 		Affidabilità & La tolleranza del prodotto \textit{software} agli errori 
-        quando usato in date condizioni per un dato periodo. & MPD-FD \\
+		quando usato in date condizioni per un dato periodo. & MPD-FD \\
 		\hline
 		Manutenibilità & La capacità del \textit{software} ad essere incline a 
-        modifiche, miglioramenti in corso d'opera & MPD-CC \\
+		modifiche, miglioramenti in corso d'opera & MPD-CC \\
 		\hline
 		Portabilità & La capacità del \textit{software} di poter essere utilizzato 
-        senza problemi in altri browser\textsuperscript{G} oltre a quello di sviluppo & MPD-BS \\
+		senza problemi in altri browser\textsuperscript{G} oltre a quello di sviluppo & MPD-BS \\
 		\hline
 	\end{longtblr}
 	
@@ -371,10 +373,10 @@
 		\textbf{Metrica} & \textbf{Descrizione} & \textbf{Valore Accettabile} & \textbf{Valore Ottimale} \\
 		%codice & descrizione & valAcc & valOtt \\
 		\hline
-            MPD-IG  & Indice \textit{Gulpease} - Misura la leggibilità del testo & 40/100 & 60/100\\
-            \hline
-            MPD-CO & Correttezza Ortografica - Numero di errori grammaticali o ortografici & 0 & 0\\
-            \hline
+		MPD-IG  & Indice \textit{Gulpease} - Misura la leggibilità del testo & 40/100 & 60/100\\
+		\hline
+		MPD-CO & Correttezza Ortografica - Numero di errori grammaticali o ortografici & 0 & 0\\
+		\hline
 	\end{longtblr}
 	
 	\textbf{\textit{software}}
@@ -390,22 +392,22 @@
 		\hline
 		\textbf{Metrica} & \textbf{Descrizione} & \textbf{Valore Accettabile} & \textbf{Valore Ottimale} \\
 		%codice & descrizione & valAcc & valOtt \\
-            \hline
-            MPD-CR & Copertura dei Requisiti\textsuperscript{G} & 100 \% & 100 \% \\
-            \hline
-            MPD-TM & Tempo di risposta Medio & ? & ? \\
-            \hline
-            MPD-TA & Tempo di Apprendimento & 10 min & 5 min \\
-            \hline
-            MPD-RO & Raggiunta dell’Obiettivo & 6 click & 4 click \\
-            \hline
-            MPD-EU & Errori Utente\textsuperscript{G} & 2 & 0 \\
-            \hline
-            MPD-FD &\textit{ Failure Density} & 100\% & 100\% \\
-            \hline
-            MPD-CC & Complessità del Codice & ? & ? \\
-            \hline
-            MPD-BS & \textit{Browser}\textsuperscript{G} Supportati & 75\% & 100\% \\
+		\hline
+		MPD-CR & Copertura dei Requisiti\textsuperscript{G} & 100 \% & 100 \% \\
+		\hline
+		MPD-TM & Tempo di risposta Medio & ? & ? \\
+		\hline
+		MPD-TA & Tempo di Apprendimento & 10 min & 5 min \\
+		\hline
+		MPD-RO & Raggiunta dell’Obiettivo & 6 click & 4 click \\
+		\hline
+		MPD-EU & Errori Utente\textsuperscript{G} & 2 & 0 \\
+		\hline
+		MPD-FD &\textit{ Failure Density} & 100\% & 100\% \\
+		\hline
+		MPD-CC & Complessità del Codice & ? & ? \\
+		\hline
+		MPD-BS & \textit{Browser}\textsuperscript{G} Supportati & 75\% & 100\% \\
 		\hline
 	\end{longtblr}
 	
@@ -434,32 +436,33 @@
 	
 	\subsubsection{MPC-SV \textit{Schedule Variance}}
 	\begin{tikzpicture}
-	\begin{axis}[
-		xticklabels={Sprint 1, Sprint 2, Sprint 3},
-		xtick={0,1,2},
-		xlabel=Sprint,
-		ytick={-15,-10,-5,0,5,10,15},
-		ylabel=Percentuale,
-		ymax=15,
-		ymin=-15,
-		yticklabel={\pgfmathprintnumber{\tick}\%},
-		legend style={ 
-			legend pos =outer north east
-		},
-		legend columns=1
-		]
-		]
-		\addplot+[sharp plot, blue] coordinates {(0,0) (1,0) (2,-21) };
-		\addlegendentry{Schedule Variance}
-
-		\addplot[mark=none, dashed, red4 ]  coordinates { (0,10) (2,10) };
-		\addlegendentry{Valore accettabile (+)}
-		
-		\addplot[mark=none, dashed, red4]  coordinates { (0,-10) (2,-10) };
-		\addlegendentry{Valore accettabile (-)}
-		
-	\end{axis}
-\end{tikzpicture}
+		\begin{axis}[
+			xticklabels={Sprint 1, Sprint 2, Sprint 3},
+			xtick={0,1,2},
+			xlabel=Sprint,
+			ytick={-15,-10,-5,0,5,10,15},
+			ylabel=Percentuale,
+			ymax=15,
+			ymin=-15,
+			line width=1.0,
+			yticklabel={\pgfmathprintnumber{\tick}\%},
+			legend style={ 
+				legend pos =outer north east
+			},
+			legend columns=1
+			]
+			]
+			\addplot+[sharp plot, blue] coordinates {(0,0) (1,0) (2,-21) };
+			\addlegendentry{Schedule Variance}
+			
+			\addplot[mark=none, dashed, red4 ]  coordinates { (0,10) (2,10) };
+			\addlegendentry{Valore accettabile (+)}
+			
+			\addplot[mark=none, dashed, red4]  coordinates { (0,-10) (2,-10) };
+			\addlegendentry{Valore accettabile (-)}
+			
+		\end{axis}
+	\end{tikzpicture}
 	
 	\subsection{Sviluppo}
 	
@@ -472,39 +475,85 @@
 	% non-calculated risk
 	\subsubsection{	MPC-NCR  (\textit{Non-Calculated Risks)}}
 	\begin{tikzpicture}
-	\begin{axis}[
-		xticklabels={Sprint 1, Sprint 2, Sprint 3},
-		xtick={0,1,2},
-		xlabel=Sprint,
-		ytick={0,1,...,9},
-		ylabel=Serverità,
-		yticklabels={0,1,...,9},
-		ymax=10,
-		legend style={ 
+		\begin{axis}[
+			xticklabels={Sprint 1, Sprint 2, Sprint 3},
+			xtick={0,1,2},
+			xlabel=Sprint,
+			ytick={0,1,...,9},
+			ylabel=Serverità,
+			yticklabels={0,1,...,9},
+			ymax=10,
+			line width=1.0,
+			legend style={ 
 				legend pos =outer north east
 			},
 			legend columns=1
-		]
-		]
-		\addplot+[sharp plot, blue] coordinates {(0,7) (1,0) (2,0) };
-		\addlegendentry{Mancanza tecnologica nel POC}
-		
-		\addplot[mark=none, dashed, green4]  coordinates { (0,0) (2,0) };
-		\addlegendentry{Valore desiderabile}
-		
-		\addplot[mark=none, dashed, red4 ]  coordinates { (0,5) (2,5) };
-		\addlegendentry{Valore accettabile}
-		
-	\end{axis}
+			]
+			]
+			\addplot+[sharp plot, blue] coordinates {(0,7) (1,0) (2,0) };
+			\addlegendentry{Mancanza tecnologica nel POC}
+			
+			\addplot[mark=none, dashed, green4]  coordinates { (0,0) (2,0) };
+			\addlegendentry{Valore desiderabile}
+			
+			\addplot[mark=none, dashed, red4 ]  coordinates { (0,5) (2,5) };
+			\addlegendentry{Valore accettabile}
+			
+		\end{axis}
 	\end{tikzpicture}
 	
 	\subsection{Gestione organizzativa}
 	
 	\subsection{Documenti}
 	
+	\subsubsection{MPD-IG (Indice Gulpease)}
+	
+	
+	\begin{tikzpicture}
+		\begin{axis}[
+			xticklabels={Sprint 1, Sprint 2, Sprint 3},
+			xtick={0,1,2},
+			xlabel=Sprint,
+			ytick={30,40,50,60,70,80,90,100},
+			ylabel=Punteggio,
+			ymax=110,
+			line width=1.0,
+			legend style={ 
+				legend pos =outer north east
+			},
+			legend columns=1
+			]
+			]
+			\addplot+[sharp plot, teal, mark=*, solid, mark options={fill=teal}] coordinates {(0,84) (1,84) (2,84)  };
+			\addlegendentry{Analsi dei Requisiti}
+			
+			\addplot+[sharp plot, orange, solid, mark=*, mark color=orange, mark options={fill=orange}] coordinates {(0,68) (1,68) (2,72) };
+			\addlegendentry{Piano di Progetto}
+			
+			\addplot+[sharp plot,violet4, solid, mark=*, mark options={fill=violet4}] coordinates {(0,61) (1,61) (2,61) };
+			\addlegendentry{Norme di Progetto}
+			
+			\addplot+[sharp plot,green3, solid, mark=*, mark options={fill=green3}] coordinates {(0,72) (1,72) (2,68) };
+			\addlegendentry{Piano di Qualifica}
+			
+			\addplot+[sharp plot, red, solid, mark=*, mark options={fill=red}] coordinates {(0,77) (1,74) (2,73)  };
+			\addlegendentry{Glossario}			
+			
+			\addplot+[sharp plot, black, solid, mark=*, mark options={fill=black}] coordinates {(0,89) (1,100) (2,100)  };
+			\addlegendentry{Verbali}			
+			
+			\addplot[mark=none, dashed, green4, mark=none]  coordinates { (0,60) (2,60) };
+			\addlegendentry{Valore Ottimale}
+			
+			\addplot[mark=none, dashed, red4,mark=none]  coordinates { (0,40) (2,40) };
+			\addlegendentry{Valore accettabile}
+			
+		\end{axis}
+	\end{tikzpicture}
+	
 	\section{Valutazioni delle attività di verifica}
 	In questa sezione si riportano le valutazioni sulle criticità incontrate nel corso dello svolgimento del progetto e le correzioni applicate ad esse.
-		
+	
 	\subsection{Organizzazione}
 	
 	\begin{longtblr}
@@ -554,7 +603,7 @@
 	\subsection{Ruoli}
 	
 	Al momento non sono stati rilevate criticità per quanto riguarda l'organizzazione dei ruoli. 
-
+	
 	
 	
 \end{document}
