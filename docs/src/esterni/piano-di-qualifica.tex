@@ -11,6 +11,7 @@
 \usepackage{tabularx}
 \usepackage[table]{xcolor}
 \usepackage{tabularray}
+\usepackage{pgfplots}
 
 
 \usepackage{hyperref}
@@ -124,6 +125,8 @@
 	\begin{table}[ht]
 		\centerline{%
 			\begin{tabular}{|c|c|c|c|c|}
+				\hline
+				v.0.1.6 & 19/03/2024 & G. Moretto & - & Aggiunta grafici MPC-SV e MPC-NCR \\
 				\hline
 				v.0.1.5 & 18/03/2024 & G. Moretto & - & Verifica termini di glossario \\
 				\hline
@@ -426,6 +429,78 @@
 	
 	
 	\section{Resoconto attività di verifica}
+	
+	\subsection{Fornitura}
+	
+	\subsubsection{MPC-SV \textit{Schedule Variance}}
+	\begin{tikzpicture}
+	\begin{axis}[
+		xticklabels={Sprint 1, Sprint 2, Sprint 3},
+		xtick={0,1,2},
+		xlabel=Sprint,
+		ytick={-15,-10,-5,0,5,10,15},
+		ylabel=Percentuale,
+		ymax=15,
+		ymin=-15,
+		yticklabel={\pgfmathprintnumber{\tick}\%},
+		legend style={ 
+			legend pos =outer north east
+		},
+		legend columns=1
+		]
+		]
+		\addplot+[sharp plot, blue] coordinates {(0,0) (1,0) (2,-21) };
+		\addlegendentry{Schedule Variance}
+
+		\addplot[mark=none, dashed, red4 ]  coordinates { (0,10) (2,10) };
+		\addlegendentry{Valore accettabile (+)}
+		
+		\addplot[mark=none, dashed, red4]  coordinates { (0,-10) (2,-10) };
+		\addlegendentry{Valore accettabile (-)}
+		
+	\end{axis}
+\end{tikzpicture}
+	
+	\subsection{Sviluppo}
+	
+	\subsection{Gestione di qualità}
+	
+	\subsection{Verifica}
+	
+	\subsection{Processi organizzativi}
+	
+	% non-calculated risk
+	\subsubsection{	MPC-NCR  (\textit{Non-Calculated Risks)}}
+	\begin{tikzpicture}
+	\begin{axis}[
+		xticklabels={Sprint 1, Sprint 2, Sprint 3},
+		xtick={0,1,2},
+		xlabel=Sprint,
+		ytick={0,1,...,9},
+		ylabel=Serverità,
+		yticklabels={0,1,...,9},
+		ymax=10,
+		legend style={ 
+				legend pos =outer north east
+			},
+			legend columns=1
+		]
+		]
+		\addplot+[sharp plot, blue] coordinates {(0,7) (1,0) (2,0) };
+		\addlegendentry{Mancanza tecnologica nel POC}
+		
+		\addplot[mark=none, dashed, green4]  coordinates { (0,0) (2,0) };
+		\addlegendentry{Valore desiderabile}
+		
+		\addplot[mark=none, dashed, red4 ]  coordinates { (0,5) (2,5) };
+		\addlegendentry{Valore accettabile}
+		
+	\end{axis}
+	\end{tikzpicture}
+	
+	\subsection{Gestione organizzativa}
+	
+	\subsection{Documenti}
 	
 	\section{Valutazioni delle attività di verifica}
 	In questa sezione si riportano le valutazioni sulle criticità incontrate nel corso dello svolgimento del progetto e le correzioni applicate ad esse.
