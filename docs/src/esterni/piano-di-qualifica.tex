@@ -126,9 +126,11 @@
 		\centerline{%
 			\begin{tabular}{|c|c|c|c|c|}
 				\hline
-				v.0.1.9 & 21/03/2024 & R. Simionato & - & Aggiunte strutture grafici MPC-CV, MPC-AC e MPC-ETC \\
+				v.0.1.10 & 21/03/2024 & G. Moretto & - & Aggiunti grafici MPC-CV, MPC-AC e MPC-ETC, MPC-SV \\
 				\hline
-				v.0.1.8 & 20/03/2024 & R. Simionato & - & \shortstack{Aggiunti grafici MPC-RSI e MPD-CO\\Aggiunte sottosezioni per altri grafici} \\
+				v.0.1.9 & 21/03/2024 & R. Simionato & G. Moretto & Aggiunte strutture grafici MPC-CV, MPC-AC e MPC-ETC \\
+				\hline
+				v.0.1.8 & 20/03/2024 & R. Simionato & G. Moretto & \shortstack{Aggiunti grafici MPC-RSI e MPD-CO\\Aggiunte sottosezioni per altri grafici} \\
 				\hline
 				v.0.1.7 & 19/03/2024 & G. Moretto & - & Aggiunta grafico MPD-I \\
 				\hline
@@ -440,13 +442,13 @@
 	\subsubsection{MPC-CV (\textit{Cost Variance})}
 	\begin{tikzpicture}
 		\begin{axis}[
-			xticklabels={Sprint 1, Sprint 2, Sprint 3},
+			xticklabels={RTB1, RTB2, RTB3},
 			xtick={0,1,2},
-			xlabel=Sprint,
-			ytick={-6,-4,-2,0,2,4,6},
+			xlabel=Parti RTB,
+			ytick={-10,-8,-6,-4,-2,0,2,4,6,8,10},
 			ylabel=Percentuale,
-			ymax=7,
-			ymin=-7,
+			ymax=13,
+			ymin=-13,
 			line width=1.0,
 			yticklabel={\pgfmathprintnumber{\tick}\%},
 			legend style={ 
@@ -455,45 +457,56 @@
 			legend columns=1
 			]
 			]
-			\addplot+[sharp plot, blue] coordinates { (0,0) };
+			\addplot+[sharp plot, blue] coordinates { (0,-1.18) (1,-4.6) (2,-1.1) };
 			\addlegendentry{Cost Variance}
 			
 			\addplot[mark=none, dashed, green4 ]  coordinates { (0,0) (2,0) };
 			\addlegendentry{Valore desiderabile}
 			
-			\addplot[mark=none, dashed, red4]  coordinates { (0,-5) (2,-5) };
-			\addlegendentry{Valore accettabile}
+			\addplot[mark=none, dashed, red4]  coordinates { (0,-10) (2,-10) };
+			\addlegendentry{Valore accettabile (-)}
+			
+			\addplot[mark=none, dashed, red4]  coordinates { (0,10) (2,10) };
+			\addlegendentry{Valore accettabile (+)}
 			
 		\end{axis}
 	\end{tikzpicture}
 	
 	\subsubsection{MPC-AC e MPC-ETC (\textit{Actual Cost} e \textit{Estimate To Completion})}
+
+\pgfplotsset{compat=1.11}
 	\begin{tikzpicture}
 		\begin{axis}[
-			xticklabels={Sprint 1, Sprint 2, Sprint 3},
-			xtick={0,1,2},
-			xlabel=Sprint,
-			ytick={0,2000,...,12000},
-			%ylabel=Costo,
-			ymax=12500,
-			%ymin=-7,
-			line width=1.0,
-			%yticklabel={\tick\texteuro},
-			%y tick label style={xshift=-0.2em,log ticks with fixed point},
-			yticklabels={\texteuro0, \texteuro2.000, \texteuro4.000, \texteuro6.000, \texteuro8.000, \texteuro10.000, \texteuro12.000},
-			legend style={ 
-				legend pos =outer north east
-			},
-			legend columns=1
+				xticklabels={S.1-2, S.3-4, S.5-6, S.7-8, S.9-10, S.11-12, S.13-14, S.15, S.16, 1, 2},
+				xtick={0,1,2,3,4,5,6,7,8,9,10},
+				xlabel=Settimana/Sprint,
+				ytick={0,2000,...,12000},
+				width=\textwidth,
+				height=\axisdefaultheight,
+				%ylabel=Costo,
+				ymax=12500,
+				%ymin=-7,
+				line width=1.0,
+				%yticklabel={\tick\texteuro},
+				%y tick label style={xshift=-0.2em,log ticks with fixed point},
+				yticklabels={\texteuro0, \texteuro2.000, \texteuro4.000, \texteuro6.000, \texteuro8.000, \texteuro10.000, \texteuro12.000},
+				legend columns=1,
+				legend style={at={(0.0,-0.3)},anchor=west}				
 			]
 			]
-			\addplot+[sharp plot, blue] coordinates { (0,0) };
+			\addplot+[sharp plot, red4, mark options={fill=red4}] coordinates { 
+				(0,190) (1,430) (2,705) (3,1025) (4,1562) (5,1797.5) (6,2062.5)
+				(7,2282.5) (8,2542.5) (9,2780) (10,2977.5) 
+			 };
 			\addlegendentry{Actual Cost}
 			
-			\addplot+[sharp plot, yellow] coordinates { (0,0) };
+			\addplot+[sharp plot, teal6,mark=*,mark options={fill=teal6}] coordinates {
+				(0,10850) (1,10610) (2,10335) (3,10015) (4,9477.5) (5,9242.5) (6,8977.5)
+				(7,8757.5) (8,8497.5) (9,8260) (10,8062.5)
+			 };
 			\addlegendentry{Estimate To Completion}
 			
-			\addplot[mark=none, dashed, green4 ]  coordinates { (0,11040) (2,11040) };
+			\addplot[mark=none, dashed, green4 ]  coordinates { (0,11040) (10,11040) };
 			\addlegendentry{Costo preventivato}
 			
 		\end{axis}
@@ -507,8 +520,6 @@
 			xlabel=Sprint,
 			ytick={-15,-10,-5,0,5,10,15},
 			ylabel=Percentuale,
-			ymax=15,
-			ymin=-15,
 			line width=1.0,
 			yticklabel={\pgfmathprintnumber{\tick}\%},
 			legend style={ 
@@ -517,7 +528,7 @@
 			legend columns=1
 			]
 			]
-			\addplot+[sharp plot, blue] coordinates {(0,0) (1,0) (2,-21) };
+			\addplot+[sharp plot, blue] coordinates {(0,18) (1,-1) (2,-22) };
 			\addlegendentry{Schedule Variance}
 			
 			\addplot[mark=none, dashed, red4 ]  coordinates { (0,10) (2,10) };
