@@ -111,7 +111,7 @@
 	\begin{flushright}
 		\begin{spacing}{1}
 			USO: ESTERNO\\
-			VERSIONE: 0.1.7\\
+			VERSIONE: 0.1.9\\
 		\end{spacing}
 	\end{flushright}
 	
@@ -125,6 +125,10 @@
 	\begin{table}[ht]
 		\centerline{%
 			\begin{tabular}{|c|c|c|c|c|}
+				\hline
+				v.0.1.9 & 21/03/2024 & R. Simionato & - & Aggiunti struttura grafici MPC-CV, MPC-AC e MPC-ETC \\
+				\hline
+				v.0.1.8 & 20/03/2024 & R. Simionato & - & \shortstack{Aggiunti grafici MPC-RSI e MPD-CO\\Aggiunte sottosezioni per altri grafici} \\
 				\hline
 				v.0.1.7 & 19/03/2024 & G. Moretto & - & Aggiunta grafico MPD-I \\
 				\hline
@@ -433,9 +437,67 @@
 	\section{Resoconto attività di verifica}
 	
 	\subsection{Fornitura}
-	\subsubsection{MPC-CV (\textit{Cost Variance}}
+	\subsubsection{MPC-CV (\textit{Cost Variance})}
+	\begin{tikzpicture}
+		\begin{axis}[
+			xticklabels={Sprint 1, Sprint 2, Sprint 3},
+			xtick={0,1,2},
+			xlabel=Sprint,
+			ytick={-6,-4,-2,0,2,4,6},
+			ylabel=Percentuale,
+			ymax=7,
+			ymin=-7,
+			line width=1.0,
+			yticklabel={\pgfmathprintnumber{\tick}\%},
+			legend style={ 
+				legend pos =outer north east
+			},
+			legend columns=1
+			]
+			]
+			\addplot+[sharp plot, blue] coordinates { (0,0) };
+			\addlegendentry{Cost Variance}
+			
+			\addplot[mark=none, dashed, green4 ]  coordinates { (0,0) (2,0) };
+			\addlegendentry{Valore desiderabile}
+			
+			\addplot[mark=none, dashed, red4]  coordinates { (0,-5) (2,-5) };
+			\addlegendentry{Valore accettabile}
+			
+		\end{axis}
+	\end{tikzpicture}
 	
 	\subsubsection{MPC-AC e MPC-ETC (\textit{Actual Cost} e \textit{Estimate To Completion})}
+	\begin{tikzpicture}
+		\begin{axis}[
+			xticklabels={Sprint 1, Sprint 2, Sprint 3},
+			xtick={0,1,2},
+			xlabel=Sprint,
+			ytick={0,2000,...,12000},
+			%ylabel=Costo,
+			ymax=12500,
+			%ymin=-7,
+			line width=1.0,
+			%yticklabel={\tick\texteuro},
+			%y tick label style={xshift=-0.2em,log ticks with fixed point},
+			yticklabels={\texteuro0, \texteuro2.000, \texteuro4.000, \texteuro6.000, \texteuro8.000, \texteuro10.000, \texteuro12.000},
+			legend style={ 
+				legend pos =outer north east
+			},
+			legend columns=1
+			]
+			]
+			\addplot+[sharp plot, blue] coordinates { (0,0) };
+			\addlegendentry{Actual Cost}
+			
+			\addplot+[sharp plot, yellow] coordinates { (0,0) };
+			\addlegendentry{Estimate To Completion}
+			
+			\addplot[mark=none, dashed, green4 ]  coordinates { (0,11040) (2,11040) };
+			\addlegendentry{Costo preventivato}
+			
+		\end{axis}
+	\end{tikzpicture}
 	
 	\subsubsection{MPC-SV (\textit{Schedule Variance})}
 	\begin{tikzpicture}
