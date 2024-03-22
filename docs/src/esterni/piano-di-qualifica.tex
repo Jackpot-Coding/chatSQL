@@ -126,6 +126,8 @@
 		\centerline{%
 			\begin{tabular}{|c|c|c|c|c|}
 				\hline
+				v.0.1.11 & 22/03/2024 & G. Moretto & - & Aggiornamento grafici MPC-CV, MPC-AC e MPC-ETC, MPC-SV \\
+				\hline
 				v.0.1.10 & 21/03/2024 & G. Moretto & - & Aggiunti grafici MPC-CV, MPC-AC e MPC-ETC, MPC-SV \\
 				\hline
 				v.0.1.9 & 21/03/2024 & R. Simionato & G. Moretto & Aggiunte strutture grafici MPC-CV, MPC-AC e MPC-ETC \\
@@ -457,7 +459,7 @@
 			legend columns=1
 			]
 			]
-			\addplot+[sharp plot, blue] coordinates { (0,-1.18) (1,-4.6) (2,-1.1) };
+			\addplot+[sharp plot, blue] coordinates { (0,-0.77) (1,2.24) (2,-0.74) };
 			\addlegendentry{Cost Variance}
 			
 			\addplot[mark=none, dashed, green4 ]  coordinates { (0,0) (2,0) };
@@ -477,8 +479,8 @@
 \pgfplotsset{compat=1.11}
 	\begin{tikzpicture}
 		\begin{axis}[
-				xticklabels={S.1-2, S.3-4, S.5-6, S.7-8, S.9-10, S.11-12, S.13-14, S.15, S.16, 1, 2},
-				xtick={0,1,2,3,4,5,6,7,8,9,10},
+				xticklabels={S.1-2, S.3-4, S.5-6, S.7-8, S.9-10, S.11-12, S.13-14, S.15, S.16, 1, 2, 3},
+				xtick={0,1,2,3,4,5,6,7,8,9,10,11},
 				xlabel=Settimana/Sprint,
 				ytick={0,2000,...,12000},
 				width=\textwidth,
@@ -495,14 +497,14 @@
 			]
 			]
 			\addplot+[sharp plot, red4, mark options={fill=red4}] coordinates { 
-				(0,190) (1,430) (2,705) (3,1025) (4,1562) (5,1797.5) (6,2062.5)
-				(7,2282.5) (8,2542.5) (9,2780) (10,2977.5) 
+				(0,230) (1,590) (2,1115) (3,1587.5) (4,2235) (5,2755) (6,3195)
+				(7,3710) (8,4045) (9,4372.5) (10,4665) (11,4970)
 			 };
 			\addlegendentry{Actual Cost}
 			
 			\addplot+[sharp plot, teal6,mark=*,mark options={fill=teal6}] coordinates {
-				(0,10850) (1,10610) (2,10335) (3,10015) (4,9477.5) (5,9242.5) (6,8977.5)
-				(7,8757.5) (8,8497.5) (9,8260) (10,8062.5)
+				(0,10810) (1,10450) (2,9925) (3,9452.5) (4,8805) (5,8285) (6,7845)
+				(7,7330) (8,6995) (9,6667.5) (10,6375) (11,6070)
 			 };
 			\addlegendentry{Estimate To Completion}
 			
@@ -528,7 +530,7 @@
 			legend columns=1
 			]
 			]
-			\addplot+[sharp plot, blue] coordinates {(0,18) (1,-1) (2,-22) };
+			\addplot+[sharp plot, blue] coordinates {(0,2.34) (1,-8.6) (2,-4.7) };
 			\addlegendentry{Schedule Variance}
 			
 			\addplot[mark=none, dashed, red4 ]  coordinates { (0,10) (2,10) };
