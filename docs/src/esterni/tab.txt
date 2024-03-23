@@ -1,0 +1,7 @@
+MEMBRI	RE	AM	AN	PT	PR	VE	TOTALE
+Giulio	1	1	9	*	*	*	11
+Riccardo	1	*	9	*	*	8	18
+Marco F.	3	1	9	*	*	7	20
+Marco G.	3	2	9	*	*	6	20
+Matteo	*	2	9	*	*	2	13
+Edoardo	*	2	9	*	*	2	13
