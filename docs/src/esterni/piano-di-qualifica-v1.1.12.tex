@@ -20,6 +20,13 @@
 \graphicspath{ {../assets} }
 
 
+% package and setup for tables
+\usepackage{float}
+\usepackage[table]{xcolor}
+\renewcommand{\arraystretch}{1.5}
+\arrayrulecolor{black}
+
+
 % Margins
 \topmargin=-0.45in
 \evensidemargin=0in
@@ -112,7 +119,7 @@
 	\begin{flushright}
 		\begin{spacing}{1}
 			USO: ESTERNO\\
-			VERSIONE: 0.1.12\\
+			VERSIONE: 1.1.12\\
 		\end{spacing}
 	\end{flushright}
 	
@@ -123,9 +130,14 @@
 	\pagebreak
 	
 	\textbf{\Large Registro delle modifiche}
-	\begin{table}[ht]
-		\centerline{%
+	\begin{table}[H]
+		\centering
+		\rowcolors{2}{black!15}{}
+		\resizebox{\linewidth}{!}{
 			\begin{tabular}{|c|c|c|c|c|}
+				\rowcolor{teal!50}
+				\hline
+				\textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Modifica} \\
 				\hline
 				v.0.1.12 & 22/03/2024 & G. Moretto & - & Aggiunta indicazione per dati mancanti prima della PB \\
 				\hline
@@ -161,13 +173,11 @@
 				\hline
 				v.0.0.1 & 03/02/2024 & G. Moretto & R. Simionato  & Creata struttura del documento \\
 				\hline
-			\end{tabular}%
+	   		\end{tabular}
 		}
-		\label{tab:conference}
-	\end{table}
-	
-	
-	
+	 	\label{tab:conference}
+    \end{table}
+
 	\pagebreak
 	\tableofcontents
 	\pagebreak
