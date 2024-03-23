@@ -1,0 +1,178 @@
+\documentclass[5pt]{article}
+
+\usepackage{sectsty}
+\usepackage{graphicx}
+\usepackage{lipsum} % for generating dummy text
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{array}
+\usepackage{cellspace}
+
+
+
+\usepackage{hyperref}
+\usepackage{scrextend}
+\graphicspath{ {../../assets} }
+
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\title{ Verbale - data }
+\date{\today}
+
+%STARTOF THE DOCUMENT
+\begin{document}
+
+%-------------------------
+
+% Reduce top margin only on the first page
+\newgeometry{top=0.5in}
+
+%UNIPD LOGO
+    \vspace{8pt}
+    \includegraphics[scale=0.2]{UNIPDFull.png}
+%END UNIPD LOGO
+
+\vspace{25pt}
+
+%COURSE INFO
+\begin{minipage}[t]{0.48\textwidth}
+    %COURSE TITLE
+        \begin{flushleft}
+            Informatica\\
+            \vspace{5pt}
+            \textbf{\LARGE Ingegneria del Software}\\
+            Anno Accademico: 2023/2024
+        \end{flushleft}
+    %END COURSE TITLE
+\end{minipage}
+%END COURSE INFO
+
+
+\vspace{5px}
+
+
+%BLACK LINE
+\hrule
+%JACKPOT CODING INFO
+\begin{minipage}[t]{0.50\textwidth}
+    %LOGO JACKPOT CODING
+    \begin{flushleft}
+        \hspace{10pt}
+        \includegraphics[scale=0.65]{jackpot-logo.png} 
+    \end{flushleft}
+\end{minipage}
+\hspace{-60pt} % This adds horizontal space between the minipages
+\begin{flushright}
+    \begin{minipage}[t]{0.50\textwidth}
+        %INFO JACKPOT CODING
+        \begin{flushright}
+            Gruppo: {\Large Jackpot Coding}\\
+            Email: \href{mailto:jackpotcoding@gmail.com}{jackpotcoding@gmail.com}
+        \end{flushright}
+    \end{minipage}
+\end{flushright}
+%END JACKPOT CODING INFO
+
+\vspace{15pt}
+
+%TITLE
+\begin{center}
+    \textbf{\large VERBALE }
+    \textbf{\large 02/02/2024} \\
+    \textbf{\Large}
+\end{center}
+%END TITLE
+
+\vspace{13pt}
+
+\begin{flushleft}
+    \begin{spacing}{1.5}
+        REDATTORE:  M. Favaretto \\
+        VERIFICATORE:  G.Moretto \\%INSERT HERE THE NAMES
+        RESPONSABILE:  G.Moretto\\%INSERT HERE THE NAMES
+        \vspace{7pt}
+        SCRIBA: M. Favaretto\\%INSERT HERE THE NAMES
+    \end{spacing}
+\end{flushleft}
+
+\begin{flushright}
+    \begin{spacing}{1}
+        USO: INTERNO\\
+        VERSIONE: 1.0\\ % secondo numerazione proposta da Riccardo
+    \end{spacing}
+\end{flushright}
+
+
+% Restore original margins from the second page onwards
+\restoregeometry
+
+\pagebreak
+
+% Optional TOC
+% \tableofcontents
+% \pagebreak
+
+\section{\Large ORARIO}
+\begin{spacing}{1.5}
+    {\large Inizio incontro: 15:20}\\
+    {\large Fine incontro: 15:55}
+\end{spacing}
+
+\section{PARTECIPANTI}
+% Define minimal spacing at the top and bottom of cells
+\setlength\cellspacetoplimit{6pt}
+\setlength\cellspacebottomlimit{6pt}
+
+\begin{table}[ht]
+  \begin{tabular}{|Sc|Sc|}
+    \hline
+    \textbf{Nome Componente} & \textbf{Durata della presenza} \\
+    \hline
+    Camillo Matteo & 35 minuti \\
+    Favaretto Marco & 35 minuti \\
+    Gallo Edoardo & 35 minuti \\
+    Gobbo Marco & 35 minuti \\
+    Moretto Giulio & 35 minuti \\
+    Simionato Riccardo & - \\
+    \hline
+  \end{tabular}
+  \label{tab:conference}
+\end{table}
+
+\section{SINTESI DELL'INCONTRO}
+Durante la riunione Giulio Moretto ha esposto la prima parte da lui realizzata del \textit{PoC}. \\
+Si è discusso un eventuale prossimo incontro con il proponente una volta terminati il documento di Analisi dei Requisiti e il \textit{Proof Of Concept}. \\
+In ultimo è stato ritenuto opportuno riportare i termini inglesi in stile \textit{Italics} e vi è stata la ripartizione dei compiti fino al prossimo incontro, in data 08/02/2024.
+
+\section{Ripartizione compiti}
+\begin{itemize}
+    \item Piano Di Progetto
+    \begin{itemize}
+        \item M. Gobbo
+        \item M. Favaretto
+    \end{itemize}
+    \item Piano di Qualifica
+    \begin{itemize}
+        \item E. Gallo
+        \item G. Moretto
+    \end{itemize}
+    \item \textit{PoC}
+    \begin{itemize}
+        \item M. Camillo
+        \item G. Moretto
+    \end{itemize}
+    \item Verifica Analisi dei Requisiti
+    \begin{itemize}
+        \item R. Simionato
+    \end{itemize}
+\end{itemize}
+%--/Paper--
+
+\end{document}

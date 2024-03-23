@@ -1,0 +1,414 @@
+\DefTblrTemplate{contfoot-text}{default}{}
+\DefTblrTemplate{conthead-text}{default}{}
+\DefTblrTemplate{caption}{default}{}
+\DefTblrTemplate{conthead}{default}{}
+\DefTblrTemplate{capcont}{default}{}
+
+
+\section{Requisiti\textsuperscript{G}}
+In questa sezione vengono descritti e organizzati in forma tabella re i requisiti\textsuperscript{G} che il prodotto finale dovrà soddisfare. La struttura usata viene descritta all'interno del documento Norme di Progetto.
+
+
+\subsection{Requisiti\textsuperscript{G} funzionali}
+\title{Tabella 1}
+\begin{longtblr}
+	{
+		colspec={|Q[0.10\linewidth]|Q[0.50\linewidth]|Q[0.15\linewidth]|Q[0.15\linewidth]|},
+		rows={halign=l},
+		column{1}={halign=c},
+		column{3}={halign=c},
+		column{4}={halign=c},
+		row{1}={halign=c},
+		row{odd} = {gray!20},
+		row{1}={teal!50},
+		caption=Tabella 1
+	}
+
+	% CONTENUTO %
+	\hline
+	\textbf{Codice} & \textbf{Descrizione} & \textbf{Classificazione} & \textbf{Fonti} \\
+	\hline
+	% RF& descrizione & classificazione & fonti \\
+	% \hline
+	RF1 & L'amministratore\textsuperscript{G} deve poter effettuare il \textit{login\textsuperscript{G}} per modificare i \textit{database\textsuperscript{G}} & Obbligatorio & UC1 - Verbale esterno \\
+	\hline
+	RF2 & Visualizzazione di errore in caso di credenziali\textsuperscript{G} errate durante il \textit{login\textsuperscript{G}} & Obbligatorio & UC2 \\
+	\hline
+	RF3 & L'amministratore\textsuperscript{G} deve poter creare un nuovo \textit{database\textsuperscript{G}} specificando nome e descrizione & Obbligatorio & UC3 \\
+	\hline
+	RF4 & Visualizzazione di errore in caso di tentativo di creazione di un \textit{database\textsuperscript{G}} con un nome già in uso & Obbligatorio & UC4 \\
+	\hline
+	RF5 & L'amministratore\textsuperscript{G} deve poter visualizzare la lista dei \textit{database\textsuperscript{G}} presenti & Obbligatorio & UC5 \\
+	\hline
+	RF6 & L'amministratore\textsuperscript{G} deve poter visualizzare i dettagli di un \textit{database\textsuperscript{G}} & Obbligatorio & UC6 \\
+	\hline
+	RF7 & L'amministratore\textsuperscript{G} deve poter effettuare modifiche a nome e descrizione di un \textit{database\textsuperscript{G}} & Obbligatorio & UC7 \\
+	\hline
+	RF8 & L'amministratore\textsuperscript{G} deve poter eliminare un \textit{database\textsuperscript{G}} presente & Obbligatorio & UC8 \\
+	\hline
+	RF9 & L'amministratore\textsuperscript{G} deve poter creare una nuova tabella\textsuperscript{G} specificando nome, sinonimi\textsuperscript{G} e descrizione & Obbligatorio & UC9 \\
+	\hline
+	RF10 & Visualizzazione di errore in caso di tentativo di creazione di una tabella\textsuperscript{G} con un nome già in uso o dati mancanti & Obbligatorio & UC10 \\
+	\hline
+	RF11 & L'amministratore\textsuperscript{G} deve poter effettuare modifiche a nome, sinonimi\textsuperscript{G} e descrizione della tabella\textsuperscript{G} & Obbligatorio & UC11 \\
+	\hline
+	RF12 & L'amministratore\textsuperscript{G} deve poter visualizzare la lista delle tabelle presenti in un \textit{database\textsuperscript{G}} & Obbligatorio & UC12 \\
+	\hline
+	RF13 & L'amministratore\textsuperscript{G} deve poter visualizzare i dettagli di una tabella\textsuperscript{G} & Obbligatorio & UC13 \\
+	\hline
+	RF14 & L'amministratore\textsuperscript{G} deve poter eliminare una tabella\textsuperscript{G} presente in un \textit{database\textsuperscript{G}} & Obbligatorio & UC14 \\
+	\hline
+	RF15 & L'amministratore\textsuperscript{G} deve poter creare un nuovo campo\textsuperscript{G} all'interno di una tabella\textsuperscript{G} specificando nome, tipo e sinonimi\textsuperscript{G} & Obbligatorio & UC15 \\
+	\hline
+	RF16 & Visualizzazione di errore in caso di tentativo di creazione di un campo\textsuperscript{G} con un nome già in uso o dati mancanti & Obbligatorio & UC16 \\
+	\hline
+	RF17 & L'amministratore\textsuperscript{G} deve poter visualizzare la lista dei campi presenti in una tabella\textsuperscript{G} & Obbligatorio & UC17 \\
+	\hline
+	RF18 & L'amministratore\textsuperscript{G} deve poter visualizzare i dettagli di un campo\textsuperscript{G} & Obbligatorio & UC18 \\
+	\hline
+	RF19 & L'amministratore\textsuperscript{G} deve poter effettuare modifiche a nome, tipo e sinonimi\textsuperscript{G} di un campo\textsuperscript{G} & Obbligatorio & UC19 \\
+	\hline
+	RF20 & L'amministratore\textsuperscript{G} deve poter eliminare un campo\textsuperscript{G} presente in una tabella\textsuperscript{G} & Obbligatorio & UC20 \\
+	\hline
+	RF21 & L'amministratore\textsuperscript{G} deve poter caricare la struttura di un nuovo \textit{database\textsuperscript{G}} tramite file & Obbligatorio & UC21 - Capitolato\textsuperscript{G} \\
+	\hline
+	RF22 & Visualizzazione di errore in caso di problemi durante il caricamento del file & Desiderabile & UC22 \\
+	\hline
+	RF23 & L'amministratore\textsuperscript{G} deve poter effettuare il \textit{logout\textsuperscript{G}} & Obbligatorio & UC23 \\
+	\hline
+	RF24 & Visualizzazione errore in caso di problemi in fase di \textit{logout\textsuperscript{G}} & Desiderabile & UC24 \\
+	\hline
+	RF25 & L'utente\textsuperscript{G} deve poter scegliere il \textit{database\textsuperscript{G}} da interrogare tra quelli presenti nel sistema & Obbligatorio & UC25 - Capitolato\textsuperscript{G} \\
+	\hline
+	RF26 & Visualizzazione di errore nel caso in cui l'utente\textsuperscript{G} non selezioni un \textit{database\textsuperscript{G}} da interrogare & Desiderabile & UC26 \\
+	\hline
+	RF27 & L'utente\textsuperscript{G} deve poter inserire la richiesta in linguaggio naturale\textsuperscript{G} per interrogare il \textit{database\textsuperscript{G}} & Obbligatorio & UC27 - Capitolato\textsuperscript{G} \\
+	\hline
+	RF28 & Visualizzazione di errore in caso di problemi con la frase inserita dall'utente\textsuperscript{G} & Desiderabile & UC28 \\
+	\hline
+	RF29 & Visualizzazione del \textit{prompt\textsuperscript{G}} generato da fornire poi all'\textit{LLM\textsuperscript{G}} & Obbligatorio & UC29 - Capitolato\textsuperscript{G} \\
+	\hline
+	RF30 & Visualizzazione di errore in caso di problemi con la generazione del \textit{prompt\textsuperscript{G}} & Desiderabile & UC30 \\
+	\hline
+	RF31 & L'utente\textsuperscript{G} deve poter richiedere la generazione della \textit{query\textsuperscript{G}} utilizzando un servizio \textit{LLM\textsuperscript{G}} esterno al sistema & Opzionale & UC31 - Capitolato\textsuperscript{G} \\
+	\hline
+	RF32 & Visualizzazione di errore in caso di problemi con la generazione della \textit{query\textsuperscript{G}} & Opzionale & UC32 - Capitolato\textsuperscript{G} \\
+	\hline
+	RF33 & Visualizzazione della \textit{query\textsuperscript{G}} generata dal \textit{LLM\textsuperscript{G}} con il \textit{prompt\textsuperscript{G}} & Opzionale & UC33 - Capitolato\textsuperscript{G} \\
+	\hline
+	RF34 & Dare la possibilità all'utente\textsuperscript{G} di inserire la frase in linguaggio naturale\textsuperscript{G} tramite \textit{input\textsuperscript{G}} vocale & Opzionale & Capitolato\textsuperscript{G} \\
+	\hline
+	RF35 & Verificare la correttezza della frase \textit{SQL\textsuperscript{G}} prodotta & Opzionale & Capitolato\textsuperscript{G} \\
+	\hline
+	RF36 & Implementare la gestione di più basi di dati & Opzionale & UC5, UC25 - Capitolato\textsuperscript{G}  \\
+	\hline
+	RF37 & Utilizzare modelli \textit{LLM\textsuperscript{G}} alternativi a \textit{ChatGPT\textsuperscript{G}} & Opzionale & Capitolato\textsuperscript{G} \\
+	\hline
+	RF38 & Avere a disposizione un modello\textsuperscript{G} addestrato appositamente per tradurre le frasi di interrogazione in italiano a \textit{SQL\textsuperscript{G}} & Opzionale & Capitolato\textsuperscript{G} \\
+	\hline
+	RF39 & Il prodotto deve essere in grado di analizzare un file strutturato\textsuperscript{G} & Obbligatorio & Capitolato\textsuperscript{G} \\
+	\hline
+	% END_CONTENUTO %
+\end{longtblr}
+
+\newpage
+\subsection{Requisiti\textsuperscript{G} di qualità}
+\begin{longtblr}
+	{
+		colspec={|Q[0.10\linewidth]|Q[0.50\linewidth]|Q[0.15\linewidth]|Q[0.15\linewidth]|},
+		rows={halign=l},
+		column{1}={halign=c},
+		column{3}={halign=c},
+		column{4}={halign=c},
+		row{1}={halign=c},
+		row{odd} = {gray!20},
+		row{1}={teal!50},
+		caption=Tabella 2
+	}
+
+	% CONTENUTO %
+	\hline
+	\textbf{Codice} & \textbf{Descrizione} & \textbf{Classificazione} & \textbf{Fonti} \\
+	\hline
+	% RQ& descrizione & classificazione & fonti \\
+	% \hline
+	RQ1 & Il prodotto deve essere sviluppato seguendo le Norme di Progetto definite & Obbligatorio & Norme di Progetto \\
+	\hline
+	RQ2 & Il codice sorgente deve essere presente su \textit{GitHub\textsuperscript{G}} all'interno di una \textit{repository\textsuperscript{G}} & Obbligatorio & Norme di Progetto \\
+	\hline
+	RQ3 & Viene fornita la documentazione dell'applicazione, presente all'interno della \textit{repository\textsuperscript{G}} & Desiderabile & Norme di Progetto \\
+	\hline
+	RQ4 & Viene fornito il manuale utente per l'utilizzo & Obbligatorio & Capitolato \\
+	\hline
+	% END_CONTENUTO %
+\end{longtblr}
+
+\subsection{Requisiti\textsuperscript{G} di vincolo}
+\begin{longtblr}
+	{
+		colspec={|Q[0.10\linewidth]|Q[0.50\linewidth]|Q[0.15\linewidth]|Q[0.15\linewidth]|},
+		rows={halign=l},
+		column{1}={halign=c},
+		column{3}={halign=c},
+		column{4}={halign=c},
+		row{1}={halign=c},
+		row{odd} = {gray!20},
+		row{1}={teal!50},
+		caption=Tabella 3
+	}
+	% CONTENUTO %
+	\hline
+	\textbf{Codice} & \textbf{Descrizione} & \textbf{Classificazione} & \textbf{Fonti} \\
+	\hline
+	% RV& descrizione & classificazione & fonti \\
+	% \hline
+	RV1 & Sviluppo di un interfaccia tramite \textit{HTML\textsuperscript{G}} e \textit{CSS\textsuperscript{G}} & Opzionale & Verbale esterno \\
+	\hline
+	RV2 & Sviluppo dell'applicazione in \textit{Python\textsuperscript{G}} & Opzionale & Capitolato\textsuperscript{G} \\
+	\hline
+	RV3 & Il prodotto finale deve supportare il browser\textsuperscript{G} \textit{Google Chrome} 122 per \textit{Desktop} e \textit{Mobile} & Obbligatorio &  Capitolato \\
+	\hline
+	RV4 & Il prodotto finale deve supportare il browser \textit{Microsoft Edge} 122  & Obbligatorio &  Capitolato \\
+	\hline
+	RV5 & Il prodotto finale deve supportare il browser  \textit{Apple} Safari 17.3 per \textit{Desktop} e \textit{Mobile} & Obbligatorio & Capitolato \\
+	\hline
+	RV6 & Il prodotto finale deve supportare il browser  \textit{Mozilla Firefox} 123 & Obbligatorio &  Capitolato \\
+	\hline
+	% END_CONTENUTO %
+\end{longtblr}
+
+\subsection{Requisiti\textsuperscript{G} prestazionali}
+Non sono stati individuati vincoli prestazionali.
+
+\subsection{Tracciamento}
+\subsubsection{Fonte - Requisiti\textsuperscript{G}}
+\begin{longtblr}
+	{
+		colspec={|Q[0.25\linewidth]|Q[0.25\linewidth]|},
+		rows={halign=c},
+		row{odd} = {gray!20},
+		row{1}={teal!50},
+		caption=Tabella 4
+	}
+	% CONTENUTO %
+	\hline
+	\textbf{Fonte} & \textbf{Requisiti\textsuperscript{G}} \\
+	\hline
+	% fonte & requisiti\textsuperscript{G} \\
+	% \hline
+	Capitolato\textsuperscript{G} & RF21, RF25, RF27, RF29, RF31, RF32, RF33, RF34, RF35, RF36, RF37, RF38, RF39,  RQ4, RV2, RV3, RV4, RV5, RV6 \\
+	\hline
+	UC1 & RF1 \\
+	\hline
+	UC2 & RF2 \\
+	\hline
+	UC3 & RF3 \\
+	\hline
+	UC4 & RF4 \\
+	\hline
+	UC5 & RF5 \\
+	\hline
+	UC6 & RF6 \\
+	\hline
+	UC7 & RF7 \\
+	\hline
+	UC8 & RF8 \\
+	\hline
+	UC9 & RF9 \\
+	\hline
+	UC10 & RF10 \\
+	\hline
+	UC11 & RF11 \\
+	\hline
+	UC12 & RF12 \\
+	\hline
+	UC13 & RF13 \\
+	\hline
+	UC14 & RF14 \\
+	\hline
+	UC15 & RF15 \\
+	\hline
+	UC16 & RF16 \\
+	\hline
+	UC17 & RF17 \\
+	\hline
+	UC18 & RF18 \\
+	\hline
+	UC19 & RF19 \\
+	\hline
+	UC20 & RF20 \\
+	\hline
+	UC21 & RF21 \\
+	\hline
+	UC22 & RF22 \\
+	\hline
+	UC23 & RF23 \\
+	\hline
+	UC24 & RF24 \\
+	\hline
+	UC25 & RF25 \\
+	\hline
+	UC26 & RF26 \\
+	\hline
+	UC27 & RF27 \\
+	\hline
+	UC28 & RF28 \\
+	\hline
+	UC29 & RF29 \\
+	\hline
+	UC30 & RF30 \\
+	\hline
+	UC31 & RF31 \\
+	\hline
+	UC32 & RF32 \\
+	\hline
+	UC33 & RF33 \\
+	\hline
+	Norme di Progetto  & RQ1, RQ2, RQ3 \\
+	\hline
+	Verbali esterni  & RF1, RV1 \\
+	\hline
+	% END_CONTENUTO %
+\end{longtblr}
+
+
+\subsubsection{Requisito - Fonti}
+\begin{longtblr}
+	{
+		colspec={|Q[0.25\linewidth]|Q[0.25\linewidth]|},
+		rows={halign=c},
+		row{odd} = {gray!20},
+		row{1}={teal!50},
+		caption=Tabella 5
+	}
+	% CONTENUTO %
+	\hline
+	\textbf{Requisito} & \textbf{Fonti} \\
+	\hline
+	% requisito & fonti \\
+	% \hline
+	RF1 & UC1, Verbale esterno \\
+	\hline
+	RF2 & UC2 \\
+	\hline
+	RF3 & UC3 \\
+	\hline
+	RF4 & UC4 \\
+	\hline
+	RF5 & UC5 \\
+	\hline
+	RF6 & UC6 \\
+	\hline
+	RF7 & UC7 \\
+	\hline
+	RF8 & UC8 \\
+	\hline
+	RF9 & UC9 \\
+	\hline
+	RF10 & UC10 \\
+	\hline
+	RF11 & UC11 \\
+	\hline
+	RF12 & UC12 \\
+	\hline
+	RF13 & UC13 \\
+	\hline
+	RF14 & UC14 \\
+	\hline
+	RF15 & UC15 \\
+	\hline
+	RF16 & UC16 \\
+	\hline
+	RF17 & UC17 \\
+	\hline
+	RF18 & UC18 \\
+	\hline
+	RF19 & UC19 \\
+	\hline
+	RF20 & UC20 \\
+	\hline
+	RF21 & UC21, Capitolato\textsuperscript{G} \\
+	\hline
+	RF22 & UC22 \\
+	\hline
+	RF23 & UC23 \\
+	\hline
+	RF24 & UC24 \\
+	\hline
+	RF25 & UC25, Capitolato\textsuperscript{G} \\
+	\hline
+	RF26 & UC26 \\
+	\hline
+	RF27 & UC27, Capitolato\textsuperscript{G} \\
+	\hline
+	RF28 & UC28 \\
+	\hline
+	RF29 & UC29, Capitolato\textsuperscript{G} \\
+	\hline
+	RF30 & UC30 \\
+	\hline
+	RF31 & UC31, Capitolato\textsuperscript{G} \\
+	\hline
+	RF32 & UC32, Capitolato\textsuperscript{G} \\
+	\hline
+	RF33 & UC33, Capitolato\textsuperscript{G} \\
+	\hline
+	RF34 & Capitolato\textsuperscript{G} \\
+	\hline
+	RF35 & Capitolato\textsuperscript{G} \\
+	\hline
+	RF36 & UC5, UC25, Capitolato\textsuperscript{G} \\
+	\hline
+	RF37 & Capitolato\textsuperscript{G} \\
+	\hline
+	RF38 & Capitolato\textsuperscript{G} \\
+	\hline
+	RQ1 & Norme di Progetto \\
+	\hline
+	RQ2 & Norme di Progetto \\
+	\hline
+	RQ3 & Norme di Progetto \\
+	\hline
+	RQ4 & Capitolato\textsuperscript{G} \\
+	\hline
+	RV1 & Verbale esterno \\
+	\hline
+	RV2 & Capitolato\textsuperscript{G} \\
+	\hline
+	RV3 & Capitolato\textsuperscript{G} \\
+	\hline
+	RV4 & Capitolato\textsuperscript{G} \\
+	\hline
+	RV5 & Capitolato\textsuperscript{G} \\
+	\hline
+	RV6 & Capitolato\textsuperscript{G} \\
+	\hline
+	% END_CONTENUTO %
+\end{longtblr}
+
+\newpage
+\subsection{Riepilogo}
+\begin{longtblr}
+	{
+		colspec={|Q[0.15\linewidth]|Q[0.15\linewidth]|Q[0.15\linewidth]|Q[0.15\linewidth]|Q[0.10\linewidth]|},
+		rows={halign=c},
+		row{odd} = {gray!20},
+		row{1}={teal!50},
+		caption=Tabella 6
+	}
+	% CONTENUTO %
+	\hline
+	\textbf{Tipologia} & \textbf{Obbligatorio} & \textbf{Desiderabile} & \textbf{Opzionale} & \textbf{Totale}\\
+	\hline
+	Funzionale & 25 & 5 & 8 & 38 \\
+	\hline
+	Di Qualità & 2 & 1 & 0 & 3 \\
+	\hline
+	Di Vincolo & 1 & 0 & 2 & 3 \\
+	\hline
+	\hline
+	\textbf{Totale} & 28 & 6 & 10 & \textbf{44} \\
+	\hline
+	% END_CONTENUTO %
+\end{longtblr}
+
