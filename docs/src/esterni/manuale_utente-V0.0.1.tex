@@ -1,0 +1,161 @@
+
+
+\documentclass[5pt]{article}
+
+\usepackage{sectsty}
+\usepackage{graphicx}
+\usepackage{lipsum} 
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{array}
+\usepackage{cellspace}
+\usepackage{tabularx}
+\usepackage[table]{xcolor}
+\usepackage{tabularray}
+\usepackage{pgfplots}
+
+
+\usepackage{hyperref}
+\usepackage{scrextend}
+\graphicspath{ {../assets} }
+
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\setlength{\parindent}{0pt}
+
+\title{Piano di Qualifica}
+\author{Jackpot Coding}
+\renewcommand*\contentsname{Indice}
+\date{\today}
+
+%STARTOF THE DOCUMENT
+\begin{document}
+	
+	%-------------------------
+	
+	% Reduce top margin only on the first page
+	\newgeometry{top=0.5in}
+	
+	%UNIPD LOGO
+	\vspace{8pt}
+	\includegraphics[scale=0.2]{UNIPDFull.png}
+	%END UNIPD LOGO
+	
+	\vspace{30pt}
+	
+	%COURSE INFO
+	\begin{minipage}[t]{0.48\textwidth}
+		%COURSE TITLE
+		\begin{flushleft}
+			Informatica\\
+			\vspace{5pt}
+			\textbf{\LARGE Ingegneria del Software}\\
+			Anno Accademico: 2023/2024
+		\end{flushleft}
+		%END COURSE TITLE
+	\end{minipage}
+	%END COURSE INFO
+	
+	
+	\vspace{5px}
+	
+	
+	%BLACK LINE
+	\rule{\textwidth}{5pt}
+	
+	%JACKPOT CODING INFO
+	\begin{minipage}[t]{0.50\textwidth}
+		%LOGO JACKPOT CODING
+		\begin{flushleft}
+			\hspace{10pt}
+			\includegraphics[scale=0.65]{jackpot-logo.png} 
+		\end{flushleft}
+	\end{minipage}
+	\hspace{-60pt} % This adds horizontal space between the minipages
+	\begin{flushright}
+		\begin{minipage}[t]{0.50\textwidth}
+			%INFO JACKPOT CODING
+			\begin{flushright}
+				Gruppo: {\Large Jackpot Coding}\\
+				Email: \href{mailto:jackpotcoding@gmail.com}{jackpotcoding@gmail.com}
+			\end{flushright}
+		\end{minipage}
+	\end{flushright}
+	%END JACKPOT CODING INFO
+	
+	\vspace{24pt}
+	
+	%TITLE
+	\begin{center}
+		\textbf{\LARGE MANUALE UTENTE}
+	\end{center}
+	%END TITLE
+	
+	\vspace{13pt}
+	
+	\begin{flushleft}
+		\begin{spacing}{1.5}
+			REDATTORI: M. Gobbo\\%INSERT HERE THE NAMES
+			VERIFICATORI: \\
+			\vspace{7pt}
+			DESTINATARI: Prof. T. Vardanega, Prof. R. Cardin\\%INSERT HERE THE NAMES
+		\end{spacing}
+	\end{flushleft}
+	
+	\begin{flushright}
+		\begin{spacing}{1}
+			USO: ESTERNO\\
+			VERSIONE: 0.0.1\\
+		\end{spacing}
+	\end{flushright}
+	
+	
+	% Restore original margins from the second page onwards
+	\restoregeometry
+	
+	\pagebreak
+	
+	\textbf{\Large Registro delle modifiche}
+	\begin{table}[ht]
+		\centerline{%
+			\begin{tabular}{|c|c|c|c|c|}
+			\hline
+				v.0.0.1 & 28/03/2024 & M. Gobbo & - & Creata struttura del documento \\
+				\hline
+			\end{tabular}%
+		}
+		\label{tab:conference}
+	\end{table}
+	
+	
+	
+	\pagebreak
+	\tableofcontents
+	\pagebreak
+	
+	
+	
+	\section{Introduzione}
+	\subsection{Scopo del documento}
+	\subsection{Scopo del prodotto}
+        \subsection{Glossario}
+
+	\section{Requisiti minimi di sistema}
+        \subsection{Requisiti minimi}
+        \subsection{Requisiti hardware}
+        \subsection{Requisiti browser}
+	
+	\section{Installazione}
+        \subsection{Clonazione Repo}
+ 
+        \section{Istruzioni all'uso}
+        \section{Supporto Tecnico}
+			
+\end{document}
