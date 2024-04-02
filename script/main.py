@@ -1,11 +1,12 @@
 """
-<Descrizione e utilizzo script>
+Script per la compilazione dei file Latex in PDF
 """
 
 import re
 import os
 import pathlib
 import shutil
+import time
 
 # ///// CONFIG /////
 PATH_DOCS = [
@@ -84,17 +85,38 @@ def extract_version(filename):
     else:
         return None
 
-def compare_files(file1, file2):
-    # Extract names and versions from the filenames
-    version1 = extract_version(file1)
-    version2 = extract_version(file2)
+"""
+Verifica se il file esistente è da ricreare
+    newFile      : nuovo file da creare
+    existingFile : file PDF esistente nella cartella di output
+    sourceFile   : file .tex con sorgente documento
+"""
+def should_replace_existing_file(newFile, existingFile,sourceFile):
 
-    # Remove the version number from the name
-    name1 = re.sub(r'-v(\d+\.\d+)', '', os.path.splitext(file1)[0])
-    name2 = re.sub(r'-v(\d+\.\d+)', '', os.path.splitext(file2)[0])
+    if os.path.isfile(newFile):
+        # Estrai nome (senza versione) dai file PDF 
+        newFileName = re.sub(r'-v(\d+\.\d+)', '', os.path.splitext(newFile)[0])
+        existingFileName = re.sub(r'-v(\d+\.\d+)', '', os.path.splitext(existingFile)[0])
 
-    # Compare names and versions
-    return name1 == name2 and version1 is not None and version2 is not None and version1 != version2
+        # Compara nomi
+        if newFileName!=existingFileName: #nomi diversi = un altro documento -> non rimpiazzare
+            return False
+        else:
+            # Estrai versione dai file PDF
+            newFileVersion = extract_version(newFile)
+            existingFileVersion = extract_version(existingFile)
+        
+            if newFileVersion != existingFileVersion: #stessi nomi e versioni diverse -> rimpiazza
+                return True
+            else: #file con nome e versione identiche -> controlla se .tex è più recente del PDF
+                sourceFileTime       = os.path.getmtime(sourceFile)
+                existingPDFFileTime  = os.path.getmtime(existingFile)
+                if sourceFileTime > existingPDFFileTime:
+                    return True
+                else:
+                    return False
+    else:
+        return False
 
 
 """
@@ -116,33 +138,36 @@ def delete_auxiliary_files(folder):
 """
 Compila il file latex e lo posiziona nella cartella temp
     dir_path    : directory del file .tex da compilare
-    file_name   : nome del file .tex da compilare
+    source_file_path   : path del file .tex da compilare
 """
-def compile_latex(dir_path,file_name):
+def compile_latex(dir_path,source_file_path):
 
     dist_dir = get_dist_dir_path(dir_path) # cartella di destinazione del documento
     temp_dir = get_temp_dir_path(dir_path) # cartella temporanea del documento
     
-    p = pathlib.Path(file_name)
-    pdf_file_name = p.with_suffix('.pdf');
+    pdf_file_name = pathlib.Path(source_file_path.replace(SRC_PATH,TEMP_PATH)).with_suffix('.pdf'); # PDF in /docs/src/temp
+    pdf_dist_file_path = pathlib.Path(source_file_path.replace(SRC_PATH,OUTPUT_PATH)).with_suffix('.pdf'); #PDF in /docs/
 
-    for existing_file in os.listdir(dist_dir):
+    for existing_file in os.listdir(dist_dir): #cicla i file esistenti
         existing_file_path = os.path.join(dist_dir, existing_file)
 
-        # Check if the file is a PDF and has the same base name
-        if os.path.isfile(existing_file_path) and existing_file.lower().endswith('.pdf') and compare_files(pdf_file_name, existing_file):
-            # Remove the existing file
+        # Controlla se file è PDF e ha lo stesso numero di versione e elimina se si
+        if os.path.isfile(existing_file_path) and existing_file.lower().endswith('.pdf') and should_replace_existing_file(pdf_dist_file_path, existing_file, source_file_path):
             os.remove(existing_file_path)
 
-    if( not os.path.exists( os.path.join(dist_dir,pdf_file_name) ) ): # se il file PDF corrispondente non esiste crealo
+    if( not os.path.isfile(pdf_dist_file_path) ): # se il file PDF corrispondente in /docs/.. non esiste crealo
 
         os.chdir(ROOT_PATH)
         os.chdir(dir_path)
-        os.system("latexmk -pdf -f -output-directory="+ temp_dir +" -interaction=batchmode " + file_name)
+        os.system("latexmk -pdf -f -output-directory="+ temp_dir +" -interaction=batchmode " + source_file_path)
+        print("latex for "+source_file_path)
 
         created_file_path = os.path.join(temp_dir,pdf_file_name)
-        shutil.move(created_file_path,os.path.join(dist_dir,pdf_file_name))
+        shutil.move(created_file_path,pdf_dist_file_path)
         delete_auxiliary_files(temp_dir)
+
+    else:
+        print("File saltato")
 
 """
 Compila i file latex in .pdf spostandoli nella corretta cartella temp
@@ -152,13 +177,13 @@ def latex_to_pdf():
     src_walk = os.walk(SRC_PATH)
     for root,dirs,files in src_walk: # scorri la cartella /docs/src
         for folder in dirs:         # scorri cartelle in /docs/src
-            if(folder != 'temp' and folder != 'assets'):   
+            if(folder != 'temp' and folder != 'assets' and folder != 'sezioni_AdR'):   
                 dir_listing = os.listdir(os.path.join(root,folder))
                 for file_name in dir_listing:
                     file_path = (os.path.join(root,folder,file_name))
                     if os.path.isfile(file_path):
                         if( pathlib.Path(file_path).suffix == '.tex'):
-                            compile_latex(os.path.join(root,folder),file_name)
+                            compile_latex(os.path.join(root,folder),file_path)
 
 
 
