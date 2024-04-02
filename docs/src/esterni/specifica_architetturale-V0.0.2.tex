@@ -52,7 +52,7 @@
 	
 	%UNIPD LOGO
 	\vspace{8pt}
-	\includegraphics[scale=0.2]{UNIPDFull.png}
+	%	\includegraphics[scale=0.2]{UNIPDFull.png}
 	%END UNIPD LOGO
 	
 	\vspace{30pt}
@@ -82,7 +82,7 @@
 		%LOGO JACKPOT CODING
 		\begin{flushleft}
 			\hspace{10pt}
-			\includegraphics[scale=0.65]{jackpot-logo.png} 
+			%	\includegraphics[scale=0.65]{jackpot-logo.png} 
 		\end{flushleft}
 	\end{minipage}
 	\hspace{-60pt} % This adds horizontal space between the minipages
@@ -119,7 +119,7 @@
 	\begin{flushright}
 		\begin{spacing}{1}
 			USO: ESTERNO\\
-			VERSIONE: 0.0.1\\
+			VERSIONE: 0.0.2\\
 		\end{spacing}
 	\end{flushright}
 	
@@ -139,7 +139,9 @@
 				\hline
 				\textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Modifica} \\
 				\hline
-				0.0.1 & 27/03/2024 & G. Moretto & - & Aggiunta struttura documento \\
+				0.0.2 & 02/04/2024 & G. Moretto & - & Aggiunta tabelle tecnologie codifica e testing \\
+				\hline
+				0.0.1 & 27/03/2024 & G. Moretto & M. Gobbo & Aggiunta struttura documento \\
 				\hline
 			\end{tabular}
 		}
@@ -163,8 +165,79 @@
 	\section{Tecnologie}
 	
 	\subsection{Codifica}
+	\begin{longtblr}
+		{
+			colspec={|Q[0.15\linewidth]|Q[0.15\linewidth]|Q[0.70\linewidth]|},
+			rows={halign=l},
+			column{1}={halign=c},
+			column{2}={halign=c},
+			column{3}={halign=l},
+			row{1}={halign=c},
+			row{odd} = {gray!20},
+			row{1}={teal!50},
+			row{2}={teal!50},
+			row{6}={teal!50},
+			row{10}={teal!50}
+		}
+		\hline
+		\textbf{Tecnologia} & \textbf{Versione} & \textbf{Descrizione} \\
+		\hline
+		\SetCell[c=3]{c} \textbf{Linguaggi} \\
+		\hline
+		HTML & 5 & Linguaggio di markup utilizzato per la definizione della struttura di pagine web \\
+		\hline
+		CSS & 3 & Linguaggio utilizzato per applicare stile a elementi presenti in una pagina HTML \\
+		\hline
+		Python & 3.11.8 & Linguaggio di programmazione ad alto livello, orientato agli oggetti. Viene utilizzato per la creazione del server. \\
+		\hline
+		\SetCell[c=3]{c} \textbf{Framework e Librerie} \\
+		\hline
+		Django & 5.0.3 & Framework per la creazione di applicazioni web scritto in linguaggio Python. \\
+		\hline
+		TensorFlow & 2.15.0 & Libreria Python per l'apprendimento automatico. \\
+		\hline
+		Transformers & 4.29.3 & Libreria Python per l'utilizzo di modelli del portale Hugging Face utilizzando TensorFlow\\
+		\hline
+		\SetCell[c=3]{c} \textbf{Strumenti} \\
+		\hline
+		Pip & 24.0 & Strumento per la gestione dei pacchetti utilizzati da applicazioni Python.\\
+		\hline
+		Git & 2.44.0 & Strumento per il controllo di versione utilizzato per la gestione della repository remota presente su GitHub. \\
+		\hline
+	\end{longtblr}
 	
 	\subsection{Testing}
+	\begin{longtblr}
+		{
+			colspec={|Q[0.15\linewidth]|Q[0.15\linewidth]|Q[0.70\linewidth]|},
+			rows={halign=l},
+			column{1}={halign=c},
+			column{2}={halign=c},
+			column{3}={halign=l},
+			row{1}={halign=c},
+			row{odd} = {gray!20},
+			row{1}={teal!50},
+			row{2}={teal!50},
+			row{7}={teal!50}
+		}
+		\hline
+		\textbf{Tecnologia} & \textbf{Versione} & \textbf{Descrizione} \\
+		\hline
+		\SetCell[c=3]{c} \textbf{Framework e Librerie} \\
+		\hline
+		Unittest & 3.11.8 & Framework incluso nel linguaggio Python utilizzato per il testing di unità, utilizzato dal framework Django.\\
+		\hline
+		Django Test Client & 5.0.3 & Client per il testing di un applicazione web simulando un browser, integrato nel framework Django.\\
+		\hline
+		coverage.py & 7.4.4 & Tool per misurare il code coverage in applicazioni Python, integrabile nel framework Django. \\
+		\hline
+		Prospector & 1.10.3 & Tool per l'analisi statica di codice scritto nel linguaggio Python. \\
+		\hline
+		\SetCell[c=3]{c} \textbf{Strumenti} \\
+		\hline
+		GitHub Actions & - & Servizio di Github per la Continuous Integration, automatizza i processi di build, test e deploy del prodotto software.\\
+		\hline
+	\end{longtblr}
 	
 	\section{Architettura}
 	
