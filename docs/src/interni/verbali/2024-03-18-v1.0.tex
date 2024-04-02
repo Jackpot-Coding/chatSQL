@@ -7,12 +7,12 @@
 \usepackage{setspace}
 \usepackage{array}
 \usepackage{cellspace}
-\usepackage{tabularx}
+
 
 
 \usepackage{hyperref}
 \usepackage{scrextend}
-\graphicspath{ {../assets} }
+\graphicspath{ {../../assets} }
 
 
 % Margins
@@ -23,9 +23,7 @@
 \textheight=9.0in
 \headsep=0.25in
 
-\title{Piano di Progetto}
-\author{Jackpot Coding}
-\renewcommand*\contentsname{Indice}
+\title{ Verbale - data }
 \date{\today}
 
 %STARTOF THE DOCUMENT
@@ -41,7 +39,7 @@
     \includegraphics[scale=0.2]{UNIPDFull.png}
 %END UNIPD LOGO
 
-\vspace{30pt}
+\vspace{25pt}
 
 %COURSE INFO
 \begin{minipage}[t]{0.48\textwidth}
@@ -61,8 +59,7 @@
 
 
 %BLACK LINE
-\rule{\textwidth}{5pt}
-
+\hrule
 %JACKPOT CODING INFO
 \begin{minipage}[t]{0.50\textwidth}
     %LOGO JACKPOT CODING
@@ -83,11 +80,13 @@
 \end{flushright}
 %END JACKPOT CODING INFO
 
-\vspace{24pt}
+\vspace{15pt}
 
 %TITLE
 \begin{center}
-    \textbf{\LARGE PIANO DI PROGETTO}
+    \textbf{\large VERBALE }
+    \textbf{\large 18/03/2024} \\
+    \textbf{\Large}
 \end{center}
 %END TITLE
 
@@ -95,17 +94,18 @@
 
 \begin{flushleft}
     \begin{spacing}{1.5}
-        REDATTORE: M. Gobbo, M. Favaretto\\%INSERT HERE THE NAMES
-        VERIFICATORI: \\
+        REDATTORE:  E. Gallo \\
+        VERIFICATORE: G. Moretto \\%INSERT HERE THE NAMES
+        RESPONSABILE: E. Gallo\\%INSERT HERE THE NAMES
         \vspace{7pt}
-        DESTINATARI: Prof. T. Vardanega, Prof. R. Cardin\\%INSERT HERE THE NAMES
+        SCRIBA: E. Gallo\\%INSERT HERE THE NAMES
     \end{spacing}
 \end{flushleft}
 
 \begin{flushright}
     \begin{spacing}{1}
-        USO: ESTERNO\\
-        VERSIONE: 0.0.1\\
+        USO: INTERNO\\
+        VERSIONE: 1.0\\ % secondo numerazione proposta da Riccardo
     \end{spacing}
 \end{flushright}
 
@@ -115,52 +115,52 @@
 
 \pagebreak
 
-\textbf{\Large Registro delle modifiche}
+% Optional TOC
+% \tableofcontents
+% \pagebreak
+
+\section{\Large ORARIO}
+\begin{spacing}{1.5}
+    {\large Inizio incontro: 21:00}\\
+    {\large Fine incontro: 23:00}
+\end{spacing}
+
+\section{PARTECIPANTI}
+% Define minimal spacing at the top and bottom of cells
+\setlength\cellspacetoplimit{6pt}
+\setlength\cellspacebottomlimit{6pt}
+
 \begin{table}[ht]
-\centering
-\begin{tabular}{|c|c|c|c|c|}
-\hline
-\textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Modifica} \\
-V0.0.1 & 03/02/2023 & M. Gobbo - M. Favaretto & - & Creata struttura del documento \\
-\hline
-\end{tabular}
-\caption{Cronologia delle modifiche}
-\label{tab:conference}
+  \begin{tabular}{|Sc|Sc|}
+    \hline
+    \textbf{Nome Componente} & \textbf{Durata della presenza} \\
+    \hline
+    Camillo Matteo & - \\
+    Favaretto Marco & 2 ore \\
+    Gallo Edoardo & 2 ore \\
+    Gobbo Marco & -\\
+    Moretto Giulio & 2 ore \\
+    Simionato Riccardo & 2 ore \\
+    \hline
+  \end{tabular}
+  \label{tab:conference}
 \end{table}
 
-\pagebreak
-\tableofcontents
-\pagebreak
+\section{SINTESI DELL'INCONTRO}
+Nell'incontro sono stati presi in rassegna tutti i documenti ancora incompleti o non ancora inseriti nel ramo principale della repository \textit{GitHub}, modificandoli e verificandoli. In particolare, sono stati completati e inseriti i seguenti documenti:
+\begin{itemize}
+	\item Verbale interno del 11/03/2024
+	\item Norme di Progetto v1.0.2
+	\item Analisi dei Requisiti v1.1.0
+	\item Glossario v1.0.0
+	\item Piano di Progetto v1.0.0
+\end{itemize}
 
-\section{Introduzione}
-\subsection{Scopo del documento}
-\subsection{Scopo del capitolato}
-\subsection{Glossario}
-\subsection{Riferimenti}
-\subsubsection{Riferimenti Informativi}
-\subsubsection{Riferimenti Normativi}
-
-\section{Analisi dei rischi}
-\subsection{Rischi tecnologici}
-\subsection{Rischi organizzativi}
-\subsection{Rischi interni}
-
-\section{Modello di Sviluppo}
-\subsection{Modello (INSERIRE NOME MODELLO SCELTO)}
-\subsection{Motivazione}
-
-\section{Pianificazione}
-\subsection{Verso la RTB}
-\subsection{Verso la PB}
-\subsection{Verso la CA}
-
-\section{Preventivo}
-\subsection{Periodo RTB}
-\subsection{Periodo PB}
-\subsection{Periodo CA}
-
-\section{Consuntivo}
-\subsection{Periodo RTB}
-
+\section{DECISIONI}
+\begin{itemize}
+	\item Ultimare e verificare il Piano di Qualifica
+	\item Costruire la presentazione PowerPoint per la seconda parte dell'RTB
+	\item Prenotare tramite mail la seconda parte dell'RTB
+\end{itemize}
 
 \end{document}
