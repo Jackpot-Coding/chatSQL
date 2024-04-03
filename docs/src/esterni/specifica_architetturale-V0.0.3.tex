@@ -19,6 +19,8 @@
 \usepackage{scrextend}
 \graphicspath{ {../assets} }
 
+\usepackage[italian]{babel}
+
 
 % package and setup for tables
 \usepackage{float}
@@ -41,7 +43,6 @@
 \author{Jackpot Coding}
 \renewcommand*\contentsname{Indice}
 \date{\today}
-
 %STARTOF THE DOCUMENT
 \begin{document}
 	
@@ -119,7 +120,7 @@
 	\begin{flushright}
 		\begin{spacing}{1}
 			USO: ESTERNO\\
-			VERSIONE: 0.0.2\\
+			VERSIONE: 0.0.3\\
 		\end{spacing}
 	\end{flushright}
 	
@@ -138,6 +139,8 @@
 				\rowcolor{teal!50}
 				\hline
 				\textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Modifica} \\
+				\hline
+				0.0.3 & 03/04/2024 & G. Moretto & - & Aggiunto elenco delle tabelle \\
 				\hline
 				0.0.2 & 02/04/2024 & G. Moretto & - & Aggiunta tabelle tecnologie codifica e testing \\
 				\hline
@@ -165,7 +168,10 @@
 	\section{Tecnologie}
 	
 	\subsection{Codifica}
-	\begin{longtblr}
+
+	\begin{longtblr}[
+			caption = {Tecnologie di codifica.},
+		]
 		{
 			colspec={|Q[0.15\linewidth]|Q[0.15\linewidth]|Q[0.70\linewidth]|},
 			rows={halign=l},
@@ -179,6 +185,7 @@
 			row{6}={teal!50},
 			row{10}={teal!50}
 		}
+	
 		\hline
 		\textbf{Tecnologia} & \textbf{Versione} & \textbf{Descrizione} \\
 		\hline
@@ -207,7 +214,9 @@
 	\end{longtblr}
 	
 	\subsection{Testing}
-	\begin{longtblr}
+	\begin{longtblr}[
+		caption = {Tecnologie di testing.},
+		]
 		{
 			colspec={|Q[0.15\linewidth]|Q[0.15\linewidth]|Q[0.70\linewidth]|},
 			rows={halign=l},
@@ -250,5 +259,9 @@
 	\section{Elenco Figure}
 	
 	\section{Eleco tabelle}
+	\makeatletter
+	\@starttoc{lot}% Print List of Tables
+	\makeatother
+	
 	
 \end{document}
