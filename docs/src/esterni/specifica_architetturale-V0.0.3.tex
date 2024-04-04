@@ -1,0 +1,267 @@
+
+
+\documentclass[5pt]{article}
+
+\usepackage{sectsty}
+\usepackage{graphicx}
+\usepackage{lipsum} % for generating dummy text
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{array}
+\usepackage{cellspace}
+\usepackage{tabularx}
+\usepackage[table]{xcolor}
+\usepackage{tabularray}
+\usepackage{pgfplots}
+
+
+\usepackage{hyperref}
+\usepackage{scrextend}
+\graphicspath{ {../assets} }
+
+\usepackage[italian]{babel}
+
+
+% package and setup for tables
+\usepackage{float}
+\usepackage[table]{xcolor}
+\renewcommand{\arraystretch}{1.5}
+\arrayrulecolor{black}
+
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\setlength{\parindent}{0pt}
+
+\title{Piano di Qualifica}
+\author{Jackpot Coding}
+\renewcommand*\contentsname{Indice}
+\date{\today}
+%STARTOF THE DOCUMENT
+\begin{document}
+	
+	%-------------------------
+	
+	% Reduce top margin only on the first page
+	\newgeometry{top=0.5in}
+	
+	%UNIPD LOGO
+	\vspace{8pt}
+		\includegraphics[scale=0.2]{UNIPDFull.png}
+	%END UNIPD LOGO
+	
+	\vspace{30pt}
+	
+	%COURSE INFO
+	\begin{minipage}[t]{0.48\textwidth}
+		%COURSE TITLE
+		\begin{flushleft}
+			Informatica\\
+			\vspace{5pt}
+			\textbf{\LARGE Ingegneria del Software}\\
+			Anno Accademico: 2023/2024
+		\end{flushleft}
+		%END COURSE TITLE
+	\end{minipage}
+	%END COURSE INFO
+	
+	
+	\vspace{5px}
+	
+	
+	%BLACK LINE
+	\rule{\textwidth}{5pt}
+	
+	%JACKPOT CODING INFO
+	\begin{minipage}[t]{0.50\textwidth}
+		%LOGO JACKPOT CODING
+		\begin{flushleft}
+			\hspace{10pt}
+				\includegraphics[scale=0.65]{jackpot-logo.png} 
+		\end{flushleft}
+	\end{minipage}
+	\hspace{-60pt} % This adds horizontal space between the minipages
+	\begin{flushright}
+		\begin{minipage}[t]{0.50\textwidth}
+			%INFO JACKPOT CODING
+			\begin{flushright}
+				Gruppo: {\Large Jackpot Coding}\\
+				Email: \href{mailto:jackpotcoding@gmail.com}{jackpotcoding@gmail.com}
+			\end{flushright}
+		\end{minipage}
+	\end{flushright}
+	%END JACKPOT CODING INFO
+	
+	\vspace{24pt}
+	
+	%TITLE
+	\begin{center}
+		\textbf{\LARGE SPECIFICA ARCHITETTURALE}
+	\end{center}
+	%END TITLE
+	
+	\vspace{13pt}
+	
+	\begin{flushleft}
+		\begin{spacing}{1.5}
+			REDATTORI: G. Moretto\\%INSERT HERE THE NAMES
+			VERIFICATORI:\\
+			\vspace{7pt}
+			DESTINATARI: Prof. T. Vardanega, Prof. R. Cardin\\%INSERT HERE THE NAMES
+		\end{spacing}
+	\end{flushleft}
+	
+	\begin{flushright}
+		\begin{spacing}{1}
+			USO: ESTERNO\\
+			VERSIONE: 0.0.3\\
+		\end{spacing}
+	\end{flushright}
+	
+	
+	% Restore original margins from the second page onwards
+	\restoregeometry
+	
+	\pagebreak
+	
+	\textbf{\Large Registro delle modifiche}
+	\begin{table}[H]
+		\centering
+		\rowcolors{2}{black!15}{}
+		\resizebox{\linewidth}{!}{
+			\begin{tabular}{|c|c|c|c|c|}
+				\rowcolor{teal!50}
+				\hline
+				\textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Modifica} \\
+				\hline
+				0.0.3 & 03/04/2024 & G. Moretto & - & Aggiunto elenco delle tabelle \\
+				\hline
+				0.0.2 & 02/04/2024 & G. Moretto & - & Aggiunta tabelle tecnologie codifica e testing \\
+				\hline
+				0.0.1 & 27/03/2024 & G. Moretto & M. Gobbo & Aggiunta struttura documento \\
+				\hline
+			\end{tabular}
+		}
+		\label{tab:conference}
+	\end{table}
+	
+	\pagebreak
+	\tableofcontents
+	\pagebreak
+	
+	\section{Introduzione}
+	
+	\subsection{Scopo del Documento}
+	
+	\subsection{Scopo del Prodotto}
+	
+	\subsection{Glossario}
+	
+	\subsection{Riferimenti}
+	
+	\section{Tecnologie}
+	
+	\subsection{Codifica}
+
+	\begin{longtblr}[
+			caption = {Tecnologie di codifica.},
+		]
+		{
+			colspec={|Q[0.15\linewidth]|Q[0.15\linewidth]|Q[0.70\linewidth]|},
+			rows={halign=l},
+			column{1}={halign=c},
+			column{2}={halign=c},
+			column{3}={halign=l},
+			row{1}={halign=c},
+			row{odd} = {gray!20},
+			row{1}={teal!50},
+			row{2}={teal!50},
+			row{6}={teal!50},
+			row{10}={teal!50}
+		}
+	
+		\hline
+		\textbf{Tecnologia} & \textbf{Versione} & \textbf{Descrizione} \\
+		\hline
+		\SetCell[c=3]{c} \textbf{Linguaggi} \\
+		\hline
+		HTML & 5 & Linguaggio di markup utilizzato per la definizione della struttura di pagine web \\
+		\hline
+		CSS & 3 & Linguaggio utilizzato per applicare stile a elementi presenti in una pagina HTML \\
+		\hline
+		Python & 3.11.8 & Linguaggio di programmazione ad alto livello, orientato agli oggetti. Viene utilizzato per la creazione del server. \\
+		\hline
+		\SetCell[c=3]{c} \textbf{Framework e Librerie} \\
+		\hline
+		Django & 5.0.3 & Framework per la creazione di applicazioni web scritto in linguaggio Python. \\
+		\hline
+		TensorFlow & 2.15.0 & Libreria Python per l'apprendimento automatico. \\
+		\hline
+		Transformers & 4.29.3 & Libreria Python per l'utilizzo di modelli del portale Hugging Face utilizzando TensorFlow\\
+		\hline
+		\SetCell[c=3]{c} \textbf{Strumenti} \\
+		\hline
+		Pip & 24.0 & Strumento per la gestione dei pacchetti utilizzati da applicazioni Python.\\
+		\hline
+		Git & 2.44.0 & Strumento per il controllo di versione utilizzato per la gestione della repository remota presente su GitHub. \\
+		\hline
+	\end{longtblr}
+	
+	\subsection{Testing}
+	\begin{longtblr}[
+		caption = {Tecnologie di testing.},
+		]
+		{
+			colspec={|Q[0.15\linewidth]|Q[0.15\linewidth]|Q[0.70\linewidth]|},
+			rows={halign=l},
+			column{1}={halign=c},
+			column{2}={halign=c},
+			column{3}={halign=l},
+			row{1}={halign=c},
+			row{odd} = {gray!20},
+			row{1}={teal!50},
+			row{2}={teal!50},
+			row{7}={teal!50}
+		}
+		\hline
+		\textbf{Tecnologia} & \textbf{Versione} & \textbf{Descrizione} \\
+		\hline
+		\SetCell[c=3]{c} \textbf{Framework e Librerie} \\
+		\hline
+		Unittest & 3.11.8 & Framework incluso nel linguaggio Python utilizzato per il testing di unità, utilizzato dal framework Django.\\
+		\hline
+		Django Test Client & 5.0.3 & Client per il testing di un applicazione web simulando un browser, integrato nel framework Django.\\
+		\hline
+		coverage.py & 7.4.4 & Tool per misurare il code coverage in applicazioni Python, integrabile nel framework Django. \\
+		\hline
+		Prospector & 1.10.3 & Tool per l'analisi statica di codice scritto nel linguaggio Python. \\
+		\hline
+		\SetCell[c=3]{c} \textbf{Strumenti} \\
+		\hline
+		GitHub Actions & - & Servizio di Github per la Continuous Integration, automatizza i processi di build, test e deploy del prodotto software.\\
+		\hline
+	\end{longtblr}
+	
+	\section{Architettura}
+	
+	\subsection{Introduzione}
+	
+	\subsection{Diagrammi delle classi}
+	
+	\subsection{Design pattern utilizzati}
+	
+	\section{Elenco Figure}
+	
+	\section{Eleco tabelle}
+	\makeatletter
+	\@starttoc{lot}% Print List of Tables
+	\makeatother
+	
+	
+\end{document}
