@@ -110,7 +110,7 @@
 	
 	\begin{flushleft}
 		\begin{spacing}{1.5}
-			REDATTORI: G. Moretto\\%INSERT HERE THE NAMES
+			REDATTORI: G. Moretto, M.Gobbo\\%INSERT HERE THE NAMES
 			VERIFICATORI:\\
 			\vspace{7pt}
 			DESTINATARI: Prof. T. Vardanega, Prof. R. Cardin\\%INSERT HERE THE NAMES
@@ -120,7 +120,7 @@
 	\begin{flushright}
 		\begin{spacing}{1}
 			USO: ESTERNO\\
-			VERSIONE: 0.0.3\\
+			VERSIONE: 0.0.4\\
 		\end{spacing}
 	\end{flushright}
 	
@@ -139,10 +139,12 @@
 				\rowcolor{teal!50}
 				\hline
 				\textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Modifica} \\
+                \hline
+				0.0.4 & 04/04/2024 & M. Gobbo & - & Introduzione all'architettura \\
 				\hline
-				0.0.3 & 03/04/2024 & G. Moretto & - & Aggiunto elenco delle tabelle \\
+				0.0.3 & 03/04/2024 & G. Moretto & M. Gobbo & Aggiunto elenco delle tabelle \\
 				\hline
-				0.0.2 & 02/04/2024 & G. Moretto & - & Aggiunta tabelle tecnologie codifica e testing \\
+				0.0.2 & 02/04/2024 & G. Moretto & M. Gobbo & Aggiunta tabelle tecnologie codifica e testing \\
 				\hline
 				0.0.1 & 27/03/2024 & G. Moretto & M. Gobbo & Aggiunta struttura documento \\
 				\hline
@@ -191,25 +193,25 @@
 		\hline
 		\SetCell[c=3]{c} \textbf{Linguaggi} \\
 		\hline
-		HTML & 5 & Linguaggio di markup utilizzato per la definizione della struttura di pagine web \\
+		HTML & 5 & Linguaggio di \textit{markup} utilizzato per la definizione della struttura di pagine \textit{web} \\
 		\hline
-		CSS & 3 & Linguaggio utilizzato per applicare stile a elementi presenti in una pagina HTML \\
+		CSS & 3 & Linguaggio utilizzato per applicare stile a elementi presenti in una pagina \textit{HTML} \\
 		\hline
-		Python & 3.11.8 & Linguaggio di programmazione ad alto livello, orientato agli oggetti. Viene utilizzato per la creazione del server. \\
+		Python & 3.11.8 & Linguaggio di programmazione ad alto livello, orientato agli oggetti. Viene utilizzato per la creazione del \textit{server}. \\
 		\hline
 		\SetCell[c=3]{c} \textbf{Framework e Librerie} \\
 		\hline
-		Django & 5.0.3 & Framework per la creazione di applicazioni web scritto in linguaggio Python. \\
+		Django & 5.0.3 & \textit{Framework} per la creazione di applicazioni \textit{web} scritto in linguaggio \textit{Python}. \\
 		\hline
-		TensorFlow & 2.15.0 & Libreria Python per l'apprendimento automatico. \\
+		TensorFlow & 2.15.0 & Libreria \textit{Python} per l'apprendimento automatico. \\
 		\hline
-		Transformers & 4.29.3 & Libreria Python per l'utilizzo di modelli del portale Hugging Face utilizzando TensorFlow\\
+		Transformers & 4.29.3 & Libreria \textit{Python} per l'utilizzo di modelli del portale \textit{Hugging Face} utilizzando \textit{TensorFlow}\\
 		\hline
 		\SetCell[c=3]{c} \textbf{Strumenti} \\
 		\hline
-		Pip & 24.0 & Strumento per la gestione dei pacchetti utilizzati da applicazioni Python.\\
+		Pip & 24.0 & Strumento per la gestione dei pacchetti utilizzati da applicazioni \textit{Python}.\\
 		\hline
-		Git & 2.44.0 & Strumento per il controllo di versione utilizzato per la gestione della repository remota presente su GitHub. \\
+		Git & 2.44.0 & Strumento per il controllo di versione utilizzato per la gestione della \textit{repository} remota presente su \textit{GitHub}. \\
 		\hline
 	\end{longtblr}
 	
@@ -234,23 +236,35 @@
 		\hline
 		\SetCell[c=3]{c} \textbf{Framework e Librerie} \\
 		\hline
-		Unittest & 3.11.8 & Framework incluso nel linguaggio Python utilizzato per il testing di unità, utilizzato dal framework Django.\\
+		Unittest & 3.11.8 & \textit{Framework} incluso nel linguaggio \textit{Python} utilizzato per il \textit{testing} di unità, utilizzato dal \textit{framework Django}.\\
 		\hline
-		Django Test Client & 5.0.3 & Client per il testing di un applicazione web simulando un browser, integrato nel framework Django.\\
+		Django Test Client & 5.0.3 & \textit{Client} per il \textit{testing} di un applicazione \textit{web} simulando un \textit{browser}, integrato nel \textit{framework Django}.\\
 		\hline
-		coverage.py & 7.4.4 & Tool per misurare il code coverage in applicazioni Python, integrabile nel framework Django. \\
+		coverage.py & 7.4.4 & \textit{Tool} per misurare il \textit{code coverage} in applicazioni \textit{Python} integrabile nel \textit{framework Django}. \\
 		\hline
-		Prospector & 1.10.3 & Tool per l'analisi statica di codice scritto nel linguaggio Python. \\
+		Prospector & 1.10.3 & \textit{Tool} per l'analisi statica di codice scritto nel linguaggio \textit{Python}. \\
 		\hline
 		\SetCell[c=3]{c} \textbf{Strumenti} \\
 		\hline
-		GitHub Actions & - & Servizio di Github per la Continuous Integration, automatizza i processi di build, test e deploy del prodotto software.\\
+		GitHub Actions & - & Servizio di \textit{Github} per la \textit{Continuous Integration}, automatizza i processi di \textit{build, test e deploy} del prodotto \textit{software}.\\
 		\hline
 	\end{longtblr}
 	
 	\section{Architettura}
 	
 	\subsection{Introduzione}
+L'architettura di \textit{"Chat SQL"} si basa sul \textit{design pattern} architetturale \textit{MVT(Model View Template)}.\\
+In questo modello, il \textit{"Model"} rappresenta i dati e la logica di \textit{business} dell'applicazione, la \textit{"View"} è responsabile della presentazione dei dati all'utente e la \textit{"Template"} definisce la struttura della \textit{View} e come i dati vengono visualizzati al suo interno. Più nello specifico il \textit{"Template"}, nel caso della nostra applicazione, definisce la struttura \textit{HTML}.\\
+Questo \textit{design pattern} è simile al classico \textit{MVC(Model View Controller)} soltanto che al posto della parte di \textit{Controller} c'è il \textit{Template}.\\\\
+E' stato scelta questa architettura in quanto offre i seguenti vantaggi:
+\begin{itemize}
+    \item \textbf{Separazione delle responsabilità}: \textit{MVT} separa chiaramente le responsabilità tra \textit{Model}, \textit{View} e \textit{Template}. Questo permette una migliore organizzazione del codice, facilitando la manutenzione e la scalabilità dell'applicazione.
+
+    \item \textbf{Riutilizzo dei template}: I \textit{template} in \textit{MVT} consentono di separare la presentazione dalla logica di \textit{business}. Ciò facilita il riutilizzo dei componenti di interfaccia utente in diverse parti dell'applicazione, riducendo la duplicazione del codice e migliorando l'efficienza dello sviluppo.
+
+    \item \textbf{Aumento delle Performance}: Utilizzare i \textit{template} pre-renderizzati può migliorare le prestazioni dell'applicazione rispetto a un'architettura \textit{MVC} tradizionale, poiché il \textit{rendering} dei \textit{template} può essere più efficiente rispetto ad esempio alla generazione dinamica di \textit{HTML} lato \textit{server}.
+
+\end{itemize}
 	
 	\subsection{Diagrammi delle classi}
 	
