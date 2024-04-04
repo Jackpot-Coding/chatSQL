@@ -231,7 +231,7 @@ def get_web_element_object(path):
         lastModified = datetime.datetime.fromtimestamp(os.path.getctime(path))
 
     return {
-        "url":path,
+        "url":path.replace(ROOT_PATH,"https://jackpot-coding.github.io/chatSQL"),
         "fileName":fileName,
         "version":version,
         "lastModified":lastModified.strftime("%d/%m/%Y")
