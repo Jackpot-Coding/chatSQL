@@ -9,8 +9,12 @@ import shutil
 import datetime
 import urllib
 
+import json
+
 import jinja2
 import requests
+
+from dotenv import dotenv_values
 
 
 # ---- CONFIG ----
@@ -199,8 +203,6 @@ def end_confirm():
 
 def get_web_element_object(path):
 
-    print("#",end="")
-
     basename = os.path.basename(path).lower()
     fileNameMatch = re.match(r"^.*v",basename)
     if fileNameMatch:
@@ -213,8 +215,11 @@ def get_web_element_object(path):
     # Prendi ultima data di modifica da GitHub
     gitFilePath = urllib.parse.quote_plus(path.replace(ROOT_PATH,""))
 
+    os.chdir(ROOT_PATH)
+    config = dotenv_values("script/.env")
+
     headers = {
-        'Authorization':'Bearer '+os.getenv("GH_TOKEN"),
+        'Authorization':'Bearer '+config["GH_TOKEN"],
         'Content-Type' : 'application/json'
     }
     r = requests.get("https://api.github.com/repos/Jackpot-Coding/chatSQL/commits?path="+gitFilePath+"&page=1&per_page=1", headers=headers)
@@ -248,30 +253,32 @@ def update_website():
     }
 
     # attraversa la cartella docs
-    output_walk = os.walk(OUTPUT_PATH)
+    exclude = ['src']
+    output_walk = os.walk(OUTPUT_PATH,topdown=True)
     for root,dirs,files in output_walk:
-        for folder in dirs:
-            if(folder != 'src'):
-                dir_listing = os.listdir(os.path.join(root,folder))
-                for file_name in dir_listing:
-                    file_path = (os.path.join(root,folder,file_name))
-                    if os.path.isfile(file_path):
+        dirs[:] = [d for d in dirs if d not in exclude]
+        for folder in dirs: 
+            print(folder)
+            exclude
+            dir_listing = os.listdir(os.path.join(root,folder))
+            for file_name in dir_listing:
+                file_path = (os.path.join(root,folder,file_name))
+                if os.path.isfile(file_path):
+                    if( pathlib.Path(file_path).suffix == '.pdf'):
+                        url_parts = pathlib.Path(file_path).parts
                         
-                        if( pathlib.Path(file_path).suffix == '.pdf'):
-                            url_parts = pathlib.Path(file_path).parts
-                           
-                            if "esterni" in url_parts:
-                                if "verbali" in url_parts:
-                                    content["esterni"]["verbali"].append(get_web_element_object(file_path))
-                                elif "candidatura" in url_parts[-1] or "impegni" in url_parts[-1]:
-                                    content["candidatura"].append(get_web_element_object(file_path))
-                                else:
-                                    content["esterni"]["root"].append(get_web_element_object(file_path))
-                            elif "interni" in url_parts:
-                                if "verbali" in url_parts:
-                                    content["interni"]["verbali"].append(get_web_element_object(file_path))
-                                else:
-                                    content["interni"]["root"].append(get_web_element_object(file_path))
+                        if "esterni" in url_parts:
+                            if "verbali" in url_parts:
+                                content["esterni"]["verbali"].append(get_web_element_object(file_path))
+                            elif "candidatura" in url_parts[-1] or "impegni" in url_parts[-1]:
+                                content["candidatura"].append(get_web_element_object(file_path))
+                            else:
+                                content["esterni"]["root"].append(get_web_element_object(file_path))
+                        elif "interni" in url_parts:
+                            if "verbali" in url_parts:
+                                content["interni"]["verbali"].append(get_web_element_object(file_path))
+                            else:
+                                content["interni"]["root"].append(get_web_element_object(file_path))
     
     #ordina i verbali
     content["esterni"]["verbali"] = sorted(content["esterni"]["verbali"], key=lambda d: d["fileName"],reverse=True)
@@ -287,11 +294,12 @@ def update_website():
     newHtml = template.render(content=content)
 
     #crea nuovo file html
-    indexPath = pathlib.Path("../index.html")
+    indexPath = pathlib.Path("index.html")
     if(os.path.isfile(indexPath)):
         os.remove(indexPath)
-        with open(indexPath,'w') as newIndex:
-            newIndex.write(newHtml)
+    
+    with open(indexPath,'w') as newIndex:
+        newIndex.write(newHtml)
 
 
 
