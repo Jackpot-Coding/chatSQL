@@ -110,9 +110,6 @@
 	
 	\begin{flushleft}
 		\begin{spacing}{1.5}
-			REDATTORI: G. Moretto, M.Gobbo\\%INSERT HERE THE NAMES
-			VERIFICATORI:\\
-			\vspace{7pt}
 			DESTINATARI: Prof. T. Vardanega, Prof. R. Cardin\\%INSERT HERE THE NAMES
 		\end{spacing}
 	\end{flushleft}
@@ -120,7 +117,7 @@
 	\begin{flushright}
 		\begin{spacing}{1}
 			USO: ESTERNO\\
-			VERSIONE: 0.0.4\\
+			VERSIONE: 0.0.6\\
 		\end{spacing}
 	\end{flushright}
 	
@@ -139,10 +136,12 @@
 				\rowcolor{teal!50}
 				\hline
 				\textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Modifica} \\
-    				\hline
-				0.0.5 & 04/04/2024 & M. Camillo & - & Introduzione Documento \\
-                		\hline
-				0.0.4 & 04/04/2024 & M. Gobbo & - & Introduzione all'architettura \\
+    			\hline
+    			0.0.6 & 05/04/2024 & E. Gallo & - & Aggiunta sezione Design pattern utilizzati - Strategy \\
+    			\hline
+				0.0.5 & 04/04/2024 & M. Camillo & E. Gallo & Introduzione Documento \\
+                \hline
+				0.0.4 & 04/04/2024 & M. Gobbo & E. Gallo & Introduzione all'architettura \\
 				\hline
 				0.0.3 & 03/04/2024 & G. Moretto & M. Gobbo & Aggiunto elenco delle tabelle \\
 				\hline
@@ -158,15 +157,23 @@
 	\pagebreak
 	\tableofcontents
 	\pagebreak
+	\textbf{\Large Elenco delle immagini} \\
+	
+	\pagebreak
+	\textbf{\Large Elenco delle tabelle} \\
+	\makeatletter
+	\@starttoc{lot}% Print List of Tables
+	\makeatother
+	\pagebreak
 	
 	\section{Introduzione}
 	
 	\subsection{Scopo del Documento}
 
-    Lo scopo di questo documento, \textit{Specifica Architetturale}, è quello di presentare, motivandole, le scelte architetturali e di design che è stato deciso di applicare al prodotto, oltre che a fornire una lista completa delle tecnologie utilizzate. La struttura interna del prodotto è esposta all'interno del dcoumento sotto forma di diagramma delle classe, in maniera da rendere più chiaro il software sviluppato. Vengono inoltre approfonditi e motivati a loro volta i design pattern utilizzati. 
+    Il documento ha lo scopo di presentare e motivare le scelte architetturali e di design di applicate al prodotto, oltre che a fornire una lista completa delle tecnologie utilizzate. La struttura interna del prodotto è esposta all'interno del documento sotto forma di diagramma delle classi, in maniera da rendere più chiaro il software sviluppato. Vengono inoltre approfonditi e motivati a loro volta i design pattern utilizzati. 
 	
 	\subsection{Scopo del Prodotto}
-    Il capitolato proposto dall'azienda \textit{Zucchetti S.p.A.} ha come obiettivo la realizzazione di un applicativo web al fine di ottenere un riscontro riguardo la fattibilità di un prodotto in grado di elaborare una frase in linguaggio naturale, fornita da un utente inesperto, e genere come output una \textit{query SQL} in grado di interrogare un database, di cui è conosciuta la struttura, in modo efficiente e che fornisca le informazioni richieste dall'utente.
+    Il capitolato proposto dall'azienda \textit{Zucchetti S.p.A.} ha come obiettivo la realizzazione di un applicativo web al fine di studiare la fattibilità di un prodotto in grado di elaborare una frase in linguaggio naturale. Questa frase, anche se fornita da un utente inesperto, deve generare come output una \textit{query SQL} in grado di interrogare un database (di cui è conosciuta la struttura) in modo efficiente e affidabile.
 	
 	\subsection{Glossario}
     Al fine di evitare ambiguità o incomprensioni relative alla terminologia usata all'interno del documento, è fornito un \textit{Glossario} in cui vengono riportate definizioni precise per ogni termine potenzialmente ambiguo. La presenza di tali termini all'interno del documento è indicata con la presenza, vicino alla voce, di una \textit{G} in apice ($^G$). 
@@ -259,7 +266,7 @@
 	
 	\subsection{Introduzione}
 L'architettura di \textit{"Chat SQL"} si basa sul \textit{design pattern} architetturale \textit{MVT(Model View Template)}.\\
-In questo modello, il \textit{"Model"} rappresenta i dati e la logica di \textit{business} dell'applicazione, la \textit{"View"} è responsabile della presentazione dei dati all'utente e la \textit{"Template"} definisce la struttura della \textit{View} e come i dati vengono visualizzati al suo interno. Più nello specifico il \textit{"Template"}, nel caso della nostra applicazione, definisce la struttura \textit{HTML}.\\
+In questo modello, il \textit{"Model"} rappresenta i dati e la logica di \textit{business} dell'applicazione, la \textit{"View"} è responsabile della presentazione dei dati all'utente e il \textit{"Template"} definisce la struttura della \textit{View} e come i dati vengono visualizzati al suo interno. Più nello specifico il \textit{"Template"}, nel caso della nostra applicazione, definisce la struttura \textit{HTML}.\\
 Questo \textit{design pattern} è simile al classico \textit{MVC(Model View Controller)} soltanto che al posto della parte di \textit{Controller} c'è il \textit{Template}.\\\\
 E' stato scelta questa architettura in quanto offre i seguenti vantaggi:
 \begin{itemize}
@@ -274,13 +281,16 @@ E' stato scelta questa architettura in quanto offre i seguenti vantaggi:
 	\subsection{Diagrammi delle classi}
 	
 	\subsection{Design pattern utilizzati}
-	
-	\section{Elenco Figure}
-	
-	\section{Eleco tabelle}
-	\makeatletter
-	\@starttoc{lot}% Print List of Tables
-	\makeatother
-	
+	\subsubsection{Tamplete Method}
+	\subsubsection{Strategy}
+	% Immagine Design Pattern Strategy%
+	Uno dei design pattern comportamentali scelto dal gruppo è lo \textit{Strategy}\textsuperscript{G}. In particolare, viene implementato per l'interrogazione e l'integrazione coi modelli LLM\textsuperscript{G}. Il prodotto infatti deve lavorare a stretto contatto con questi modelli linguistici di grandi dimensioni ma non sempre usarne uno solo è vantaggioso. Soprattutto se non si vogliono usare quelli più capaci, che oltre alle notevoli dimensioni sono molto spesso a pagamento, c'è la necessità di interrogare modelli di dimensioni ridotte ma specializzati in una singola funzione. \\
+	Nel nostro caso sono due i tipi di interrogazioni agli \textit{LLM} che il gruppo ha individuato.
+	\begin{enumerate}
+		\item L'interrogazione principale, su cui si basa l'intero progetto: da un \textit{prompt}\textsuperscript{G} restituisce la frase in \textit{SQL}\textsuperscript{G}. \\
+		In questo caso ci sono pochi modelli che sono in grado di generare frasi \textit{SQL} perfette e molto spesso tutti i modelli restituiscono un risultato diverso. Risulta quindi necessario poter cambiare \textit{l'LLM} interrogato a seconda della complessità della richiesta e della volontà dell'utente. \\
+		Data l'esponenziale crescita dei linguaggi \textit{AI}\textsuperscript{G} negli ultimi anni, è importante che la lista dei diversi modelli utilizzabili sia facilmente integrabile con quelli più capaci e all'avanguardia.
+		\item Le interrogazioni ausiliarie, che non formano un requisito obbligatorio ma servono per facilitare l'uso del prodotto all'utente. Un esempio è la generazione e l'inserimento dei sinonimi di tabelle e campi, che di base è lasciata all'utente ma è facilmente integrabile con un \textit{API}\textsuperscript{G} o un \textit{LLM} opportuno per migliorare l'esperienza del prodotto.
+	\end{enumerate}
 	
 \end{document}
