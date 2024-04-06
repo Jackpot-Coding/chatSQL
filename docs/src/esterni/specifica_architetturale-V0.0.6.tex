@@ -137,7 +137,7 @@
 				\hline
 				\textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Modifica} \\
     			\hline
-    			0.0.6 & 05/04/2024 & E. Gallo & - & Aggiunta sezione Design pattern utilizzati - Strategy \\
+    			0.0.6 & 05/04/2024 & E. Gallo & M. Favaretto & Aggiunta sezione Design pattern utilizzati - Strategy \\
     			\hline
 				0.0.5 & 04/04/2024 & M. Camillo & E. Gallo & Introduzione Documento \\
                 \hline
@@ -281,16 +281,24 @@ E' stato scelta questa architettura in quanto offre i seguenti vantaggi:
 	\subsection{Diagrammi delle classi}
 	
 	\subsection{Design pattern utilizzati}
-	\subsubsection{Tamplete Method}
-	\subsubsection{Strategy}
-	% Immagine Design Pattern Strategy%
-	Uno dei design pattern comportamentali scelto dal gruppo è lo \textit{Strategy}\textsuperscript{G}. In particolare, viene implementato per l'interrogazione e l'integrazione coi modelli LLM\textsuperscript{G}. Il prodotto infatti deve lavorare a stretto contatto con questi modelli linguistici di grandi dimensioni ma non sempre usarne uno solo è vantaggioso. Soprattutto se non si vogliono usare quelli più capaci, che oltre alle notevoli dimensioni sono molto spesso a pagamento, c'è la necessità di interrogare modelli di dimensioni ridotte ma specializzati in una singola funzione. \\
-	Nel nostro caso sono due i tipi di interrogazioni agli \textit{LLM} che il gruppo ha individuato.
-	\begin{enumerate}
-		\item L'interrogazione principale, su cui si basa l'intero progetto: da un \textit{prompt}\textsuperscript{G} restituisce la frase in \textit{SQL}\textsuperscript{G}. \\
-		In questo caso ci sono pochi modelli che sono in grado di generare frasi \textit{SQL} perfette e molto spesso tutti i modelli restituiscono un risultato diverso. Risulta quindi necessario poter cambiare \textit{l'LLM} interrogato a seconda della complessità della richiesta e della volontà dell'utente. \\
-		Data l'esponenziale crescita dei linguaggi \textit{AI}\textsuperscript{G} negli ultimi anni, è importante che la lista dei diversi modelli utilizzabili sia facilmente integrabile con quelli più capaci e all'avanguardia.
-		\item Le interrogazioni ausiliarie, che non formano un requisito obbligatorio ma servono per facilitare l'uso del prodotto all'utente. Un esempio è la generazione e l'inserimento dei sinonimi di tabelle e campi, che di base è lasciata all'utente ma è facilmente integrabile con un \textit{API}\textsuperscript{G} o un \textit{LLM} opportuno per migliorare l'esperienza del prodotto.
-	\end{enumerate}
+		\subsubsection{Tamplete Method}
+		\subsubsection{Strategy}
+			% Immagine Design Pattern Strategy%
+			Uno dei \textit{design pattern} comportamentali scelto dal gruppo è lo \textit{Strategy}\textsuperscript{G}. 
+			In particolare, viene integrato per l'interrogazione e l'integrazione di diversi \textit{LLM}\textsuperscript{G}. 
+			Il prodotto infatti deve lavorare a stretto contatto con questi modelli linguistici di grandi dimensioni, ma non sempre usarne uno solo è vantaggioso. 
+			Spesso i modelli più capaci sono a pagamento e di notevoli dimensioni, vi è quindi la necessità di interrogare modelli di dimensioni ridotte ma specializzati in una singola funzione. 
+			Inoltre, l'interrogazione di diversi \textit{LLM} permette un confronto dei diversi risultati, fornendo un'interessante introspezione sulle capacità, sulle possibilità e sulle differenze dei modelli. \\
+			Nel nostro caso sono due i tipi di interrogazioni agli \textit{LLM} che il gruppo ha individuato.
+			\begin{enumerate}
+				\item L'interrogazione principale, su cui si basa l'intero progetto: da un \textit{prompt}\textsuperscript{G} restituisce la frase in \textit{SQL}\textsuperscript{G}. \\
+					In questo caso ci sono pochi modelli che sono in grado di generare frasi \textit{SQL} corrette e molto spesso ogni i modello restituisce un risultato diverso. 
+					Risulta quindi necessario poter cambiare il \textit{LLM} interrogato a seconda della complessità della richiesta e della volontà dell'utente. \\
+					Dato l'aumento di modelli di \textit{AI}\textsuperscript{G} negli ultimi anni, è importante che la lista dei diversi modelli utilizzabili sia facilmente integrabile 
+					con quelli più capaci e all'avanguardia.
+				\item Le interrogazioni ausiliarie, che non formano un requisito obbligatorio ma servono per facilitare l'uso del prodotto all'utente. 
+					Un esempio è la generazione e l'inserimento dei sinonimi di tabelle e campi, che di base è lasciata all'utente, 
+					ma è facilmente integrabile con un \textit{API}\textsuperscript{G} o un \textit{LLM} opportuno per migliorare l'esperienza del prodotto.
+			\end{enumerate}
 	
 \end{document}
