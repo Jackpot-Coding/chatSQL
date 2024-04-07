@@ -137,7 +137,7 @@
 				\hline
 				\textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Modifica} \\
 				\hline
-				0.0.7 & 06/04/2024 & M. Favaretto & - & Aggiunta sezione \textit{Design pattern} utilizzati - \textit{M.V.T.} \\ 
+				0.0.7 & 06/04/2024 & M. Favaretto & G. Moretto & Aggiunta sezione \textit{Design pattern} utilizzati - \textit{M.V.T.} \\ 
     			\hline
     			0.0.6 & 05/04/2024 & E. Gallo & M. Favaretto & Aggiunta sezione Design pattern utilizzati - Strategy \\
     			\hline
@@ -268,8 +268,10 @@
 	
 	\subsection{Introduzione}
 L'architettura di \textit{"Chat SQL"} si basa sul \textit{design pattern} architetturale \textit{MVT(Model View Template)}.\\
-In questo modello, il \textit{"Model"} rappresenta i dati e la logica di \textit{business} dell'applicazione, la \textit{"View"} è responsabile della presentazione dei dati all'utente e il \textit{"Template"} definisce la struttura della \textit{View} e come i dati vengono visualizzati al suo interno. Più nello specifico il \textit{"Template"}, nel caso della nostra applicazione, definisce la struttura \textit{HTML}.\\
-Questo \textit{design pattern} è simile al classico \textit{MVC(Model View Controller)} soltanto che al posto della parte di \textit{Controller} c'è il \textit{Template}.\\\\
+
+In questo \textit{pattern}, il \textit{"Model"} rappresenta i dati e la logica di \textit{business} dell'applicazione, la \textit{"View"} esegue la \textit{business logic}, interagisce con il \textit{Model} e ritorna risposte Http, infine  il \textit{"Template"} definisce la struttura dell'interfaccia utente e come i dati vengono visualizzati al suo interno. Più nello specifico il \textit{"Template"}, nel caso della nostra applicazione, definisce la struttura di documenti \textit{HTML}.\\
+
+Questo \textit{design pattern} è simile a \textit{MVC(Model View Controller)} \\\\
 E' stato scelta questa architettura in quanto offre i seguenti vantaggi:
 \begin{itemize}
     \item \textbf{Separazione delle responsabilità}: \textit{MVT} separa chiaramente le responsabilità tra \textit{Model}, \textit{View} e \textit{Template}. Questo permette una migliore organizzazione del codice, facilitando la manutenzione e la scalabilità dell'applicazione.
@@ -289,32 +291,34 @@ E' stato scelta questa architettura in quanto offre i seguenti vantaggi:
 			basata su una generalizzazione della \textit{view}, attraverso il \textit{design pattern MVT}. \\
 			L'architettura proposta da \textit{Django} si compone di:
 			\begin{itemize}
-				\item diversi \textit{file} di impostazioni che si occupano di mettere in comunicazione le varie parti dell'architettura e instradare correttamente i vari percorsi della \textit{Web-App}
-				\item una cartella contenente i \textit{Template}
-				\item una cartella per ogni applicazione che compone il prodotto
-			\end{itemize}
-			La cartella \textit{templates} conterrà le viste del prodotto. Tali viste - composte principalmente da \textit{file HTML e CSS} - 
-			saranno viste generiche, che andranno popolate e arricchite dall'applicazione in uso. \\
-			Ogni cartella di applicazione conterrà:
-			\begin{itemize}
-				\item il rispettivo modello che realizzerà la \textit{business logic} e la \textit{persistence logic}
-				\item un file chiamato \textit{view.py} che gestirà la vista della specifica applicazione, basandosi sul \textit{template} richiesto e sui dati forniti ed elaborati dal modello
+			\item File per la gestione dei Modelli ;
+			\item File per la gestione delle \textit{View};
+			\item File per le impostazioni del progetto;
+			\item File per la configurazione degli URL;
+			\item File di \textit{template} per la definizione dell'interfaccia utente;
+			\item File per la gestione dei \textit{form}; 
+			\item File per la gestione dei test;
+			\item Cartella contenente le migrazioni verso il sistema di Database scelto;
+			\item Cartella contenente file statici come fogli di stile e immagini;
+			\item Cartella per ogni applicazione che compone il prodotto;
 			\end{itemize}
 
 		\subsubsection{Strategy}
 			% Immagine Design Pattern Strategy%
 			Uno dei \textit{design pattern} comportamentali scelto dal gruppo è lo \textit{Strategy}\textsuperscript{G}. 
 			In particolare, viene integrato per l'interrogazione e l'integrazione di diversi \textit{LLM}\textsuperscript{G}. 
-			Il prodotto infatti deve lavorare a stretto contatto con questi modelli linguistici di grandi dimensioni, ma non sempre usarne uno solo è vantaggioso. 
-			Spesso i modelli più capaci sono a pagamento e di notevoli dimensioni, vi è quindi la necessità di interrogare modelli di dimensioni ridotte ma specializzati in una singola funzione. 
+			Il prodotto infatti deve lavorare a stretto contatto con questi modelli linguistici di grandi dimensioni, ma non sempre usarne uno solo è vantaggioso.  \\
+			
+			Spesso i modelli più capaci sono a pagamento e di notevoli dimensioni, vi è quindi la necessità di interrogare modelli di dimensioni ridotte ma specializzati in una singola funzione. \\
+			
 			Inoltre, l'interrogazione di diversi \textit{LLM} permette un confronto dei diversi risultati, fornendo un'interessante introspezione sulle capacità, sulle possibilità e sulle differenze dei modelli. \\
+			
 			Nel nostro caso sono due i tipi di interrogazioni agli \textit{LLM} che il gruppo ha individuato.
 			\begin{enumerate}
-				\item L'interrogazione principale, su cui si basa l'intero progetto: da un \textit{prompt}\textsuperscript{G} restituisce la frase in \textit{SQL}\textsuperscript{G}. \\
-					In questo caso ci sono pochi modelli che sono in grado di generare frasi \textit{SQL} corrette e molto spesso ogni i modello restituisce un risultato diverso. 
-					Risulta quindi necessario poter cambiare il \textit{LLM} interrogato a seconda della complessità della richiesta e della volontà dell'utente. \\
-					Dato l'aumento di modelli di \textit{AI}\textsuperscript{G} negli ultimi anni, è importante che la lista dei diversi modelli utilizzabili sia facilmente integrabile 
-					con quelli più capaci e all'avanguardia.
+				\item L'interrogazione principale, su cui si basa l'intero progetto: da un \textit{prompt}\textsuperscript{G} restituire una \textit{query} \textit{SQL}\textsuperscript{G}. 
+				Questo per valutare le performance di diversi modelli nella generazione di una \textit{query} \textit{SQL} corretta. 
+				Risulta quindi vantaggioso poter cambiare l'\textit{LLM} interrogato a seconda della complessità della richiesta e della volontà dell'utente. 
+				
 				\item Le interrogazioni ausiliarie, che non formano un requisito obbligatorio ma servono per facilitare l'uso del prodotto all'utente. 
 					Un esempio è la generazione e l'inserimento dei sinonimi di tabelle e campi, che di base è lasciata all'utente, 
 					ma è facilmente integrabile con un \textit{API}\textsuperscript{G} o un \textit{LLM} opportuno per migliorare l'esperienza del prodotto.
