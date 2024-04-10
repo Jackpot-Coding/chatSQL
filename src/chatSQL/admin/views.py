@@ -3,6 +3,8 @@ from django.views import View
 
 from django.contrib.auth import login,logout,authenticate
 
+from django.contrib import messages
+
 from . import forms
 
 class AdminLoginView(View):
@@ -17,9 +19,11 @@ class AdminLoginView(View):
             user = authenticate(username=login_form.cleaned_data["username"],password=login_form.cleaned_data["password"])
             if user is not None :
                login(request,user)
-               return render(request,"admin/login.html",{"message":"OK","login_form":login_form})
+               messages.add_message(request,messages.SUCCESS,"Autenticazione avvenuta con successo")
+               return render(request,"admin/login.html",{"login_form":login_form})
             else:
-               login_form.add_error("username","Credenziali non corrette")
+               login_form.add_error("username","Credenziali non corrette.")
                return render(request,"admin/login.html",{"login_form":login_form})
          except Exception:
-            return render(request,"admin/login.html",{"message":"Errore auth","login_form":login_form}) 
+            messages.add_message(request,messages.ERROR,"Errore durante l'autenticazione.")
+            return render(request,"admin/login.html",{"login_form":login_form}) 

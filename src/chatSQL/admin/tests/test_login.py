@@ -13,12 +13,19 @@ class LoginTestCase(TestCase):
       response = client.get(reverse('admin_login'))
       self.assertEqual(response.status_code,200)
 
-   def test_user_wrong_credentials(self):
+   def test_user_login_with_wrong_credentials(self):
       client = Client()
       response = client.post(reverse('admin_login'),{"username":"wronguser","password":"wrongpassword"})
       
       self.assertEqual(response.status_code,200)
       self.assertContains(response,"Credenziali non corrette")
+
+   def test_user_login_with_right_credentials(self):
+      client = Client()
+      response = client.post(reverse('admin_login'),{"username":"testAdmin","password":"testPassword123!"})
+      
+      self.assertEqual(response.status_code,200)
+      self.assertContains(response,"Autenticazione avvenuta con successo")
 
 
 class LoginFormTestCase(TestCase):
