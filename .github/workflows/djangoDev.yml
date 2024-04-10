@@ -37,4 +37,5 @@ jobs:
       working-directory: ./src/chatSQL
       run: |
         coverage run --source='.' manage.py test
-        coveralls
+    - name: Coveralls GitHub Action
+      uses: coverallsapp/github-action@v2.2.3
