@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>{% block title %}{% endblock title %}Area amministrativa</title>
+   <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+   <header>
+      <nav>
+      </nav>
+      {% if user.is_authenticated %}
+         Autenticato come {{user.username}}
+      {% else %}
+         <a href="{% url 'admin_login' %}">Accedi</a>
+      {% endif %}
+   </header>
+
+   {% block content %}{% endblock content %}
+</body>
+
+</html>
