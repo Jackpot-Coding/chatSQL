@@ -35,7 +35,9 @@ jobs:
         python -m pip install coveralls
         python -m pip install prospector
     - name: Static Test
-      uses: jpetrucciani/prospector-check@1.10.3
+      working-directory: ./src/chatSQL
+      run: |
+        prospector
     - name: Run Tests
       working-directory: ./src/chatSQL
       run: |
