@@ -1,0 +1,7 @@
+strictness: medium
+ignore-paths:
+  - manage.py
+
+pylint:
+  options:
+    django-settings-module: "chatSQL.settings"

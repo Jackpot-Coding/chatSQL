@@ -33,9 +33,12 @@ jobs:
         python -m pip install --upgrade pip
         python -m pip install Django
         python -m pip install coveralls
+        python -m pip install prospector
+    - name: Static Test
+      uses: jpetrucciani/prospector-check@1.10.3
     - name: Run Tests
       working-directory: ./src/chatSQL
       run: |
         coverage run --source='.' manage.py test
-    - name: Coveralls GitHub Action
+    - name: Test Coverage
       uses: coverallsapp/github-action@v2.2.3
