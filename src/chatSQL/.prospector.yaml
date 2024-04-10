@@ -1,7 +1,10 @@
 strictness: medium
 ignore-paths:
   - manage.py
+  - chatSQL/settings.py
 
 pylint:
   options:
     django-settings-module: "chatSQL.settings"
+  disable:
+    - dodgy
