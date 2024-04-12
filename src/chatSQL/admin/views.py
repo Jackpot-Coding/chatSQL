@@ -43,7 +43,7 @@ class CreateStructureView(View):
                 new_name = db_create_form.cleaned_data['name']
                 description = db_create_form.cleaned_data['description']
                 if models.DatabaseStructure.objects.filter(name=new_name).exists():
-                    db_create_form.add_error('name', 'A database structure with this name already exists.')
+                    db_create_form.add_error('name', 'Un database con questo nome è già esistente.')
                     return render(request, 'admin/db_creation.html', {'db_create_form': db_create_form})
                 else:
                     db_structure = models.DatabaseStructure(name=new_name, description=description)
