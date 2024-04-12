@@ -9,12 +9,12 @@
     <div class="alert alert-danger">
         {{ form.errors }}
     </div>
-{% endif %}
-
+{% else %}
 <form method="post">
     {% csrf_token %}
     {{ db_create_form }}
     <button type="submit">Submit</button>
 </form>
+{% endif %}
 
 {% endblock content %}

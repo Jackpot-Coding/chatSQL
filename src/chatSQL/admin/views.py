@@ -55,3 +55,8 @@ class CreateStructureView(View):
                 messages.add_message(request, messages.ERROR, 'Errore durante la creazione della struttura: ' + error_message)
                 return render(request, 'admin/db_creation.html', {'db_create_form': db_create_form})
         return render(request, 'admin/db_creation.html', {'db_create_form': db_create_form})
+    
+class DatabaseListView(View):
+    def get(self, request):
+        databases = models.DatabaseStructure.objects.all()
+        return render(request, 'admin/db_list.html', {'databases': databases})
