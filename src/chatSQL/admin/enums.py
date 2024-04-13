@@ -1,6 +1,6 @@
 from enum import Enum
 
-class FieldType(Enum):
+class TipoCampo(Enum):
     VARCHAR = 'VARCHAR'
     BINARY = 'BINARY'
     VARBINARY = 'VARBINARY'
