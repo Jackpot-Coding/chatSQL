@@ -13,7 +13,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='DatabaseStructure',
+            name='StrutturaDatabase',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=255)),
@@ -21,23 +21,23 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
-            name='DatabaseTable',
+            name='Tabella',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=255)),
                 ('description', models.TextField()),
-                ('structure', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='table', to='admin.databasestructure')),
+                ('structure', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='table', to='admin.StrutturaDatabase')),
             ],
         ),
         migrations.CreateModel(
-            name='DatabaseField',
+            name='Campo',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=255)),
                 ('field_type', models.CharField(choices=[('VARCHAR', 'VARCHAR'), ('BINARY', 'BINARY'), ('VARBINARY', 'VARBINARY'), ('TINYBLOB', 'TINYBLOB'), ('TINYTEXT', 'TINYTEXT'), ('TEXT', 'TEXT'), ('BLOB', 'BLOB'), ('MEDIUMTEXT', 'MEDIUMTEXT'), ('MEDIUMBLOB', 'MEDIUMBLOB'), ('LONGTEXT', 'LONGTEXT'), ('LONGBLOG', 'LONGBLOG'), ('ENUM', 'ENUM'), ('SET', 'SET'), ('BIT', 'BIT'), ('TINYINT', 'TINYINT'), ('BOOL', 'BOOL'), ('BOOLEAN', 'BOOLEAN'), ('SMALLINT', 'SMALLINT'), ('MEDIUMINT', 'MEDIUMINT'), ('INT', 'INT'), ('INTEGER', 'INTEGER'), ('FLOAT', 'FLOAT'), ('DOUBLE', 'DOUBLE'), ('DECIMAL', 'DECIMAL'), ('DATE', 'DATE'), ('DATETIME', 'DATETIME'), ('TIME', 'TIME'), ('YEAR', 'YEAR')], max_length=10)),
                 ('description', models.TextField()),
                 ('synonyms', models.JSONField(blank=True, null=True)),
-                ('table', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='field', to='admin.databasetable')),
+                ('table', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='field', to='admin.Tabella')),
             ],
         ),
     ]

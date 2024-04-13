@@ -2,9 +2,9 @@ strictness: medium
 ignore-paths:
   - manage.py
   - chatSQL/settings.py
+  - admin/migrations/
+  - main/migrations/
 
 pylint:
   options:
     django-settings-module: "chatSQL.settings"
-  disable:
-    - dodgy
