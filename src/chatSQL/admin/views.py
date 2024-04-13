@@ -41,31 +41,34 @@ class AdminHomeView(View):
 
 
 class AdminStrutturaDatabaseView(View):
-    def get(self, request,id=None):
+    
+    def get(self, request,structure_id=None):
         
-        if id: # la view mostra il form pre-compilato per la modifica
-            struttura = models.StrutturaDatabase.objects.get(pk=id)
+        if structure_id is not None: # la view mostra il form pre-compilato per la modifica
+            struttura = models.StrutturaDatabase.objects.get(pk=structure_id)
             db_create_form = forms.StrutturaDatabaseForm(initial={'name':struttura.name,'description':struttura.description})
             return render(request, 'admin/struttura_db.html', {'db_create_form': db_create_form})
     
         db_create_form = forms.StrutturaDatabaseForm #mostra il form vuoto per l'inserimento
         return render(request, 'admin/struttura_db.html', {'db_create_form': db_create_form})
 
-    def post(self, request,id=None):
+    def post(self, request,structure_id=None):
+        
         db_create_form = forms.StrutturaDatabaseForm(request.POST)
+        
         if db_create_form.is_valid():
             try:
                 
                 name        = db_create_form.cleaned_data['name']
                 description = db_create_form.cleaned_data['description']
                 
-                if id:
+                if structure_id is not None:
                     
-                    if models.StrutturaDatabase.objects.filter(name=name).filter(~Q(pk=id)).exists():
+                    if models.StrutturaDatabase.objects.filter(name=name).filter(~Q(pk=structure_id)).exists():
                         db_create_form.add_error('name', 'Un database con questo nome è già esistente.')
                         return render(request, 'admin/struttura_db.html', {'db_create_form': db_create_form})
                     
-                    db_structure = models.StrutturaDatabase.objects.get(pk=id)
+                    db_structure = models.StrutturaDatabase.objects.get(pk=structure_id)
                     db_structure.name = name
                     db_structure.description = description
                     db_structure.save()
@@ -91,4 +94,3 @@ class AdminStrutturaDatabaseView(View):
                 return render(request, 'admin/struttura_db.html', {'db_create_form': db_create_form})
         
         return render(request, 'admin/struttura_db.html', {'db_create_form': db_create_form})
-
