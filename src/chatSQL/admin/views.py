@@ -36,7 +36,7 @@ class AdminLoginView(View):
 
 class AdminHomeView(View):
     def get(self,request):
-        strutture_db = models.StrutturaDatabase.objects.order_by("name")
+        strutture_db = models.StrutturaDatabase.objects.order_by("nome")
         return render(request,'admin/home.html',{'strutture_db':strutture_db})
 
 
@@ -46,7 +46,7 @@ class AdminStrutturaDatabaseView(View):
         
         if structure_id is not None: # la view mostra il form pre-compilato per la modifica
             struttura = models.StrutturaDatabase.objects.get(pk=structure_id)
-            db_create_form = forms.StrutturaDatabaseForm(initial={'name':struttura.name,'description':struttura.description})
+            db_create_form = forms.StrutturaDatabaseForm(initial={'nome':struttura.nome,'descrizione':struttura.descrizione})
             return render(request, 'admin/struttura_db.html', {'db_create_form': db_create_form})
     
         db_create_form = forms.StrutturaDatabaseForm #mostra il form vuoto per l'inserimento
@@ -59,30 +59,30 @@ class AdminStrutturaDatabaseView(View):
         if db_create_form.is_valid():
             try:
                 
-                name        = db_create_form.cleaned_data['name']
-                description = db_create_form.cleaned_data['description']
+                nome        = db_create_form.cleaned_data['nome']
+                descrizione = db_create_form.cleaned_data['descrizione']
                 
                 if structure_id is not None:
                     
-                    if models.StrutturaDatabase.objects.filter(name=name).filter(~Q(pk=structure_id)).exists():
-                        db_create_form.add_error('name', 'Un database con questo nome è già esistente.')
+                    if models.StrutturaDatabase.objects.filter(nome=nome).filter(~Q(pk=structure_id)).exists():
+                        db_create_form.add_error('nome', 'Un database con questo nome è già esistente.')
                         return render(request, 'admin/struttura_db.html', {'db_create_form': db_create_form})
                     
                     db_structure = models.StrutturaDatabase.objects.get(pk=structure_id)
-                    db_structure.name = name
-                    db_structure.description = description
+                    db_structure.nome = nome
+                    db_structure.descrizione = descrizione
                     db_structure.save()
                     
-                    db_create_form = forms.StrutturaDatabaseForm(initial={'name':db_structure.name,'description':db_structure.description})
+                    db_create_form = forms.StrutturaDatabaseForm(initial={'nome':db_structure.nome,'descrizione':db_structure.descrizione})
                     return render(request, 'admin/struttura_db.html', {'db_create_form': db_create_form})
 
                     
                 
-                if models.StrutturaDatabase.objects.filter(name=name).exists():
-                    db_create_form.add_error('name', 'Un database con questo nome è già esistente.')
+                if models.StrutturaDatabase.objects.filter(nome=nome).exists():
+                    db_create_form.add_error('nome', 'Un database con questo nome è già esistente.')
                     return render(request, 'admin/struttura_db.html', {'db_create_form': db_create_form})
                 
-                db_structure = models.StrutturaDatabase(name=name, description=description)
+                db_structure = models.StrutturaDatabase(nome=nome, descrizione=descrizione)
                 db_structure.save()
                 messages.add_message(request, messages.SUCCESS, 'Struttura creata con successo')
                 
