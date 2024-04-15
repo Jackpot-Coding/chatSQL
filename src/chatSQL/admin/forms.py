@@ -5,5 +5,5 @@ class LoginForm(forms.Form):
     password = forms.CharField(widget=forms.PasswordInput(), label="Password")
     
 class StrutturaDatabaseForm(forms.Form):
-    name = forms.CharField(label="Nome")
-    description = forms.CharField(widget=forms.Textarea, label="Descrizione")
+    nome = forms.CharField(label="Nome")
+    descrizione = forms.CharField(widget=forms.Textarea, label="Descrizione")

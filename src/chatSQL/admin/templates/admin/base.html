@@ -14,7 +14,7 @@
       <nav>
       </nav>
       {% if user.is_authenticated %}
-         Autenticato come {{user.username}}
+         Autenticato come {{user.username}} - <a href="{% url 'admin_logout' %}">Esci</a>
       {% else %}
          <a href="{% url 'admin_login' %}">Accedi</a>
       {% endif %}
