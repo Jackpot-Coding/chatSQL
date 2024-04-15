@@ -23,7 +23,7 @@ Per lanciare i test statici lanciare dalla cartella `src/chatSQL`
 
 `coverage run --source='.' manage.py test`per lanciare i test ed il loro coverage
 
-se i test sono superati: `coverage report` per vedere il report di coverage
+se i test sono superati: `coverage report` per vedere il report di coverage su command line o `coverage html` per generare una pagina html.
 
 ## Test di GitHub
 
