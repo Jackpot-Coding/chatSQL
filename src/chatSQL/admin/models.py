@@ -12,7 +12,7 @@ class StrutturaDatabase(models.Model):
 class Tabella(models.Model):
     nome = models.CharField(max_length=255)
     descrizione = models.TextField()
-    sinonimi = models.CharField(max_length=255)
+    sinonimi = models.CharField(max_length=255, null=True, blank=True)
     struttura = models.ForeignKey(StrutturaDatabase, on_delete=models.CASCADE)
 
     def __str__(self):
