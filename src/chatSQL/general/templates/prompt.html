@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Prompt</title>
+</head>
+<body>
+    <h1>Inserisci una descrizione di ciò che ti serve</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ prompt_form }}
+        <button type="submit">Genera Query</button>
+    </form>
+</body>
+</html>
