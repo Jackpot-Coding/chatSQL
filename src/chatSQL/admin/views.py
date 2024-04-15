@@ -69,12 +69,12 @@ class AdminStrutturaDatabaseView(View):
         if db_create_form.is_valid():
             try:
                 
-                name        = db_create_form.cleaned_data['nome']
-                description = db_create_form.cleaned_data['descrizione']
+                nome        = db_create_form.cleaned_data['nome']
+                descrizione = db_create_form.cleaned_data['descrizione']
                 
                 if structure_id is not None:
                     
-                    if models.StrutturaDatabase.objects.filter(nome=name).filter(~Q(pk=structure_id)).exists():
+                    if models.StrutturaDatabase.objects.filter(nome=nome).filter(~Q(pk=structure_id)).exists():
                         db_create_form.add_error('nome', 'Un database con questo nome è già esistente.')
                         return render(request, 'admin/struttura_db.html', {'db_create_form': db_create_form})
                     
@@ -92,7 +92,7 @@ class AdminStrutturaDatabaseView(View):
                     db_create_form.add_error('nome', 'Un database con questo nome è già esistente.')
                     return render(request, 'admin/struttura_db.html', {'db_create_form': db_create_form})
                 
-                db_structure = models.StrutturaDatabase(nome=name, descrizione=description)
+                db_structure = models.StrutturaDatabase(nome=nome, descrizione=descrizione)
                 db_structure.save()
                 messages.add_message(request, messages.SUCCESS, 'Struttura creata con successo')
                 
