@@ -27,10 +27,10 @@ class adminTestCase(TestCase):
         
     def test_admin_home_page_displays_structures(self):
         
-        db1 = StrutturaDatabase(name="Test DB1",description="Description for test1")
+        db1 = StrutturaDatabase(nome="Test DB1",descrizione="Description for test1")
         db1.save()
         
-        db2 = StrutturaDatabase(name="Test DB2",description="Description for test2")
+        db2 = StrutturaDatabase(nome="Test DB2",descrizione="Description for test2")
         db2.save()
         
         response = self.client.get(reverse("admin_home"))

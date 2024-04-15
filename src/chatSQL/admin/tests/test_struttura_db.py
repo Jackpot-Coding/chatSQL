@@ -22,31 +22,31 @@ class createStructureTestCase(TestCase):
 
 
     def test_can_create_structure(self):
-        data = {'name': 'Test Database', 'description': 'Test Description'}
+        data = {'nome': 'Test Database', 'descrizione': 'Test Description'}
         response = self.client.post(reverse('new_db_view'), data)
         
         self.assertEqual(response.status_code, 302) #redirect a struttura creata
-        self.assertTrue(StrutturaDatabase.objects.filter(name='Test Database').exists())
+        self.assertTrue(StrutturaDatabase.objects.filter(nome='Test Database').exists())
         
     def test_invalid_form_for_structure_creation(self):
-        data = {'name': '', 'description': ''}
+        data = {'nome': '', 'descrizione': ''}
         response = self.client.post(reverse('new_db_view'), data)
         
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'admin/struttura_db.html')
         
     def test_create_structure_duplicate_name(self):
-        StrutturaDatabase.objects.create(name='Existing Database', description='Existing Description')
+        StrutturaDatabase.objects.create(nome='Existing Database', descrizione='Existing Description')
         
-        data = {'name': 'Existing Database', 'description': 'Test Description'}
+        data = {'nome': 'Existing Database', 'descrizione': 'Test Description'}
         response = self.client.post(reverse('new_db_view'), data)
         
         self.assertEqual(response.status_code, 200) 
         self.assertContains(response, 'Un database con questo nome è già esistente.')
-        self.assertFalse(StrutturaDatabase.objects.filter(name='Test Database').exists())
+        self.assertFalse(StrutturaDatabase.objects.filter(nome='Test Database').exists())
         
     def test_can_reach_structure_edit_page(self):
-        db = StrutturaDatabase(name="Test DB",description="Description for test")
+        db = StrutturaDatabase(nome="Test DB",descrizione="Description for test")
         db.save()
         response = self.client.get(reverse("db_view",args=(1,)))
         
@@ -54,13 +54,13 @@ class createStructureTestCase(TestCase):
         self.assertTemplateUsed(response,'admin/struttura_db.html')
     
     def test_cannot_edit_structure_with_other_existing_name(self):
-        db1 = StrutturaDatabase(name="Test DB1",description="Description for test1")
+        db1 = StrutturaDatabase(nome="Test DB1",descrizione="Description for test1")
         db1.save()
         
-        db2 = StrutturaDatabase(name="Test DB2",description="Description for test2")
+        db2 = StrutturaDatabase(nome="Test DB2",descrizione="Description for test2")
         db2.save()
         
-        data = {"name":"Test DB1","description":"Description for bad name"}
+        data = {"nome":"Test DB1","descrizione":"Description for bad name"}
         response = self.client.post(reverse('db_view',args=(2,)),data)
         
         self.assertEqual(response.status_code,200)
@@ -68,10 +68,10 @@ class createStructureTestCase(TestCase):
         self.assertTemplateUsed(response,'admin/struttura_db.html')
         
     def test_can_edit_structure(self):
-        db1 = StrutturaDatabase(name="Test DB1",description="Description for test1")
+        db1 = StrutturaDatabase(nome="Test DB1",descrizione="Description for test1")
         db1.save()
         
-        data = {"name":"Edited Name","description":"Edited Description"}
+        data = {"nome":"Edited Name","descrizione":"Edited Description"}
         response = self.client.post(reverse('db_view',args=(1,)),data)
         
         editedDb = StrutturaDatabase.objects.get(pk=1)
@@ -79,8 +79,8 @@ class createStructureTestCase(TestCase):
         self.assertEqual(response.status_code,200)
         self.assertContains(response, 'Edited Name')
         self.assertContains(response, 'Edited Description')
-        self.assertEqual(editedDb.name,"Edited Name")
-        self.assertEqual(editedDb.description,"Edited Description")
+        self.assertEqual(editedDb.nome,"Edited Name")
+        self.assertEqual(editedDb.descrizione,"Edited Description")
         self.assertTemplateUsed(response,'admin/struttura_db.html')
         
         
@@ -88,14 +88,14 @@ class createStructureTestCase(TestCase):
 class StrutturaDatabaseFormTestCase(TestCase):
 
     def test_create_structure_invalid_name(self):
-        data = {'name': '', 'description': 'Test Description'}
+        data = {'nome': '', 'descrizione': 'Test Description'}
         self.assertFalse(StrutturaDatabaseForm(data).is_valid())
         
     def test_create_structure_invalid_description(self):
-        data = {'name': 'Test Database', 'description': ''}
+        data = {'nome': 'Test Database', 'descrizione': ''}
         self.assertFalse(StrutturaDatabaseForm(data).is_valid())
         
     def test_create_structure_invalid_data(self):
-        data = {'name': '', 'description': ''}
+        data = {'nome': '', 'descrizione': ''}
         self.assertFalse(StrutturaDatabaseForm(data).is_valid())
     
