@@ -133,7 +133,9 @@ class AdminEliminaModelView(View):
                 messages.error(request,"Errore durante la richiesta di eliminazione")
                 return redirect(request.get_full_path()) #ritorna l'url precedente
 
-            #else non serve perchè l'url per forza ha i due parametri o va in errore 404
+            #else non serve perchè l'url per forza ha i due parametri o va in errore 404 ma va messo in caso
+            messages.error(request,"Errore durante la richiesta di eliminazione")
+            return redirect(request.get_full_path()) #ritorna l'url precedente
 
         except Exception: #se non esiste il modello con id dato e la query non è valida
             
