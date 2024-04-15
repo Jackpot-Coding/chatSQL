@@ -2,5 +2,5 @@ from django import forms
 from admin.models import StrutturaDatabase
 
 class PromptForm(forms.Form):
-    free_text = forms.CharField(label='Prompt', widget=forms.Textarea)
-    structure = forms.ModelChoiceField(queryset=StrutturaDatabase.objects.all(), label='Database Structure')
+    natural_language = forms.CharField(label='Prompt', widget=forms.Textarea)
+    db_structure = forms.ModelChoiceField(queryset=StrutturaDatabase.objects.all(), label='Database Structure')
