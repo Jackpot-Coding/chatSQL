@@ -9,12 +9,15 @@
     <div class="alert alert-danger">
         {{ form.errors }}
     </div>
-{% else %}
+{% endif %}
 <form method="post">
     {% csrf_token %}
     {{ db_create_form }}
     <button type="submit">Submit</button>
 </form>
+
+{% if editing_id %}
+<a href="{% url 'model_delete' 'StrutturaDatabase' editing_id %}">Elimina struttura database</a>
 {% endif %}
 
 {% endblock content %}

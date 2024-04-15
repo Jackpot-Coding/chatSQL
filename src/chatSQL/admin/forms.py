@@ -7,3 +7,7 @@ class LoginForm(forms.Form):
 class StrutturaDatabaseForm(forms.Form):
     nome = forms.CharField(label="Nome")
     descrizione = forms.CharField(widget=forms.Textarea, label="Descrizione")
+    
+class EliminaForm(forms.Form):
+    classe_modello = forms.CharField(widget=forms.HiddenInput)
+    id_modello = forms.IntegerField(widget=forms.HiddenInput)

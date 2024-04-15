@@ -58,7 +58,7 @@ class AdminStrutturaDatabaseView(View):
         if structure_id is not None: # la view mostra il form pre-compilato per la modifica
             struttura = models.StrutturaDatabase.objects.get(pk=structure_id)
             db_create_form = forms.StrutturaDatabaseForm(initial={'nome':struttura.nome,'descrizione':struttura.descrizione})
-            return render(request, 'admin/struttura_db.html', {'db_create_form': db_create_form})
+            return render(request, 'admin/struttura_db.html', {'db_create_form': db_create_form,'editing_id':structure_id})
     
         db_create_form = forms.StrutturaDatabaseForm #mostra il form vuoto per l'inserimento
         return render(request, 'admin/struttura_db.html', {'db_create_form': db_create_form})
@@ -76,7 +76,7 @@ class AdminStrutturaDatabaseView(View):
                     
                     if models.StrutturaDatabase.objects.filter(nome=nome).filter(~Q(pk=structure_id)).exists():
                         db_create_form.add_error('nome', 'Un database con questo nome è già esistente.')
-                        return render(request, 'admin/struttura_db.html', {'db_create_form': db_create_form})
+                        return render(request, 'admin/struttura_db.html', {'db_create_form': db_create_form,'editing_id':structure_id})
                     
                     db_structure = models.StrutturaDatabase.objects.get(pk=structure_id)
                     db_structure.nome = nome
@@ -84,7 +84,7 @@ class AdminStrutturaDatabaseView(View):
                     db_structure.save()
                     
                     db_create_form = forms.StrutturaDatabaseForm(initial={'nome':db_structure.nome,'descrizione':db_structure.descrizione})
-                    return render(request, 'admin/struttura_db.html', {'db_create_form': db_create_form})
+                    return render(request, 'admin/struttura_db.html', {'db_create_form': db_create_form,'editing_id':structure_id})
 
                     
                 
@@ -104,3 +104,39 @@ class AdminStrutturaDatabaseView(View):
                 return render(request, 'admin/struttura_db.html', {'db_create_form': db_create_form})
         
         return render(request, 'admin/struttura_db.html', {'db_create_form': db_create_form})
+    
+class AdminEliminaModelView(View):
+    
+    def get(self,request,classe_modello=None,id_modello=None):
+        
+        elimina_form = forms.EliminaForm(initial={'id_modello':id_modello,'classe_modello':classe_modello})
+        return render(request,"admin/delete.html",{"elimina_form":elimina_form,'classe_modello':classe_modello,'id_modello':id_modello})
+    
+    def post(self,request,classe_modello=None,id_modello=None):
+        elimina_form = forms.EliminaForm(request.POST)
+
+        try:
+            
+            if elimina_form.is_valid():
+                
+                classe_modello = elimina_form.cleaned_data['classe_modello']
+                id_modello     = elimina_form.cleaned_data['id_modello']
+                
+                if classe_modello == 'StrutturaDatabase':
+                    
+                    oggetto = models.StrutturaDatabase.objects.get(pk=int(id_modello))
+                    oggetto.delete()
+                    messages.success(request,"Struttura database eliminata.")
+                    return redirect("admin_home")
+            
+                #se non trova una classe esplicitatamente abilitata
+                messages.error(request,"Errore durante la richiesta di eliminazione")
+                return redirect(request.get_full_path()) #ritorna l'url precedente
+
+            #else non serve perchè l'url per forza ha i due parametri o va in errore 404
+
+        except Exception: #se non esiste il modello con id dato e la query non è valida
+            
+            messages.error(request,"Errore durante la richiesta di eliminazione")
+            return redirect(request.get_full_path()) #ritorna l'url precedente
+            
