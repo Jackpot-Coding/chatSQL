@@ -79,8 +79,8 @@ class AdminStrutturaDatabaseView(View):
                         return render(request, 'admin/struttura_db.html', {'db_create_form': db_create_form})
                     
                     db_structure = models.StrutturaDatabase.objects.get(pk=structure_id)
-                    db_structure.nome = name
-                    db_structure.descrizione = description
+                    db_structure.nome = nome
+                    db_structure.descrizione = descrizione
                     db_structure.save()
                     
                     db_create_form = forms.StrutturaDatabaseForm(initial={'nome':db_structure.nome,'descrizione':db_structure.descrizione})
@@ -88,7 +88,7 @@ class AdminStrutturaDatabaseView(View):
 
                     
                 
-                if models.StrutturaDatabase.objects.filter(nome=name).exists():
+                if models.StrutturaDatabase.objects.filter(nome=nome).exists():
                     db_create_form.add_error('nome', 'Un database con questo nome è già esistente.')
                     return render(request, 'admin/struttura_db.html', {'db_create_form': db_create_form})
                 
