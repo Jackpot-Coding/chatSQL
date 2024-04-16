@@ -142,3 +142,33 @@ class AdminEliminaModelView(View):
             messages.error(request,"Errore durante la richiesta di eliminazione")
             return redirect(request.get_full_path()) #ritorna l'url precedente
             
+            
+class AdminCreaTabellaView(View):
+    #def get()
+    
+    def post(self, request):
+        
+        # raccoglie dati dal form
+        create_table = forms.TabellaForm(request.POST)
+        
+        # controlla che siano validi, se true, li assegna ai rispettivi campi
+        if create_table.is_valid():
+            # assegnazione field
+            nome = create_table.cleaned_data["nome"]
+            descrizione = create_table.cleaned_data["descrizione"]
+            # sinonimi = (create_table.cleaned_data["sinonimi"]).split(", ")
+            sinonimi = create_table.cleaned_data["sinonimi"]
+            struttura = create_table.cleaned_data["struttura_db"]
+            
+            # creazione oggetto tabella
+            table = models.Tabella(
+                nome = nome, 
+                descrizione = descrizione, 
+                sinonimi = sinonimi, 
+                struttura = struttura
+            )
+            # save tabella creata e messaggio
+            table.save()
+            messages.add_message(request, messages.SUCCESS , "Tabella creata con successo")
+            
+            

@@ -9,10 +9,10 @@ class StrutturaDatabaseForm(forms.Form):
     descrizione = forms.CharField(widget=forms.Textarea, label="Descrizione")
     
 class TabellaForm(forms.Form):
-    nome = forms.CharField(max_length=255, required=True, label="Nome")
-    descrizione = forms.CharField(widget=forms.Textarea, label="Descrizione")
-    sinonimi = forms.CharField(max_length=255, required=False, label="Sinonimi")
-    struttura = forms.CharField(max_length=255, required=True, label="Struttura DB")    
+    nome = forms.CharField(max_length=255, required=True, label="nome")
+    descrizione = forms.CharField(widget=forms.Textarea, label="descrizione")
+    sinonimi = forms.CharField(max_length=255, required=False, label="sinonimi")
+    struttura = forms.CharField(max_length=255, required=True, label="struttura_db")    
     
 class EliminaForm(forms.Form):
     classe_modello = forms.CharField(widget=forms.HiddenInput)
