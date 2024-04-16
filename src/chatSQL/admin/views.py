@@ -48,7 +48,9 @@ class AdminLogoutView(View):
 class AdminHomeView(View):
     def get(self,request):
         strutture_db = models.StrutturaDatabase.objects.order_by("nome")
-        return render(request,'admin/home.html',{'strutture_db':strutture_db})
+        # per mostrare anche le tabelle
+        tables = models.Tabella.objects.order_by("nome")
+        return render(request,'admin/home.html',{'strutture_db':strutture_db, 'tables': tables})
 
 
 class AdminStrutturaDatabaseView(View):
@@ -160,7 +162,7 @@ class AdminCreaTabellaView(View):
             descrizione = create_table.cleaned_data["descrizione"]
             # sinonimi = (create_table.cleaned_data["sinonimi"]).split(", ")
             sinonimi = create_table.cleaned_data["sinonimi"]
-            struttura = create_table.cleaned_data["struttura_db"]
+            struttura = create_table.cleaned_data.get('struttura')
             
             # creazione oggetto tabella
             table = models.Tabella(
