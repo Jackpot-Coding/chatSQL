@@ -18,14 +18,15 @@ def parse_database_to_json(database_name, tables):
     for table in tables:
         table_info = {
             "nome": table.nome,
-            "campi": []
+            "campi": [],
+            "sinonimi": table.sinonimi
         }
         fields = Campo.objects.filter(tabella=table)
         for field in fields:
             field_info = {
                 "nome": field.nome,
                 "tipo": field.tipo,
-                "sinonimiIt": field.sinonimi
+                "sinonimi": field.sinonimi
             }
             table_info["campi"].append(field_info)
         database_json["database"]["tabelle"].append(table_info)
@@ -39,7 +40,7 @@ def load_database(database_name):
     # Load database
     try:
         struttura_database = StrutturaDatabase.objects.get(nome=database_name)
-        tables = Tabella.objects.filter(struttura=struttura_database)
+        tables = Tabella.objects.filter(struttura=struttura_database.pk)
     except StrutturaDatabase.DoesNotExist:
         error = f"Errore: Il database '{database_name}' non esiste."
         return PromptGenStatus.DATABASE_NOT_FOUND, error
@@ -52,8 +53,8 @@ def find_tables_from_nouns(nouns, tables):
     found_tables = []
     for noun in nouns:
         for table in tables:
-            synonyms = table['sinonimiIt'].split(",")
-            if noun in synonyms:
+            synonyms = table['sinonimi'].split(",")
+            if noun in table['nome'] or noun in synonyms:
                 found_tables.append(table)
     return found_tables
 
@@ -91,7 +92,7 @@ def generate_prompt_ita(natural, database_name):
         for index, table in enumerate(found_tables):
             prompt += f"{table['nome']} composta dai campi:\n"
             for field in table["campi"]:
-                field_synonyms = field["sinonimiIt"].split(",")
+                field_synonyms = field["sinonimi"].split(",")
                 prompt += f"-{field['nome']} di tipo {field['tipo']} contenente {field_synonyms[0]}\n"
             if index < len(found_tables) - 1:
                 prompt += "E la tabella "
