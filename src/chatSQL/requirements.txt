@@ -1,2 +1,2 @@
 Django==5.0.4
-transformers==4.39.0
+transformers
