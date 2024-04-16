@@ -6,23 +6,27 @@
 </head>
 <body>
     {% if messages %}
-   <ul class="messages">
-      {% for message in messages %}
-      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-      {% endfor %}
-   </ul>
-   {% endif %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
     {% if form.errors %}
         <div class="alert alert-danger">
             {{ form.errors }}
         </div>
     {% else %}
-    <h1>Inserisci una descrizione di ciò che ti serve</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ prompt_form }}
-        <button type="submit">Genera Query</button>
-    </form>
+        <h1>Inserisci una descrizione di ciò che ti serve</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ natural_lang_form }}
+            <button type="submit">Genera Query</button>
+        </form>
+        <form method="post">
+            {% csrf_token %}
+            {{ prompt_form }}
+        </form>
     {% endif %}
 </body>
 </html>
