@@ -144,7 +144,9 @@ class AdminEliminaModelView(View):
             
             
 class AdminCreaTabellaView(View):
-    #def get()
+    def get(self, request):
+        create_table = forms.TabellaForm
+        return render(request, 'admin/tabella.html', {'create_table': create_table})
     
     def post(self, request):
         
@@ -170,5 +172,7 @@ class AdminCreaTabellaView(View):
             # save tabella creata e messaggio
             table.save()
             messages.add_message(request, messages.SUCCESS , "Tabella creata con successo")
+        
+        return render(request, 'admin/tabella.html', {'create_table': create_table})
             
             

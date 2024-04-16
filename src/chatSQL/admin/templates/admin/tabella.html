@@ -1,0 +1,15 @@
+{% extends "./base.html" %}
+
+{% block title %}Creazione Tabella - {% endblock title %}
+
+{% block content %}
+
+<!-- if errori -->
+
+<form method="post">
+    {% csrf_token %}
+    {{ create_table }}
+    <button type="submit">Submit</button>
+</form>
+
+{% endblock content %}
