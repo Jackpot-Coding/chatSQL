@@ -1,0 +1,18 @@
+{% extends "./base.html" %}
+
+{%block title%}Crea campo tabella - {%endblock%}
+
+{% block content %}
+
+{% if form.errors %}
+    <div class="alert alert-danger">
+        {{ form.errors }}
+    </div>
+{% endif %}
+<form method="post">
+    {% csrf_token %}
+    {{ field_create_form }}
+    <button type="submit">Submit</button>
+</form>
+
+{% endblock content %}

@@ -142,3 +142,57 @@ class AdminEliminaModelView(View):
             messages.error(request,"Errore durante la richiesta di eliminazione")
             return redirect(request.get_full_path()) #ritorna l'url precedente
             
+#class AdminTabellaStrutturaView(View):
+
+class AdminCampoTabellaView(View):
+    def get(self,request,structure_id=None,table_id=None,field_id=None):
+        structure=models.StrutturaDatabase.objects.get(pk=structure_id)
+        table=structure.tabella_set.get(pk=table_id)
+        if field_id is not None:
+            field=table.campo_set.get(pk=field_id)
+            field_create_form=forms.CampoTabella(initial={'nome':field.nome,'tipo':field.tipo,'descrizione':field.descrizione,'sinonimi':field.sinonimi})
+            return  render(request, 'admin/campo_tabella.html', {'field_create_form': field_create_form,'editing_id':field_id})
+        field_create_form=forms.CampoTabella
+        return render(request, 'admin/campo_tabella.html', {'field_create_form': field_create_form})
+    
+    def post(self,request,structure_id=None,table_id=None,field_id=None):
+        structure=models.StrutturaDatabase.objects.get(pk=structure_id)
+        table=structure.tabella_set.get(pk=table_id)
+        field_create_form=forms.CampoTabella(request.POST)
+        if field_create_form.is_valid():
+            try:
+                nome=field_create_form.cleaned_data['nome']
+                tipo=field_create_form.cleaned_data['tipo']
+                descrizione=field_create_form.cleaned_data['descrizione']
+                sinonimi=field_create_form.cleaned_data['sinonimi']
+
+                if field_id is not None:
+
+                    if table.campo_set.filter(nome=nome).exists():
+                        field_create_form.add_error('nome', 'Un campo con questo nome è già esistente.')
+                        return render(request, 'admin/campo_tabella.html', {'field_create_form': field_create_form,'editing_id':field_id})
+                    
+                    field=table.campo_set.get(pk=field_id)
+                    field.nome=nome
+                    field.tipo=tipo
+                    field.descrizione=descrizione
+                    field.sinonimi=sinonimi
+                    field.save()
+                    field_create_form=forms.CampoTabella(initial={'nome':field.nome,'tipo':field.tipo,'descrizione':field.descrizione,'sinonimi':field.sinonimi})
+                    return  render(request, 'admin/campo_tabella.html', {'field_create_form': field_create_form,'editing_id':field_id})
+                
+                if table.campo_set.filter(nome=nome).exists():
+                    field_create_form.add_error('nome', 'Un campo con questo nome è già esistente.')
+                    return render(request, 'admin/campo_tabella.html', {'field_create_form': field_create_form,'editing_id':field_id})
+                
+                field=table.campo_set.create(nome=nome,tipo=tipo,descrizione=descrizione,sinonimi=sinonimi)
+                messages.add_message(request, messages.SUCCESS, 'Campo creato con successo')
+                
+                return redirect('campo_view',structure_id,table_id,field.id)
+                
+            except Exception as e:
+                error_message = str(e)
+                messages.add_message(request, messages.ERROR, 'Errore durante il salvataggio del campo: ' + error_message)
+                return render(request, 'admin/campo_tabella.html', {'field_create_form': field_create_form})
+        
+        return render(request, 'admin/campo_tabella.html', {'field_create_form': field_create_form})
