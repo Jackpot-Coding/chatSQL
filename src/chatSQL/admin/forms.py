@@ -1,6 +1,5 @@
 from django import forms
 from .enums import TipoCampo
-from admin.models import Tabella
 
 class LoginForm(forms.Form):
     username = forms.CharField(label="Nome Utente")

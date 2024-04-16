@@ -10,6 +10,8 @@ urlpatterns = [
    path('struttureDB/nuova',login_required(views.AdminStrutturaDatabaseView.as_view(),login_url="/admin/login"),name="new_db_view"),
    path('struttureDB/<int:structure_id>',login_required(views.AdminStrutturaDatabaseView.as_view(),login_url="/admin/login"),name="db_view"),
    path('elimina/<str:classe_modello>/<int:id_modello>',login_required(views.AdminEliminaModelView.as_view(),login_url='/admin/login'),name="model_delete"),
-   path('struttureDB/<int:structure_id>/<int:table_id>/nuova',login_required(views.AdminCampoTabellaView.as_view(),login_url="/admin/login"),name="new_campo_view"),
-   path('struttureDB/<int:structure_id>/<int:table_id>/<int:field_id>',login_required(views.AdminCampoTabellaView.as_view(),login_url="/admin/login"),name="campo_view")
+   path('struttureDB/<int:structure_id>/<int:table_id>/nuova',login_required(views.AdminCampoTabellaView.as_view(),login_url="/admin/login"),
+        name="new_campo_view"),
+   path('struttureDB/<int:structure_id>/<int:table_id>/<int:field_id>',login_required(views.AdminCampoTabellaView.as_view(),login_url="/admin/login"),
+        name="campo_view")
 ]

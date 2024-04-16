@@ -178,7 +178,10 @@ class AdminCampoTabellaView(View):
                     field.descrizione=descrizione
                     field.sinonimi=sinonimi
                     field.save()
-                    field_create_form=forms.CampoTabella(initial={'nome':field.nome,'tipo':field.tipo,'descrizione':field.descrizione,'sinonimi':field.sinonimi})
+                    field_create_form=forms.CampoTabella(initial={'nome':field.nome,
+                                                                  'tipo':field.tipo,
+                                                                  'descrizione':field.descrizione,
+                                                                  'sinonimi':field.sinonimi})
                     return  render(request, 'admin/campo_tabella.html', {'field_create_form': field_create_form,'editing_id':field_id})
                 
                 if table.campo_set.filter(nome=nome).exists():
