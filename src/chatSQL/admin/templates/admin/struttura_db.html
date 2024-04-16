@@ -19,5 +19,9 @@
 {% if editing_id %}
 <a href="{% url 'model_delete' 'StrutturaDatabase' editing_id %}">Elimina struttura database</a>
 {% endif %}
+{% if editing_id %}
+<br>
+<a href="{% url 'new_table_view' editing_id %}">Aggiungi una nuova tabella</a>
+{% endif %}
 
 {% endblock content %}
