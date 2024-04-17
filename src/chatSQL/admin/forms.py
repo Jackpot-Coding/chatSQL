@@ -23,7 +23,7 @@ class EliminaForm(forms.Form):
     classe_modello = forms.CharField(widget=forms.HiddenInput)
     id_modello = forms.IntegerField(widget=forms.HiddenInput)
 
-class CampoTabella(forms.Form):
+class CampoForm(forms.Form):
     nome=forms.CharField(label="Nome")
     tipo=forms.ChoiceField(choices=[(tag.value, tag.name) for tag in TipoCampo], required=True, label="Tipo")
     descrizione=forms.CharField(widget=forms.Textarea,label="Descrizione")

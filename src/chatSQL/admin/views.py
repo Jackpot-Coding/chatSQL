@@ -186,19 +186,19 @@ class AdminTabellaView(View):
             return render(request, 'admin/tabella.html', {'table_create_form': table_create_form, 'structure_id': structure_id})
 
 
-class AdminCampoTabellaView(View):
+class AdminCampoView(View):
     def get(self,request,table_id=None,field_id=None):
         if field_id is not None:
             field=models.Campo.objects.get(pk=field_id)
-            field_create_form=forms.CampoTabella(initial={'nome':field.nome,'tipo':field.tipo,'descrizione':field.descrizione,'sinonimi':field.sinonimi})
+            field_create_form=forms.CampoForm(initial={'nome':field.nome,'tipo':field.tipo,'descrizione':field.descrizione,'sinonimi':field.sinonimi})
             return  render(request, 'admin/campo_tabella.html', {'field_create_form': field_create_form,'editing_id':field_id})
         if not models.Tabella.objects.filter(pk=table_id).exists():
             return render(request, 'admin/campo_tabella.html', {'field_create_form': "Tabella non esistente"})
-        field_create_form=forms.CampoTabella
+        field_create_form=forms.CampoForm
         return render(request, 'admin/campo_tabella.html', {'field_create_form': field_create_form})
     
     def post(self,request,table_id=None,field_id=None):
-        field_create_form=forms.CampoTabella(request.POST)
+        field_create_form=forms.CampoForm(request.POST)
         if field_create_form.is_valid():
             try:
                 nome=field_create_form.cleaned_data['nome']
@@ -220,7 +220,7 @@ class AdminCampoTabellaView(View):
                     field.descrizione=descrizione
                     field.sinonimi=sinonimi
                     field.save()
-                    field_create_form=forms.CampoTabella(initial={'nome':field.nome,
+                    field_create_form=forms.CampoForm(initial={'nome':field.nome,
                                                                   'tipo':field.tipo,
                                                                   'descrizione':field.descrizione,
                                                                   'sinonimi':field.sinonimi})
