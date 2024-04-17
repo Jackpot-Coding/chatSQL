@@ -9,20 +9,7 @@
 
 <ul>
     {% for struct in strutture_db %}
-        <li>{{struct.nome}} - <a href="{% url 'db_view' structure_id=struct.id %}">Visualizza</a>
-        <!-- parte per mostrare le tabelle -->
-        <ul>
-            {% for table in tables %}
-                {% if table.struttura == struct %}
-                    <li>
-                        {{table.nome}}
-                    </li>
-                {% endif %}
-        {% empty %}
-            <li>Nessuna tabella per questo database</li>
-        {% endfor %}
-        </ul>
-        </li>
+        <li>{{struct.nome}} - <a href="{% url 'db_view' structure_id=struct.id %}">Visualizza</a></li>
     {% empty %}
         <li>Nessuna struttura database trovata.</li>
     {% endfor %}

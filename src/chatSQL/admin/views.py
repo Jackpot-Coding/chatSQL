@@ -48,9 +48,7 @@ class AdminLogoutView(View):
 class AdminHomeView(View):
     def get(self,request):
         strutture_db = models.StrutturaDatabase.objects.order_by("nome")
-        # per mostrare anche le tabelle
-        tables = models.Tabella.objects.order_by("nome")
-        return render(request,'admin/home.html',{'strutture_db':strutture_db, 'tables': tables})
+        return render(request,'admin/home.html',{'strutture_db':strutture_db})
 
 
 class AdminStrutturaDatabaseView(View):
