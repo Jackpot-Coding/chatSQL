@@ -58,7 +58,7 @@ class AdminStrutturaDatabaseView(View):
         if structure_id is not None: # la view mostra il form pre-compilato per la modifica
             struttura = models.StrutturaDatabase.objects.get(pk=structure_id)
             db_create_form = forms.StrutturaDatabaseForm(initial={'nome':struttura.nome,'descrizione':struttura.descrizione})
-            return render(request, 'admin/struttura_db.html', {'db_create_form': db_create_form,'editing_id':structure_id})
+            return render(request, 'admin/struttura_db.html', {'db_create_form': db_create_form,'editing_id':structure_id, 'tables':struttura.tabella_set.all()})
     
         db_create_form = forms.StrutturaDatabaseForm #mostra il form vuoto per l'inserimento
         return render(request, 'admin/struttura_db.html', {'db_create_form': db_create_form})
@@ -141,19 +141,18 @@ class AdminEliminaModelView(View):
             
             messages.error(request,"Errore durante la richiesta di eliminazione")
             return redirect(request.get_full_path()) #ritorna l'url precedente
-            
-#class AdminTabellaStrutturaView(View):
+
 class AdminTabellaView(View):
-    def get(self,request,structure_id=None,table_id=None):
+    def get(self,request,structure_id,table_id=None):
         db_structure = models.StrutturaDatabase.objects.get(pk=structure_id)
         if table_id is not None:
             table = db_structure.tabella_set.get(pk=table_id)
             table_create_form = forms.TabellaForm(initial={'nome':table.nome,'descrizione':table.descrizione,'sinonimi':table.sinonimi})
             return render(request, 'admin/tabella.html', {'table_create_form': table_create_form,'editing_id':table_id})
         table_create_form = forms.TabellaForm
-        return render(request, 'admin/tabella.html', {'table_create_form': table_create_form})
+        return render(request, 'admin/tabella.html', {'table_create_form': table_create_form, 'structure_id': structure_id})
     
-    def post(self,request,structure_id=None):
+    def post(self,request,structure_id):
         db_structure = models.StrutturaDatabase.objects.get(pk=structure_id)
         table_create_form = forms.TabellaForm(request.POST)
         if table_create_form.is_valid():
@@ -161,22 +160,28 @@ class AdminTabellaView(View):
                 nome = table_create_form.cleaned_data['nome']
                 descrizione = table_create_form.cleaned_data['descrizione']
                 sinonimi = table_create_form.cleaned_data['sinonimi']
+                # sinonimi = (create_table.cleaned_data["sinonimi"]).split(", ") in caso in futuro si voglia salvare i sinonimi come array
 
                 if db_structure.tabella_set.filter(nome=nome).exists():
                     table_create_form.add_error('nome', 'Una tabella con questo nome è già esistente.')
-                    return render(request, 'admin/tabella.html', {'table_create_form': table_create_form})
+                    return render(request, 'admin/tabella.html', {'table_create_form': table_create_form, 'structure_id': structure_id})
                 
-                table = models.Tabella(nome=nome,descrizione=descrizione,sinonimi=sinonimi,struttura=db_structure)
+                table = models.Tabella(
+                    nome = nome,
+                    descrizione = descrizione,
+                    sinonimi = sinonimi,
+                    struttura = db_structure
+                )
                 table.save()
                 messages.add_message(request, messages.SUCCESS, 'Tabella creata con successo')
-                return redirect(request, 'admin/struttura_db.html')
+                return render(request, 'admin/tabella.html', {'table_create_form': table_create_form, 'structure_id': structure_id})
             except Exception as e:
                 error_message = str(e)
                 messages.add_message(request, messages.ERROR, 'Errore durante il salvataggio della tabella: ' + error_message)
-                return render(request, 'admin/tabella.html', {'table_create_form': table_create_form})
+                return render(request, 'admin/tabella.html', {'table_create_form': table_create_form, 'structure_id': structure_id})
         else:
             messages.add_message(request, messages.ERROR, 'Il form non è valido.')
-            return render(request, 'admin/tabella.html', {'table_create_form': table_create_form})
+            return render(request, 'admin/tabella.html', {'table_create_form': table_create_form, 'structure_id': structure_id})
 
 
 class AdminCampoTabellaView(View):
@@ -234,3 +239,5 @@ class AdminCampoTabellaView(View):
                 return render(request, 'admin/campo_tabella.html', {'field_create_form': field_create_form})
         
         return render(request, 'admin/campo_tabella.html', {'field_create_form': field_create_form})
+
+        

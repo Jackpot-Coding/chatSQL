@@ -17,11 +17,17 @@
 </form>
 
 {% if editing_id %}
+<!-- lista per mostrare tabelle -->
+<h2>Lista Tabelle presenti nella struttura {{editing_id}}: </h2>
+<ul>
+    {% for table in tables %}
+        <li> {{ table.nome }} </li>
+    {% empty %}
+        Nessuna Tabella in questa struttura
+    {% endfor %}
+</ul>
+<a href="{% url 'new_table_view' editing_id %}">Aggiungi Tabella</a><br>
 <a href="{% url 'model_delete' 'StrutturaDatabase' editing_id %}">Elimina struttura database</a>
-{% endif %}
-{% if editing_id %}
-<br>
-<a href="{% url 'new_table_view' editing_id %}">Aggiungi una nuova tabella</a>
 {% endif %}
 
 {% endblock content %}
