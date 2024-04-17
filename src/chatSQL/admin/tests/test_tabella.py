@@ -30,6 +30,37 @@ class CreateTableTestCase(TestCase):
         response = self.client.post(reverse('new_table_view', args=(self.db.pk,)), data)
         self.assertEqual(response.status_code, 200) #tabella creata
         self.assertTrue(Tabella.objects.filter(nome='Test Table').exists()) # tabella corretta
+    
+    def test_invalid_form_create_table(self):
+        data = {'nome': '', 'descrizione': 'Test Description', 'sinonimi': 'sinonimo'}
+        response = self.client.post(reverse('new_table_view', args=(self.db.pk,)), data)
+        self.assertEqual(response.status_code, 200)
+        self.assertFalse(Tabella.objects.filter(nome='Test Table').exists())
+    
+    # def test errori tabella (doppio nome)
+    
+    ''' Per Marco Gobbo
+        def modifica tabella:
+        può raggiungere la pagina di modifica?
+        nome già esistente 
+        modifica non valida
+        verifica modifica
+    '''    
+class TabellaFormTestCase(TestCase):
+
+    def test_create_structure_invalid_name(self):
+        data = {'nome': '', 'descrizione': 'Test Description', 'sinonimi': 'sinonimo'}
+        self.assertFalse(TabellaForm(data).is_valid())
         
-#class TabellaFormTestCase(TestCase):
+    def test_create_structure_invalid_description(self):
+        data = {'nome': 'Test Tabella', 'descrizione': '', 'sinonimi': 'sinonimo'}
+        self.assertFalse(TabellaForm(data).is_valid())
+        
+    def test_create_structure_invalid_synonymous(self):
+        data = {'nome': 'Test Tabella', 'descrizione': 'Descrizione', 'sinonimi': ''}
+        self.assertTrue(TabellaForm(data).is_valid()) # True perché può non avere sinonimi
+    
+    def test_create_structure_invalid_data(self):
+        data = {'nome': '', 'descrizione': '', 'sinonimi': ''}
+        self.assertFalse(TabellaForm(data).is_valid())
     
