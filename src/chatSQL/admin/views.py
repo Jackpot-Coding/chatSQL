@@ -189,6 +189,9 @@ class AdminTabellaView(View):
 class AdminCampoView(View):
     def get(self,request,table_id=None,field_id=None):
         if field_id is not None:
+            if not models.Campo.objects.filter(pk=field_id).exists():
+                messages.add_message(request, messages.ERROR, 'Il campo selezionato non esiste.')
+                return render(request, 'admin/base.html')
             field=models.Campo.objects.get(pk=field_id)
             field_create_form=forms.CampoForm(initial={'nome':field.nome,'tipo':field.tipo,'descrizione':field.descrizione,'sinonimi':field.sinonimi})
             return  render(request, 'admin/campo.html', {'field_create_form': field_create_form,'editing_id':field_id})
