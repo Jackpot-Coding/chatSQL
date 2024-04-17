@@ -58,7 +58,7 @@ class AdminStrutturaDatabaseView(View):
         if structure_id is not None: # la view mostra il form pre-compilato per la modifica
             struttura = models.StrutturaDatabase.objects.get(pk=structure_id)
             db_create_form = forms.StrutturaDatabaseForm(initial={'nome':struttura.nome,'descrizione':struttura.descrizione})
-            return render(request, 'admin/struttura_db.html', {'db_create_form': db_create_form,'editing_id':structure_id})
+            return render(request, 'admin/struttura_db.html', {'db_create_form': db_create_form,'editing_id':structure_id, 'tables':struttura.tabella_set.all()})
     
         db_create_form = forms.StrutturaDatabaseForm #mostra il form vuoto per l'inserimento
         return render(request, 'admin/struttura_db.html', {'db_create_form': db_create_form})
