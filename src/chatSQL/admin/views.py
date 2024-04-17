@@ -58,7 +58,9 @@ class AdminStrutturaDatabaseView(View):
         if structure_id is not None: # la view mostra il form pre-compilato per la modifica
             struttura = models.StrutturaDatabase.objects.get(pk=structure_id)
             db_create_form = forms.StrutturaDatabaseForm(initial={'nome':struttura.nome,'descrizione':struttura.descrizione})
-            return render(request, 'admin/struttura_db.html', {'db_create_form': db_create_form,'editing_id':structure_id, 'tables':struttura.tabella_set.all()})
+            return render(request, 'admin/struttura_db.html', {'db_create_form': db_create_form,
+                                                               'editing_id':structure_id, 
+                                                               'tables':struttura.tabella_set.all()})
     
         db_create_form = forms.StrutturaDatabaseForm #mostra il form vuoto per l'inserimento
         return render(request, 'admin/struttura_db.html', {'db_create_form': db_create_form})
@@ -191,7 +193,7 @@ class AdminCampoTabellaView(View):
             field_create_form=forms.CampoTabella(initial={'nome':field.nome,'tipo':field.tipo,'descrizione':field.descrizione,'sinonimi':field.sinonimi})
             return  render(request, 'admin/campo_tabella.html', {'field_create_form': field_create_form,'editing_id':field_id})
         if not models.Tabella.objects.filter(pk=table_id).exists():
-                return render(request, 'admin/campo_tabella.html', {'field_create_form': "Tabella non esistente"})
+            return render(request, 'admin/campo_tabella.html', {'field_create_form': "Tabella non esistente"})
         field_create_form=forms.CampoTabella
         return render(request, 'admin/campo_tabella.html', {'field_create_form': field_create_form})
     
@@ -240,5 +242,3 @@ class AdminCampoTabellaView(View):
                 return render(request, 'admin/campo_tabella.html', {'field_create_form': field_create_form})
         
         return render(request, 'admin/campo_tabella.html', {'field_create_form': field_create_form})
-
-        
