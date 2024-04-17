@@ -185,19 +185,17 @@ class AdminTabellaView(View):
 
 
 class AdminCampoTabellaView(View):
-    def get(self,request,structure_id=None,table_id=None,field_id=None):
-        structure=models.StrutturaDatabase.objects.get(pk=structure_id)
-        table=structure.tabella_set.get(pk=table_id)
+    def get(self,request,table_id=None,field_id=None):
         if field_id is not None:
-            field=table.campo_set.get(pk=field_id)
+            field=models.Campo.objects.get(pk=field_id)
             field_create_form=forms.CampoTabella(initial={'nome':field.nome,'tipo':field.tipo,'descrizione':field.descrizione,'sinonimi':field.sinonimi})
             return  render(request, 'admin/campo_tabella.html', {'field_create_form': field_create_form,'editing_id':field_id})
+        if not models.Tabella.objects.filter(pk=table_id).exists():
+                return render(request, 'admin/campo_tabella.html', {'field_create_form': "Tabella non esistente"})
         field_create_form=forms.CampoTabella
         return render(request, 'admin/campo_tabella.html', {'field_create_form': field_create_form})
     
-    def post(self,request,structure_id=None,table_id=None,field_id=None):
-        structure=models.StrutturaDatabase.objects.get(pk=structure_id)
-        table=structure.tabella_set.get(pk=table_id)
+    def post(self,request,table_id=None,field_id=None):
         field_create_form=forms.CampoTabella(request.POST)
         if field_create_form.is_valid():
             try:
@@ -208,11 +206,13 @@ class AdminCampoTabellaView(View):
 
                 if field_id is not None:
 
-                    if table.campo_set.filter(nome=nome).exists():
+                    table=models.Campo.objects.get(pk=field_id).tabella
+                    
+                    if table.campo_set.filter(nome=nome).filter(~Q(pk=field_id)).exists():
                         field_create_form.add_error('nome', 'Un campo con questo nome è già esistente.')
                         return render(request, 'admin/campo_tabella.html', {'field_create_form': field_create_form,'editing_id':field_id})
                     
-                    field=table.campo_set.get(pk=field_id)
+                    field=models.Campo.objects.get(pk=field_id)
                     field.nome=nome
                     field.tipo=tipo
                     field.descrizione=descrizione
@@ -224,6 +224,7 @@ class AdminCampoTabellaView(View):
                                                                   'sinonimi':field.sinonimi})
                     return  render(request, 'admin/campo_tabella.html', {'field_create_form': field_create_form,'editing_id':field_id})
                 
+                table=models.Tabella.objects.get(pk=table_id)
                 if table.campo_set.filter(nome=nome).exists():
                     field_create_form.add_error('nome', 'Un campo con questo nome è già esistente.')
                     return render(request, 'admin/campo_tabella.html', {'field_create_form': field_create_form,'editing_id':field_id})
@@ -231,7 +232,7 @@ class AdminCampoTabellaView(View):
                 field=table.campo_set.create(nome=nome,tipo=tipo,descrizione=descrizione,sinonimi=sinonimi)
                 messages.add_message(request, messages.SUCCESS, 'Campo creato con successo')
                 
-                return redirect('campo_view',structure_id,table_id,field.id)
+                return redirect('campo_view',field.id)
                 
             except Exception as e:
                 error_message = str(e)

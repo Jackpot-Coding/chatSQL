@@ -59,7 +59,7 @@ class LogoutTestCase(TestCase):
         
         self.assertEqual(response.status_code,302)
         self.assertRedirects(response,reverse('admin_login'))
-        self.assertEquals(messages[0].tags,"error")
+        self.assertEqual(messages[0].tags,"error")
         self.assertTrue("Impossibile effettuare il logout" in messages[0].message)
 
 
