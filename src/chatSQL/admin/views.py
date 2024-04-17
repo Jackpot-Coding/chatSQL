@@ -144,11 +144,11 @@ class AdminEliminaModelView(View):
             
             
 class AdminCreaTabellaView(View):
-    def get(self, request):
+    def get(self, request, structure_id):
         create_table = forms.TabellaForm
-        return render(request, 'admin/tabella.html', {'create_table': create_table})
+        return render(request, 'admin/tabella.html', {'create_table': create_table, 'structure_id': structure_id})
     
-    def post(self, request):
+    def post(self, request, structure_id):
         
         # raccoglie dati dal form
         create_table = forms.TabellaForm(request.POST)
@@ -160,7 +160,7 @@ class AdminCreaTabellaView(View):
             descrizione = create_table.cleaned_data["descrizione"]
             # sinonimi = (create_table.cleaned_data["sinonimi"]).split(", ")
             sinonimi = create_table.cleaned_data["sinonimi"]
-            struttura = create_table.cleaned_data.get('struttura')
+            struttura = models.StrutturaDatabase.objects.get(pk = structure_id)
             
             # creazione oggetto tabella
             table = models.Tabella(

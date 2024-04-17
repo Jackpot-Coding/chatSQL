@@ -15,8 +15,8 @@ class TabellaForm(forms.Form):
     nome = forms.CharField(max_length=255, required=True, label="nome")
     descrizione = forms.CharField(widget=forms.Textarea, label="descrizione")
     sinonimi = forms.CharField(max_length=255, required=False, label="sinonimi")
-    struttura = forms.ModelChoiceField(queryset=StrutturaDatabase.objects.all(), label="struttura_db")    
-    #struttura = forms.CharField(max_length=255, required=True, label="struttura_db")    
+    # rimosso perché fk presa da url
+    # struttura = forms.ModelChoiceField(queryset=StrutturaDatabase.objects.all(), label="struttura_db")
     
     
 class EliminaForm(forms.Form):
