@@ -117,7 +117,7 @@
 	\begin{flushright}
 		\begin{spacing}{1}
 			USO: ESTERNO\\
-			VERSIONE: 0.0.10\\
+			VERSIONE: 0.0.11\\
 		\end{spacing}
 	\end{flushright}
 	
@@ -136,6 +136,8 @@
 				\rowcolor{teal!50}
 				\hline
 				\textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Modifica} \\
+				\hline
+				0.0.11 & 18/04/2024 & G. Moretto & - & Aggiunta dei digrammi delle classi\\
 				\hline
 				0.0.10 & 10/04/2024 & G. Moretto & - & Aggiunta dello strumento di testing coveralls.io\\
 				\hline
@@ -166,6 +168,9 @@
 	\tableofcontents
 	\pagebreak
 	\textbf{\Large Elenco delle immagini} \\
+	\makeatletter
+	\@starttoc{lof}% Print List of Figures
+	\makeatother
 	
 	\pagebreak
 	\textbf{\Large Elenco delle tabelle} \\
@@ -312,6 +317,72 @@ E' stato scelta questa architettura in quanto offre i seguenti vantaggi:
 \end{itemize}
 	
 	\subsection{Diagrammi delle classi}
+	
+	\subsubsection{Modelli}
+	
+	\begin{figure}[H]
+		\includegraphics[scale=0.55]{UML_classes/models.png}
+		\caption{Diagramma UML delle classi Model}
+		\centering
+	\end{figure}	
+	
+	Il compito del modello è quello di gestire i dati che vengono utilizzati dall'applicazione. Formano la struttura dei dati dell'intera applicazione e sono rappresentati in un database.\\
+	
+	I modelli definiti derivano dalla classe Model fornita dal framework Django e sono:
+	\begin{itemize}
+		\item \textbf{StrutturaDatabase}: rappresenta le varie strutture database definite dall'amministratore;
+		\item \textbf{Tabella}: rappresenta le tabelle che compongono una Struttura Database;
+		\item \textbf{Campo}: rappresenta i campi che compongono una Tabella. Questo utilizza un enumerazione chiamata TipoCampo che indica le tipologie di campo selezionabili;
+	\end{itemize}
+	
+	Viene inoltre utilizzato il modello User fornito dal framework Django del quale si elencano gli attributi e operazioni più rilevanti.\\
+	
+	
+	\subsubsection{View}
+	
+	\begin{figure}[H]
+		\includegraphics[scale=0.55]{UML_classes/views.png}
+		\caption{Diagramma UML delle classi View}
+		\centering
+	\end{figure}
+
+	
+	Il compito delle view è quella di ricevere richieste dal browser e di restituire risposte sottoforma di pagine HTML o altri elementi che possono essere visualizzati da un browser.\\
+	
+	Le view definite derivano dalla classe View fornita dal framework Django e sono divise per area principale e area amministrativa.\\
+	
+	La view dell'area principare è MainView e si occupa di ricevere la richiesta di generazione del prompt dall'utente e di restituirlo.
+	Per fare questo utilizza una classe chiamata PromptCreator che si occupa di generare il prompt per la richiesta ricevuta dalla view.\\
+	
+	Le view dell'area amministrativa sono:
+	\begin{itemize}
+		\item \textbf{AdminLoginView}: responsabile per l'autenticazione dell'amministratore;
+		\item \textbf{AdminLogoutView}: responsabile per il logout dell'amministratore;
+		\item \textbf{AdminHomeView}: resituisce la pagina home dell'area amministrativa dove è presente la lista delle Strutture Database e il link per la creazione delle stesse;
+		\item \textbf{AdminStrutturaDatabaseView}: restituisce la pagina di creazione e modifica della StrutturaDatabase e la lista delle tabelle che la compongono;
+		\item \textbf{AdminTabellaView}: restituisce la pagina di creazione e modifica delle Tabelle e la lista dei campi che la compongono;
+		\item \textbf{AdminCampoView}: restituise la pagina di creazione e modifica dei Campi di una tabella;
+		\item \textbf{AdminFileUploadView}: restituisce la pagina per il caricamento di un file di struttura database e utilizza la classe FileUploader per la conversione ed il salvataggio come StrutturaDatabase;
+		\item \textbf{AdminEliminaModelView}: responsabile per l'eliminazione di un oggetto dal database dato il suo id ed il suo modello. Restituisce una pagina per la conferma dell'eliminazione e l'eliminazione stessa;
+	\end{itemize}
+	
+	\subsubsection{Form}
+	\begin{figure}[H]
+			\includegraphics[scale=0.65]{UML_classes/forms.png}
+			\caption{Diagramma UML delle classi Form}
+			\centering
+	\end{figure}
+
+	Il compito delle classi form e quella di definire from HTML sottoforma di classe. Questo per utilizzare le funzioni di validazione e gestione fornite dal framework Django tramite la classe Form dalla quale derivano i form da noi definiti:
+	\begin{itemize}
+		\item \textbf{NLPromptForm}: raccoglie i dati per la generazione del prompt per la generazione della query SQL;
+		\item \textbf{LoginForm}: raccoglie i dati per il login dell'amministratore;
+		\item \textbf{StrutturaDatabaseForm}: raccoglie i dati per la creazione e modifica di una Struttura Database;
+		\item \textbf{TabellaForm}: raccoglie i dati per la creazione e modifica di una Tabella;
+		\item \textbf{CampoForm}: raccoglie i dati per la creazione e modifica di un Campo;
+		\item \textbf{FileUploadForm}: raccoglie i dati per il caricamento del file di struttura database;
+		\item \textbf{EliminaForm}: raccoglie i dati per l'eliminazione di un oggetto dal database;
+	\end{itemize}
 	
 	\subsection{Design pattern utilizzati}
 			\subsubsection{Model-View-Template}
