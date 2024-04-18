@@ -125,11 +125,23 @@ class AdminEliminaModelView(View):
                 id_modello     = elimina_form.cleaned_data['id_modello']
                 
                 if classe_modello == 'StrutturaDatabase':
-                    
+
                     oggetto = models.StrutturaDatabase.objects.get(pk=int(id_modello))
                     oggetto.delete()
                     messages.success(request,"Struttura database eliminata.")
                     return redirect("admin_home")
+                
+                elif classe_modello == 'Tabella':
+                    oggetto = models.Tabella.objects.get(pk=int(id_modello))
+                    oggetto.delete()
+                    messages.success(request, "Tabella eliminata")
+                    return redirect("db_view")
+
+                elif classe_modello == 'Campo':
+                    oggetto = models.Campo.objects.get(pk=int(id_modello))
+                    oggetto.delete()
+                    messages.success(request, "Campo eliminato")
+                    return redirect("table_view")
             
                 #se non trova una classe esplicitatamente abilitata
                 messages.error(request,"Errore durante la richiesta di eliminazione")
