@@ -24,7 +24,7 @@ class AdminLoginView(View):
                 if user is not None :
                     login(request,user)
                     messages.add_message(request,messages.SUCCESS,"Autenticazione avvenuta con successo")
-                    return render(request,"admin/login.html",{"login_form":login_form})
+                    return render(request,"admin/home.html",{"login_form":login_form})
                 #else
                 login_form.add_error("username","Credenziali non corrette.")
                 return render(request,"admin/login.html",{"login_form":login_form})
