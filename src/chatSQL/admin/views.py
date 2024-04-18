@@ -145,8 +145,8 @@ class AdminEliminaModelView(View):
             return redirect(request.get_full_path()) #ritorna l'url precedente
 
 class AdminTabellaView(View):
-    def get(self,request,structure_id,table_id=None):
-        #if structure_id is not None:
+    def get(self,request,structure_id=None, table_id=None):
+     if structure_id is not None:
         db_structure = models.StrutturaDatabase.objects.get(pk=structure_id)
         if table_id is not None: # sono nella sezione di modifica/visualizza
             table = db_structure.tabella_set.get(pk=table_id)
@@ -155,16 +155,15 @@ class AdminTabellaView(View):
         # In caso di crea tabella
         table_create_form = forms.TabellaForm
         return render(request, 'admin/tabella.html', {'table_create_form': table_create_form, 'structure_id': structure_id})
-        '''else: per la parte di structure id
-            # visualizza tabella per eventuale modifica
-            if table_id is not None:
-                table = models.Tabella.objects.get(pk = table_id)
-                # db_id = table.struttura
-                table_create_form = forms.TabellaForm(initial={'nome':table.nome,'descrizione':table.descrizione,'sinonimi':table.sinonimi})
-                return render(request, 'admin/tabella.html', {'table_create_form': table_create_form, 'structure_id': table.struttura})
-                # return redirect('table_modify', {'table_create_form': table_create_form, 'structure_id': table.struttura, 'table_id': table_id})
-            # else: sto visualizzando una tabella, non può essere senza tabella id
-        '''
+     else:
+        if table_id is not None:
+            table = models.Tabella.objects.get(pk = table_id)
+            #db_id = table.struttura
+            table_create_form = forms.TabellaForm(initial={'nome':table.nome,'descrizione':table.descrizione,'sinonimi':table.sinonimi})
+            return render(request, 'admin/tabella.html', {'table_create_form': table_create_form, 'table_id': table_id})
+            # return redirect('table_modify', {'table_create_form': table_create_form, 'structure_id': table.struttura, 'table_id': table_id})
+        # else: sto visualizzando una tabella, non può essere senza tabella id
+    
     
     def post(self,request,structure_id, table_id=None): # table_id = None per eventuale visualizza/modifica
         db_structure = models.StrutturaDatabase.objects.get(pk=structure_id)
