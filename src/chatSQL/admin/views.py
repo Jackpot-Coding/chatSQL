@@ -133,15 +133,19 @@ class AdminEliminaModelView(View):
                 
                 elif classe_modello == 'Tabella':
                     oggetto = models.Tabella.objects.get(pk=int(id_modello))
+                    db = oggetto.struttura.pk
                     oggetto.delete()
                     messages.success(request, "Tabella eliminata")
-                    return redirect("db_view")
+                    #return redirect("../../struttureDB/"+str(db))
+                    return redirect("db_view", db)
 
                 elif classe_modello == 'Campo':
                     oggetto = models.Campo.objects.get(pk=int(id_modello))
+                    tab = oggetto.tabella.pk
                     oggetto.delete()
                     messages.success(request, "Campo eliminato")
-                    return redirect("table_view")
+                    #return redirect("../../tabella/"+str(tab))
+                    return redirect("table_view", tab)
             
                 #se non trova una classe esplicitatamente abilitata
                 messages.error(request,"Errore durante la richiesta di eliminazione")

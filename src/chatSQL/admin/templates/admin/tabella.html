@@ -17,4 +17,6 @@
     <button type="submit">Submit</button>
 </form>
 
-{% endblock content %}
+{% endblock content %}{% if table_id %}
+<a href="{% url 'model_delete' 'Tabella' table_id %}">Elimina tabella</a>
+{% endif %}
