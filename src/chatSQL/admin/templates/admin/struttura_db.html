@@ -3,6 +3,10 @@
 
 {%block title%}Crea struttura Database - {%endblock%}
 
+{% block breadcrumb %}
+    Ti trovi in: {{ struttura_nome }}
+{% endblock breadcrumb %}
+
 {% block content %}
 
 {% if form.errors %}

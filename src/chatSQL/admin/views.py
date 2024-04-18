@@ -59,11 +59,12 @@ class AdminStrutturaDatabaseView(View):
             struttura = models.StrutturaDatabase.objects.get(pk=structure_id)
             db_create_form = forms.StrutturaDatabaseForm(initial={'nome':struttura.nome,'descrizione':struttura.descrizione})
             return render(request, 'admin/struttura_db.html', {'db_create_form': db_create_form,
-                                                               'editing_id':structure_id, 
+                                                               'editing_id':structure_id,
+                                                               'struttura_nome':struttura.nome, 
                                                                'tables':struttura.tabella_set.all()})
     
         db_create_form = forms.StrutturaDatabaseForm #mostra il form vuoto per l'inserimento
-        return render(request, 'admin/struttura_db.html', {'db_create_form': db_create_form})
+        return render(request, 'admin/struttura_db.html', {'db_create_form': db_create_form,'struttura_nome':'Nuova struttura'})
 
     def post(self, request,structure_id=None):
         db_create_form = forms.StrutturaDatabaseForm(request.POST)
@@ -194,13 +195,19 @@ class AdminCampoView(View):
                 return render(request, 'admin/base.html')
             field=models.Campo.objects.get(pk=field_id)
             field_create_form=forms.CampoForm(initial={'nome':field.nome,'tipo':field.tipo,'descrizione':field.descrizione,'sinonimi':field.sinonimi})
-            return  render(request, 'admin/campo.html', {'field_create_form': field_create_form,'editing_id':field_id})
+            return  render(request, 'admin/campo.html', {'field_create_form': field_create_form,
+                                                         'struttura':field.tabella.struttura,
+                                                         'tabella':field.tabella,
+                                                         'campo_nome':field.nome})
         field_create_form=forms.CampoForm
         if not models.Tabella.objects.filter(pk=table_id).exists():
             messages.add_message(request, messages.ERROR, 'La tabella selezionata non esiste.')
             return render(request, 'admin/base.html')
-        return render(request, 'admin/campo.html', {'field_create_form': field_create_form})
-    
+        return render(request, 'admin/campo.html', {'field_create_form': field_create_form,
+                                                    'struttura':models.Tabella.objects.get(pk=table_id).struttura,
+                                                    'tabella':models.Tabella.objects.get(pk=table_id),
+                                                    'campo_nome':'Nuovo campo'})
+
     def post(self,request,table_id=None,field_id=None):
         field_create_form=forms.CampoForm(request.POST)
         if field_create_form.is_valid():

@@ -2,6 +2,10 @@
 
 {%block title%}Crea campo tabella - {%endblock%}
 
+{% block breadcrumb %}
+    Ti trovi in: <a href="{% url 'db_view' struttura.pk %}">{{ struttura.nome }}</a> &gt&gt <a href="">{{ tabella.nome }}</a> &gt&gt {{ campo_nome }}
+{% endblock breadcrumb %}
+
 {% block content %}
 
 {% if form.errors %}
