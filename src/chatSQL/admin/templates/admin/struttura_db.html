@@ -4,7 +4,11 @@
 {%block title%}Crea struttura Database - {%endblock%}
 
 {% block breadcrumb %}
+{% if struttura_nome %}
     Ti trovi in: {{ struttura_nome }}
+{% else %}
+    C'è stato un problema con l'inserimento dei dati. Torna alla <a href="{% url 'admin_home' %}">home</a>
+{% endif %}
 {% endblock breadcrumb %}
 
 {% block content %}
