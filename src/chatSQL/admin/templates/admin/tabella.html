@@ -2,8 +2,6 @@
 
 {%block title%}Crea tabella - {%endblock%}
 
-{% block content %}
-
 {% block breadcrumb %}
 {% if table_id is not None %}
 Ti trovi in: <a href="{% url 'db_view' struttura_db.id %}">{{ struttura_db.nome }}</a>
@@ -13,6 +11,7 @@ Ti trovi in: Nuova tabella
 {% endif %}
 {%endblock%}
 
+{% block content %}
 
 {% if table_id is not None %}
     <h1> Modifica tabella </h1>
