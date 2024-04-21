@@ -111,3 +111,12 @@ class TabellaFormTestCase(TestCase):
         data = {'nome': '', 'descrizione': '', 'sinonimi': ''}
         self.assertFalse(TabellaForm(data).is_valid())
     
+class TabellaModelTestCase(TestCase):
+    
+    def test_can_get_str_of_campo(self):
+        db = StrutturaDatabase(nome="Test DB",descrizione="Description for test")
+        db.save()
+        t=db.tabella_set.create(nome="Test table",descrizione="Description for test",sinonimi="Synonyms for test")
+
+        tabella = Tabella.objects.get(pk=1)
+        self.assertEqual(tabella.__str__(),"Test table")

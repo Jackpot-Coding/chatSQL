@@ -118,3 +118,15 @@ class CampoFormTestCase(TestCase):
     def test_create_structure_invalid_type(self):
         data = {'nome':'Test field','tipo':'','descrizione':'Description for test','sinonimi':'Synonyms for test'}
         self.assertFalse(CampoForm(data).is_valid())
+        
+class CampoModelTestCase(TestCase):
+    
+    def test_can_get_str_of_campo(self):
+        db = StrutturaDatabase(nome="Test DB",descrizione="Description for test")
+        db.save()
+        t=db.tabella_set.create(nome="Test table",descrizione="Description for test",sinonimi="Synonyms for test")
+        t.campo_set.create(nome='Test field',tipo='INT',descrizione='Description for test',sinonimi='Synonyms for test')
+
+        campo = Campo.objects.get(pk=1)
+        self.assertEqual(campo.__str__(),"Test field")
+        
