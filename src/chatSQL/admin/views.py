@@ -59,9 +59,9 @@ class AdminStrutturaDatabaseView(View):
             struttura = models.StrutturaDatabase.objects.get(pk=structure_id)
             db_create_form = forms.StrutturaDatabaseForm(initial={'nome':struttura.nome,'descrizione':struttura.descrizione})
             return render(request, 'admin/struttura_db.html', {'db_create_form': db_create_form,
-                                                               'editing_id':structure_id,
-                                                               'struttura_nome':struttura.nome, 
-                                                               'tables':struttura.tabella_set.all()})
+                                                            'editing_id':structure_id,
+                                                            'struttura_nome':struttura.nome, 
+                                                            'tables':struttura.tabella_set.all()})
     
         db_create_form = forms.StrutturaDatabaseForm #mostra il form vuoto per l'inserimento
         return render(request, 'admin/struttura_db.html', {'db_create_form': db_create_form,'struttura_nome':'Nuova struttura'})
@@ -80,7 +80,7 @@ class AdminStrutturaDatabaseView(View):
                     if models.StrutturaDatabase.objects.filter(nome=nome).filter(~Q(pk=structure_id)).exists():
                         db_create_form.add_error('nome', 'Un database con questo nome è già esistente.')
                         return render(request, 'admin/struttura_db.html', {'db_create_form': db_create_form,'editing_id':structure_id,
-                                                                           'struttura_nome':db_structure.nome})
+                                                                            'struttura_nome':db_structure.nome})
                     
                     db_structure.nome = nome
                     db_structure.descrizione = descrizione
@@ -88,7 +88,8 @@ class AdminStrutturaDatabaseView(View):
                     
                     db_create_form = forms.StrutturaDatabaseForm(initial={'nome':db_structure.nome,'descrizione':db_structure.descrizione})
                     messages.add_message(request, messages.SUCCESS, 'Struttura modificata con successo')
-                    return render(request, 'admin/struttura_db.html', {'db_create_form': db_create_form,'editing_id':structure_id, 'tables':db_structure.tabella_set.all()})
+                    return render(request, 'admin/struttura_db.html', {'db_create_form': db_create_form,'editing_id':structure_id, 
+                                                                        'tables':db_structure.tabella_set.all()})
 
                     
                 
@@ -133,7 +134,7 @@ class AdminEliminaModelView(View):
                     messages.success(request,"Struttura database eliminata.")
                     return redirect("admin_home")
                 
-                elif classe_modello == 'Tabella':
+                if classe_modello == 'Tabella':
                     oggetto = models.Tabella.objects.get(pk=int(id_modello))
                     db = oggetto.struttura.pk
                     oggetto.delete()
@@ -141,7 +142,7 @@ class AdminEliminaModelView(View):
                     #return redirect("../../struttureDB/"+str(db))
                     return redirect("db_view", db)
 
-                elif classe_modello == 'Campo':
+                if classe_modello == 'Campo':
                     oggetto = models.Campo.objects.get(pk=int(id_modello))
                     tab = oggetto.tabella.pk
                     oggetto.delete()
@@ -163,25 +164,30 @@ class AdminEliminaModelView(View):
             return redirect(request.get_full_path()) #ritorna l'url precedente
 
 class AdminTabellaView(View):
+    
     def get(self,request,structure_id=None, table_id=None):
-     if structure_id is not None:
-        db_structure = models.StrutturaDatabase.objects.get(pk=structure_id)
-        if table_id is not None: # sono nella sezione di modifica/visualizza
-            table = db_structure.tabella_set.get(pk=table_id)
-            table_create_form = forms.TabellaForm(initial={'nome':table.nome,'descrizione':table.descrizione,'sinonimi':table.sinonimi})
-            return render(request, 'admin/tabella.html', {'table_create_form': table_create_form, 'structure_id':structure_id, 'table_id': table_id, 'fields': table.campo_set.all()})
-        # In caso di crea tabella
-        table_create_form = forms.TabellaForm
-        return render(request, 'admin/tabella.html', {'table_create_form': table_create_form, 'structure_id': structure_id})
-     else:
+        
+        if structure_id is not None:
+            db_structure = models.StrutturaDatabase.objects.get(pk=structure_id)
+            
+            if table_id is not None: # sono nella sezione di modifica/visualizza
+                table = db_structure.tabella_set.get(pk=table_id)
+                table_create_form = forms.TabellaForm(initial={'nome':table.nome,'descrizione':table.descrizione,'sinonimi':table.sinonimi})
+                return render(request, 'admin/tabella.html', {'table_create_form': table_create_form, 'structure_id':structure_id, 
+                                                                'table_id': table_id, 'fields': table.campo_set.all()})
+            # In caso di crea tabella
+            table_create_form = forms.TabellaForm
+            return render(request, 'admin/tabella.html', {'table_create_form': table_create_form, 'structure_id': structure_id})
+        
         if table_id is not None:
             table = models.Tabella.objects.get(pk = table_id)
             #db_id = table.struttura
             table_create_form = forms.TabellaForm(initial={'nome':table.nome,'descrizione':table.descrizione,'sinonimi':table.sinonimi})
             return render(request, 'admin/tabella.html', {'table_create_form': table_create_form, 'table_id': table_id, 'fields': table.campo_set.all()})
-            # return redirect('table_modify', {'table_create_form': table_create_form, 'structure_id': table.struttura, 'table_id': table_id})
+
         # else: sto visualizzando una tabella, non può essere senza tabella id
-    
+        messages.error(request,"Tabella non trovata")
+        return redirect('admin_home')    
     
     def post(self,request,structure_id=None, table_id=None): # table_id = None per eventuale visualizza/modifica
         table_create_form = forms.TabellaForm(request.POST)
@@ -208,19 +214,21 @@ class AdminTabellaView(View):
                     messages.add_message(request, messages.SUCCESS, 'Tabella creata con successo')
                     return render(request, 'admin/tabella.html', {'table_create_form': table_create_form, 'structure_id': structure_id, 'table_id':table.pk})
                 
-                else: # modifica/visualizza
-                    table = models.Tabella.objects.get(pk=table_id)
-                    if table.nome != nome:  # Controllo solo se il nome viene modificato
-                        if table.struttura.tabella_set.filter(nome=nome).exists():
-                            messages.error(request, 'Una tabella con questo nome è già esistente.')
-                            return render(request, 'admin/tabella.html', {'table_create_form': table_create_form, 'structure_id': structure_id, 'table_id': table_id})
-                    
-                    table.nome = nome
-                    table.descrizione = descrizione
-                    table.sinonimi = sinonimi
-                    table.save()
-                    messages.add_message(request, messages.SUCCESS, 'Tabella modificata con successo')
-                    return render(request, 'admin/tabella.html', {'table_create_form': table_create_form, 'structure_id': structure_id, 'table_id':table.pk, 'fields': table.campo_set.all()})
+                # modifica/visualizza
+                table = models.Tabella.objects.get(pk=table_id)
+                if table.nome != nome:  # Controllo solo se il nome viene modificato
+                    if table.struttura.tabella_set.filter(nome=nome).exists():
+                        messages.error(request, 'Una tabella con questo nome è già esistente.')
+                        return render(request, 'admin/tabella.html', {'table_create_form': table_create_form, 
+                                                                    'structure_id': structure_id, 'table_id': table_id})
+                
+                table.nome = nome
+                table.descrizione = descrizione
+                table.sinonimi = sinonimi
+                table.save()
+                messages.add_message(request, messages.SUCCESS, 'Tabella modificata con successo')
+                return render(request, 'admin/tabella.html', {'table_create_form': table_create_form, 
+                                                            'structure_id': structure_id, 'table_id':table.pk, 'fields': table.campo_set.all()})
                 
             except Exception as e:
                 error_message = str(e)
@@ -240,9 +248,9 @@ class AdminCampoView(View):
             field=models.Campo.objects.get(pk=field_id)
             field_create_form=forms.CampoForm(initial={'nome':field.nome,'tipo':field.tipo,'descrizione':field.descrizione,'sinonimi':field.sinonimi})
             return  render(request, 'admin/campo.html', {'field_create_form': field_create_form,
-                                                         'struttura':field.tabella.struttura,
-                                                         'tabella':field.tabella,
-                                                         'campo_nome':field.nome})
+                                                            'struttura':field.tabella.struttura,
+                                                            'tabella':field.tabella,
+                                                            'campo_nome':field.nome})
         field_create_form=forms.CampoForm
         if not models.Tabella.objects.filter(pk=table_id).exists():
             messages.add_message(request, messages.ERROR, 'La tabella selezionata non esiste.')
@@ -279,11 +287,11 @@ class AdminCampoView(View):
                     field.sinonimi=sinonimi
                     field.save()
                     field_create_form=forms.CampoForm(initial={'nome':field.nome,
-                                                                  'tipo':field.tipo,
-                                                                  'descrizione':field.descrizione,
-                                                                  'sinonimi':field.sinonimi})
+                                                                    'tipo':field.tipo,
+                                                                    'descrizione':field.descrizione,
+                                                                    'sinonimi':field.sinonimi})
                     return  render(request, 'admin/campo.html', {'field_create_form': field_create_form,
-                                                                 'struttura':table.struttura,
+                                                                'struttura':table.struttura,
                                                                 'tabella':table,
                                                                 'campo_nome':table.campo_set.get(pk=field_id).nome})
                 
