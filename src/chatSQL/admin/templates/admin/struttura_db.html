@@ -28,8 +28,8 @@
 <!-- lista per mostrare tabelle -->
 <h2>Lista Tabelle presenti nella struttura {{editing_id}}: </h2>
 <ul>
-    {% for table in tables %}
-        <li> {{ table.nome }} </li>
+    {% for table in tables %}                 <!-- passa a visualizza/modifica e passa table_id -->
+        <li> {{ table.nome }} - <a href="{% url 'table_view' table_id=table.id %}">Visualizza</a></li>
     {% empty %}
         Nessuna Tabella in questa struttura
     {% endfor %}

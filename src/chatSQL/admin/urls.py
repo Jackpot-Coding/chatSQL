@@ -14,5 +14,6 @@ urlpatterns = [
    path('tabella/<int:table_id>/campo/nuovo',login_required(views.AdminCampoView.as_view(),login_url="/admin/login"),
         name="new_campo_view"),
    path('campo/<int:field_id>',login_required(views.AdminCampoView.as_view(),login_url="/admin/login"),
-        name="campo_view")
+        name="campo_view"),
+   path('tabella/<int:table_id>', login_required(views.AdminTabellaView.as_view(), login_url="/admin/login"), name="table_view"),
 ]

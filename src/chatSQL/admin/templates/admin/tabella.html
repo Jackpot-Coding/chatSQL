@@ -4,7 +4,11 @@
 
 {% block content %}
 
+{% if table_id is not None %}
+<h1> Modifica tabella </h1>
+{% else %}
 <h1>Crea tabella</h1>
+{% endif %}
 
 {% if form.errors %}
     <div class="alert alert-danger">
@@ -17,4 +21,18 @@
     <button type="submit">Submit</button>
 </form>
 
-{% endblock content %}
+{% if table_id %}
+<!-- lista campi della tabella -->
+<h2>Lista Campi presenti nella tabella {{table_id}}: </h2>
+<ul>
+    {% for field in fields %}
+        <li>{{ field.nome }} - {{ field.tipo }} - <a href="{% url 'campo_view' field_id=field.id %}">Modifica</a></li>
+    {% empty %}
+        <li>Nessun campo presente nella tabella.</li>
+    {% endfor %}
+        <li><a href="{% url 'new_campo_view' table_id %}">Aggiungi campo</a></li>
+</ul>
+<a href="{% url 'model_delete' 'Tabella' table_id %}">Elimina tabella</a>
+{% endif %}
+
+{% endblock content %} 
