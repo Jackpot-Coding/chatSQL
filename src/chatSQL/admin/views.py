@@ -86,7 +86,8 @@ class AdminStrutturaDatabaseView(View):
                     db_structure.save()
                     
                     db_create_form = forms.StrutturaDatabaseForm(initial={'nome':db_structure.nome,'descrizione':db_structure.descrizione})
-                    return render(request, 'admin/struttura_db.html', {'db_create_form': db_create_form,'editing_id':structure_id})
+                    messages.add_message(request, messages.SUCCESS, 'Struttura modificata con successo')
+                    return render(request, 'admin/struttura_db.html', {'db_create_form': db_create_form,'editing_id':structure_id, 'tables':db_structure.tabella_set.all()})
 
                     
                 
