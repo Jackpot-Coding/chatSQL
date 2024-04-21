@@ -194,7 +194,7 @@ class AdminTabellaView(View):
                 if table_id is None: # creazione
                     db_structure = models.StrutturaDatabase.objects.get(pk=structure_id)
                     if db_structure.tabella_set.filter(nome=nome).exists():
-                        table_create_form.add_error('nome', 'Una tabella con questo nome è già esistente.')
+                        messages.add_message(request, messages.ERROR, 'Una tabella con questo nome è già esistente.')
                         return render(request, 'admin/tabella.html', {'table_create_form': table_create_form, 'structure_id': structure_id})
                     
                     table = models.Tabella(
