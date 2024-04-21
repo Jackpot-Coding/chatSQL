@@ -181,8 +181,7 @@ class AdminTabellaView(View):
         # else: sto visualizzando una tabella, non può essere senza tabella id
     
     
-    def post(self,request,structure_id, table_id=None): # table_id = None per eventuale visualizza/modifica
-        db_structure = models.StrutturaDatabase.objects.get(pk=structure_id)
+    def post(self,request,structure_id=None, table_id=None): # table_id = None per eventuale visualizza/modifica
         table_create_form = forms.TabellaForm(request.POST)
         if table_create_form.is_valid():
             try:
@@ -192,6 +191,7 @@ class AdminTabellaView(View):
                 # sinonimi = (create_table.cleaned_data["sinonimi"]).split(", ") in caso in futuro si voglia salvare i sinonimi come array
 
                 if table_id is None: # creazione
+                    db_structure = models.StrutturaDatabase.objects.get(pk=structure_id)
                     if db_structure.tabella_set.filter(nome=nome).exists():
                         table_create_form.add_error('nome', 'Una tabella con questo nome è già esistente.')
                         return render(request, 'admin/tabella.html', {'table_create_form': table_create_form, 'structure_id': structure_id})
@@ -204,17 +204,17 @@ class AdminTabellaView(View):
                     )
                     table.save()
                     messages.add_message(request, messages.SUCCESS, 'Tabella creata con successo')
-                    return render(request, 'admin/tabella.html', {'table_create_form': table_create_form, 'structure_id': structure_id})
+                    return render(request, 'admin/tabella.html', {'table_create_form': table_create_form, 'structure_id': structure_id, 'table_id':table.pk})
                 
                 else: # modifica/visualizza
                     table = models.Tabella.objects.get(pk = table_id)
                     table.nome = nome
                     table.descrizione = descrizione
                     table.sinonimi = sinonimi
-                    table.struttura = db_structure
+                    table.struttura = table.struttura
                     table.save()
                     messages.add_message(request, messages.SUCCESS, 'Tabella modificata con successo')
-                    return render(request, 'admin/tabella.html', {'table_create_form': table_create_form, 'structure_id': structure_id})
+                    return render(request, 'admin/tabella.html', {'table_create_form': table_create_form, 'structure_id': structure_id, 'table_id':table.pk, 'fields': table.campo_set.all()})
                 
             except Exception as e:
                 error_message = str(e)
