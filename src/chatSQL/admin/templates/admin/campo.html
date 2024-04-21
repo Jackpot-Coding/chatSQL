@@ -2,6 +2,14 @@
 
 {%block title%}Crea campo tabella - {%endblock%}
 
+{% block breadcrumb %}
+{% if struttura %}
+    Ti trovi in: <a href="{% url 'db_view' struttura.pk %}">{{ struttura.nome }}</a> &gt&gt <a href="">{{ tabella.nome }}</a> &gt&gt {{ campo_nome }}
+{% else %}
+    C'è stato un problema con l'inserimento dei dati. Torna alla <a href="{% url 'admin_home' %}">home</a>
+{% endif %}
+{% endblock breadcrumb %}
+
 {% block content %}
 
 {% if form.errors %}

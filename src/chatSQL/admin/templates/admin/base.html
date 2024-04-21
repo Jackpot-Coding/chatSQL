@@ -20,6 +20,7 @@
       {% else %}
          <a href="{% url 'admin_login' %}">Accedi</a>
       {% endif %}
+      <div class="breadcrumb">{% block breadcrumb %}{% endblock breadcrumb %}</div>
    </header>
 
    {% if messages %}
