@@ -5,16 +5,7 @@
     <title>Prompt</title>
 </head>
 <body>
-    <header>
-        {% if user.is_authenticated %}
-            <nav>
-                <a href="{% url 'admin_home' %}">Home</a>
-            </nav>
-           Autenticato come {{user.username}} - <a href="{% url 'admin_logout' %}">Esci</a>
-        {% else %}
-           <a href="{% url 'admin_login' %}">Accedi</a>
-        {% endif %}
-     </header>
+
     {% if messages %}
         <ul class="messages">
             {% for message in messages %}

@@ -72,10 +72,12 @@ class CreateTableTestCase(TestCase):
     def test_can_edit_table(self):
         db = StrutturaDatabase(nome="Test DB",descrizione="Description for test")
         db.save()
+
         db.tabella_set.create(nome="Test table",descrizione="Description for test",sinonimi="Synonyms for test")
         data={'nome':'Test table edited','descrizione':'Description for test edited','sinonimi':'Synonyms for test edited'}
         response=self.client.post(reverse('table_view',args=(1,)),data)
         editedTable=Tabella.objects.get(pk=1)
+
         self.assertEqual(response.status_code,200)
         self.assertContains(response,'Test table edited')
         self.assertContains(response,'Description for test edited')
@@ -84,6 +86,12 @@ class CreateTableTestCase(TestCase):
         self.assertEqual(editedTable.descrizione,'Description for test edited')
         self.assertEqual(editedTable.sinonimi,'Synonyms for test edited')
         self.assertTemplateUsed(response,'admin/tabella.html')
+        
+    def test_error_with_not_existing_table(self):
+        response = self.client.get(reverse("table_view",args=(10000,)))
+        
+        self.assertEqual(response.status_code,302)
+        self.assertRedirects(response,reverse('admin_home'))
     
 class TabellaFormTestCase(TestCase):
 

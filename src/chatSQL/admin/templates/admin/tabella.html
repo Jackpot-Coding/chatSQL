@@ -4,10 +4,13 @@
 
 {% block content %}
 
+
 {% if table_id is not None %}
-<h1> Modifica tabella </h1>
+    Ti trovi in: <a href="{% url 'db_view' struttura_db.pk %}">{{ struttura_db.nome }}</a> &gt&gt {{table.nome}}
+    <h1> Modifica tabella </h1>
 {% else %}
-<h1>Crea tabella</h1>
+    Ti trovi in: <a href="{% url 'db_view' structure_id %}">{{ struttura_db.nome }}</a> &gt&gt Nuova tabella
+    <h1>Crea tabella</h1>
 {% endif %}
 
 {% if form.errors %}
@@ -23,7 +26,7 @@
 
 {% if table_id %}
 <!-- lista campi della tabella -->
-<h2>Lista Campi presenti nella tabella {{table_id}}: </h2>
+<h2>Lista Campi presenti nella tabella {{table.nome}}: </h2>
 <ul>
     {% for field in fields %}
         <li>{{ field.nome }} - {{ field.tipo }} - <a href="{% url 'campo_view' field_id=field.id %}">Modifica</a></li>

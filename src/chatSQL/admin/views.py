@@ -167,27 +167,29 @@ class AdminTabellaView(View):
     
     def get(self,request,structure_id=None, table_id=None):
         
-        if structure_id is not None:
-            db_structure = models.StrutturaDatabase.objects.get(pk=structure_id)
+        try:
+            if structure_id is not None:
+                                
+                # In caso di crea tabella
+                struttura_db = models.StrutturaDatabase.objects.get(pk=structure_id)
+                table_create_form = forms.TabellaForm
+                return render(request, 'admin/tabella.html', {'table_create_form': table_create_form, 
+                                                            'structure_id': structure_id,'struttura_db':struttura_db})
             
-            if table_id is not None: # sono nella sezione di modifica/visualizza
-                table = db_structure.tabella_set.get(pk=table_id)
+            if table_id is not None:
+                table = models.Tabella.objects.get(pk = table_id)
+                struttura_db = table.struttura
                 table_create_form = forms.TabellaForm(initial={'nome':table.nome,'descrizione':table.descrizione,'sinonimi':table.sinonimi})
-                return render(request, 'admin/tabella.html', {'table_create_form': table_create_form, 'structure_id':structure_id, 
-                                                                'table_id': table_id, 'fields': table.campo_set.all()})
-            # In caso di crea tabella
-            table_create_form = forms.TabellaForm
-            return render(request, 'admin/tabella.html', {'table_create_form': table_create_form, 'structure_id': structure_id})
-        
-        if table_id is not None:
-            table = models.Tabella.objects.get(pk = table_id)
-            #db_id = table.struttura
-            table_create_form = forms.TabellaForm(initial={'nome':table.nome,'descrizione':table.descrizione,'sinonimi':table.sinonimi})
-            return render(request, 'admin/tabella.html', {'table_create_form': table_create_form, 'table_id': table_id, 'fields': table.campo_set.all()})
+                return render(request, 'admin/tabella.html', {'table_create_form': table_create_form, 'struttura_db':struttura_db, 
+                                                            'table_id': table_id,"table":table, 'fields': table.campo_set.all()})
 
-        # else: sto visualizzando una tabella, non può essere senza tabella id
-        messages.error(request,"Tabella non trovata")
-        return redirect('admin_home')    
+            # else: sto visualizzando una tabella, non può essere senza tabella id
+            messages.error(request,"Tabella non trovata.")
+            return redirect('admin_home') 
+        
+        except Exception:
+            messages.error(request,"Tabella non trovata.")
+            return redirect('admin_home') 
     
     def post(self,request,structure_id=None, table_id=None): # table_id = None per eventuale visualizza/modifica
         table_create_form = forms.TabellaForm(request.POST)
@@ -212,7 +214,8 @@ class AdminTabellaView(View):
                     )
                     table.save()
                     messages.add_message(request, messages.SUCCESS, 'Tabella creata con successo')
-                    return render(request, 'admin/tabella.html', {'table_create_form': table_create_form, 'structure_id': structure_id, 'table_id':table.pk})
+                    return render(request, 'admin/tabella.html', {'table_create_form': table_create_form, 'structure_id': structure_id,
+                                                                'struttura_db':table.struttura, 'table_id':table.pk})
                 
                 # modifica/visualizza
                 table = models.Tabella.objects.get(pk=table_id)
@@ -220,14 +223,14 @@ class AdminTabellaView(View):
                     if table.struttura.tabella_set.filter(nome=nome).exists():
                         messages.error(request, 'Una tabella con questo nome è già esistente.')
                         return render(request, 'admin/tabella.html', {'table_create_form': table_create_form, 
-                                                                    'structure_id': structure_id, 'table_id': table_id})
+                                                                    'structure_id': structure_id, 'struttura_db':table.struttura, 'table_id': table_id})
                 
                 table.nome = nome
                 table.descrizione = descrizione
                 table.sinonimi = sinonimi
                 table.save()
                 messages.add_message(request, messages.SUCCESS, 'Tabella modificata con successo')
-                return render(request, 'admin/tabella.html', {'table_create_form': table_create_form, 
+                return render(request, 'admin/tabella.html', {'table_create_form': table_create_form, 'struttura_db':table.struttura,
                                                             'structure_id': structure_id, 'table_id':table.pk, 'fields': table.campo_set.all()})
                 
             except Exception as e:
