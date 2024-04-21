@@ -167,7 +167,7 @@ class AdminTabellaView(View):
         if table_id is not None: # sono nella sezione di modifica/visualizza
             table = db_structure.tabella_set.get(pk=table_id)
             table_create_form = forms.TabellaForm(initial={'nome':table.nome,'descrizione':table.descrizione,'sinonimi':table.sinonimi})
-            return render(request, 'admin/tabella.html', {'table_create_form': table_create_form, 'structure_id':structure_id, 'table_id': table_id})
+            return render(request, 'admin/tabella.html', {'table_create_form': table_create_form, 'structure_id':structure_id, 'table_id': table_id, 'fields': table.campo_set.all()})
         # In caso di crea tabella
         table_create_form = forms.TabellaForm
         return render(request, 'admin/tabella.html', {'table_create_form': table_create_form, 'structure_id': structure_id})
@@ -176,7 +176,7 @@ class AdminTabellaView(View):
             table = models.Tabella.objects.get(pk = table_id)
             #db_id = table.struttura
             table_create_form = forms.TabellaForm(initial={'nome':table.nome,'descrizione':table.descrizione,'sinonimi':table.sinonimi})
-            return render(request, 'admin/tabella.html', {'table_create_form': table_create_form, 'table_id': table_id})
+            return render(request, 'admin/tabella.html', {'table_create_form': table_create_form, 'table_id': table_id, 'fields': table.campo_set.all()})
             # return redirect('table_modify', {'table_create_form': table_create_form, 'structure_id': table.struttura, 'table_id': table_id})
         # else: sto visualizzando una tabella, non può essere senza tabella id
     
