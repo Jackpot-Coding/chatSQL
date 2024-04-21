@@ -24,7 +24,7 @@ class AdminLoginView(View):
                 if user is not None :
                     login(request,user)
                     messages.add_message(request,messages.SUCCESS,"Autenticazione avvenuta con successo")
-                    return render(request,"admin/login.html",{"login_form":login_form})
+                    return render(request,"admin/home.html",{"login_form":login_form})
                 #else
                 login_form.add_error("username","Credenziali non corrette.")
                 return render(request,"admin/login.html",{"login_form":login_form})
@@ -125,11 +125,27 @@ class AdminEliminaModelView(View):
                 id_modello     = elimina_form.cleaned_data['id_modello']
                 
                 if classe_modello == 'StrutturaDatabase':
-                    
+
                     oggetto = models.StrutturaDatabase.objects.get(pk=int(id_modello))
                     oggetto.delete()
                     messages.success(request,"Struttura database eliminata.")
                     return redirect("admin_home")
+                
+                elif classe_modello == 'Tabella':
+                    oggetto = models.Tabella.objects.get(pk=int(id_modello))
+                    db = oggetto.struttura.pk
+                    oggetto.delete()
+                    messages.success(request, "Tabella eliminata")
+                    #return redirect("../../struttureDB/"+str(db))
+                    return redirect("db_view", db)
+
+                elif classe_modello == 'Campo':
+                    oggetto = models.Campo.objects.get(pk=int(id_modello))
+                    tab = oggetto.tabella.pk
+                    oggetto.delete()
+                    messages.success(request, "Campo eliminato")
+                    #return redirect("../../tabella/"+str(tab))
+                    return redirect("table_view", tab)
             
                 #se non trova una classe esplicitatamente abilitata
                 messages.error(request,"Errore durante la richiesta di eliminazione")
