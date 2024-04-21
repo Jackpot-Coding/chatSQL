@@ -36,8 +36,51 @@ class CreateTableTestCase(TestCase):
         response = self.client.post(reverse('new_table_view', args=(self.db.pk,)), data)
         self.assertEqual(response.status_code, 200)
         self.assertFalse(Tabella.objects.filter(nome='Test Table').exists())
-    
-    # def test errori tabella (doppio nome)
+
+    def test_create_table_duplicate_name(self):
+        db = StrutturaDatabase(nome="Test DB",descrizione="Description for test")
+        db.save()
+        db.tabella_set.create(nome="Test table",descrizione="Description for test",sinonimi="Synonyms for test")
+        data={'nome':'Test table','descrizione':'Description for test','sinonimi':'Synonyms for test'}
+        response=self.client.post(reverse('new_table_view',args=(1,)),data)
+        self.assertEqual(response.status_code, 200) 
+        self.assertContains(response, 'Una tabella con questo nome è già esistente.')
+        self.assertFalse(Tabella.objects.filter(nome='Test Table').exists())
+
+    def test_can_reach_table_edit_page(self):
+        db = StrutturaDatabase(nome="Test DB",descrizione="Description for test")
+        db.save()
+        db.tabella_set.create(nome="Test table",descrizione="Description for test",sinonimi="Synonyms for test")
+        response = self.client.get(reverse("table_view",args=(1,)))
+        self.assertEqual(response.status_code,200)
+        self.assertTemplateUsed(response,'admin/tabella.html')
+
+    def test_cannot_edit_table_with_other_existing_name(self):
+        db = StrutturaDatabase(nome="Test DB",descrizione="Description for test")
+        db.save()
+        db.tabella_set.create(nome="Test table",descrizione="Description for test",sinonimi="Synonyms for test")
+        data={'nome':'Test table','descrizione':'Description for test','sinonimi':'Synonyms for test'}
+        response=self.client.post(reverse('table_view',args=(1,)),data)
+        self.assertEqual(response.status_code,200)
+        self.assertTemplateUsed(response,'admin/tabella.html')
+        self.assertContains(response,'Una tabella con questo nome è già esistente.')
+
+    def test_can_edit_table(self):
+        db = StrutturaDatabase(nome="Test DB",descrizione="Description for test")
+        db.save()
+        db.tabella_set.create(nome="Test table",descrizione="Description for test",sinonimi="Synonyms for test")
+        data={'nome':'Test table edited','descrizione':'Description for test edited','sinonimi':'Synonyms for test edited'}
+        response=self.client.post(reverse('table_view',args=(1,)),data)
+        editedTable=Tabella.objects.get(pk=1)
+        self.assertEqual(response.status_code,200)
+        self.assertContains(response,'Test table edited')
+        self.assertContains(response,'Description for test edited')
+        self.assertContains(response,'Synonyms for test edited')
+        self.assertEqual(editedTable.nome,'Test table edited')
+        self.assertEqual(editedTable.descrizione,'Description for test edited')
+        self.assertEqual(editedTable.sinonimi,'Synonyms for test edited')
+        self.assertTemplateUsed(response,'admin/tabella.html')
+     
     
     ''' Per Marco Gobbo
         def modifica tabella:
