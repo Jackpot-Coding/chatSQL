@@ -208,11 +208,15 @@ class AdminTabellaView(View):
                     return render(request, 'admin/tabella.html', {'table_create_form': table_create_form, 'structure_id': structure_id, 'table_id':table.pk})
                 
                 else: # modifica/visualizza
-                    table = models.Tabella.objects.get(pk = table_id)
+                    table = models.Tabella.objects.get(pk=table_id)
+                    if table.nome != nome:  # Controllo solo se il nome viene modificato
+                        if table.struttura.tabella_set.filter(nome=nome).exists():
+                            messages.error(request, 'Una tabella con questo nome è già esistente.')
+                            return render(request, 'admin/tabella.html', {'table_create_form': table_create_form, 'structure_id': structure_id, 'table_id': table_id})
+                    
                     table.nome = nome
                     table.descrizione = descrizione
                     table.sinonimi = sinonimi
-                    table.struttura = table.struttura
                     table.save()
                     messages.add_message(request, messages.SUCCESS, 'Tabella modificata con successo')
                     return render(request, 'admin/tabella.html', {'table_create_form': table_create_form, 'structure_id': structure_id, 'table_id':table.pk, 'fields': table.campo_set.all()})
