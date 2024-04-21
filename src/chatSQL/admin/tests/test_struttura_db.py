@@ -61,7 +61,7 @@ class createStructureTestCase(TestCase):
         db2.save()
         
         data = {"nome":"Test DB1","descrizione":"Description for bad name"}
-        response = self.client.post(reverse('db_view',args=(2,)),data)
+        response = self.client.post(reverse('db_view',args=(db2.id,)),data)
         
         self.assertEqual(response.status_code,200)
         self.assertContains(response, 'Un database con questo nome è già esistente.')

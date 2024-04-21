@@ -9,12 +9,7 @@ class PromptCreator:
     struttura_db = 0
     
     def __init__(self,struttura_db:StrutturaDatabase):
-        if struttura_db:
-            self.struttura_db = struttura_db        
-        else:
-            error = f"Errore: Il database dato non esiste."
-            return PromptGenStatus.DATABASE_NOT_FOUND, error
-        
+        self.struttura_db = struttura_db                
     
     def createPrompt(self,userRequest):
         # Initialize classifier
@@ -66,45 +61,3 @@ class PromptCreator:
                 if noun in table.nome or noun in synonyms:
                     found_tables.append(table)
         return found_tables
-
-# def parse_database_to_json(database_name, tables):
-#     """
-#     Parse database information into JSON format.
-#     """
-#     database_json = {
-#         "database": {
-#             "nome": database_name,
-#             "tabelle": []
-#         }
-#     }
-    
-#     for table in tables:
-#         table_info = {
-#             "nome": table.nome,
-#             "campi": [],
-#             "sinonimi": table.sinonimi
-#         }
-#         fields = Campo.objects.filter(tabella=table)
-#         for field in fields:
-#             field_info = {
-#                 "nome": field.nome,
-#                 "tipo": field.tipo,
-#                 "sinonimi": field.sinonimi
-#             }
-#             table_info["campi"].append(field_info)
-#         database_json["database"]["tabelle"].append(table_info)
-    
-#     return database_json
-
-# def load_database(database_name):
-#     """
-#     Load the database from a JSON file.
-#     """
-#     # Load database
-#     try:
-#         struttura_database = StrutturaDatabase.objects.get(nome=database_name)
-#         tables = Tabella.objects.filter(struttura=struttura_database.pk)
-#     except StrutturaDatabase.DoesNotExist:
-#         error = f"Errore: Il database '{database_name}' non esiste."
-#         return PromptGenStatus.DATABASE_NOT_FOUND, error
-#     return 0, parse_database_to_json(database_name, tables) 

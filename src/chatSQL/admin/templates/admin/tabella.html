@@ -4,12 +4,19 @@
 
 {% block content %}
 
+{% block breadcrumb %}
+{% if table_id is not None %}
+Ti trovi in: <a href="{% url 'db_view' struttura_db.id %}">{{ struttura_db.nome }}</a>
+&gt&gt {{table.nome}}
+{% else %}
+Ti trovi in: Nuova tabella
+{% endif %}
+{%endblock%}
+
 
 {% if table_id is not None %}
-    Ti trovi in: <a href="{% url 'db_view' struttura_db.pk %}">{{ struttura_db.nome }}</a> &gt&gt {{table.nome}}
     <h1> Modifica tabella </h1>
 {% else %}
-    Ti trovi in: <a href="{% url 'db_view' structure_id %}">{{ struttura_db.nome }}</a> &gt&gt Nuova tabella
     <h1>Crea tabella</h1>
 {% endif %}
 
@@ -18,24 +25,26 @@
         {{ form.errors }}
     </div>
 {% endif %}
+
 <form method="post">
     {% csrf_token %}
     {{ table_create_form }}
-    <button type="submit">Submit</button>
+    <button type="submit">Salva</button>
 </form>
 
 {% if table_id %}
 <!-- lista campi della tabella -->
 <h2>Lista Campi presenti nella tabella {{table.nome}}: </h2>
+<a href="{% url 'new_campo_view' table_id %}" class="add_btn">Aggiungi campo</a>
 <ul>
     {% for field in fields %}
-        <li>{{ field.nome }} - {{ field.tipo }} - <a href="{% url 'campo_view' field_id=field.id %}">Modifica</a></li>
+        <li>{{ field.nome }} - {{ field.tipo }} <a href="{% url 'campo_view' field_id=field.id %}">Modifica</a></li>
     {% empty %}
         <li>Nessun campo presente nella tabella.</li>
     {% endfor %}
-        <li><a href="{% url 'new_campo_view' table_id %}">Aggiungi campo</a></li>
+        
 </ul>
-<a href="{% url 'model_delete' 'Tabella' table_id %}">Elimina tabella</a>
+<a href="{% url 'model_delete' 'Tabella' table_id %}" class="del_btn">Elimina tabella</a>
 {% endif %}
 
 {% endblock content %} 

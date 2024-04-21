@@ -21,21 +21,22 @@
 <form method="post">
     {% csrf_token %}
     {{ db_create_form }}
-    <button type="submit">Submit</button>
+    <button type="submit">Salva</button>
 </form>
 
 {% if editing_id %}
 <!-- lista per mostrare tabelle -->
 <h2>Lista Tabelle presenti nella struttura {{editing_id}}: </h2>
+<a href="{% url 'new_table_view' editing_id %}" class="add_btn">Aggiungi Tabella</a><br>
 <ul>
     {% for table in tables %}                 <!-- passa a visualizza/modifica e passa table_id -->
-        <li> {{ table.nome }} - <a href="{% url 'table_view' table_id=table.id %}">Visualizza</a></li>
+        <li> {{ table.nome }} <a href="{% url 'table_view' table_id=table.id %}">Visualizza</a></li>
     {% empty %}
         Nessuna Tabella in questa struttura
     {% endfor %}
 </ul>
-<a href="{% url 'new_table_view' editing_id %}">Aggiungi Tabella</a><br>
-<a href="{% url 'model_delete' 'StrutturaDatabase' editing_id %}">Elimina struttura database</a>
+
+<a href="{% url 'model_delete' 'StrutturaDatabase' editing_id %}" class="del_btn">Elimina struttura database</a>
 {% endif %}
 
 {% endblock content %}

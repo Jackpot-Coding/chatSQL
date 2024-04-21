@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="it">
+{% load static %}
 <head>
     <meta charset="UTF-8">
     <title>Prompt</title>
+    <link rel="stylesheet" href="{% static 'admin/style.css' %}">
 </head>
 <body>
 
@@ -17,17 +19,19 @@
         <div class="alert alert-danger">
             {{ form.errors }}
         </div>
-    {% else %}
-        <h1>Inserisci una descrizione di ciò che ti serve</h1>
-        <form method="post">
-            {% csrf_token %}
-            {{ natural_lang_form }}
-            <button type="submit">Genera Query</button>
-        </form>
-        <form method="post">
-            {% csrf_token %}
-            {{ prompt_form }}
-        </form>
     {% endif %}
+
+    <h1>Generazione prompt</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ natural_lang_form }}
+        <button type="submit">Genera Prompt</button>
+    </form>
+
+    {% if prompt %}
+        <h2>Prompt Generato</h2>
+        <div class="prompt">{{prompt}}</div>
+    {% endif %}
+
 </body>
 </html>

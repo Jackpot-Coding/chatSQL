@@ -12,7 +12,6 @@ class fillNaturalLanguageTestCase(TestCase):
         self.client.login(username='testAdmin', password='testPassword123!')
         StrutturaDatabase.objects.create(nome='db1', descrizione='Description')
         Tabella.objects.create(nome='tab', descrizione='Description', struttura=StrutturaDatabase.objects.get(nome='db1'), sinonimi='sinonimo1,sinonimo2')
-        pass
 
     def test_can_reach_natural_language_page(self):
         response = self.client.get(reverse('NaturalLanguageView'))

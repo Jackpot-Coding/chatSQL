@@ -1,0 +1,8 @@
+[run]
+omit =
+    chatSQL/wsgi.py
+    chatSQL/asgi.py
+    */__init__.py
+    manage.py
+    admin/tests/*
+    main/tests/*
