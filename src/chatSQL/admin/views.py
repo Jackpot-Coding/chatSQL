@@ -348,6 +348,9 @@ class AdminUploadFileView(View):
             return render(request, 'admin/upload_file.html', {'upload_file_form': upload_file_form})
         
         uploader = file_uploader.FileUploader(file)
+        if uploader.getStatus() is not None:
+            messages.add_message(request, messages.ERROR, 'Errore durante l\'upload del file: ' + uploader.getStatus())
+            return render(request, 'admin/upload_file.html', {'upload_file_form': upload_file_form})
         status = uploader.uploadFile()
         if status[0] != enums.ParserStatus.SUCCESS:
             messages.add_message(request, messages.ERROR, 'Errore durante l\'upload del file: ' + status[1])
