@@ -1,0 +1,23 @@
+{% extends "./base.html" %}
+
+{% block title %}Carica struttura{% endblock title %}
+
+{% block content %}
+
+<h1>Carica Struttura</h1>
+
+{% if form.errors %}
+    <div class="alert alert-danger">
+        {{ form.errors }}
+    </div>
+{% endif %}
+
+<ul>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ upload_file_form }}
+        <button type="submit">Carica</button>
+    </form>
+</ul>
+
+{% endblock content %}

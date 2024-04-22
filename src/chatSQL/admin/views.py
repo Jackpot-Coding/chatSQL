@@ -7,6 +7,8 @@ from django.contrib import messages
 
 from . import forms
 from . import models
+from . import file_uploader
+from . import enums
 
 from django.db.models import Q
 
@@ -326,3 +328,28 @@ class AdminCampoView(View):
                 return render(request, 'admin/campo.html', {'field_create_form': field_create_form})
         
         return render(request, 'admin/campo.html', {'field_create_form': field_create_form})
+    
+class AdminUploadFileView(View):
+    def get(self,request):
+        upload_file_form=forms.UploadFileForm()
+        return render(request, 'admin/upload_file.html', {'upload_file_form': upload_file_form})
+
+    def post(self,request):
+        upload_file_form=forms.UploadFileForm(request.POST, request.FILES)
+        if upload_file_form.is_valid():
+            try:
+                file=request.FILES['file']
+            except Exception as e:
+                error_message = str(e)
+                messages.add_message(request, messages.ERROR, 'Errore durante il caricamento del file: ' + error_message)
+                return render(request, 'admin/upload_file.html', {'upload_file_form': upload_file_form})
+        else:
+            messages.add_message(request, messages.ERROR, 'Il form non è valido.')
+            return render(request, 'admin/upload_file.html', {'upload_file_form': upload_file_form})
+        
+        uploader = file_uploader.FileUploader(file)
+        status = uploader.uploadFile()
+        if status[0] != enums.ParserStatus.SUCCESS:
+            messages.add_message(request, messages.ERROR, 'Errore durante l\'upload del file: ' + status[1])
+            return render(request, 'admin/upload_file.html', {'upload_file_form': upload_file_form})
+        return render(request, 'admin/upload_file.html', {'upload_file_form': upload_file_form})

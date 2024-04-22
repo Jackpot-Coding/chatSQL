@@ -28,3 +28,6 @@ class CampoForm(forms.Form):
     tipo=forms.ChoiceField(choices=[(tag.value, tag.name) for tag in TipoCampo], required=True, label="Tipo")
     descrizione=forms.CharField(widget=forms.Textarea,label="Descrizione")
     sinonimi=forms.CharField(label="Sinonimi",required=False)
+    
+class UploadFileForm(forms.Form):
+    file = forms.FileField(label="File")
