@@ -51,21 +51,20 @@ class QueryGenerationView(View):
         
         if prompt_form.is_valid():
             
-                prompt = prompt_form.cleaned_data['prompt']              
+            prompt = prompt_form.cleaned_data['prompt']              
                 
-                query_generator = QueryGenerator()
-                query = query_generator.getQuery(prompt)
+            query_generator = QueryGenerator()
+            query = query_generator.getQuery(prompt)
                 
-                if query == 'interpretation':                        
-                    messages.error(request,"Errore di interpretazione del prompt.")
-                    return render(request,"main.html",  {"natural_lang_form":natural_lang_form})  
-                
-                elif query == 'error':
-                    messages.error(request,"Errore di comunicazione con servizio di generazione query.")
-                    return render(request,"main.html",  {"natural_lang_form":natural_lang_form})  
-                
-                else:
-                    return render(request,"query.html",{"query":markdown2.markdown(query) })
+            if query == 'interpretation':                        
+                messages.error(request,"Errore di interpretazione del prompt.")
+                return render(request,"main.html",  {"natural_lang_form":natural_lang_form})  
+            
+            if query == 'error':
+                messages.error(request,"Errore di comunicazione con servizio di generazione query.")
+                return render(request,"main.html",  {"natural_lang_form":natural_lang_form})  
+            
+            return render(request,"query.html",{"query":markdown2.markdown(query) })
                     
         
         messages.error(request,"Prompt non fornito.")

@@ -1,4 +1,4 @@
-from openai import OpenAI,OpenAIError
+from openai import OpenAI
 
 class QueryGenerator:
     
