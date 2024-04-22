@@ -37,6 +37,7 @@ input[type=submit],button[type=submit],ul li a,.add_btn,.del_btn{
     padding: .3em .5em;
     font-size: 1.1em;
     margin: .5em 0;
+    cursor: pointer;
 }
 
 .add_btn{
@@ -125,4 +126,15 @@ ul:not(.messages) li a{
     border-radius: var(--radius);
     padding: .5em;
     background-color: var(--success-bg);
+}
+
+code{
+    border: 1px solid #535353;
+    border-radius: var(--radius);
+    display: inline-block;
+    font-family: monospace;
+    padding: .5em;
+    background-color: #000;
+    color: #FFF;
+    margin: .2em;
 }

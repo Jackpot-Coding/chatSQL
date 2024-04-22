@@ -20,7 +20,8 @@ class PromptCreator:
 
         # Tokenize natural language input
         tokens = classifier(userRequest)
-        if not tokens:
+        
+        if len(tokens)<2:
             error = "Errore: impossibile interpretare la frase inserita."
             return PromptGenStatus.SENTENCE_UNINTERPRETABLE, error
 

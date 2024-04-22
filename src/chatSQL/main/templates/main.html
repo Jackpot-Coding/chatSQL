@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% if form.errors %}
+        <div class="alert alert-danger">
+            {{ form.errors }}
+        </div>
+    {% endif %}
+
+    <h1>Generazione prompt</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ natural_lang_form }}
+        <button type="submit">Genera Prompt</button>
+    </form>
+
+    {% if prompt %}
+        <h2>Prompt Generato</h2>
+        <div class="prompt">{{prompt}}</div>
+        <form method="post" action="{% url 'query_generation' %}">
+            {% csrf_token %}
+            {{ prompt_form }}
+            <button type="submit">Genera Query SQL</button>
+        </form>
+    {% endif %}
+
+{% endblock %}

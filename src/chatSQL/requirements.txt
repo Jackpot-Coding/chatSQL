@@ -1,3 +1,5 @@
 Django
 transformers
 torch
+openai
+markdown2
