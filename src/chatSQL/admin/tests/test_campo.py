@@ -111,13 +111,17 @@ class CampoFormTestCase(TestCase):
         data = {'nome':'','tipo':'VARCHAR','descrizione':'Description for test','sinonimi':'Synonyms for test'}
         self.assertFalse(CampoForm(data).is_valid())
         
-    def test_create_structure_invalid_description(self):
+    def test_create_field_invalid_description(self):
         data = {'nome':'Test field','tipo':'VARCHAR','descrizione':'','sinonimi':'Synonyms for test'}
         self.assertFalse(CampoForm(data).is_valid())
         
-    def test_create_structure_invalid_type(self):
+    def test_create_field_invalid_type(self):
         data = {'nome':'Test field','tipo':'','descrizione':'Description for test','sinonimi':'Synonyms for test'}
         self.assertFalse(CampoForm(data).is_valid())
+
+    def test_create_field_invalid_synonyms(self):
+        data = {'nome':'Test field','tipo':'VARCHAR','descrizione':'Description for test','sinonimi':''}
+        self.assertTrue(CampoForm(data).is_valid()) # il campo può essere vuoto
         
 class CampoModelTestCase(TestCase):
     
