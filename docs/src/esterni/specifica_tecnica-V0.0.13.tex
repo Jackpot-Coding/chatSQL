@@ -117,7 +117,7 @@
 	\begin{flushright}
 		\begin{spacing}{1}
 			USO: ESTERNO\\
-			VERSIONE: 0.0.12\\
+			VERSIONE: 0.0.13\\
 		\end{spacing}
 	\end{flushright}
 	
@@ -136,6 +136,8 @@
 				\rowcolor{teal!50}
 				\hline
 				\textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Modifica} \\
+				\hline
+				0.0.13 & 23/04/2024 & G. Moretto & - & Aggiunta QueryForm, QueryGenerationView, QueryGenerator, sostituito Tensorflow con Torch \\
 				\hline
 				0.0.12 & 21/04/2024 & G. Moretto & - & Aggiornamento diagramma Views con nuova operazione per PromptCreator\\
 				\hline
@@ -251,9 +253,9 @@
 		\hline
 		Django & 5.0.3 & \textit{Framework} per la creazione di applicazioni \textit{web} scritto in linguaggio \textit{Python}. \\
 		\hline
-		TensorFlow & 2.15.0 & Libreria \textit{Python} per l'apprendimento automatico. \\
+		Torch & 2.2.2 & Libreria \textit{Python} per l'apprendimento automatico. \\
 		\hline
-		Transformers & 4.29.3 & Libreria \textit{Python} per l'utilizzo di modelli del portale \textit{Hugging Face} utilizzando \textit{TensorFlow}\\
+		Transformers & 4.29.3 & Libreria \textit{Python} per l'utilizzo di modelli del portale \textit{Hugging Face} utilizzando \textit{Torch}\\
 		\hline
 		\SetCell[c=3]{c} \textbf{Strumenti} \\
 		\hline
@@ -343,7 +345,7 @@ E' stato scelta questa architettura in quanto offre i seguenti vantaggi:
 	\subsubsection{View}
 	
 	\begin{figure}[H]
-		\includegraphics[scale=0.55]{UML_classes/views.png}
+		\includegraphics[scale=0.50]{UML_classes/views.png}
 		\caption{Diagramma UML delle classi View}
 		\centering
 	\end{figure}
@@ -353,8 +355,12 @@ E' stato scelta questa architettura in quanto offre i seguenti vantaggi:
 	
 	Le view definite derivano dalla classe View fornita dal framework Django e sono divise per area principale e area amministrativa.\\
 	
-	La view dell'area principare è MainView e si occupa di ricevere la richiesta di generazione del prompt dall'utente e di restituirlo.
-	Per fare questo utilizza una classe chiamata PromptCreator che si occupa di generare il prompt per la richiesta ricevuta dalla view.\\
+	Le view dell'area principale sono:
+	\begin{itemize}
+		\item  \textbf{MainView}: si occupa di ricevere la richiesta di generazione del prompt dall'utente e di restituirlo. Per fare questo utilizza una classe chiamata PromptCreator che si occupa di generare il prompt per la richiesta ricevuta dalla view.
+		\item \textbf{QueryGenerationView}: si occupa di ricevere il prompt generato, inviarlo al modello LLM esterno tramite la classe Querygenerator e ritornare la risposta;
+	\end{itemize}
+
 	
 	Le view dell'area amministrativa sono:
 	\begin{itemize}
@@ -378,6 +384,7 @@ E' stato scelta questa architettura in quanto offre i seguenti vantaggi:
 	Il compito delle classi form e quella di definire from HTML sottoforma di classe. Questo per utilizzare le funzioni di validazione e gestione fornite dal framework Django tramite la classe Form dalla quale derivano i form da noi definiti:
 	\begin{itemize}
 		\item \textbf{NLPromptForm}: raccoglie i dati per la generazione del prompt per la generazione della query SQL;
+		\item \textbf{QueryForm}: raccoglie i dati per la generazione della query SQL;
 		\item \textbf{LoginForm}: raccoglie i dati per il login dell'amministratore;
 		\item \textbf{StrutturaDatabaseForm}: raccoglie i dati per la creazione e modifica di una Struttura Database;
 		\item \textbf{TabellaForm}: raccoglie i dati per la creazione e modifica di una Tabella;
