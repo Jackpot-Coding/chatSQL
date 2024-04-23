@@ -355,4 +355,6 @@ class AdminUploadFileView(View):
         if status[0] != enums.ParserStatus.SUCCESS:
             messages.add_message(request, messages.ERROR, 'Errore durante l\'upload del file: ' + status[1])
             return render(request, 'admin/upload_file.html', {'upload_file_form': upload_file_form})
-        return render(request, 'admin/upload_file.html', {'upload_file_form': upload_file_form})
+        strutture_db = models.StrutturaDatabase.objects.order_by("nome")
+        messages.add_message(request, messages.SUCCESS, 'File caricato con successo')
+        return render(request, 'admin/home.html', {'strutture_db': strutture_db})
