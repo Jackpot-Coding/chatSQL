@@ -37,7 +37,7 @@
     <h3>CANDIDATURA</h3>
     <ul>
         {% for doc in content.candidatura %}
-            <li><a href="{{doc.url}}" target="_new">{{doc.fileName | replace('-',' ') | replace('_',' ') | title}} <span class="version">{{doc.version}}</span> <span class="lastModified">{{doc.lastModified}}</span></a></li>
+            <li><a href="{{doc.url}}" target="_blank">{{doc.fileName | replace('-',' ') | replace('_',' ') | title}} <span class="version">{{doc.version}}</span> <span class="lastModified">{{doc.lastModified}}</span></a></li>
     {% endfor %}
     </ul>
     
@@ -45,14 +45,14 @@
   
         <ul>
             {% for doc in content.esterni.root %}
-                <li><a href="{{doc.url}}" target="_new">{{doc.fileName | replace('-',' ') | replace('_',' ') | title}} <span class="version">{{doc.version}}</span> <span class="lastModified">{{doc.lastModified}}</span></a></li>
+                <li><a href="{{doc.url}}" target="_blank">{{doc.fileName | replace('-',' ') | replace('_',' ') | title}} <span class="version">{{doc.version}}</span> <span class="lastModified">{{doc.lastModified}}</span></a></li>
             {% endfor %}
         
             <li class="sublist">Verbali
             <ul>
             
             {% for doc in content.esterni.verbali %}
-                <li><a href="{{doc.url}}" target="_new">{{doc.fileName}} <span class="version">{{doc.version}}</span> <span class="lastModified">{{doc.lastModified}}</span></a></li>
+                <li><a href="{{doc.url}}" target="_blank">{{doc.fileName}} <span class="version">{{doc.version}}</span> <span class="lastModified">{{doc.lastModified}}</span></a></li>
             {% endfor %}
             </ul>
             </li>
@@ -65,14 +65,14 @@
 
       <ul>
         {% for doc in content.interni.root %}
-            <li><a href="{{doc.url}}" target="_new">{{doc.fileName | replace('-',' ') | replace('_',' ') | title}} <span class="version">{{doc.version}}</span> <span class="lastModified">{{doc.lastModified}}</span></a></li>
+            <li><a href="{{doc.url}}" target="_blank">{{doc.fileName | replace('-',' ') | replace('_',' ') | title}} <span class="version">{{doc.version}}</span> <span class="lastModified">{{doc.lastModified}}</span></a></li>
         {% endfor %}
       
       
       <li class="sublist">Verbali
         <ul>
             {% for doc in content.interni.verbali %}
-                <li><a href="{{doc.url}}" target="_new">{{doc.fileName}} <span class="version">{{doc.version}}</span> <span class="lastModified">{{doc.lastModified}}</span></a></li>
+                <li><a href="{{doc.url}}" target="_blank">{{doc.fileName}} <span class="version">{{doc.version}}</span> <span class="lastModified">{{doc.lastModified}}</span></a></li>
             {% endfor %}
         </ul>
         </li>
