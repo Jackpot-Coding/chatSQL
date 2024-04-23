@@ -38,20 +38,20 @@ class MainView(View):
             messages.add_message(request,messages.ERROR,prompt[1])
             return render(request,"main.html",  {"natural_lang_form":natural_lang_form})
         
-        prompt_form = forms.PromptForm(initial={"prompt":prompt[1]})    
+        query_form = forms.QueryForm(initial={"prompt":prompt[1]})    
             
-        return render(request,"main.html",  {"natural_lang_form":natural_lang_form, "prompt":prompt[1],'prompt_form':prompt_form})
+        return render(request,"main.html",  {"natural_lang_form":natural_lang_form, "prompt":prompt[1],'query_form':query_form})
     
 class QueryGenerationView(View):
     
     def post(self,request):
         
-        prompt_form = forms.PromptForm(request.POST)
+        query_form = forms.QueryForm(request.POST)
         natural_lang_form = forms.NLPromptForm()
         
-        if prompt_form.is_valid():
+        if query_form.is_valid():
             
-            prompt = prompt_form.cleaned_data['prompt']              
+            prompt = query_form.cleaned_data['prompt']              
                 
             query_generator = QueryGenerator()
             query = query_generator.getQuery(prompt)
