@@ -7,22 +7,38 @@
             {{ form.errors }}
         </div>
     {% endif %}
-
-    <h1>Generazione prompt</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ natural_lang_form }}
-        <button type="submit">Genera Prompt</button>
-    </form>
-
-    {% if prompt %}
-        <h2>Prompt Generato</h2>
-        <div class="prompt">{{prompt}}</div>
-        <form method="post" action="{% url 'query_generation' %}">
+    
+    <div class="main">
+        <h1>Generazione prompt</h1>
+        <form method="post">
             {% csrf_token %}
-            {{ prompt_form }}
-            <button type="submit">Genera Query SQL</button>
+            {{ natural_lang_form }}
+            <button type="submit">Genera Prompt</button>
         </form>
-    {% endif %}
+    
+        {% if prompt %}
+            <h2 id="genprompt">Prompt Generato</h2>
+            {% autoescape on %}
+                <div class="prompt" id="promptresp">{{prompt | linebreaks}}</div>
+            {% endautoescape %}
+            <form method="post" action="{% url 'query_generation' %}">
+                {% csrf_token %}
+                {{ prompt_form }}
+                <button type="submit">Genera Query SQL</button>
+            </form>
+            <button onclick="copyQuery()" id="copyprompt">Copia Query SQL</button>
+            <script>
+                function copyQuery(){
+                    var copyQuery = document.getElementById("promptresp").textContent;
+                    navigator.clipboard.writeText(copyQuery);
+                    document.getElementById("copyprompt").innerHTML="Prompt Copiato";
+                    document.getElementById("copyprompt").style.border="green 2px solid";
+                    document.getElementById("copyprompt").style.color="green";
+                }
+                location.href="#genprompt";
+            </script>
+        {% endif %}
+
+    </div>
 
 {% endblock %}

@@ -49,7 +49,7 @@ class PromptCreator:
             prompt += f"Crea una query SQL per la seguente richiesta: {userRequest}"
         
         else:
-            error = "Errore: Frase non inerente al database.\n(Prova a cambiare la lingua in una supportata)"
+            error = "Errore: Frase non inerente al database.\n"
             return PromptGenStatus.SENTENCE_IRRELEVANT, error
 
         return PromptGenStatus.SUCCESS, prompt
