@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="it">
+{% load static %}
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock title %}ChatSQL</title>
+    <link rel="stylesheet" href="{% static 'admin/style.css' %}">
+</head>
+
+<body>
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% block content %}{% endblock content %}
+</body>
+
+</html>

@@ -20,7 +20,8 @@ class PromptCreator:
 
         # Tokenize natural language input
         tokens = classifier(userRequest)
-        if not tokens:
+        
+        if len(tokens)<2:
             error = "Errore: impossibile interpretare la frase inserita."
             return PromptGenStatus.SENTENCE_UNINTERPRETABLE, error
 
@@ -48,7 +49,7 @@ class PromptCreator:
             prompt += f"Crea una query SQL per la seguente richiesta: {userRequest}"
         
         else:
-            error = "Errore: Frase non inerente al database.\n(Prova a cambiare la lingua in una supportata)"
+            error = "Errore: Frase non inerente al database.\n"
             return PromptGenStatus.SENTENCE_IRRELEVANT, error
 
         return PromptGenStatus.SUCCESS, prompt

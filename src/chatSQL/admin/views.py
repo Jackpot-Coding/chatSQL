@@ -221,8 +221,7 @@ class AdminTabellaView(View):
                     )
                     table.save()
                     messages.add_message(request, messages.SUCCESS, 'Tabella creata con successo')
-                    return render(request, 'admin/tabella.html', {'table_create_form': table_create_form, 'structure_id': structure_id,
-                                                                'struttura_db':db_structure, 'table_id':table.pk})
+                    return redirect('table_view',table.pk)
                 
                 # modifica/visualizza
                 table = models.Tabella.objects.get(pk=table_id)

@@ -28,7 +28,7 @@ class CreateTableTestCase(TestCase):
                 'sinonimi': 'Test Sinonimi', 
             }                                   # passa come argomento la pk del db alla post, e i dati mancanti per creare la tabella
         response = self.client.post(reverse('new_table_view', args=(self.db.pk,)), data)
-        self.assertEqual(response.status_code, 200) #tabella creata
+        self.assertEqual(response.status_code, 302) #tabella creata
         self.assertTrue(Tabella.objects.filter(nome='Test Table').exists()) # tabella corretta
     
     def test_invalid_form_create_table(self):
