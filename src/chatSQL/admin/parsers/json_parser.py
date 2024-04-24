@@ -2,8 +2,8 @@ import json
 from django.db import transaction
 
 from . import parser_strategy as ps
-from ..models import StrutturaDatabase, Tabella, Campo
-from .. import enums
+from admin.models import StrutturaDatabase, Tabella, Campo
+from admin import enums
 
 class JSONParser(ps.ParserStrategy):
     

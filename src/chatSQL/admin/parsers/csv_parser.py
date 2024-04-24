@@ -2,8 +2,8 @@ import csv
 import codecs
 from django.db import transaction
 
-from ..models import StrutturaDatabase, Tabella, Campo
-from .. import enums
+from admin.models import StrutturaDatabase, Tabella, Campo
+from admin import enums
 from . import parser_strategy as ps
 
 class CSVParser(ps.ParserStrategy):
