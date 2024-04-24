@@ -34,7 +34,7 @@ class LoginTestCase(TestCase):
         response = self.client.post(reverse('admin_login'),{"username":"","password":""})
     
         self.assertEqual(response.status_code,200)
-        self.assertTemplateUsed(response, 'admin/login.html')
+        self.assertTemplateUsed(response, 'admin/login.html')        
 
 
 class LogoutTestCase(TestCase):

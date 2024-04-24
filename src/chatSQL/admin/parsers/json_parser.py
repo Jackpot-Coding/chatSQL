@@ -10,9 +10,10 @@ class JSONParser(ps.ParserStrategy):
     def parser(self, uploaded_file):
         db = json.load(uploaded_file)
         db_name = db["database"].get('nome')
-        if StrutturaDatabase.objects.filter(nome=db_name).exists():
-            return enums.ParserStatus.DB_ALREADY_EXISTS, "Errore: esiste già una struttura con nome " + db_name
         try:
+            if StrutturaDatabase.objects.filter(nome=db_name).exists():
+                return enums.ParserStatus.DB_ALREADY_EXISTS, "Errore: esiste già una struttura con nome " + db_name
+    
             with transaction.atomic():
                 struttura_db= StrutturaDatabase.objects.create(
                     nome=db_name,
@@ -34,5 +35,5 @@ class JSONParser(ps.ParserStrategy):
                             tabella=tabella_db
                         )
         except Exception as e:
-            return enums.ParserStatus.CREATION_DB_ERROR, "Errore nella creazione della struttura: " + e
+            return enums.ParserStatus.CREATION_DB_ERROR, "Errore nella creazione della struttura: " + str(e)
         return enums.ParserStatus.SUCCESS, "Struttura creata con successo"

@@ -12,6 +12,7 @@ class FileUploader():
             self.error = "Errore: nessun file caricato"
             return
         self.file = file
+        
         if self.file.name.endswith('.csv'):
             self.parserStrategy = csv_parser.CSVParser()
         elif self.file.name.endswith('.json'):
