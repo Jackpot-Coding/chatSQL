@@ -1,3 +1,4 @@
+
 \documentclass[5pt]{article}
 
 \usepackage{sectsty}
@@ -143,7 +144,9 @@
 	\hline
     \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Modifica} \\
     \hline
-    v1.0.2 & 04/04/2024 & G. Moretto & - & Rimozione Redattori e Verificatori come da feedback RTB\\
+    v1.0.3 & 24/04/2024 & M. Gobbo & - & Modifica documento secondo indicazioni RTB\\
+    \hline
+    v1.0.2 & 04/04/2024 & G. Moretto & M. Gobbo & Rimozione Redattori e Verificatori come da feedback RTB\\
     \hline
     v1.0.1 & 22/03/2024 & G. Moretto & M.Gobbo & Aggiornamento tabella consuntivo RTB \\
     \hline
@@ -224,9 +227,7 @@
     La versatilità dell'\textit{I.A.\textsuperscript{G}} è oggi al centro dell'attenzione di molte \textit{software house\textsuperscript{G}}, 
     poiché posso essere usate anche per migliorare e velocizzare la produzione. 
     Per farne buon uso, è però necessario essere in grado di fornire i corretti \textit{prompt\textsuperscript{G}} al 
-    modello di \textit{I.A.\textsuperscript{G}} in uso. \\
-
-
+    modello di \textit{I.A.\textsuperscript{G}} in uso. \\\\
     L'obiettivo di questo progetto è realizzare un \textit{software\textsuperscript{G}} in grado di generare 
     un \textit{prompt\textsuperscript{G}} a partire da una richiesta in linguaggio naturale\textsuperscript{G}. La richiesta dovrà riguardare un'interrogazione 
     di un \textit{database\textsuperscript{G}} caricato sul sistema dall'utente. Tale \textit{prompt\textsuperscript{G}} sarà successivamente da fornire 
@@ -242,15 +243,23 @@
     \subsubsection{Riferimenti Informativi}
       Slide del corso "Inegegneria Del Software"
       \begin{itemize}
-            \item \href{https://www.math.unipd.it/~tullio/IS-1/2023/Dispense/T3.pdf}{Modelli di sviluppo software}
-            \item \href{https://www.math.unipd.it/~tullio/IS-1/2023/Dispense/T4.pdf}{Gestione del progetto}
-            \item \href{https://www.math.unipd.it/~tullio/IS-1/2023/Dispense/T5.pdf}{Analisi dei requisiti} 
+            \item Modelli di sviluppo software: \\ \url{https://www.math.unipd.it/~tullio/IS-1/2023/Dispense/T3.pdf}\\
+            (Consultato 18/03/2024)
+            \item Gestione del progetto: \\
+            \url{https://www.math.unipd.it/~tullio/IS-1/2023/Dispense/T3.pdf}\\
+            (Consultato 18/03/2024)
+            \item Analisi dei requisiti: \\
+            \url{https://www.math.unipd.it/~tullio/IS-1/2023/Dispense/T3.pdf}\\
+            (Consultato 18/03/2024)
       \end{itemize}
     \subsubsection{Riferimenti Normativi}
       \begin{itemize}
-            \item Documento "Norme di progetto"
-            \item \href{https://www.math.unipd.it/~tullio/IS-1/2023/Dispense/PD2.pdf}{Regolamento del progetto}
-            \item \href{https://www.math.unipd.it/~tullio/IS-1/2023/Progetto/C9.pdf}{Capitolato C9 "ChatSQL"} 
+            \item Documento "Norme di progetto V1.0.0"
+            \item Regolamento del progetto: \\ \url{https://www.math.unipd.it/~tullio/IS-1/2023/Dispense/PD2.pdf}\\
+            (Consultato 18/03/2024)
+            \item Capitolato C9 "ChatSQL": \\
+            \url{https://www.math.unipd.it/~tullio/IS-1/2023/Progetto/C9.pdf}\\
+            (Consultato 18/03/2024)
       \end{itemize}
 
 \section{Analisi dei rischi}
@@ -267,6 +276,7 @@
     \item \textbf{Descrizione}: Spiegazione dettagliata del rischio.
     \item \textbf{Occorrenza}: Frequenza con cui il rischio si verifica.
     \item \textbf{Pericolosità}: Livello di pericolo associato al rischio.
+    \item \textbf{Precauzione}: Azioni da intraprendere per prevenire l'insorgere del rischio.
     \item \textbf{Mitigazione}: Azioni per ridurre l'impatto o la probabilità del rischio.
   \end{itemize}
 
@@ -277,6 +287,7 @@
       \item \textbf{Descrizione}: La mancanza di esperienza nel gruppo su una determinata tecnologia o piattaforma potrebbe rallentare lo sviluppo del \textit{software\textsuperscript{G}} e portare a errori nella progettazione e nell'implementazione\textsuperscript{G}.
       \item \textbf{Occorrenza}: Media
       \item \textbf{Pericolosità}: Media
+      \item \textbf{Precauzione}: I membri del gruppo dovranno comunicare tra di loro riguardo le lacune più marcate. 
       \item \textbf{Mitigazione}: 
         \begin{itemize}
           \item Assicurarsi che i membri del gruppo ricevano formazione e supporto adeguati sulla tecnologia o piattaforma specifica.
@@ -290,6 +301,7 @@
       \item \textbf{Descrizione}: Il gruppo non ha familiarità con l'utilizzo di \textit{software\textsuperscript{G}} specifici per la gestione di un progetto. Questa mancanza di esperienza potrebbe rallentare la produttività del gruppo e compromettere la qualità del progetto.
       \item \textbf{Occorrenza}: Bassa
       \item \textbf{Pericolosità}: Media
+      \item \textbf{Precauzione}: Ogni membro avrà l'accortezza di dichiarare dove ci siano delle carenze
       \item \textbf{Mitigazione}: 
         \begin{itemize}
           \item  Attivarsi per avere una formazione adeguata sull'uso del \textit{software\textsuperscript{G}} gestionali attraverso \textit{tutorial\textsuperscript{G}} e documentazione.
@@ -305,9 +317,9 @@
         \item \textbf{Descrizione}: Una struttura organizzativa inefficiente o una mancanza di chiarezza nei ruoli e nelle responsabilità possono portare a ritardi nelle decisioni, duplicazioni di compiti e confusione all'interno del gruppo.
         \item \textbf{Occorrenza}: Alta
         \item \textbf{Pericolosità}: Media
+        \item \textbf{Precauzione}: Definire chiaramente le responsabilità di ciascun membro del gruppo e comunicarle in modo trasparente a tutti.
         \item \textbf{Mitigazione}: 
           \begin{itemize}
-            \item Definire chiaramente le responsabilità di ciascun membro del gruppo e comunicarle in modo trasparente a tutti.
             \item Condurre regolarmente riunioni di coordinamento per monitorare lo stato del progetto e risolvere eventuali problemi organizzativi in modo tempestivo.
           \end{itemize}
       \end{itemize}
@@ -317,6 +329,7 @@
         \item \textbf{Descrizione}: Una distribuzione disomogenea dei compiti all'interno del gruppo potrebbe portare a una mancanza di lavoro per alcuni componenti e sovraccarico di lavoro per altri, compromettendo l'efficienza\textsuperscript{G} complessiva del progetto.
         \item \textbf{Occorrenza}: Media
         \item \textbf{Pericolosità}: Alta
+        \item \textbf{Precauzione}: Comunicazione efficace ed efficiente da parte del responsabile che si farà aiutare anche dagli altri membri del progetto, inoltre verrà messo a disposizione jira, software di ticketing.
         \item \textbf{Mitigazione}: 
           \begin{itemize}
             \item Pianificare attentamente l'allocazione dei compiti, tenendo conto delle competenze, delle disponibilità di ciascun membro del gruppo.
@@ -331,6 +344,7 @@
         \item \textbf{Descrizione}: La mancanza di una comunicazione interna efficace tra i membri del gruppo può portare a fraintendimenti, duplicazione del lavoro e rallentamenti nel processo decisionale.
         \item \textbf{Occorrenza}: Bassa
         \item \textbf{Pericolosità}: Alta
+        \item \textbf{Precauzione}: Ogni componente dovrà comunicare tempestivamente i suoi impegni e impossibilità al lavoro
         \item \textbf{Mitigazione}: 
           \begin{itemize}
             \item Stabilire procedure chiare e canali di comunicazione ben definiti all'interno del gruppo.
@@ -345,6 +359,7 @@
         \item \textbf{Descrizione}: La comunicazione inefficace con l'azienda può portare a malintesi, ritardi nelle consegne e insoddisfazione del cliente, rallentando inoltre l'attività del gruppo.
         \item \textbf{Occorrenza}: Bassa
         \item \textbf{Pericolosità}: Alta
+        \item \textbf{Precauzione}: Si lascerà decidere all'azienda il mezzo migliore per comunicare in modo da rendere la stessa più raggiungibile
         \item \textbf{Mitigazione}: 
           \begin{itemize}
             \item Stabilire canali di comunicazione chiari e definire ruoli e responsabilità per l'interazione con l'azienda.
@@ -358,6 +373,7 @@
         \item \textbf{Descrizione}: La presenza di tensioni, conflitti o mancanza di collaborazione tra i membri del gruppo può compromettere l'efficienza e la coesione del gruppo, influenzando negativamente la qualità del lavoro e il raggiungimento degli obiettivi del progetto.
         \item \textbf{Occorrenza}: Media
         \item \textbf{Pericolosità}: Media
+        \item \textbf{Precauzione}: 
         \item \textbf{Mitigazione}: 
           \begin{itemize}
             \item Utilizzare la votazione per prendere decisioni oggettive basate sulla maggioranza delle preferenze. Assicurarsi che tutte le parti coinvolte comprendano e accettino il risultato della votazione per favorire la collaborazione e il senso di appartenenza al gruppo.
