@@ -19,6 +19,11 @@
 \usepackage{scrextend}
 \graphicspath{ {../assets} }
 
+% package and setup for tables
+\usepackage{float}
+\usepackage[table]{xcolor}
+\renewcommand{\arraystretch}{1.5}
+\arrayrulecolor{black}
 
 % Margins
 \topmargin=-0.45in
@@ -115,19 +120,19 @@
 	\pagebreak
 	
 	\textbf{\Large Registro delle modifiche}
-	\begin{table}[ht]
-		\centerline{%
-			\begin{tabular}{|c|c|c|c|c|}
-                \hline
-				v.0.0.4 & 25/03/2024 & M. Gobbo & - & Fine Stesura sezione 1, aggiunti riferimenti \\
-                \hline
-				v.0.0.3 & 29/03/2024 & M. Gobbo & - & Prima Stesura sezione 1 \\
-                \hline
-				v.0.0.2 & 29/03/2024 & M. Gobbo & - & Creazione sezione 5 \\
+	\begin{table}[H]
+		\centering
+		\rowcolors{2}{black!15}{}
+		\resizebox{\linewidth}{!}{
+		  \begin{tabular}{|c|c|c|c|c|c|c|c|}
 			\hline
-				v.0.0.1 & 28/03/2024 & M. Gobbo & - & Creata struttura del documento \\
-				\hline
-			\end{tabular}%
+			\rowcolor{teal!50}
+			\textbf{versione} & \textbf{data} & \textbf{autore} & \textbf{verifica} & \textbf{modifica} \\ \hline
+			v.0.0.4 & 25/04/2024 & M. Gobbo & M. Favaretto & Fine Stesura sezione 1, aggiunti riferimenti \\ \hline
+			v.0.0.3 & 29/03/2024 & M. Gobbo & M. Favaretto & Prima Stesura sezione 1 \\ \hline
+			v.0.0.2 & 29/03/2024 & M. Gobbo & M. Favaretto & Creazione sezione 5 \\ \hline
+			v.0.0.1 & 28/03/2024 & M. Gobbo & M. Favaretto & Creata struttura del documento \\ \hline
+		  \end{tabular}
 		}
 		\label{tab:conference}
 	\end{table}
@@ -142,27 +147,27 @@
 	
 	\section{Introduzione}
 	\subsection{Scopo del documento}
-Lo scopo del documento "Manuale Utente" è quello di mostrare le istruzioni per l'uso e le funzionalità inerenti al prodotto. Grazie a questo l'utente sarà a conoscenza dei requisiti minimi necessari per il corretto funzionamento di "Chat SQL".
+		Lo scopo del documento "Manuale Utente" è quello di mostrare le istruzioni per l'uso e le funzionalità inerenti al prodotto. Grazie a questo l'utente sarà a conoscenza dei requisiti minimi necessari per il corretto funzionamento di "Chat SQL".
  
 	\subsection{Scopo del prodotto}
-     Il capitolato proposto dall'azienda \textit{Zucchetti S.p.A.} ha come obiettivo la realizzazione di un applicativo web al fine di ottenere un riscontro riguardo la fattibilità di un prodotto in grado di elaborare una frase in linguaggio naturale, fornita da un utente inesperto, e genere come output una \textit{query SQL} in grado di interrogare un database, di cui è conosciuta la struttura, in modo efficiente e che fornisca le informazioni richieste dall'utente.
+     	Il capitolato proposto dall'azienda \textit{Zucchetti S.p.A.} ha come obiettivo la realizzazione di un applicativo web al fine di ottenere un riscontro riguardo la fattibilità di un prodotto in grado di elaborare una frase in linguaggio naturale, fornita da un utente inesperto, e genere come output una \textit{query SQL} in grado di interrogare un database, di cui è conosciuta la struttura, in modo efficiente e che fornisca le informazioni richieste dall'utente.
 
         \subsection{Glossario}
-     Al fine di evitare ambiguità o incomprensioni relative alla terminologia usata all'interno del documento, è fornito un \textit{Glossario} in cui vengono riportate definizioni precise per ogni termine potenzialmente ambiguo. La presenza di tali termini all'interno del documento è indicata con la presenza, vicino alla voce, di una \textit{G} in apice ($^G$). 
+     		Al fine di evitare ambiguità o incomprensioni relative alla terminologia usata all'interno del documento, è fornito un \textit{Glossario} in cui vengono riportate definizioni precise per ogni termine potenzialmente ambiguo. La presenza di tali termini all'interno del documento è indicata con la presenza, vicino alla voce, di una \textit{G} in apice ($^G$). 
 
         \subsection{Riferimenti}
         
         \subsubsection{Riferimenti Normativi}
         \begin{itemize}
-		\item Capitolato\textsuperscript{G} C9 - \textit{ChatSQL} \\ \url{https://www.math.unipd.it/~tullio/IS-1/2023/Progetto/C9.pdf} 
-		\item Norme di progetto\textsuperscript{G} V1.0.0
+			\item Capitolato\textsuperscript{G} C9 - \textit{ChatSQL} \\ \url{https://www.math.unipd.it/~tullio/IS-1/2023/Progetto/C9.pdf} 
+			\item Norme di progetto\textsuperscript{G} V1.0.0
         \end{itemize}
         
         \subsubsection{Riferimenti informativi}
         \begin{itemize}
-         \item Diagramma delle classi \\ \url{https://www.math.unipd.it/~rcardin/swea/2023/Diagrammi%20delle%20Classi.pdf}
-         \item Analisi dei requisiti: \\
-         \url{https://www.math.unipd.it/~tullio/IS-1/2023/Dispense/T3.pdf}\\
+         	\item Diagramma delle classi \\ \url{https://www.math.unipd.it/~rcardin/swea/2023/Diagrammi%20delle%20Classi.pdf}
+         	\item Analisi dei requisiti: \\
+         	\url{https://www.math.unipd.it/~tullio/IS-1/2023/Dispense/T3.pdf}\\
         \end{itemize}
         
 
@@ -178,22 +183,22 @@ Lo scopo del documento "Manuale Utente" è quello di mostrare le istruzioni per 
         \section{Istruzioni all'uso}
         
         \section{Supporto Tecnico}
-        Nel caso di malfunzionamenti di qualsiasi genere il \textit{team} "\textit{Jackpot Coding}" si rende disponibile presso la seguente \textit{email}:
-        \begin{center}
-        \textbf{\url{jackpotcoding@gmail.com}}
-        \end{center}
+        	Nel caso di malfunzionamenti di qualsiasi genere il \textit{team} "\textit{Jackpot Coding}" si rende disponibile presso la seguente \textit{email}:
+        	\begin{center}
+        		\textbf{\url{jackpotcoding@gmail.com}}
+        	\end{center}
 
-        Per la segnalazione di problemi si consiglia di adottare il seguente formato:
-\begin{itemize}
-    \item \textbf{OGGETTO}: "nome dell'evento da segnalare"
-    \item \textbf{CORPO}:
-    \begin{itemize}
-        \item "Data del Problema"
-        \item "Descrizione problema"
-        \item "Browser e sistema operativo nei quali si è verificato il problema"
-    \end{itemize}
-    \item \textbf{ALLEGATO}: "immagine illustrativa del problema" se possibile
-\end{itemize}
+			Per la segnalazione di problemi si consiglia di adottare il seguente formato:
+			\begin{itemize}
+				\item \textbf{OGGETTO}: "nome dell'evento da segnalare"
+				\item \textbf{CORPO}:
+				\begin{itemize}
+					\item "Data del Problema"
+					\item "Descrizione problema"
+					\item "Browser e sistema operativo nei quali si è verificato il problema"
+				\end{itemize}
+				\item \textbf{ALLEGATO}: "immagine illustrativa del problema" se possibile
+			\end{itemize}
         
         
         
