@@ -10,8 +10,7 @@ from .enums import PromptGenStatus
 from .query_generator import QueryGenerator
 
 
-import markdown2
-
+import markdown
 # Create your views here.
 
 class MainView(View):
@@ -64,7 +63,9 @@ class QueryGenerationView(View):
                 messages.error(request,"Errore di comunicazione con servizio di generazione query.")
                 return render(request,"main.html",  {"natural_lang_form":natural_lang_form})  
             
-            return render(request,"query.html",{"query":markdown2.markdown(query) })
+            md = markdown.Markdown(extensions=["fenced_code"])
+            
+            return render(request,"query.html",{"query":md.convert(query) })
                     
         
         messages.error(request,"Prompt non fornito.")

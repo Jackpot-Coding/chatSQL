@@ -10,12 +10,13 @@ class CSVParser(ps.ParserStrategy):
     
     def parser(self, uploaded_file):
         
-        reader = csv.DictReader(
-                codecs.iterdecode(uploaded_file,encoding='utf-8')
-            )
-        
-        file_name = uploaded_file.name.split('.')[0]
         try:
+            reader = csv.DictReader(
+                    codecs.iterdecode(uploaded_file,encoding='utf-8')
+                )
+            
+            file_name = uploaded_file.name.split('.')[0]
+    
             if StrutturaDatabase.objects.filter(nome=file_name).exists():
                 return enums.ParserStatus.DB_ALREADY_EXISTS, "Errore: esiste già una struttura con nome " + file_name
         

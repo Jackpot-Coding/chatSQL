@@ -8,9 +8,10 @@ from admin import enums
 class JSONParser(ps.ParserStrategy):
     
     def parser(self, uploaded_file):
-        db = json.load(uploaded_file)
-        db_name = db["database"].get('nome')
         try:
+            db = json.load(uploaded_file)
+            db_name = db["database"].get('nome')
+            
             if StrutturaDatabase.objects.filter(nome=db_name).exists():
                 return enums.ParserStatus.DB_ALREADY_EXISTS, "Errore: esiste già una struttura con nome " + db_name
     

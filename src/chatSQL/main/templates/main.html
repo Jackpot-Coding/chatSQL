@@ -23,7 +23,7 @@
             {% endautoescape %}
             <form method="post" action="{% url 'query_generation' %}">
                 {% csrf_token %}
-                {{ prompt_form }}
+                {{ query_form }}
                 <button type="submit">Genera Query SQL</button>
             </form>
             <button onclick="copyQuery()" id="copyprompt">Copia Query SQL</button>
