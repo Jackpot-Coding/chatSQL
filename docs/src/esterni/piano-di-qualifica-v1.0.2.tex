@@ -558,7 +558,7 @@
 \pgfplotsset{compat=1.11}
 	\begin{tikzpicture}
 		\begin{axis}[
-				xticklabels={S.1-2, S.3-4, S.5-6, S.7-8, S.9-10, S.11-12, S.13-14, S.15, S.16, 1, 2, 3},
+				xticklabels={S.1-2, S.3-4, S.5-6, S.7-8, S.9-10, S.11-12, S.13-14, S.15, S.16, 1, 2, 3,4,5,6,7,8},
 				xtick={0,1,2,3,4,5,6,7,8,9,10,11},
 				xlabel=Settimana/Sprint,
 				ytick={0,2000,...,12000},
@@ -623,10 +623,12 @@
 	
 	\subsection{Sviluppo}
 	\subsubsection{MPC-RSI (\textit{Requirements Stability Index})}
+	
+	\pgfplotsset{compat=1.11}
 	\begin{tikzpicture}
 		\begin{axis}[
-			xticklabels={RTB, Sprint 1, Sprint 2, Sprint 3},
-			xtick={0,1,2,3},
+			xticklabels={RTB, 1, 2, 3, 4, 5, 5, 7, 8, 9},
+			xtick={0,1,2,3,4,5,6,7,8,9},
 			xlabel=Sprint,
 			ytick={0,10,...,100},
 			ylabel=Percentuale,
@@ -634,29 +636,58 @@
 			yticklabel=\pgfmathprintnumber{\tick}\%,
 			ymax=105,
 			line width=1.0,
-			legend style={ 
-				legend pos =outer north east
-			},
+			width=\textwidth,
+			height=\axisdefaultheight,
+			legend columns=1,
+			legend style={at={(0.0,-0.3)},anchor=west},
 			legend columns=1
 			]
 			]
-			\addplot+[sharp plot, blue] coordinates {(0,85) (1,90) (2,100) (3,100) };
+			\addplot+[sharp plot, blue] coordinates {(0,85) (1,90) (2,100) (3,100) (4,100) (5,100) (5,100) (6,100) (7,100) (8,100) (9,100)};
 			\addlegendentry{Requirements Stability Index}
 			
-			\addplot[mark=none, dashed, green4]  coordinates { (0,100) (3,100) };
+			\addplot[mark=none, dashed, green4]  coordinates { (0,100) (9,100) };
 			\addlegendentry{Valore desiderabile}
 			
-			\addplot[mark=none, dashed, red4 ]  coordinates { (0,80) (3,80) };
+			\addplot[mark=none, dashed, red4 ]  coordinates { (0,80) (9,80) };
 			\addlegendentry{Valore accettabile}
 			
 		\end{axis}
 	\end{tikzpicture}
 	
 	\subsection{Gestione di qualità}
-	Questa sezione verrà aggiornata durante il periodo verso la \textit{milestone}\textsuperscript{G} \textit{Product Baseline}.
+	
+
 	
 	\subsection{Verifica}
-	Questa sezione verrà aggiornata durante il periodo verso la \textit{milestone}\textsuperscript{G} \textit{Product Baseline}.
+	
+	\subsubsection{MPC-CC (\textit{Code Coverage)}}
+	\begin{tikzpicture}
+		\begin{axis}[
+			xticklabels={7,8,9},
+			xtick={0,1,2},
+			xlabel=Sprint,
+			ylabel=Percentuale,
+			ymax=100,
+			line width=1.0,
+			legend style={ 
+				legend pos =outer north east
+			},
+			legend columns=1
+			]
+			]
+			
+			\addplot+[sharp plot, blue] coordinates {(0,86) (1,87) (2,94) };
+		\addlegendentry{Valore attuale}
+			
+			\addplot[mark=none, dashed, green4]  coordinates { (0,90) (2,90) };
+			\addlegendentry{Valore desiderabile}
+			
+			\addplot[mark=none, dashed, red4 ]  coordinates { (0,70) (2,70) };
+			\addlegendentry{Valore accettabile}
+			
+		\end{axis}
+	\end{tikzpicture}
 	
 	\subsection{Processi organizzativi}
 	
@@ -742,7 +773,7 @@
 			xtick={0,1,2},
 			xlabel=Sprint,
 			ytick={0,1,2,3},
-			ylabel=Punteggio,
+			ylabel=Errori,
 			ymax=4,
 			line width=1.0,
 			legend style={ 
@@ -780,7 +811,62 @@
 	
 	\subsection{Software}
 	
-	Questa sezione verrà aggiornata durante il periodo verso la \textit{milestone}\textsuperscript{G} \textit{Product Baseline}.
+	\subsubsection{MPD-CR (Copertura dei Requisiti)}
+	\pgfplotsset{compat=1.11}
+	\begin{tikzpicture}
+		\begin{axis}[
+			xticklabels={7,8,9},
+			xtick={0,1,2},
+			xlabel=Sprint,
+			ylabel=Percentuale,
+			ymax=102,
+			line width=1.0,
+			legend style={ 
+				legend pos =outer north east
+			},
+			legend columns=1
+			]
+			]
+						
+			\addplot+[sharp plot, blue] coordinates {(0,6) (1,86) (2,100) };
+			\addlegendentry{Valore attuale}
+			
+			\addplot[mark=none, dashed, green4]  coordinates { (0,100) (2,100) };
+			\addlegendentry{Valore desiderabile e ottimale}
+			
+	
+			
+		\end{axis}
+	\end{tikzpicture}
+	
+	\subsubsection{MPD-BS (Browser Supportati)}
+	\pgfplotsset{compat=1.11}
+	\begin{tikzpicture}
+		\begin{axis}[
+			xticklabels={7,8,9},
+			xtick={0,1,2},
+			xlabel=Sprint,
+			ylabel=Percentuale,
+			ymax=102,
+			line width=1.0,
+			legend style={ 
+				legend pos =outer north east
+			},
+			legend columns=1
+			]
+			]
+			
+			\addplot+[sharp plot, blue] coordinates {(0,100) (1,100) (2,100) };
+			\addlegendentry{Valore attuale}
+			
+				\addplot[mark=none, dashed, red4,mark=none]  coordinates { (0,75) (2,75) };
+		\addlegendentry{Valore accettabile}
+			
+			\addplot[mark=none, dashed, green4]  coordinates { (0,100) (2,100) };
+			\addlegendentry{Valore ottimale}
+			
+		\end{axis}
+	\end{tikzpicture}
 	
 	\section{Valutazioni delle attività di verifica}
 	In questa sezione si riportano le valutazioni sulle criticità incontrate nel corso dello svolgimento del progetto e le correzioni applicate ad esse.
