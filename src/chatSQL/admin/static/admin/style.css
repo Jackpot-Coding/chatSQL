@@ -62,10 +62,6 @@ header nav{
     padding: .5em 0;
 }
 
-div:has(label){
-    
-}
-
 label{
     display: block;
     margin: .4em 0;

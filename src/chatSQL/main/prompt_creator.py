@@ -11,7 +11,7 @@ class PromptCreator:
     def __init__(self,struttura_db:StrutturaDatabase):
         self.struttura_db = struttura_db                
     
-    def createPrompt(self,userRequest):
+    def create_prompt(self,user_request):
         # Initialize classifier
         
         classifier = pipeline("token-classification", model="sachaarbonel/bert-italian-cased-finetuned-pos")
@@ -19,7 +19,7 @@ class PromptCreator:
         tables = self.struttura_db.tabella_set.all()
 
         # Tokenize natural language input
-        tokens = classifier(userRequest)
+        tokens = classifier(user_request)
         
         if len(tokens)<2:
             error = "Errore: impossibile interpretare la frase inserita."
@@ -46,7 +46,7 @@ class PromptCreator:
                 if index < len(found_tables) - 1:
                     prompt += "E la tabella "
             prompt += "\n"
-            prompt += f"Crea una query SQL per la seguente richiesta: {userRequest}"
+            prompt += f"Crea una query SQL per la seguente richiesta: {user_request}"
         
         else:
             error = "Errore: Frase non inerente al database.\n"

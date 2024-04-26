@@ -21,21 +21,21 @@ class QueryGenerationViewsTestCase(TestCase):
 
     def test_can_get_query(self):
         
-        with patch.object(QueryGenerator, 'getQuery',return_value="```SELECT * FROM Clienti WHERE nome LIKE '%SRL%'```"):
+        with patch.object(QueryGenerator, 'get_query',return_value="```SELECT * FROM Clienti WHERE nome LIKE '%SRL%'```"):
             response = self.client.post(reverse("query_generation"),data={"prompt":'dammi i clienti'})
         
             self.assertTemplateUsed(response,'query.html')
             self.assertContains(response,'<code>')
         
     def test_cannot_interpret_prompt(self):
-        with patch.object(QueryGenerator, 'getQuery',return_value="interpretation"):
+        with patch.object(QueryGenerator, 'get_query',return_value="interpretation"):
             response = self.client.post(reverse("query_generation"),data={"prompt":'dammi i clienti'})
         
             self.assertTemplateUsed(response,'main.html')
             self.assertContains(response,'Errore di interpretazione del prompt')
         
     def test_cannot_contact_api_service(self):
-        with patch.object(QueryGenerator, 'getQuery',return_value="error"):
+        with patch.object(QueryGenerator, 'get_query',return_value="error"):
             response = self.client.post(reverse("query_generation"),data={"prompt":'dammi i clienti'})
         
             self.assertTemplateUsed(response,'main.html')

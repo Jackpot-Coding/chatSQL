@@ -1,3 +1,3 @@
 class ParserStrategy:
     def parser(self, uploaded_file):
-        pass
+        pass # metodo vuoto per non essere implementabile 

@@ -13,6 +13,8 @@ from .query_generator import QueryGenerator
 import markdown
 # Create your views here.
 
+main_template = "main.html"
+
 class MainView(View):
     def get(self,request):       
         natural_lang_form = forms.NLPromptForm()
@@ -24,22 +26,22 @@ class MainView(View):
 
         if not natural_lang_form.is_valid():
             messages.add_message(request,messages.ERROR,"Errore nel form.")
-            return render(request,"main.html",  {"natural_lang_form":natural_lang_form})
+            return render(request,main_template,  {"natural_lang_form":natural_lang_form})
         
         natural_language_request = natural_lang_form.cleaned_data["natural_language"]
         db_structure = natural_lang_form.cleaned_data["db_structure"]
         
         generator = PromptCreator(db_structure)
         
-        prompt = generator.createPrompt(natural_language_request)
+        prompt = generator.create_prompt(natural_language_request)
         
         if prompt[0] != PromptGenStatus.SUCCESS:
             messages.add_message(request,messages.ERROR,prompt[1])
-            return render(request,"main.html",  {"natural_lang_form":natural_lang_form})
+            return render(request,main_template,  {"natural_lang_form":natural_lang_form})
         
         query_form = forms.QueryForm(initial={"prompt":prompt[1]})    
             
-        return render(request,"main.html",  {"natural_lang_form":natural_lang_form, "prompt":prompt[1],'query_form':query_form})
+        return render(request,main_template,  {"natural_lang_form":natural_lang_form, "prompt":prompt[1],'query_form':query_form})
     
 class QueryGenerationView(View):
     
@@ -53,15 +55,15 @@ class QueryGenerationView(View):
             prompt = query_form.cleaned_data['prompt']              
                 
             query_generator = QueryGenerator()
-            query = query_generator.getQuery(prompt)
+            query = query_generator.get_query(prompt)
                 
             if query == 'interpretation':                        
                 messages.error(request,"Errore di interpretazione del prompt.")
-                return render(request,"main.html",  {"natural_lang_form":natural_lang_form})  
+                return render(request,main_template,  {"natural_lang_form":natural_lang_form})  
             
             if query == 'error':
                 messages.error(request,"Errore di comunicazione con servizio di generazione query.")
-                return render(request,"main.html",  {"natural_lang_form":natural_lang_form})  
+                return render(request,main_template,  {"natural_lang_form":natural_lang_form})  
             
             md = markdown.Markdown(extensions=["fenced_code"])
             
@@ -69,4 +71,4 @@ class QueryGenerationView(View):
                     
         
         messages.error(request,"Prompt non fornito.")
-        return render(request,"main.html",  {"natural_lang_form":natural_lang_form}) 
+        return render(request,main_template,  {"natural_lang_form":natural_lang_form}) 

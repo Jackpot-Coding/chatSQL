@@ -2,7 +2,7 @@ from openai import OpenAI
 
 class QueryGenerator:
     
-    def getQuery(self,prompt):
+    def get_query(self,prompt):
         
         try:  
         

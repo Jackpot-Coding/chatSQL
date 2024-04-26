@@ -20,6 +20,8 @@ class AdminLoginView(View):
 
     def post(self,request):
         login_form = forms.LoginForm(request.POST)
+        login_template = "admin/login.html"
+        
         if login_form.is_valid():
             try:
                 user = authenticate(username=login_form.cleaned_data["username"],password=login_form.cleaned_data["password"])
@@ -29,12 +31,12 @@ class AdminLoginView(View):
                     return render(request,"admin/home.html",{"login_form":login_form})
                 #else
                 login_form.add_error("username","Credenziali non corrette.")
-                return render(request,"admin/login.html",{"login_form":login_form})
+                return render(request,login_template,{"login_form":login_form})
             except Exception:
                 messages.add_message(request,messages.ERROR,"Errore durante l'autenticazione.")
-                return render(request,"admin/login.html",{"login_form":login_form}) 
+                return render(request,login_template,{"login_form":login_form}) 
         #else
-        return render(request,"admin/login.html",{"login_form":login_form})
+        return render(request,login_template,{"login_form":login_form})
 
 
 class AdminLogoutView(View):
@@ -57,19 +59,22 @@ class AdminStrutturaDatabaseView(View):
     
     def get(self, request,structure_id=None):
         
+        struttura_db_template = 'admin/struttura_db.html'
+        
         if structure_id is not None: # la view mostra il form pre-compilato per la modifica
             struttura = models.StrutturaDatabase.objects.get(pk=structure_id)
             db_create_form = forms.StrutturaDatabaseForm(initial={'nome':struttura.nome,'descrizione':struttura.descrizione})
-            return render(request, 'admin/struttura_db.html', {'db_create_form': db_create_form,
+            return render(request, struttura_db_template, {'db_create_form': db_create_form,
                                                             'editing_id':structure_id,
                                                             'struttura_nome':struttura.nome, 
                                                             'tables':struttura.tabella_set.all()})
     
         db_create_form = forms.StrutturaDatabaseForm #mostra il form vuoto per l'inserimento
-        return render(request, 'admin/struttura_db.html', {'db_create_form': db_create_form,'struttura_nome':'Nuova struttura'})
+        return render(request, struttura_db_template, {'db_create_form': db_create_form,'struttura_nome':'Nuova struttura'})
 
     def post(self, request,structure_id=None):
         db_create_form = forms.StrutturaDatabaseForm(request.POST)
+        struttura_db_template = 'admin/struttura_db.html'
         
         if db_create_form.is_valid():
             try:
@@ -81,7 +86,7 @@ class AdminStrutturaDatabaseView(View):
                     db_structure=models.StrutturaDatabase.objects.get(pk=structure_id)
                     if models.StrutturaDatabase.objects.filter(nome=nome).filter(~Q(pk=structure_id)).exists():
                         db_create_form.add_error('nome', 'Un database con questo nome è già esistente.')
-                        return render(request, 'admin/struttura_db.html', {'db_create_form': db_create_form,'editing_id':structure_id,
+                        return render(request, struttura_db_template, {'db_create_form': db_create_form,'editing_id':structure_id,
                                                                             'struttura_nome':db_structure.nome})
                     
                     db_structure.nome = nome
@@ -90,14 +95,14 @@ class AdminStrutturaDatabaseView(View):
                     
                     db_create_form = forms.StrutturaDatabaseForm(initial={'nome':db_structure.nome,'descrizione':db_structure.descrizione})
                     messages.add_message(request, messages.SUCCESS, 'Struttura modificata con successo')
-                    return render(request, 'admin/struttura_db.html', {'db_create_form': db_create_form,'editing_id':structure_id, 
+                    return render(request, struttura_db_template, {'db_create_form': db_create_form,'editing_id':structure_id, 
                                                                         'tables':db_structure.tabella_set.all()})
 
                     
                 
                 if models.StrutturaDatabase.objects.filter(nome=nome).exists():
                     db_create_form.add_error('nome', 'Un database con questo nome è già esistente.')
-                    return render(request, 'admin/struttura_db.html', {'db_create_form': db_create_form,'struttura_nome':'Nuova struttura'})
+                    return render(request, struttura_db_template, {'db_create_form': db_create_form,'struttura_nome':'Nuova struttura'})
                 
                 db_structure = models.StrutturaDatabase(nome=nome, descrizione=descrizione)
                 db_structure.save()
@@ -108,9 +113,9 @@ class AdminStrutturaDatabaseView(View):
             except Exception as e:
                 error_message = str(e)
                 messages.add_message(request, messages.ERROR, 'Errore durante il salvataggio della struttura: ' + error_message)
-                return render(request, 'admin/struttura_db.html', {'db_create_form': db_create_form})
+                return render(request, struttura_db_template, {'db_create_form': db_create_form})
         
-        return render(request, 'admin/struttura_db.html', {'db_create_form': db_create_form})
+        return render(request, struttura_db_template, {'db_create_form': db_create_form})
     
 class AdminEliminaModelView(View):
     
@@ -121,7 +126,7 @@ class AdminEliminaModelView(View):
     
     def post(self,request,classe_modello=None,id_modello=None):
         elimina_form = forms.EliminaForm(request.POST)
-
+        error_text = "Errore durante la richiesta di eliminazione"
         try:
             
             if elimina_form.is_valid():
@@ -141,7 +146,6 @@ class AdminEliminaModelView(View):
                     db = oggetto.struttura.pk
                     oggetto.delete()
                     messages.success(request, "Tabella eliminata")
-                    #return redirect("../../struttureDB/"+str(db))
                     return redirect("db_view", db)
 
                 if classe_modello == 'Campo':
@@ -149,20 +153,19 @@ class AdminEliminaModelView(View):
                     tab = oggetto.tabella.pk
                     oggetto.delete()
                     messages.success(request, "Campo eliminato")
-                    #return redirect("../../tabella/"+str(tab))
                     return redirect("table_view", tab)
             
                 #se non trova una classe esplicitatamente abilitata
-                messages.error(request,"Errore durante la richiesta di eliminazione")
+                messages.error(request,error_text)
                 return redirect(request.get_full_path()) #ritorna l'url precedente
 
             #else non serve perchè l'url per forza ha i due parametri o va in errore 404 ma va messo in caso
-            messages.error(request,"Errore durante la richiesta di eliminazione")
+            messages.error(request,error_text)
             return redirect(request.get_full_path()) #ritorna l'url precedente
 
         except Exception: #se non esiste il modello con id dato e la query non è valida
             
-            messages.error(request,"Errore durante la richiesta di eliminazione")
+            messages.error(request,error_text)
             return redirect(request.get_full_path()) #ritorna l'url precedente
 
 class AdminTabellaView(View):
@@ -192,12 +195,13 @@ class AdminTabellaView(View):
             return redirect('admin_home') 
         
         except Exception:
-            messages.error(request,"Tabella non trovata.")
+            messages.error(request,"Errore durante la ricerca della tabella.")
             return redirect('admin_home') 
     
     def post(self,request,structure_id=None, table_id=None): # table_id = None per eventuale visualizza/modifica
     
         table_create_form = forms.TabellaForm(request.POST)
+        table_template = "admin/tabella.html"
         
         if table_create_form.is_valid():
             try:
@@ -210,7 +214,7 @@ class AdminTabellaView(View):
                     db_structure = models.StrutturaDatabase.objects.get(pk=structure_id)
                     if db_structure.tabella_set.filter(nome=nome).exists():
                         messages.add_message(request, messages.ERROR, 'Una tabella con questo nome è già esistente.')
-                        return render(request, 'admin/tabella.html', {'table_create_form': table_create_form, 
+                        return render(request, table_template, {'table_create_form': table_create_form, 
                                                                         'structure_id': structure_id,'struttura_db':db_structure})
                     
                     table = models.Tabella(
@@ -228,7 +232,7 @@ class AdminTabellaView(View):
                 if table.nome != nome:  # Controllo solo se il nome viene modificato
                     if table.struttura.tabella_set.filter(nome=nome).exists():
                         messages.error(request, 'Una tabella con questo nome è già esistente.')
-                        return render(request, 'admin/tabella.html', {'table_create_form': table_create_form, 
+                        return render(request, table_template, {'table_create_form': table_create_form, 
                                                                     'structure_id': structure_id, 'struttura_db':table.struttura, 'table_id': table_id})
                 
                 table.nome = nome
@@ -236,31 +240,32 @@ class AdminTabellaView(View):
                 table.sinonimi = sinonimi
                 table.save()
                 messages.add_message(request, messages.SUCCESS, 'Tabella modificata con successo')
-                return render(request, 'admin/tabella.html', {'table_create_form': table_create_form, 'struttura_db':table.struttura,
+                return render(request, table_template, {'table_create_form': table_create_form, 'struttura_db':table.struttura,
                                                             'structure_id': structure_id, 'table_id':table.pk, 'fields': table.campo_set.all()})
                 
             except Exception as e:
                 error_message = str(e)
                 db_structure = models.StrutturaDatabase.objects.get(pk=structure_id)
                 messages.add_message(request, messages.ERROR, 'Errore durante il salvataggio della tabella: ' + error_message)
-                return render(request, 'admin/tabella.html', {'table_create_form': table_create_form, 'structure_id': structure_id,
+                return render(request, table_template, {'table_create_form': table_create_form, 'structure_id': structure_id,
                                                             'struttura_db':db_structure})
         else:
             db_structure = models.StrutturaDatabase.objects.get(pk=structure_id)
             messages.add_message(request, messages.ERROR, 'Il form non è valido.')
-            return render(request, 'admin/tabella.html', {'table_create_form': table_create_form, 
+            return render(request, table_template, {'table_create_form': table_create_form, 
                                                         'structure_id': structure_id,'struttura_db':db_structure})
 
 
 class AdminCampoView(View):
     def get(self,request,table_id=None,field_id=None):
+        field_template = 'admin/campo.html'
         if field_id is not None:
             if not models.Campo.objects.filter(pk=field_id).exists():
                 messages.add_message(request, messages.ERROR, 'Il campo selezionato non esiste.')
                 return render(request, 'admin/base.html')
             field=models.Campo.objects.get(pk=field_id)
             field_create_form=forms.CampoForm(initial={'nome':field.nome,'tipo':field.tipo,'descrizione':field.descrizione,'sinonimi':field.sinonimi})
-            return  render(request, 'admin/campo.html', {'field_create_form': field_create_form,
+            return  render(request, field_template, {'field_create_form': field_create_form,
                                                             'struttura':field.tabella.struttura,
                                                             'tabella':field.tabella,
                                                             'campo_nome':field.nome})
@@ -268,13 +273,14 @@ class AdminCampoView(View):
         if not models.Tabella.objects.filter(pk=table_id).exists():
             messages.add_message(request, messages.ERROR, 'La tabella selezionata non esiste.')
             return render(request, 'admin/base.html')
-        return render(request, 'admin/campo.html', {'field_create_form': field_create_form,
+        return render(request, field_template, {'field_create_form': field_create_form,
                                                     'struttura':models.Tabella.objects.get(pk=table_id).struttura,
                                                     'tabella':models.Tabella.objects.get(pk=table_id),
                                                     'campo_nome':'Nuovo campo'})
 
     def post(self,request,table_id=None,field_id=None):
         field_create_form=forms.CampoForm(request.POST)
+        field_template = 'admin/campo.html'
         if field_create_form.is_valid():
             try:
                 nome=field_create_form.cleaned_data['nome']
@@ -288,7 +294,7 @@ class AdminCampoView(View):
                     
                     if table.campo_set.filter(nome=nome).filter(~Q(pk=field_id)).exists():
                         field_create_form.add_error('nome', 'Un campo con questo nome è già esistente.')
-                        return render(request, 'admin/campo.html', {'field_create_form': field_create_form,
+                        return render(request, field_template, {'field_create_form': field_create_form,
                                                                     'struttura':table.struttura,
                                                                     'tabella':table,
                                                                     'campo_nome':table.campo_set.get(pk=field_id).nome})
@@ -303,7 +309,7 @@ class AdminCampoView(View):
                                                                     'tipo':field.tipo,
                                                                     'descrizione':field.descrizione,
                                                                     'sinonimi':field.sinonimi})
-                    return  render(request, 'admin/campo.html', {'field_create_form': field_create_form,
+                    return  render(request, field_template, {'field_create_form': field_create_form,
                                                                 'struttura':table.struttura,
                                                                 'tabella':table,
                                                                 'campo_nome':table.campo_set.get(pk=field_id).nome})
@@ -311,7 +317,7 @@ class AdminCampoView(View):
                 table=models.Tabella.objects.get(pk=table_id)
                 if table.campo_set.filter(nome=nome).exists():
                     field_create_form.add_error('nome', 'Un campo con questo nome è già esistente.')
-                    return render(request, 'admin/campo.html', {'field_create_form': field_create_form,
+                    return render(request, field_template, {'field_create_form': field_create_form,
                                                                 'struttura':table.struttura,
                                                                 'tabella':table,
                                                                 'campo_nome':'Nuovo campo'})
@@ -324,9 +330,9 @@ class AdminCampoView(View):
             except Exception as e:
                 error_message = str(e)
                 messages.add_message(request, messages.ERROR, 'Errore durante il salvataggio del campo: ' + error_message)
-                return render(request, 'admin/campo.html', {'field_create_form': field_create_form})
+                return render(request, field_template, {'field_create_form': field_create_form})
         
-        return render(request, 'admin/campo.html', {'field_create_form': field_create_form})
+        return render(request, field_template, {'field_create_form': field_create_form})
     
 class AdminUploadFileView(View):
     def get(self,request):
@@ -335,27 +341,29 @@ class AdminUploadFileView(View):
 
     def post(self,request):
         upload_file_form=forms.UploadFileForm(request.POST, request.FILES)
+        upload_file_template =  'admin/upload_file.html'
+        
         if upload_file_form.is_valid():
             try:
                 file=request.FILES['file']
             except Exception as e:
                 error_message = str(e)
                 messages.add_message(request, messages.ERROR, 'Errore durante il caricamento del file: ' + error_message)
-                return render(request, 'admin/upload_file.html', {'upload_file_form': upload_file_form})
+                return render(request,upload_file_template, {'upload_file_form': upload_file_form})
         else:
             messages.add_message(request, messages.ERROR, 'Il form non è valido.')
-            return render(request, 'admin/upload_file.html', {'upload_file_form': upload_file_form})
+            return render(request, upload_file_template, {'upload_file_form': upload_file_form})
         
         uploader = file_uploader.FileUploader(file)
         
-        if uploader.getStatus() is not None:
-            messages.add_message(request, messages.ERROR, 'Errore durante l\'upload del file: ' + uploader.getStatus())
-            return render(request, 'admin/upload_file.html', {'upload_file_form': upload_file_form})
-        status = uploader.uploadFile()
+        if uploader.get_status() is not None:
+            messages.add_message(request, messages.ERROR, 'Errore durante l\'upload del file: ' + uploader.get_status())
+            return render(request, upload_file_template, {'upload_file_form': upload_file_form})
+        status = uploader.upload_file()
 
         if status[0] != enums.ParserStatus.SUCCESS:
             messages.add_message(request, messages.ERROR, 'Errore durante l\'upload del file: ' + status[1])
-            return render(request, 'admin/upload_file.html', {'upload_file_form': upload_file_form})
+            return render(request, upload_file_template, {'upload_file_form': upload_file_form})
         
         strutture_db = models.StrutturaDatabase.objects.order_by("nome")
         messages.add_message(request, messages.SUCCESS, 'File caricato con successo')
