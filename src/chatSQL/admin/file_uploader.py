@@ -24,7 +24,7 @@ class FileUploader():
     def upload_file(self):
         if self.parser_strategy is None:
             return None
-        return self.parser_strategy.parser(self.file)
+        return self.parser_strategy.parse(self.file)
     
     def get_status(self):
         return self.error

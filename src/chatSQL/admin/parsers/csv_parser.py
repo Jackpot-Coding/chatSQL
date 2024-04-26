@@ -8,7 +8,7 @@ from . import parser_strategy as ps
 
 class CSVParser(ps.ParserStrategy):
     
-    def parser(self, uploaded_file):
+    def parse(self, uploaded_file):
         
         try:
             reader = csv.DictReader(

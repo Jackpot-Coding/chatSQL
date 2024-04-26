@@ -7,7 +7,7 @@ from admin import enums
 
 class JSONParser(ps.ParserStrategy):
     
-    def parser(self, uploaded_file):
+    def parse(self, uploaded_file):
         try:
             db = json.load(uploaded_file)
             db_name = db["database"].get('nome')
