@@ -119,7 +119,7 @@
 	\begin{flushright}
 		\begin{spacing}{1}
 			USO: ESTERNO\\
-			VERSIONE: 1.0.3\\
+			VERSIONE: 1.0.4\\
 		\end{spacing}
 	\end{flushright}
 	
@@ -139,7 +139,9 @@
 				\hline
 				\textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Modifica} \\
 				\hline
-				v.1.0.3 & 25/04/2024 & R. Simionato & - & Aggiunti riferimenti al Glossario per le metriche \\
+				v.1.0.4 & 27/04/2024 & G.Moretto & - &Tolti failure density, test da Integrazione a sistema, grafici MPC-PTP,PMC-BV,MPD-CS,MPC-CD,MPC-AC, MPC-ETC e MPC-EAC \\
+				\hline
+				v.1.0.3 & 25/04/2024 & R. Simionato & G. Moretto & Aggiunti riferimenti al Glossario per le metriche \\
 				\hline
 				v.1.0.2 & 03/04/2024 & E. Gallo & - & Aggiunti riferimenti normativi ed informativi \\
 				\hline
@@ -484,13 +486,9 @@
 		\hline
 		MPD-CR & Copertura dei Requisiti\textsuperscript{G} & 100 \% & 100 \% \\
 		\hline
-		MPD-FD &\textit{Failure Density}\textsuperscript{G} & 100\% & 100\% \\
+		MPD-CD & \textit{Code Duplication}\textsuperscript{G} &  $<$ 3\% & 0\% \\
 		\hline
-		MPD-CC & Complessità del Codice & 25\%-35\% & 30\% - 45\%  \\
-		\hline
-		MPC-CD & \textit{Code Duplication}\textsuperscript{G} &  $<$ 3\% & 0\% \\
-		\hline
-		MPC-CS & \textit{Code Smell}\textsuperscript{G} & 0 & 0 \\
+		MPD-CS & \textit{Code Smell}\textsuperscript{G} & 0 & 0 \\
 		\hline
 		MPD-BS & \textit{Browser}\textsuperscript{G} Supportati & 75\% & 100\% \\
 		\hline
@@ -582,10 +580,15 @@
 
 		
 	\end{longtblr}
-	%quelli sui parser e query gen e prompt gen
 	
 	\subsection{Test di Integrazione}
 	Vengono impiegati per la verifica delle interazioni fra le unità sopra descritte.
+	
+	Le unità sopra descritte interagisco nell'ambiente fornito dal \textit{framework} Django rispettando le sue convenzioni. Questo permette di non dover testare le interazioni tra le singole unità.
+
+	
+	\subsection{Test di Sistema}
+	Vengono impiegati per verificare che l'esecuzione del sistema soddisfi i requisiti\textsuperscript{G} prestabiliti nel documento di Analisi dei Requisiti\textsuperscript{G}.
 	
 		\begin{longtblr}
 		{
@@ -594,168 +597,226 @@
 			row{1}={halign=c},
 			row{odd} = {gray!20},
 			row{1}={teal!50},
-			%caption=Tabella 1
+			%capTSon=Tabella 1
 		}		
 		\hline
 		\textbf{Codice} & \textbf{Descrizione} & \textbf{Requisito} & \textbf{Stato}\\
 		
 		\hline
-		TI01 & L'utente può visionare alla pagina di login & UC1 & P\\
+		TS01 & L'utente può visionare alla pagina di login & UC1 & P\\
 		\hline
-		TI02 & L'utente non può effettuare l'accesso con credenziali errate & UC2 & P \\
+		TS02 & L'utente non può effettuare l'accesso con credenziali errate & UC2 & P \\
 		\hline
-		TI03 & L'amministratore può effettuare l'accesso con credenziali corrette & UC1 & P\\
+		TS03 & L'amministratore può effettuare l'accesso con credenziali corrette & UC1 & P\\
 		\hline
-		TI04 & L'utente non può effettuare l'accesso senza credenziali & UC2 & P\\
+		TS04 & L'utente non può effettuare l'accesso senza credenziali & UC2 & P\\
 		\hline
 		
-		TI05 & L'amministratore può visionare alla pagina di creazione di struttura database & UC3 & P \\
+		TS05 & L'amministratore può visionare alla pagina di creazione di struttura database & UC3 & P \\
 		\hline
-		TI06 & L'amministratore può creare una struttura database & UC3 & P\\
+		TS06 & L'amministratore può creare una struttura database & UC3 & P\\
 		\hline		
-		TI07 & L'amministratore non può creare una struttura database senza inserire dati & UC3 & P\\
+		TS07 & L'amministratore non può creare una struttura database senza inserire dati & UC3 & P\\
 		\hline
-		TI08 & L'amministratore non può creare una struttura database se ne esiste una con lo stesso nome & UC4 & P\\
+		TS08 & L'amministratore non può creare una struttura database se ne esiste una con lo stesso nome & UC4 & P\\
 		\hline
-		TI09 & L'amministratore può visionare la pagina di modifica di una struttura database & UC6 & P\\
+		TS09 & L'amministratore può visionare la pagina di modifica di una struttura database & UC6 & P\\
 		\hline
-		TI10 & L'amministratore può modificare una struttura database & UC7 & P\\
+		TS10 & L'amministratore può modificare una struttura database & UC7 & P\\
 		\hline
-		TI11 & L'amministratore non può modificare una struttura fornendo un nome già esistente & UC4 &P\\
+		TS11 & L'amministratore non può modificare una struttura fornendo un nome già esistente & UC4 &P\\
 		\hline
-	
-	
-		TI12 &  L'amministratore può visionare alla pagina di creazione di una tabella & UC9 & P \\
+		
+		
+		TS12 &  L'amministratore può visionare alla pagina di creazione di una tabella & UC9 & P \\
 		\hline
-		TI13 & L'amministratore può creare una tabella & UC9 & P\\
+		TS13 & L'amministratore può creare una tabella & UC9 & P\\
 		\hline		
-		TI14 & L'amministratore non può creare una tabella senza inserire dati & UC10 & P\\
+		TS14 & L'amministratore non può creare una tabella senza inserire dati & UC10 & P\\
 		\hline
-		TI15 & L'amministratore non può creare una tabella se ne esiste una con lo stesso nome & UC10 & P\\
+		TS15 & L'amministratore non può creare una tabella se ne esiste una con lo stesso nome & UC10 & P\\
 		\hline
-		TI16 & L'amministratore può visionare la pagina di modifica di una tabella & UC12 & P\\
+		TS16 & L'amministratore può visionare la pagina di modifica di una tabella & UC12 & P\\
 		\hline
-		TI17 & L'amministratore può modificare una tabella & UC13 & P\\
+		TS17 & L'amministratore può modificare una tabella & UC13 & P\\
 		\hline
-		TI18 & L'amministratore non può modificare una tabella fornendo un nome già esistente & UC10 & P\\
+		TS18 & L'amministratore non può modificare una tabella fornendo un nome già esistente & UC10 & P\\
 		\hline
-		TI18 & L'amministratore non può modificare una tabella non esistente & UC10 & P\\
+		TS18 & L'amministratore non può modificare una tabella non esistente & UC10 & P\\
 		\hline
 		
-		TI12 &  L'amministratore può visionare alla pagina di creazione di un campo & UC15 & P \\
+		TS12 &  L'amministratore può visionare alla pagina di creazione di un campo & UC15 & P \\
 		\hline
-		TI13 & L'amministratore può creare un campo & UC15 & P\\
+		TS13 & L'amministratore può creare un campo & UC15 & P\\
 		\hline		
-		TI14 & L'amministratore non può creare un campo senza inserire dati & UC16 & P\\
+		TS14 & L'amministratore non può creare un campo senza inserire dati & UC16 & P\\
 		\hline
-		TI15 & L'amministratore non può creare un campo se ne esiste uno con lo stesso nome & UC16 & P\\
+		TS15 & L'amministratore non può creare un campo se ne esiste uno con lo stesso nome & UC16 & P\\
 		\hline
-		TI16 & L'amministratore può visionare la pagina di modifica di un campo & UC18 & P\\
+		TS16 & L'amministratore può visionare la pagina di modifica di un campo & UC18 & P\\
 		\hline
-		TI17 & L'amministratore può modificare un campo & UC19 & P\\
+		TS17 & L'amministratore può modificare un campo & UC19 & P\\
 		\hline
-		TI18 & L'amministratore non può modificare un campo fornendo un nome già esistente & UC16 & P\\
+		TS18 & L'amministratore non può modificare un campo fornendo un nome già esistente & UC16 & P\\
 		\hline
-		TI18 & L'amministratore non può modificare un campo di una tabella non esistente & UC10 & P\\
+		TS18 & L'amministratore non può modificare un campo di una tabella non esistente & UC10 & P\\
 		\hline
-		TI18 & L'amministratore non può modificare un campo non esistente & UC16 & P\\
-		\hline
-		
-		TI19 & L'amministratore può visionare la pagina di eliminazione & UC8 UC14 UC20 &P\\
-		\hline
-		TI20 & L'amministratore può eliminare una struttura database & UC8 &P\\
-		\hline
-		TI20 & L'amministratore non può eliminare una struttura database non esistente & UC8 &P\\
-		\hline
-		TI21 & L'amministratore può eliminare una tabella & UC14 &P\\
-		\hline
-		TI22 & L'amministratore può eliminare un campo & UC20 &P\\
-		\hline
-		TI23 & L'amministratore non può eliminare un oggetto senza fornirne la classe & - &P\\
-		\hline
-		TI24 & L'amministratore non può eliminare un oggetto senza fornirne l'id & - &P\\
-		\hline
-		TI25 & L'amministratore non può eliminare un oggetto senza fornire una classe esistente& - &P\\
-		\hline
-		TI26 & L'amministratore non può eliminare un oggetto senza fornire un id esistente& - &P\\
+		TS18 & L'amministratore non può modificare un campo non esistente & UC16 & P\\
 		\hline
 		
-		TI27 & L'amministratore può accedere alla pagina principale & - &P\\
+		TS19 & L'amministratore può visionare la pagina di eliminazione & UC8 UC14 UC20 &P\\
 		\hline
-		TI28 & L'amministratore  visualizza un messaggio se non sono strutture database presenti & - &P\\
+		TS20 & L'amministratore può eliminare una struttura database & UC8 &P\\
 		\hline
-		TI29 & L'amministratore visualizza la lista delle strutture database presenti & UC5 & P\\
+		TS20 & L'amministratore non può eliminare una struttura database non esistente & UC8 &P\\
 		\hline
-		TI27 & L'amministratore visualizza la lista delle tabelle presenti in una struttura database & UC11 & P\\
+		TS21 & L'amministratore può eliminare una tabella & UC14 &P\\
 		\hline
-		TI28 & L'amministratore visualizza la lista dei campi presenti & UC17 & P\\
-		
+		TS22 & L'amministratore può eliminare un campo & UC20 &P\\
 		\hline
-		TI29 & L'amministratore può effettuare l'operazione di logout & UC23 &P\\
+		TS23 & L'amministratore non può eliminare un oggetto senza fornirne la classe & - &P\\
 		\hline
-		TI30 & L'utente non può effettuare l'operazione di logout se non autenticato & UC24 &P\\
+		TS24 & L'amministratore non può eliminare un oggetto senza fornirne l'id & - &P\\
 		\hline
-		
-		TI31 & L'amministratore può accedere alla pagina di caricamento file & UC21 &P\\
+		TS25 & L'amministratore non può eliminare un oggetto senza fornire una classe esistente& - &P\\
 		\hline
-		TI32 & L'amministratore può caricare un file in formato JSON & UC21 &P\\
-		\hline
-		TI33 & L'amministratore non può caricare un file senza selezionarlo & UC22 & P\\
-		\hline
-		TI34 & L'amministratore non può caricare un file con formato errato & UC22 & P\\
-		\hline
-		TI35 & L'amministratore può caricare un file in formato CSV & UC21 &P\\
-		\hline
-		TI36 & L'amministratore non può caricare un file JSON di una struttura database con un nome già esistente & UC22 UC4 & P\\
-		\hline
-		TI37 & L'amministratore non può caricare un file CSV di una struttura database con un nome già esistente & UC22 UC4 & P\\
-		\hline
-		TI38 & L'amministratore può importare una struttura datbase da un file in formato JSON & UC21 &P\\
-		\hline
-		TI39 & L'amministratore può importare una struttura datbase da un file in formato CSV & UC21 &P\\
+		TS26 & L'amministratore non può eliminare un oggetto senza fornire un id esistente& - &P\\
 		\hline
 		
-		TI40 & L'utente può accedere alla pagina di generazione \textit{prompt} & UC25 &P\\
+		TS27 & L'amministratore può accedere alla pagina principale & - &P\\
 		\hline
-		TI41 & L'utente può inviare correttamente i dati per la generazione del \textit{prompt} & UC25 & P\\
+		TS28 & L'amministratore  visualizza un messaggio se non sono strutture database presenti & - &P\\
 		\hline
-		TI42 & L'utente non può inviare la richiesta di generazione \textit{prompt} senza specificare un testo di richiesta & UC25.4 &P\\
+		TS29 & L'amministratore visualizza la lista delle strutture database presenti & UC5 & P\\
 		\hline
-		TI43 & L'utente non può inviare la richiesta di generazione \textit{prompt} senza specificare una struttura database & UC25.2 &P\\
+		TS27 & L'amministratore visualizza la lista delle tabelle presenti in una struttura database & UC11 & P\\
 		\hline
-		TI44 & L'utente riceve un errore se la frase inserita non è inerente alla struttura database selezionata & UC25.4&P\\
+		TS28 & L'amministratore visualizza la lista dei campi presenti & UC17 & P\\
+		
 		\hline
-		TI45 & L'utente può visualizzare un prompt con due tabelle & UC25.5 & P\\
+		TS29 & L'amministratore può effettuare l'operazione di logout & UC23 &P\\
 		\hline
-		TI46 & L'utente visualizza un errore se il sistema non può interpretare la frase in linguaggio naturale fornita& UC26&P\\
+		TS30 & L'utente non può effettuare l'operazione di logout se non autenticato & UC24 &P\\
 		\hline
 		
-		TI47 & L'utente visualizza un errore se non è fornito il \textit{prompt} per la generazione della \textit{query} SQL & UC28 &P\\
+		TS31 & L'amministratore può accedere alla pagina di caricamento file & UC21 &P\\
 		\hline
-		TI48 & L'utente può visualizzare la \textit{query} SQL richiesta & UC27 UC29 & P\\
+		TS32 & L'amministratore può caricare un file in formato JSON & UC21 &P\\
 		\hline
-		TI49 & L'utente visualizza un errore se non è possibile interpretare il \textit{prompt} fornito & UC28.2 &P\\
+		TS33 & L'amministratore non può caricare un file senza selezionarlo & UC22 & P\\
 		\hline
-		TI50 & L'utente visualizza un errore se non è possibile contattare il servizio LLM esterno & UC28.1 &P\\
+		TS34 & L'amministratore non può caricare un file con formato errato & UC22 & P\\
+		\hline
+		TS35 & L'amministratore può caricare un file in formato CSV & UC21 &P\\
+		\hline
+		TS36 & L'amministratore non può caricare un file JSON di una struttura database con un nome già esistente & UC22 UC4 & P\\
+		\hline
+		TS37 & L'amministratore non può caricare un file CSV di una struttura database con un nome già esistente & UC22 UC4 & P\\
+		\hline
+		TS38 & L'amministratore può importare una struttura datbase da un file in formato JSON & UC21 &P\\
+		\hline
+		TS39 & L'amministratore può importare una struttura datbase da un file in formato CSV & UC21 &P\\
+		\hline
+		
+		TS40 & L'utente può accedere alla pagina di generazione \textit{prompt} & UC25 &P\\
+		\hline
+		TS41 & L'utente può inviare correttamente i dati per la generazione del \textit{prompt} & UC25 & P\\
+		\hline
+		TS42 & L'utente non può inviare la richiesta di generazione \textit{prompt} senza specificare un testo di richiesta & UC25.4 &P\\
+		\hline
+		TS43 & L'utente non può inviare la richiesta di generazione \textit{prompt} senza specificare una struttura database & UC25.2 &P\\
+		\hline
+		TS44 & L'utente riceve un errore se la frase inserita non è inerente alla struttura database selezionata & UC25.4&P\\
+		\hline
+		TS45 & L'utente può visualizzare un prompt con due tabelle & UC25.5 & P\\
+		\hline
+		TS46 & L'utente visualizza un errore se il sistema non può interpretare la frase in linguaggio naturale fornita& UC26&P\\
+		\hline
+		
+		TS47 & L'utente visualizza un errore se non è fornito il \textit{prompt} per la generazione della \textit{query} SQL & UC28 &P\\
+		\hline
+		TS48 & L'utente può visualizzare la \textit{query} SQL richiesta & UC27 UC29 & P\\
+		\hline
+		TS49 & L'utente visualizza un errore se non è possibile interpretare il \textit{prompt} fornito & UC28.2 &P\\
+		\hline
+		TS50 & L'utente visualizza un errore se non è possibile contattare il servizio LLM esterno & UC28.1 &P\\
 		\hline
 		
 	\end{longtblr}
-%	Views
-	
-	\subsection{Test di Sistema}
-	Vengono impiegati per verificare che l'esecuzione del sistema soddisfi i requisiti\textsuperscript{G} prestabiliti nel documento di Analisi dei Requisiti\textsuperscript{G}.
 	
 	\subsection{Test di Regressione}
-	Vengono impiegati per accertarsi che correzioni o aggiunte effettuate sul specifiche unità non interferiscano sul funzionamento del programma.
+	Vengono impiegati per accertarsi che correzioni o aggiunte effettuate sul specifiche unità non interferiscano sul funzionamento del programma.\\
+	
+	Trattandosi di un progetto in fase di sviluppo iniziale non sono stati utilizzati test di regressione.
 	
 	\subsection{Test di Accettazione}
 	Detto anche collaudo, viene effettuato per verificare che i requisiti\textsubscript{G} utente siano soddisfatti. Questo test viene effettuato assieme al committente\textsubscript{G}.
+	
+	\begin{longtblr}
+		{
+		colspec={|Q[0.15\linewidth]|Q[0.65\linewidth]|Q[0.15\linewidth]|},
+		columns={halign=c},
+		row{1}={halign=c},
+		row{odd} = {gray!20},
+		row{1}={teal!50},
+		%caption=Tabella 1
+	}		
+	\hline
+	\textbf{Codice} & \textbf{Descrizione} & \textbf{Stato}\\
+		
+		\hline
+		TA01 & Il proponente conferma che il software prodotto soddisfa le proprie esigenze  & NI\\
+		\hline
+	\end{longtblr}
 	
 	
 	\section{Resoconto attività di verifica}
 	
 	\subsection{Fornitura}
-	\subsubsection{MPC-CV (\textit{Cost Variance})}
+
+	
+	\subsubsection{MPC-AC, MPC-ETC e MPC-EAC (\textit{Actual Cost}, \textit{Estimate To Completion} e \textit{Estimated at Completion})}
+
+\pgfplotsset{compat=1.11}
+	\begin{tikzpicture}
+		\begin{axis}[
+				xticklabels={1-2, 3-4, 5-6, 7-8, 9-10, 11-12, 13-14, 15, 16, 1, 2, 3, 4, 5, 6,7 ,8},
+				xtick={0,1,2,3,...,16},
+				xlabel=Settimana/Sprint,
+				ytick={0,2000,...,12000},
+				x tick label style = {font = \small, text width = 1.6cm, align = center},
+				width=\textwidth,
+				height=\axisdefaultheight,
+				%ylabel=Costo,
+				ymax=12500,
+				%ymin=-7,
+				line width=1.0,
+				%yticklabel={\tick\texteuro},
+				%y tick label style={xshift=-0.2em,log ticks with fixed point},
+				yticklabels={\texteuro0, \texteuro2.000, \texteuro4.000, \texteuro6.000, \texteuro8.000, \texteuro10.000, \texteuro12.000},
+				legend columns=1,
+				legend style={at={(0.0,-0.3)},anchor=west}				
+			]
+			]
+			\addplot+[sharp plot, red4, mark options={fill=red4}] coordinates { 
+				(0,230) (1,590) (2,1115) (3,1587.5) (4,2235) (5,2755) (6,3195)
+				(7,3710) (8,4045) (9,4372.5) (10,4665) (11,4970) (12,5110) (13,5165) (14,5690) (15,6270) (16,7095)
+			 };
+			\addlegendentry{Actual Cost}
+			
+			\addplot+[sharp plot, teal6,mark=*,mark options={fill=teal6}] coordinates {
+				(0,10810) (1,10450) (2,9925) (3,9452.5) (4,8805) (5,8285) (6,7845)
+				(7,7330) (8,6995) (9,6667.5) (10,6375) (11,6070) (12,5930) (13,5875) (14,5350) (15,4770) (16,3945)
+			 };
+			\addlegendentry{Estimate To Completion}
+			
+			\addplot[mark=none, dashed, orange ]  coordinates { (0,11040) (16,11040) };
+			\addlegendentry{Estimated At Completion}
+			
+		\end{axis}
+	\end{tikzpicture}
+	
+		\subsubsection{MPC-CV (\textit{Cost Variance})}
 	\begin{tikzpicture}
 		\begin{axis}[
 			xticklabels={RTB1, RTB2, RTB3,PB1,PB2},
@@ -789,46 +850,6 @@
 		\end{axis}
 	\end{tikzpicture}
 	
-	\subsubsection{MPC-AC e MPC-ETC (\textit{Actual Cost} e \textit{Estimate To Completion})}
-
-\pgfplotsset{compat=1.11}
-	\begin{tikzpicture}
-		\begin{axis}[
-				xticklabels={S.1-2, S.3-4, S.5-6, S.7-8, S.9-10, S.11-12, S.13-14, S.15, S.16, 1, 2, 3, 4, 5, 6,7 ,8},
-				xtick={0,1,2,3,...,16},
-				xlabel=Settimana/Sprint,
-				ytick={0,2000,...,12000},
-				width=\textwidth,
-				height=\axisdefaultheight,
-				%ylabel=Costo,
-				ymax=12500,
-				%ymin=-7,
-				line width=1.0,
-				%yticklabel={\tick\texteuro},
-				%y tick label style={xshift=-0.2em,log ticks with fixed point},
-				yticklabels={\texteuro0, \texteuro2.000, \texteuro4.000, \texteuro6.000, \texteuro8.000, \texteuro10.000, \texteuro12.000},
-				legend columns=1,
-				legend style={at={(0.0,-0.3)},anchor=west}				
-			]
-			]
-			\addplot+[sharp plot, red4, mark options={fill=red4}] coordinates { 
-				(0,230) (1,590) (2,1115) (3,1587.5) (4,2235) (5,2755) (6,3195)
-				(7,3710) (8,4045) (9,4372.5) (10,4665) (11,4970) (12,5110) (13,5165) (14,5690) (15,6270) (16,7095)
-			 };
-			\addlegendentry{Actual Cost}
-			
-			\addplot+[sharp plot, teal6,mark=*,mark options={fill=teal6}] coordinates {
-				(0,10810) (1,10450) (2,9925) (3,9452.5) (4,8805) (5,8285) (6,7845)
-				(7,7330) (8,6995) (9,6667.5) (10,6375) (11,6070) (12,5930) (13,5875) (14,5350) (15,4770) (16,3945)
-			 };
-			\addlegendentry{Estimate To Completion}
-			
-			\addplot[mark=none, dashed, green4 ]  coordinates { (0,11040) (16,11040) };
-			\addlegendentry{Costo preventivato}
-			
-		\end{axis}
-	\end{tikzpicture}
-	
 	\subsubsection{MPC-SV (\textit{Schedule Variance})}
 	\begin{tikzpicture}
 		\begin{axis}[
@@ -857,6 +878,39 @@
 			
 		\end{axis}
 	\end{tikzpicture}
+	
+	\subsubsection{MPC-BV (\textit{Budget Variance})}
+		\begin{tikzpicture}
+		\begin{axis}[
+			xticklabels={1-2, 3-4, 5-6, 7-8, 9-10, 11-12, 13-14, 15, 16, 1, 2, 3, 4, 5, 6,7 ,8},
+			xtick={0,1,2,3,...,16},
+			xlabel=Settimana/Sprint,
+			x tick label style = {font = \small, text width = 1.6cm, align = center},
+			width=500,
+			height=\axisdefaultheight,
+			ylabel=Percentuale,
+			ymax=12,
+			ymin=-12,
+			line width=1.0,			
+			legend columns=1,
+			legend style={at={(0.0,-0.3)},anchor=west}				
+			]
+			]
+		
+			
+			\addplot+[sharp plot, blue]  coordinates { (0,0) (1,0) (2,0) (3,0) (4,0) (5,0) (6,0) (7,0) (8,0) (9,0) (10,0) (11,0) (12,0)
+			(13,0) (14,0) (15,0) (16,0) };
+			\addlegendentry{Valore attuale}
+			
+			\addplot[mark=none, dashed, red4 ]  coordinates { (0,10) (16,10) };
+			\addlegendentry{Valore accettabile (+)}
+			
+			\addplot[mark=none, dashed, red4]  coordinates { (0,-10) (16,-10) };
+			\addlegendentry{Valore accettabile (-)}
+			
+		\end{axis}
+	\end{tikzpicture}
+	
 	
 	\subsection{Sviluppo}
 	\subsubsection{MPC-RSI (\textit{Requirements Stability Index})}
@@ -921,6 +975,34 @@
 			\addlegendentry{Valore desiderabile}
 			
 			\addplot[mark=none, dashed, red4 ]  coordinates { (0,70) (2,70) };
+			\addlegendentry{Valore accettabile}
+			
+		\end{axis}
+	\end{tikzpicture}
+	
+	\subsubsection{MPC-PTP (\textit{Passed Tests Percentage)}}
+	\begin{tikzpicture}
+		\begin{axis}[
+			xticklabels={6,7,8,9},
+			xtick={0,1,2,3},
+			xlabel=Sprint,
+			ylabel=Percentuale,
+			ymax=110,
+			line width=1.0,
+			legend style={ 
+				legend pos =outer north east
+			},
+			legend columns=1
+			]
+			]
+			
+			\addplot+[sharp plot, blue] coordinates {(0,0) (1,100) (2,100) (3,100) };
+			\addlegendentry{Valore attuale}
+			
+			\addplot[mark=none, dashed, green4]  coordinates { (0,100) (3,100) };
+			\addlegendentry{Valore desiderabile}
+			
+			\addplot[mark=none, dashed, red4 ]  coordinates { (0,90) (3,90) };
 			\addlegendentry{Valore accettabile}
 			
 		\end{axis}
@@ -1085,6 +1167,45 @@
 			
 		\end{axis}
 	\end{tikzpicture}
+	
+	\subsubsection{MPD-CD (\textit{Code Duplication})}
+	
+		\begin{longtblr}
+		{
+			colspec={|Q[0.15\linewidth]|Q[0.15\linewidth]|Q[0.15\linewidth]|},
+			columns={halign=c},
+			row{1}={halign=c},
+			row{odd} = {gray!20},
+			row{1}={teal!50},
+			%caption=Tabella 1
+		}
+		\hline
+		\textbf{Valore Accettabile} & \textbf{Valore Ottimale} & \textbf{Valore Ottenuto}\\
+		\hline
+		0 & 0 & 0\\
+		\hline
+		
+	\end{longtblr}
+	
+	\subsubsection{MPD-CS (\textit{Code Smell})}
+	
+			\begin{longtblr}
+		{
+			colspec={|Q[0.15\linewidth]|Q[0.15\linewidth]|Q[0.15\linewidth]|},
+			columns={halign=c},
+			row{1}={halign=c},
+			row{odd} = {gray!20},
+			row{1}={teal!50},
+			%caption=Tabella 1
+		}
+		\hline
+		\textbf{Valore Accettabile} & \textbf{Valore Ottimale} & \textbf{Valore Ottenuto}\\
+		\hline
+		$<$ 3 & 0 & 0\\
+		\hline
+		
+	\end{longtblr}
+	
 	
 	\subsubsection{MPD-BS (Browser Supportati)}
 	\pgfplotsset{compat=1.11}
