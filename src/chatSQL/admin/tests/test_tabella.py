@@ -47,6 +47,21 @@ class CreateTableTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'Una tabella con questo nome è già esistente.')
         self.assertFalse(Tabella.objects.filter(nome='Test Table').exists())
+        
+        
+    def test_can_list_tables_in_db_structure_page(self):
+        
+        db = StrutturaDatabase(nome="Test DB",descrizione="Description for test")
+        db.save()
+        
+        db.tabella_set.create(nome="Test table",descrizione="Description for test",sinonimi="Synonyms for test")
+        db.tabella_set.create(nome="Second Test table",descrizione="Second Description for test",sinonimi="Second Synonyms for test")
+        
+        response = self.client.get(reverse("db_view",args=(db.id,)))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response,'Test table')
+        self.assertContains(response,'Second Test table')
+        
 
     def test_can_reach_table_edit_page(self):
         db = StrutturaDatabase(nome="Test DB",descrizione="Description for test")
