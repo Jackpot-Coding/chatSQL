@@ -525,14 +525,15 @@
 	\subsubsection{MPC-CV (\textit{Cost Variance})}
 	\begin{tikzpicture}
 		\begin{axis}[
-			xticklabels={RTB1, RTB2, RTB3},
-			xtick={0,1,2},
+			xticklabels={RTB1, RTB2, RTB3,PB1,PB2},
+			xtick={0,1,2,3,4},
 			xlabel=Parti RTB,
 			ytick={-10,-8,-6,-4,-2,0,2,4,6,8,10},
 			ylabel=Percentuale,
 			ymax=13,
 			ymin=-13,
 			line width=1.0,
+			width=300,
 			yticklabel={\pgfmathprintnumber{\tick}\%},
 			legend style={ 
 				legend pos =outer north east
@@ -540,16 +541,16 @@
 			legend columns=1
 			]
 			]
-			\addplot+[sharp plot, blue] coordinates { (0,-0.77) (1,2.24) (2,-0.74) };
+			\addplot+[sharp plot, blue] coordinates { (0,-0.77) (1,2.24) (2,-0.74) (3,2.92) (4,1.57) };
 			\addlegendentry{Cost Variance}
 			
-			\addplot[mark=none, dashed, green4 ]  coordinates { (0,0) (2,0) };
+			\addplot[mark=none, dashed, green4 ]  coordinates { (0,0) (4,0) };
 			\addlegendentry{Valore desiderabile}
 			
-			\addplot[mark=none, dashed, red4]  coordinates { (0,-10) (2,-10) };
+			\addplot[mark=none, dashed, red4]  coordinates { (0,-10) (4,-10) };
 			\addlegendentry{Valore accettabile (-)}
 			
-			\addplot[mark=none, dashed, red4]  coordinates { (0,10) (2,10) };
+			\addplot[mark=none, dashed, red4]  coordinates { (0,10) (4,10) };
 			\addlegendentry{Valore accettabile (+)}
 			
 		\end{axis}
@@ -560,8 +561,8 @@
 \pgfplotsset{compat=1.11}
 	\begin{tikzpicture}
 		\begin{axis}[
-				xticklabels={S.1-2, S.3-4, S.5-6, S.7-8, S.9-10, S.11-12, S.13-14, S.15, S.16, 1, 2, 3,4,5,6,7,8},
-				xtick={0,1,2,3,4,5,6,7,8,9,10,11},
+				xticklabels={S.1-2, S.3-4, S.5-6, S.7-8, S.9-10, S.11-12, S.13-14, S.15, S.16, 1, 2, 3, 4, 5, 6,7 ,8},
+				xtick={0,1,2,3,...,16},
 				xlabel=Settimana/Sprint,
 				ytick={0,2000,...,12000},
 				width=\textwidth,
@@ -579,17 +580,17 @@
 			]
 			\addplot+[sharp plot, red4, mark options={fill=red4}] coordinates { 
 				(0,230) (1,590) (2,1115) (3,1587.5) (4,2235) (5,2755) (6,3195)
-				(7,3710) (8,4045) (9,4372.5) (10,4665) (11,4970)
+				(7,3710) (8,4045) (9,4372.5) (10,4665) (11,4970) (12,5110) (13,5165) (14,5690) (15,6270) (16,7095)
 			 };
 			\addlegendentry{Actual Cost}
 			
 			\addplot+[sharp plot, teal6,mark=*,mark options={fill=teal6}] coordinates {
 				(0,10810) (1,10450) (2,9925) (3,9452.5) (4,8805) (5,8285) (6,7845)
-				(7,7330) (8,6995) (9,6667.5) (10,6375) (11,6070)
+				(7,7330) (8,6995) (9,6667.5) (10,6375) (11,6070) (12,5930) (13,5875) (14,5350) (15,4770) (16,3945)
 			 };
 			\addlegendentry{Estimate To Completion}
 			
-			\addplot[mark=none, dashed, green4 ]  coordinates { (0,11040) (10,11040) };
+			\addplot[mark=none, dashed, green4 ]  coordinates { (0,11040) (16,11040) };
 			\addlegendentry{Costo preventivato}
 			
 		\end{axis}
@@ -598,12 +599,13 @@
 	\subsubsection{MPC-SV (\textit{Schedule Variance})}
 	\begin{tikzpicture}
 		\begin{axis}[
-			xticklabels={Sprint 1, Sprint 2, Sprint 3},
-			xtick={0,1,2},
+			xticklabels={1,  2, 3,4,5,6,7,8},
+			xtick={0,1,2,3,4,5,6,7},
 			xlabel=Sprint,
 			ytick={-15,-10,-5,0,5,10,15},
 			ylabel=Percentuale,
 			line width=1.0,
+			width=300,
 			yticklabel={\pgfmathprintnumber{\tick}\%},
 			legend style={ 
 				legend pos =outer north east
@@ -611,13 +613,13 @@
 			legend columns=1
 			]
 			]
-			\addplot+[sharp plot, blue] coordinates {(0,2.34) (1,-8.6) (2,-4.7) };
+			\addplot+[sharp plot, blue] coordinates {(0,2.34) (1,-8.6) (2,-4.7) (3,-2.09) (4,-2.1) (5,-0.19) (6,0.08) (7,1.29) };
 			\addlegendentry{Schedule Variance}
 			
-			\addplot[mark=none, dashed, red4 ]  coordinates { (0,10) (2,10) };
+			\addplot[mark=none, dashed, red4 ]  coordinates { (0,10) (7,10) };
 			\addlegendentry{Valore accettabile (+)}
 			
-			\addplot[mark=none, dashed, red4]  coordinates { (0,-10) (2,-10) };
+			\addplot[mark=none, dashed, red4]  coordinates { (0,-10) (7,-10) };
 			\addlegendentry{Valore accettabile (-)}
 			
 		\end{axis}
@@ -697,27 +699,29 @@
 	\subsubsection{MPC-NCR (\textit{Non-Calculated Risks)}}
 	\begin{tikzpicture}
 		\begin{axis}[
-			xticklabels={Sprint 1, Sprint 2, Sprint 3},
-			xtick={0,1,2},
+			xticklabels={ 1,  2,  3 ,4,5,6,7,8},
+			xtick={0,1,...,7},
 			xlabel=Sprint,
 			ytick={0,1,...,9},
 			ylabel=Serverità,
 			yticklabels={0,1,...,9},
 			ymax=10,
 			line width=1.0,
+			width=300,
+			height=\axisdefaultheight,
 			legend style={ 
 				legend pos =outer north east
 			},
 			legend columns=1
 			]
 			]
-			\addplot+[sharp plot, blue] coordinates {(0,7) (1,0) (2,0) };
+			\addplot+[sharp plot, blue] coordinates {(0,7) (1,0) (2,0) (3,0) (4,0) (5,0) (6,0) (7,0)};
 			\addlegendentry{Mancanza tecnologica nel POC}
 			
-			\addplot[mark=none, dashed, green4]  coordinates { (0,0) (2,0) };
+			\addplot[mark=none, dashed, green4]  coordinates { (0,0) (7,0) };
 			\addlegendentry{Valore desiderabile}
 			
-			\addplot[mark=none, dashed, red4 ]  coordinates { (0,5) (2,5) };
+			\addplot[mark=none, dashed, red4 ]  coordinates { (0,5) (7,5) };
 			\addlegendentry{Valore accettabile}
 			
 		\end{axis}
@@ -728,41 +732,48 @@
 	\subsubsection{MPD-IG (Indice Gulpease)}
 	\begin{tikzpicture}
 		\begin{axis}[
-			xticklabels={Sprint 1, Sprint 2, Sprint 3},
-			xtick={0,1,2},
+			xticklabels={ 1,2,...,9},
+			xtick={0,1,...,8},
 			xlabel=Sprint,
 			ytick={30,40,50,60,70,80,90,100},
 			ylabel=Punteggio,
 			ymax=110,
 			line width=1.0,
+			width=270,
+			height=\axisdefaultheight,
 			legend style={ 
 				legend pos =outer north east
 			},
 			legend columns=1
 			]
 			]
-			\addplot+[sharp plot, teal, mark=*, solid, mark options={fill=teal}] coordinates {(0,84) (1,84) (2,84)  };
+			\addplot+[sharp plot, teal, mark=*, solid, mark options={fill=teal}] coordinates {(0,84) (1,84) (2,84) (3,84) (4,84) (5,84)  (6,84)  (7,84) };
 			\addlegendentry{Analsi dei Requisiti}
 			
-			\addplot+[sharp plot, orange, solid, mark=*, mark color=orange, mark options={fill=orange}] coordinates {(0,68) (1,68) (2,72) };
+			\addplot+[sharp plot, orange, solid, mark=*, mark color=orange, mark options={fill=orange}] coordinates {(0,68) (1,68) (2,72) (3,74)
+			(4,74) (5,73) (6,74) (7,74) };
 			\addlegendentry{Piano di Progetto}
 			
-			\addplot+[sharp plot,violet4, solid, mark=*, mark options={fill=violet4}] coordinates {(0,61) (1,61) (2,61) };
+			\addplot+[sharp plot,violet4, solid, mark=*, mark options={fill=violet4}] coordinates {(0,61) (1,61) (2,61) (3,61) (4,61) (5,61) (6,61) 
+			(7,61) (8,62) };
 			\addlegendentry{Norme di Progetto}
 			
-			\addplot+[sharp plot,green3, solid, mark=*, mark options={fill=green3}] coordinates {(0,72) (1,72) (2,68) };
+			\addplot+[sharp plot,green3, solid, mark=*, mark options={fill=green3}] coordinates {(0,72) (1,72) (2,68) (3,69) (4,69) (5,74) 
+				(6,74) (7,74) };
 			\addlegendentry{Piano di Qualifica}
 			
-			\addplot+[sharp plot, red, solid, mark=*, mark options={fill=red}] coordinates {(0,77) (1,74) (2,73)  };
+			\addplot+[sharp plot, red, solid, mark=*, mark options={fill=red}] coordinates {(0,77) (1,74) (2,73) (3,73) (4,73) (5,73)
+			(6,72) (7,72) (8,70) };
 			\addlegendentry{Glossario}			
 			
-			\addplot+[sharp plot, black, solid, mark=*, mark options={fill=black}] coordinates {(0,89) (1,100) (2,100)  };
+			\addplot+[sharp plot, black, solid, mark=*, mark options={fill=black}] coordinates {(0,89) (1,100) (2,100) (3,100) (4,100)
+			(5,100) (6,100) (7,100) (8,100) };
 			\addlegendentry{Verbali}			
 			
-			\addplot[mark=none, dashed, green4, mark=none]  coordinates { (0,60) (2,60) };
+			\addplot[mark=none, dashed, green4, mark=none]  coordinates { (0,60) (8,60) };
 			\addlegendentry{Valore Ottimale}
 			
-			\addplot[mark=none, dashed, red4,mark=none]  coordinates { (0,40) (2,40) };
+			\addplot[mark=none, dashed, red4,mark=none]  coordinates { (0,40) (8,40) };
 			\addlegendentry{Valore accettabile}
 			
 		\end{axis}
@@ -771,42 +782,43 @@
 	\subsubsection{MPD-CO (Correttezza Ortografica)}
 	\begin{tikzpicture}
 		\begin{axis}[
-			xticklabels={Sprint 1, Sprint 2, Sprint 3},
-			xtick={0,1,2},
+			xticklabels={ 1,  2,  3,...,8},
+			xtick={0,1,2,...,7},
 			xlabel=Sprint,
 			ytick={0,1,2,3},
 			ylabel=Errori,
 			ymax=4,
 			line width=1.0,
+			width=270,
+			height=\axisdefaultheight,
 			legend style={ 
 				legend pos =outer north east
 			},
 			legend columns=1
 			]
 			]
-			\addplot+[sharp plot, teal, mark=*, solid, mark options={fill=teal}] coordinates {(0,0) (1,0) (2,0)  };
+			\addplot+[sharp plot, teal, mark=*, solid, mark options={fill=teal}] coordinates {(0,1) (1,0) (2,0) (3,0) (4,0) (5,0) (6,0) (7,0)  };
 			\addlegendentry{Analsi dei Requisiti}
 			
-			\addplot+[sharp plot, orange, solid, mark=*, mark color=orange, mark options={fill=orange}] coordinates {(0,0) (1,0) (2,0) };
+			\addplot+[sharp plot, orange, solid, mark=*, mark color=orange, mark options={fill=orange}] coordinates {(0,0) (1,0) (2,0) 
+			(3,0) (4,0) (5,0) (6,0) (7,0) };
 			\addlegendentry{Piano di Progetto}
 			
-			\addplot+[sharp plot,violet4, solid, mark=*, mark options={fill=violet4}] coordinates {(0,0) (1,0) (2,0) };
+			\addplot+[sharp plot,violet4, solid, mark=*, mark options={fill=violet4}] coordinates {(0,0) (1,0) (2,0) (3,0) (4,0) (5,0) (6,0) (7,0) };
 			\addlegendentry{Norme di Progetto}
 			
-			\addplot+[sharp plot,green3, solid, mark=*, mark options={fill=green3}] coordinates {(0,0) (1,0) (2,0) };
+			\addplot+[sharp plot,green3, solid, mark=*, mark options={fill=green3}] coordinates {(0,0) (1,0) (2,0) (3,0) (4,0) (5,0) (6,0) (7,0) };
 			\addlegendentry{Piano di Qualifica}
 			
-			\addplot+[sharp plot, red, solid, mark=*, mark options={fill=red}] coordinates {(0,0) (1,0) (2,0)  };
+			\addplot+[sharp plot, red, solid, mark=*, mark options={fill=red}] coordinates {(0,0) (1,0) (2,0) (3,0) (4,0) (5,0) (6,0) (7,0) };
 			\addlegendentry{Glossario}			
 			
-			\addplot+[sharp plot, black, solid, mark=*, mark options={fill=black}] coordinates {(0,0) (1,0) (2,0)  };
+			\addplot+[sharp plot, black, solid, mark=*, mark options={fill=black}] coordinates {(0,0) (1,0) (2,0) (3,0) (4,0) (5,0) (6,0) (7,0)  };
 			\addlegendentry{Verbali}			
 			
-			\addplot[mark=none, dashed, green4, mark=none]  coordinates { (0,0) (2,0) };
-			\addlegendentry{Valore Ottimale}
+			\addplot[mark=none, dashed, green4, mark=none]  coordinates { (0,0) (7,0) };
+			\addlegendentry{Valore Ottimale e accettable}
 			
-			\addplot[mark=none, dashed, red4,mark=none]  coordinates { (0,0) (2,0) };
-			\addlegendentry{Valore accettabile}
 			
 		\end{axis}
 	\end{tikzpicture}
@@ -845,8 +857,8 @@
 	\pgfplotsset{compat=1.11}
 	\begin{tikzpicture}
 		\begin{axis}[
-			xticklabels={7,8,9},
-			xtick={0,1,2},
+			xticklabels={6,7,8,9},
+			xtick={0,1,2,3},
 			xlabel=Sprint,
 			ylabel=Percentuale,
 			ymax=102,
@@ -858,13 +870,13 @@
 			]
 			]
 			
-			\addplot+[sharp plot, blue] coordinates {(0,100) (1,100) (2,100) };
+			\addplot+[sharp plot, blue] coordinates {(0,100) (1,100) (2,100) (3,100) };
 			\addlegendentry{Valore attuale}
 			
-				\addplot[mark=none, dashed, red4,mark=none]  coordinates { (0,75) (2,75) };
+				\addplot[mark=none, dashed, red4,mark=none]  coordinates { (0,75) (3,75) };
 		\addlegendentry{Valore accettabile}
 			
-			\addplot[mark=none, dashed, green4]  coordinates { (0,100) (2,100) };
+			\addplot[mark=none, dashed, green4]  coordinates { (0,100) (3,100) };
 			\addlegendentry{Valore ottimale}
 			
 		\end{axis}
