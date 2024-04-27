@@ -527,45 +527,60 @@
 		\hline
 		TU01 & Verifica se QueryGenerator ritorna errore se non riescie a contattare LLM esterno & P\\
 		\hline
-		TU02 & Verifica non validità StrutturaDatabaseForm senza campo nome & P\\
+		
+		TU02 & Verifica non validità LoginForm senza campo nome utente & P\\
 		\hline
-		TU02 & Verifica non validità StrutturaDatabaseForm senza campo descrizione & P\\
+		TU03 & Verifica non validità LoginForm senza campo password & P\\
 		\hline
-		TU03 & Verifica non validità StrutturaDatabaseForm senza dati forniti & P\\
+		TU04 & Verifica non validità LoginForm senza fornire dati & P\\
+		\hline
+		TU05 & Verifica non validità etichetta campo nome utente di LoginForm & P\\
+		\hline
+		TU06 & Verifica non validità etichetta campo password di LoginForm & P\\
+	
+		
+		TU07 & Verifica non validità StrutturaDatabaseForm senza campo nome & P\\
+		\hline
+		TU08 & Verifica non validità StrutturaDatabaseForm senza campo descrizione & P\\
+		\hline
+		TU09 & Verifica non validità StrutturaDatabaseForm senza dati forniti & P\\
 	
 		\hline
-		TU04 & Verifica non validità TabellaForm senza campo nome & P\\
+		TU10 & Verifica non validità TabellaForm senza campo nome & P\\
 		\hline
-		TU05 & Verifica non validità TabellaForm senza campo descrizione & P\\
+		TU11 & Verifica non validità TabellaForm senza campo descrizione & P\\
 		\hline
-		TU06 & Verifica  validità TabellaForm senza campo sinonimi & P\\
+		TU12 & Verifica  validità TabellaForm senza campo sinonimi & P\\
 		\hline
-		TU07 & Verifica non validità TabellaForm senza dati forniti & P\\
+		TU13 & Verifica non validità TabellaForm senza dati forniti & P\\
 		\hline
 			
-		TU08 & Verifica non validità CampoForm senza campo nome & P\\
+		TU14 & Verifica non validità CampoForm senza campo nome & P\\
 		\hline
-		TU09 & Verifica non validità CampoForm senza campo descrizione & P\\
+		TU15 & Verifica non validità CampoForm senza campo descrizione & P\\
 		\hline
-		TU10 & Verifica  validità CampoForm senza campo sinonimi & P\\
+		TU16 & Verifica validità CampoForm senza campo sinonimi & P\\
 		\hline
-		TU11 & Verifica non validità CampoForm senza campo sinonimi & P\\
-		\hline
-		
-		TU12 & Verifica operazione di conversione a stringa per il modello StrutturaDatabase & P\\
-		\hline
-		TU13 & Verifica operazione di conversione a stringa per il modello Tabella & P\\
-		\hline
-		TU14 & Verifica operazione di conversione a stringa per il modello Campo & P\\
+		TU17 & Verifica non validità CampoForm senza campo tipo & P\\
 		\hline
 		
-		TU15 & FileUploader può catturare un eccezione della strategia di \textit{parsing} JSON &P\\
+		TU18 & Verifica operazione di conversione a stringa per il modello StrutturaDatabase & P\\
 		\hline
-		TU16 & FileUploader può catturare un eccezione della strategia di \textit{parsing} CSV  &P\\
+		TU19 & Verifica operazione di conversione a stringa per il modello Tabella & P\\
+		\hline
+		TU20 & Verifica operazione di conversione a stringa per il modello Campo & P\\
 		\hline
 		
-		TU17 & PromptGenerator può trovare una tabella dati nome e sinonimi & P\\
+		TU21 & FileUploader può catturare un eccezione della strategia di \textit{parsing} JSON &P\\
 		\hline
+		TU22 & FileUploader può catturare un eccezione della strategia di \textit{parsing} CSV  &P\\
+		\hline
+		
+		TU23 & PromptGenerator può trovare una tabella dati nome e sinonimi & P\\
+		\hline
+		
+
+		
 	\end{longtblr}
 	%quelli sui parser e query gen e prompt gen
 	
@@ -650,24 +665,26 @@
 		\hline
 		TI20 & L'amministratore può eliminare una struttura database & UC8 &P\\
 		\hline
-		TI20 & L'amministratore può eliminare una tabella & UC14 &P\\
+		TI20 & L'amministratore non può eliminare una struttura database non esistente & UC8 &P\\
 		\hline
-		TI20 & L'amministratore può eliminare un campo & UC20 &P\\
+		TI21 & L'amministratore può eliminare una tabella & UC14 &P\\
 		\hline
-		TI21 & L'amministratore non può eliminare un oggetto senza fornirne la classe & - &P\\
+		TI22 & L'amministratore può eliminare un campo & UC20 &P\\
 		\hline
-		TI22 & L'amministratore non può eliminare un oggetto senza fornirne l'id & - &P\\
+		TI23 & L'amministratore non può eliminare un oggetto senza fornirne la classe & - &P\\
 		\hline
-		TI22 & L'amministratore non può eliminare un oggetto senza fornire una classe esistente& - &P\\
+		TI24 & L'amministratore non può eliminare un oggetto senza fornirne l'id & - &P\\
 		\hline
-		TI23 & L'amministratore non può eliminare un oggetto senza fornire un id esistente& - &P\\
+		TI25 & L'amministratore non può eliminare un oggetto senza fornire una classe esistente& - &P\\
+		\hline
+		TI26 & L'amministratore non può eliminare un oggetto senza fornire un id esistente& - &P\\
 		\hline
 		
-		TI24 & L'amministratore può accedere alla pagina principale & - &P\\
+		TI27 & L'amministratore può accedere alla pagina principale & - &P\\
 		\hline
-		TI25 & L'amministratore  visualizza un messaggio se non sono strutture database presenti & - &P\\
+		TI28 & L'amministratore  visualizza un messaggio se non sono strutture database presenti & - &P\\
 		\hline
-		TI26 & L'amministratore visualizza la lista delle strutture database presenti & UC5 & P\\
+		TI29 & L'amministratore visualizza la lista delle strutture database presenti & UC5 & P\\
 		\hline
 		TI27 & L'amministratore visualizza la lista delle tabelle presenti in una struttura database & UC11 & P\\
 		\hline
@@ -693,29 +710,33 @@
 		\hline
 		TI37 & L'amministratore non può caricare un file CSV di una struttura database con un nome già esistente & UC22 UC4 & P\\
 		\hline
-		
-		TI38 & L'utente può accedere alla pagina di generazione \textit{prompt} & UC25 &P\\
+		TI38 & L'amministratore può importare una struttura datbase da un file in formato JSON & UC21 &P\\
 		\hline
-		TI39 & L'utente può inviare correttamente i dati per la generazione del \textit{prompt} & UC25 & P\\
-		\hline
-		TI40 & L'utente non può inviare la richiesta di generazione \textit{prompt} senza specificare un testo di richiesta & UC25.4 &P\\
-		\hline
-		TI40 & L'utente non può inviare la richiesta di generazione \textit{prompt} senza specificare una struttura database & UC25.2 &P\\
-		\hline
-		TI41 & L'utente riceve un errore se la frase inserita non è inerente alla struttura database selezionata & UC25.4&P\\
-		\hline
-		TI42 & L'utente può visualizzare un prompt con due tabelle & UC25.5 & P\\
-		\hline
-		TI43 & L'utente visualizza un errore se il sistema non può interpretare la frase in linguaggio naturale fornita& UC26&P\\
+		TI39 & L'amministratore può importare una struttura datbase da un file in formato CSV & UC21 &P\\
 		\hline
 		
-		TI44 & L'utente visualizza un errore se non è fornito il \textit{prompt} per la generazione della \textit{query} SQL & UC28 &P\\
+		TI40 & L'utente può accedere alla pagina di generazione \textit{prompt} & UC25 &P\\
 		\hline
-		TI45 & L'utente può visualizzare la \textit{query} SQL richiesta & UC27 UC29 & P\\
+		TI41 & L'utente può inviare correttamente i dati per la generazione del \textit{prompt} & UC25 & P\\
 		\hline
-		TI46 & L'utente visualizza un errore se non è possibile interpretare il \textit{prompt} fornito & UC28.2 &P\\
+		TI42 & L'utente non può inviare la richiesta di generazione \textit{prompt} senza specificare un testo di richiesta & UC25.4 &P\\
 		\hline
-		TI46 & L'utente visualizza un errore se non è possibile contattare il servizio LLM esterno & UC28.1 &P\\
+		TI43 & L'utente non può inviare la richiesta di generazione \textit{prompt} senza specificare una struttura database & UC25.2 &P\\
+		\hline
+		TI44 & L'utente riceve un errore se la frase inserita non è inerente alla struttura database selezionata & UC25.4&P\\
+		\hline
+		TI45 & L'utente può visualizzare un prompt con due tabelle & UC25.5 & P\\
+		\hline
+		TI46 & L'utente visualizza un errore se il sistema non può interpretare la frase in linguaggio naturale fornita& UC26&P\\
+		\hline
+		
+		TI47 & L'utente visualizza un errore se non è fornito il \textit{prompt} per la generazione della \textit{query} SQL & UC28 &P\\
+		\hline
+		TI48 & L'utente può visualizzare la \textit{query} SQL richiesta & UC27 UC29 & P\\
+		\hline
+		TI49 & L'utente visualizza un errore se non è possibile interpretare il \textit{prompt} fornito & UC28.2 &P\\
+		\hline
+		TI50 & L'utente visualizza un errore se non è possibile contattare il servizio LLM esterno & UC28.1 &P\\
 		\hline
 		
 	\end{longtblr}
