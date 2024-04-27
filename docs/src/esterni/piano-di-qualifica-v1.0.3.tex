@@ -365,10 +365,6 @@
 		\hline
 		MPC-CC & \textit{Code Coverage}\textsuperscript{G} & $\geq$ 70\% & $\geq$ 90\% \\
 		\hline
-		MPC-CB & \textit{Branch Coverage}\textsuperscript{G} & $\geq$ 50\% & $\geq$ 80\% \\
-		\hline
-		MPC-SC & \textit{Statement Coverage}\textsuperscript{G} & $\geq$ 60\% & $\geq$ 80\% \\
-		\hline
 		MPC-PTP & \textit{Passed Tests Percentage}\textsuperscript{G} & $\geq$ 90\% & 100\% \\
 		\hline
 	\end{longtblr}
@@ -503,11 +499,227 @@
 	
 	\section{Specifica dei Test}
 	
+	\subsection{Codice}
+	Ad ogni test viene associato un codice univoco con il seguente formato:
+	T[tipo][numero]
+	
+	Per identificare il loro stato vengo utilizzate le sigle:
+	\begin{itemize}
+		\item \textbf{P}:  \textbf{passato}, ha esito positivo;
+		\item \textbf{F}:  \textbf{fallito}, ha esito negativo;
+		\item \textbf{NI}: \textbf{non implementato};
+	\end{itemize}
+	
 	\subsection{Test di Unità}
 	Vengono impiegati per la verifica di unità del \textit{software}\textsuperscript{G}. Come unità si intende una piccola parte del programma che funzioni in maniera autonoma.
 	
+	\begin{longtblr}
+			{
+			colspec={|Q[0.15\linewidth]|Q[0.65\linewidth]|Q[0.15\linewidth]|},
+			columns={halign=c},
+			row{1}={halign=c},
+			row{odd} = {gray!20},
+			row{1}={teal!50},
+			%caption=Tabella 1
+		}		
+		\hline
+		\textbf{Codice} & \textbf{Descrizione} & \textbf{Stato}\\
+		\hline
+		TU01 & Verifica se QueryGenerator ritorna errore se non riescie a contattare LLM esterno & P\\
+		\hline
+		TU02 & Verifica non validità StrutturaDatabaseForm senza campo nome & P\\
+		\hline
+		TU02 & Verifica non validità StrutturaDatabaseForm senza campo descrizione & P\\
+		\hline
+		TU03 & Verifica non validità StrutturaDatabaseForm senza dati forniti & P\\
+	
+		\hline
+		TU04 & Verifica non validità TabellaForm senza campo nome & P\\
+		\hline
+		TU05 & Verifica non validità TabellaForm senza campo descrizione & P\\
+		\hline
+		TU06 & Verifica  validità TabellaForm senza campo sinonimi & P\\
+		\hline
+		TU07 & Verifica non validità TabellaForm senza dati forniti & P\\
+		\hline
+			
+		TU08 & Verifica non validità CampoForm senza campo nome & P\\
+		\hline
+		TU09 & Verifica non validità CampoForm senza campo descrizione & P\\
+		\hline
+		TU10 & Verifica  validità CampoForm senza campo sinonimi & P\\
+		\hline
+		TU11 & Verifica non validità CampoForm senza campo sinonimi & P\\
+		\hline
+		
+		TU12 & Verifica operazione di conversione a stringa per il modello StrutturaDatabase & P\\
+		\hline
+		TU13 & Verifica operazione di conversione a stringa per il modello Tabella & P\\
+		\hline
+		TU14 & Verifica operazione di conversione a stringa per il modello Campo & P\\
+		\hline
+		
+		TU15 & FileUploader può catturare un eccezione della strategia di \textit{parsing} JSON &P\\
+		\hline
+		TU16 & FileUploader può catturare un eccezione della strategia di \textit{parsing} CSV  &P\\
+		\hline
+		
+		TU17 & PromptGenerator può trovare una tabella dati nome e sinonimi & P\\
+		\hline
+	\end{longtblr}
+	%quelli sui parser e query gen e prompt gen
+	
 	\subsection{Test di Integrazione}
 	Vengono impiegati per la verifica delle interazioni fra le unità sopra descritte.
+	
+		\begin{longtblr}
+		{
+			colspec={|Q[0.15\linewidth]|Q[0.50\linewidth]|Q[0.15\linewidth]|Q[0.15\linewidth]|},
+			columns={halign=c},
+			row{1}={halign=c},
+			row{odd} = {gray!20},
+			row{1}={teal!50},
+			%caption=Tabella 1
+		}		
+		\hline
+		\textbf{Codice} & \textbf{Descrizione} & \textbf{Requisito} & \textbf{Stato}\\
+		
+		\hline
+		TI01 & L'utente può visionare alla pagina di login & UC1 & P\\
+		\hline
+		TI02 & L'utente non può effettuare l'accesso con credenziali errate & UC2 & P \\
+		\hline
+		TI03 & L'amministratore può effettuare l'accesso con credenziali corrette & UC1 & P\\
+		\hline
+		TI04 & L'utente non può effettuare l'accesso senza credenziali & UC2 & P\\
+		\hline
+		
+		TI05 & L'amministratore può visionare alla pagina di creazione di struttura database & UC3 & P \\
+		\hline
+		TI06 & L'amministratore può creare una struttura database & UC3 & P\\
+		\hline		
+		TI07 & L'amministratore non può creare una struttura database senza inserire dati & UC3 & P\\
+		\hline
+		TI08 & L'amministratore non può creare una struttura database se ne esiste una con lo stesso nome & UC4 & P\\
+		\hline
+		TI09 & L'amministratore può visionare la pagina di modifica di una struttura database & UC6 & P\\
+		\hline
+		TI10 & L'amministratore può modificare una struttura database & UC7 & P\\
+		\hline
+		TI11 & L'amministratore non può modificare una struttura fornendo un nome già esistente & UC4 &P\\
+		\hline
+	
+	
+		TI12 &  L'amministratore può visionare alla pagina di creazione di una tabella & UC9 & P \\
+		\hline
+		TI13 & L'amministratore può creare una tabella & UC9 & P\\
+		\hline		
+		TI14 & L'amministratore non può creare una tabella senza inserire dati & UC10 & P\\
+		\hline
+		TI15 & L'amministratore non può creare una tabella se ne esiste una con lo stesso nome & UC10 & P\\
+		\hline
+		TI16 & L'amministratore può visionare la pagina di modifica di una tabella & UC12 & P\\
+		\hline
+		TI17 & L'amministratore può modificare una tabella & UC13 & P\\
+		\hline
+		TI18 & L'amministratore non può modificare una tabella fornendo un nome già esistente & UC10 & P\\
+		\hline
+		TI18 & L'amministratore non può modificare una tabella non esistente & UC10 & P\\
+		\hline
+		
+		TI12 &  L'amministratore può visionare alla pagina di creazione di un campo & UC15 & P \\
+		\hline
+		TI13 & L'amministratore può creare un campo & UC15 & P\\
+		\hline		
+		TI14 & L'amministratore non può creare un campo senza inserire dati & UC16 & P\\
+		\hline
+		TI15 & L'amministratore non può creare un campo se ne esiste uno con lo stesso nome & UC16 & P\\
+		\hline
+		TI16 & L'amministratore può visionare la pagina di modifica di un campo & UC18 & P\\
+		\hline
+		TI17 & L'amministratore può modificare un campo & UC19 & P\\
+		\hline
+		TI18 & L'amministratore non può modificare un campo fornendo un nome già esistente & UC16 & P\\
+		\hline
+		TI18 & L'amministratore non può modificare un campo di una tabella non esistente & UC10 & P\\
+		\hline
+		TI18 & L'amministratore non può modificare un campo non esistente & UC16 & P\\
+		\hline
+		
+		TI19 & L'amministratore può visionare la pagina di eliminazione & UC8 UC14 UC20 &P\\
+		\hline
+		TI20 & L'amministratore può eliminare una struttura database & UC8 &P\\
+		\hline
+		TI20 & L'amministratore può eliminare una tabella & UC14 &P\\
+		\hline
+		TI20 & L'amministratore può eliminare un campo & UC20 &P\\
+		\hline
+		TI21 & L'amministratore non può eliminare un oggetto senza fornirne la classe & - &P\\
+		\hline
+		TI22 & L'amministratore non può eliminare un oggetto senza fornirne l'id & - &P\\
+		\hline
+		TI22 & L'amministratore non può eliminare un oggetto senza fornire una classe esistente& - &P\\
+		\hline
+		TI23 & L'amministratore non può eliminare un oggetto senza fornire un id esistente& - &P\\
+		\hline
+		
+		TI24 & L'amministratore può accedere alla pagina principale & - &P\\
+		\hline
+		TI25 & L'amministratore  visualizza un messaggio se non sono strutture database presenti & - &P\\
+		\hline
+		TI26 & L'amministratore visualizza la lista delle strutture database presenti & UC5 & P\\
+		\hline
+		TI27 & L'amministratore visualizza la lista delle tabelle presenti in una struttura database & UC11 & P\\
+		\hline
+		TI28 & L'amministratore visualizza la lista dei campi presenti & UC17 & P\\
+		
+		\hline
+		TI29 & L'amministratore può effettuare l'operazione di logout & UC23 &P\\
+		\hline
+		TI30 & L'utente non può effettuare l'operazione di logout se non autenticato & UC24 &P\\
+		\hline
+		
+		TI31 & L'amministratore può accedere alla pagina di caricamento file & UC21 &P\\
+		\hline
+		TI32 & L'amministratore può caricare un file in formato JSON & UC21 &P\\
+		\hline
+		TI33 & L'amministratore non può caricare un file senza selezionarlo & UC22 & P\\
+		\hline
+		TI34 & L'amministratore non può caricare un file con formato errato & UC22 & P\\
+		\hline
+		TI35 & L'amministratore può caricare un file in formato CSV & UC21 &P\\
+		\hline
+		TI36 & L'amministratore non può caricare un file JSON di una struttura database con un nome già esistente & UC22 UC4 & P\\
+		\hline
+		TI37 & L'amministratore non può caricare un file CSV di una struttura database con un nome già esistente & UC22 UC4 & P\\
+		\hline
+		
+		TI38 & L'utente può accedere alla pagina di generazione \textit{prompt} & UC25 &P\\
+		\hline
+		TI39 & L'utente può inviare correttamente i dati per la generazione del \textit{prompt} & UC25 & P\\
+		\hline
+		TI40 & L'utente non può inviare la richiesta di generazione \textit{prompt} senza specificare un testo di richiesta & UC25.4 &P\\
+		\hline
+		TI40 & L'utente non può inviare la richiesta di generazione \textit{prompt} senza specificare una struttura database & UC25.2 &P\\
+		\hline
+		TI41 & L'utente riceve un errore se la frase inserita non è inerente alla struttura database selezionata & UC25.4&P\\
+		\hline
+		TI42 & L'utente può visualizzare un prompt con due tabelle & UC25.5 & P\\
+		\hline
+		TI43 & L'utente visualizza un errore se il sistema non può interpretare la frase in linguaggio naturale fornita& UC26&P\\
+		\hline
+		
+		TI44 & L'utente visualizza un errore se non è fornito il \textit{prompt} per la generazione della \textit{query} SQL & UC28 &P\\
+		\hline
+		TI45 & L'utente può visualizzare la \textit{query} SQL richiesta & UC27 UC29 & P\\
+		\hline
+		TI46 & L'utente visualizza un errore se non è possibile interpretare il \textit{prompt} fornito & UC28.2 &P\\
+		\hline
+		TI46 & L'utente visualizza un errore se non è possibile contattare il servizio LLM esterno & UC28.1 &P\\
+		\hline
+		
+	\end{longtblr}
+%	Views
 	
 	\subsection{Test di Sistema}
 	Vengono impiegati per verificare che l'esecuzione del sistema soddisfi i requisiti\textsuperscript{G} prestabiliti nel documento di Analisi dei Requisiti\textsuperscript{G}.
