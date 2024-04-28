@@ -128,6 +128,8 @@
 			\hline
 			\rowcolor{teal!50}
 			\textbf{versione} & \textbf{data} & \textbf{autore} & \textbf{verifica} & \textbf{modifica} \\ \hline
+			v.0.0.6 & 28/04/2024 & M. Favaretto & - & Stesura Sezione Installazione \\ \hline
+			v.0.0.5 & 26/04/2024 & M. Favaretto & - & Stesura Sezione Requisiti \\ \hline
 			v.0.0.4 & 25/04/2024 & M. Gobbo & M. Favaretto & Fine Stesura sezione 1, aggiunti riferimenti \\ \hline
 			v.0.0.3 & 29/03/2024 & M. Gobbo & M. Favaretto & Prima Stesura sezione 1 \\ \hline
 			v.0.0.2 & 29/03/2024 & M. Gobbo & M. Favaretto & Creazione sezione 5 \\ \hline
@@ -166,18 +168,73 @@
         \subsubsection{Riferimenti informativi}
         \begin{itemize}
          	\item Diagramma delle classi \\ \url{https://www.math.unipd.it/~rcardin/swea/2023/Diagrammi%20delle%20Classi.pdf}
-         	\item Analisi dei requisiti: \\
-         	\url{https://www.math.unipd.it/~tullio/IS-1/2023/Dispense/T3.pdf}\\
+         	\item Analisi dei requisiti: \\ \url{https://www.math.unipd.it/~tullio/IS-1/2023/Dispense/T3.pdf}
         \end{itemize}
         
 
 
 	\section{Requisiti minimi di sistema}
-        \subsection{Requisiti minimi}
-        \subsection{Requisiti hardware}
-        \subsection{Requisiti browser}
-	
-	\section{Installazione}
+		Vengono qui presentati i requisiti necessari per eseguire l'applicazione. Il capitolato non esprime particolari requisiti, né sono stati posti dal proponente nelle diverse riunioni. 
+		Ne consegue che le caratteristiche elencate fanno riferimento alla configurazione dell'ambiente di sviluppo usata dal \textit{team}.
+              
+		\subsection{Requisiti hardware}
+			L'applicazione sviluppata esegue su \textit{browser}. Non vengono dunque individuati particolari requisiti fisici
+			necessari per l'applicazione. I seguenti requisiti sono quindi delle considerazioni generali, derivate dal tipo di computer usati dal gruppo per lo sviluppo dell'applicazione. 
+			\begin{table}[H]
+				\centering
+				\rowcolors{2}{black!15}{}
+				\resizebox{!}{!}{         % attenzione alle dimensioni quando si modificherà
+					\begin{tabular}{|c|c|c|c|c|c|c|c|}
+						\hline
+						\rowcolor{teal!50}
+						\textbf{Componente} & \textbf{Requisito} \\ \hline
+						Processore & - \\ \hline
+						Memoria RAM & - \\ \hline
+						Conessione Internet & - \\ \hline
+					\end{tabular}
+				}
+				\caption{Requisiti Hardware}
+			\end{table}
+
+		\subsection{Requisiti Software}
+			Al fine di poter installare correttamente l'applicazione e poterla eseguire, risulta necessario installare le seguenti componenti \textit{Software}:
+			\begin{table}[H]
+				\centering
+				\rowcolors{2}{black!15}{}
+				\resizebox{\linewidth}{!}{
+					\begin{tabular}{|c|c|c|c|c|c|c|c|}
+						\hline
+						\rowcolor{teal!50}
+						\textbf{Componente} & \textbf{Versione} & \textbf{Riferimento per il download} \\ \hline
+						python3 & 3.1 & \hyperref[Download Python]{https://www.python.org/downloads/} \\ \hline
+						django & 5.0 & \hyperref[Download Django]{https://www.djangoproject.com/} \\ \hline
+						transformers & 4.40 & \hyperref[Download transformers]{https://pypi.org/project/transformers/} \\ \hline
+						llmstudio & 0.2 & \hyperref[Download LLMStudio]{https://lmstudio.ai/} \\ \hline
+						Browser & 124 o superiori & Verranno mostrati in dettaglio nella tabella successiva \\ \hline
+					\end{tabular}
+				}
+				\caption{Requisiti Software}
+			\end{table}
+        
+		\subsection{Requisiti browser}
+			La WebApp è stata testata nei seguenti \textit{Browser}:
+			\begin{table}[H]
+				\centering
+				\rowcolors{2}{black!15}{}
+				\resizebox{\linewidth}{!}{
+					\begin{tabular}{|c|c|c|c|c|c|c|c|}
+						\hline
+						\rowcolor{teal!50}
+						\textbf{Browser} & \textbf{Versione} & \textbf{Riferimento per il download} \\ \hline
+						Chrome & 124 & \hyperref[Download Chrome]{https://www.google.it/intl/it/chrome/} \\ \hline        
+						Edge & 124 & \hyperref[Download Edge]{https://www.microsoft.com/it-it/edge/download} \\ \hline
+						Firefox & 125 & \hyperref[Download Firefox]{https://www.mozilla.org/it/firefox/new/} \\ \hline
+					\end{tabular}
+				}
+				\caption{Requisiti Browser}
+			\end{table}
+		
+		\section{Installazione}
         \subsection{Clonazione Repo}
  
         \section{Istruzioni all'uso}
