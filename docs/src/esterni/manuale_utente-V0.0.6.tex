@@ -172,6 +172,7 @@
         \end{itemize}
         
 	\section{Requisiti minimi di sistema}
+		\label{sec:requisiti}
 		Vengono qui presentati i requisiti necessari per eseguire l'applicazione. Il capitolato non esprime particolari requisiti, né sono stati posti dal proponente nelle diverse riunioni. 
 		Ne consegue che le caratteristiche elencate fanno riferimento alla configurazione dell'ambiente di sviluppo usata dal \textit{team}.
               
@@ -233,7 +234,48 @@
 			\end{table}
 		
 	\section{Installazione}
+		L'applicazione \textit{ChatSQL}, per poter essere eseguita dall'utente, necessita l'attuazione dei seguenti passi:
+		\begin{itemize}
+			\item Installazione componenti \textit{Software}
+			\item Clonazione \textit{Repo}
+			\item Avvio dell'applicazione
+		\end{itemize}
+		\subsection{Installazione componenti \textit{Software}}
+			Prima di procedere all'installazione dell'applicazione in sé, è necessario verificare che tutte i requisiti siano rispettati.
+			A tal fine, si rimanda alla lettura della sezione \hyperref[sec:requisiti]{requisiti}
         \subsection{Clonazione Repo}
+			Per poter avere una copia dell'applicazione in locale, vi sono due modi:
+			\begin{enumerate}
+				\item Scaricare la cartella compressa contenente l'intera applicazione al link
+					\begin{center}
+						\url{https://github.com/Jackpot-Coding/chatSQL/archive/refs/heads/main.zip}
+					\end{center}
+			\end{enumerate}
+			Alternativamente, qualora si abbia configurato \textit{Git} in locale:
+			\begin{enumerate}
+				\item Aprire un terminale operante nella cartella in cui si desidera installare l'applicazione
+				\item Inserire il comando:
+					\begin{center}
+						\textit{git clone "https://github.com/Jackpot-Coding/chatSQL.git"}
+					\end{center}
+			\end{enumerate}
+		\subsection{Avvio Applicazione}
+			Per avviare l'applicazione bisogna eseguire i seguenti passi:
+			\begin{enumerate}
+				\item Aprire un terminale nella cartella della \textit{repo} in locale
+				\item Spostarsi nella cartella dell'applicazione inserendo il comando:
+					\begin{center}
+						\textit{cd src/chatSQL}
+					\end{center}
+				\item Inserire il comando:
+					\begin{center}
+						\textit{python manage.py runserver}
+					\end{center}
+				\item Aprire il proprio \textit{brower} predefinito navigare al \textit{link}:
+					\begin{center}
+						\url{http://127.0.0.1/}
+					\end{center}
+			\end{enumerate}
  
     \section{Istruzioni all'uso}
         
