@@ -13,6 +13,9 @@
 \usepackage[table]{xcolor}
 \usepackage{tabularray}
 \usepackage{pgfplots}
+\usepackage{caption}
+\DeclareCaptionLabelFormat{blank}{}
+
 
 
 \usepackage{hyperref}
@@ -119,7 +122,7 @@
 	\begin{flushright}
 		\begin{spacing}{1}
 			USO: ESTERNO\\
-			VERSIONE: 1.0.4\\
+			VERSIONE: 1.0.5\\
 		\end{spacing}
 	\end{flushright}
 	
@@ -138,6 +141,8 @@
 				\rowcolor{teal!50}
 				\hline
 				\textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Modifica} \\
+				\hline
+				v.1.0.5 & 28/04/2024 & G.Moretto & - & Aggiunta spiegazioni su grafici, elenco immagini e tabelle\\
 				\hline
 				v.1.0.4 & 27/04/2024 & G.Moretto & - &Tolti failure density, test da Integrazione a sistema, grafici MPC-PTP,PMC-BV,MPD-CS,MPC-CD,MPC-AC, MPC-ETC e MPC-EAC \\
 				\hline
@@ -191,39 +196,17 @@
 	\pagebreak
 	\tableofcontents
 	\pagebreak
+
+	\textbf{\Large Elenco delle immagini} \\
+	\makeatletter
+	\@starttoc{lof}% Print List of Figures
+	\makeatother
 	
-	\begin{flushleft}
-		\textbf{\Large Elenco delle immagini} 
-		
-		\begin{spacing}{1.5} 
-			
-			Immagine 1: Grafico MPC-CV \\
-			Immagine 2: Grafico MPC-AC e MPC-ETC \\
-			Immagine 3: Grafico MPC-SV \\
-			Immagine 4: Grafico MPC-RSI \\
-			Immagine 5: Grafico MPC-NCR \\
-			Immagine 6: Grafico MPD-IG \\
-			Immagine 7: Grafico MPD-CO
-		\end{spacing}
-	\end{flushleft}
 	\pagebreak
-	
-	\begin{flushleft}
-		\textbf{\Large Elenco delle tabelle}
-		\begin{spacing}{1.5}
-			
-			Tabella 1: Processi primari - Fornitura \\
-			Tabella 2: Processi primari - Sviluppo \\
-			Tabella 3: Processi di supporto - Gestione della qualità \\
-			Tabella 4: Processi di supporto - Verifica \\
-			Tabella 5: Processi organizzativi - Gestione organizzativa \\
-			Tabella 6: Obiettivi - Documenti \\
-			Tabella 7: Obiettivi - Software \\
-			Tabella 8: Metriche - Documenti \\
-			Tabella 9: Metriche - Software \\
-			Tabella 10: Strumenti utilizzati
-		\end{spacing}
-	\end{flushleft}
+	\textbf{\Large Elenco delle tabelle} \\
+	\makeatletter
+	\@starttoc{lot}% Print List of Tables
+	\makeatother
 	
 	\pagebreak
 	
@@ -278,7 +261,9 @@
 	\subsection{Processi primari}
 	\subsubsection{Fornitura}
 	Processo basato sulla scelta delle risorse e procedure da utilizzare per lo sviluppo del progetto.
-	\begin{longtblr}
+	\begin{longtblr}[
+		caption = {Processi primari - Fornitura},
+		]
 		{
 			colspec={|Q[0.15\linewidth]|Q[0.25\linewidth]|Q[0.25\linewidth]|Q[0.25\linewidth]|},
 			columns={halign=c},
@@ -311,7 +296,9 @@
 	
 	\subsubsection{Sviluppo}
 	Processo basato sulla scelta delle attività e dei compiti necessari per la realizzazione del prodotto \textit{software}\textsuperscript{G}.
-	\begin{longtblr}
+	\begin{longtblr}[
+	caption = {Procesi primari - Sviluppo},
+	]
 		{
 			colspec={|Q[0.15\linewidth]|Q[0.25\linewidth]|Q[0.25\linewidth]|Q[0.25\linewidth]|},
 			columns={halign=c},
@@ -334,6 +321,9 @@
 	\subsubsection{Gestione della qualità}
 	Processo necessario a garantire gli obiettivi di qualità del prodotto e dei servizi offerti.
 	\begin{longtblr}
+	[
+	caption = {Processi di Supporto - Gestione della Qualità},
+	]
 		{
 			colspec={|Q[0.15\linewidth]|Q[0.25\linewidth]|Q[0.25\linewidth]|Q[0.25\linewidth]|},
 			columns={halign=c},
@@ -352,7 +342,9 @@
 	
 	\subsubsection{Verifica}
 	Processo che ha lo scopo di controllare lo sviluppo del \textit{software}\textsuperscript{G} dal lato della codifica.
-	\begin{longtblr}
+	\begin{longtblr}[
+	caption = {Processi di Supporto - Verifica},
+	]
 		{
 			colspec={|Q[0.15\linewidth]|Q[0.25\linewidth]|Q[0.25\linewidth]|Q[0.25\linewidth]|},
 			columns={halign=c},
@@ -375,6 +367,9 @@
 	\subsubsection{Gestione organizzativa}
 	Processo che controlla le modalità di coordinamento del gruppo.
 	\begin{longtblr}
+	[
+	caption = {Processi orgranizzativi - Gestione organizzativa},
+	]
 		{
 			colspec={|Q[0.15\linewidth]|Q[0.25\linewidth]|Q[0.25\linewidth]|Q[0.25\linewidth]|},
 			columns={halign=c},
@@ -397,7 +392,9 @@
 	
 	\subsection{Obiettivi}
 	\textbf{Documenti}
-	\begin{longtblr}
+	\begin{longtblr}[
+	caption = {Qualità di Prodotto - Obiettivi},
+	]
 		{
 			colspec={|Q[0.25\linewidth]|Q[0.50\linewidth]|Q[0.15\linewidth]|},
 			columns={halign=c},
@@ -416,6 +413,9 @@
 	
 	\textbf{\textit{Software}}
 	\begin{longtblr}
+	[
+	caption = {Qualità di Prodotto - Software},
+	]
 		{
 			colspec={|Q[0.25\linewidth]|Q[0.50\linewidth]|Q[0.15\linewidth]|},
 			columns={halign=c},
@@ -451,7 +451,9 @@
 	
 	\subsection{Metriche}
 	\textbf{Documenti}
-	\begin{longtblr}
+	\begin{longtblr}[
+	caption = {Metriche - Documenti},
+	]
 		{
 			colspec={|Q[0.15\linewidth]|Q[0.25\linewidth]|Q[0.25\linewidth]|Q[0.25\linewidth]|},
 			columns={halign=c},
@@ -472,6 +474,9 @@
 	
 	\textbf{\textit{Software}}
 	\begin{longtblr}
+	[
+	caption = {Metriche - Software},
+	]
 		{
 			colspec={|Q[0.15\linewidth]|Q[0.25\linewidth]|Q[0.25\linewidth]|Q[0.25\linewidth]|},
 			columns={halign=c},
@@ -512,6 +517,9 @@
 	Vengono impiegati per la verifica di unità del \textit{software}\textsuperscript{G}. Come unità si intende una piccola parte del programma che funzioni in maniera autonoma.
 	
 	\begin{longtblr}
+	[
+	caption = {Test di Unità},
+	]
 			{
 			colspec={|Q[0.15\linewidth]|Q[0.65\linewidth]|Q[0.15\linewidth]|},
 			columns={halign=c},
@@ -588,9 +596,12 @@
 
 	
 	\subsection{Test di Sistema}
-	Vengono impiegati per verificare che l'esecuzione del sistema soddisfi i requisiti\textsuperscript{G} prestabiliti nel documento di Analisi dei Requisiti\textsuperscript{G}.
+	Vengono impiegati per verificare che l'esecuzione del sistema soddisfi i requisiti\textsuperscript{G} funzionali prestabiliti nel documento di Analisi dei Requisiti\textsuperscript{G}. 
+	Questo rende esplicito il fatto che l'applicazione riesce a svolgere i compiti definiti nel suo contesto operativo.
 	
-		\begin{longtblr}
+		\begin{longtblr}[
+		caption = {Test di Sistema},
+		]
 		{
 			colspec={|Q[0.15\linewidth]|Q[0.50\linewidth]|Q[0.15\linewidth]|Q[0.15\linewidth]|},
 			columns={halign=c},
@@ -603,76 +614,76 @@
 		\textbf{Codice} & \textbf{Descrizione} & \textbf{Requisito} & \textbf{Stato}\\
 		
 		\hline
-		TS01 & L'utente può visionare alla pagina di login & UC1 & P\\
+		TS01 & L'utente può visionare alla pagina di login & RF1 & P\\
 		\hline
-		TS02 & L'utente non può effettuare l'accesso con credenziali errate & UC2 & P \\
+		TS02 & L'utente non può effettuare l'accesso con credenziali errate & RF2 & P \\
 		\hline
-		TS03 & L'amministratore può effettuare l'accesso con credenziali corrette & UC1 & P\\
+		TS03 & L'amministratore può effettuare l'accesso con credenziali corrette & RF1 & P\\
 		\hline
-		TS04 & L'utente non può effettuare l'accesso senza credenziali & UC2 & P\\
+		TS04 & L'utente non può effettuare l'accesso senza credenziali & RF2 & P\\
 		\hline
 		
-		TS05 & L'amministratore può visionare alla pagina di creazione di struttura database & UC3 & P \\
+		TS05 & L'amministratore può visionare alla pagina di creazione di struttura database & RF3 & P \\
 		\hline
-		TS06 & L'amministratore può creare una struttura database & UC3 & P\\
+		TS06 & L'amministratore può creare una struttura database & RF3 & P\\
 		\hline		
-		TS07 & L'amministratore non può creare una struttura database senza inserire dati & UC3 & P\\
+		TS07 & L'amministratore non può creare una struttura database senza inserire dati & RF3 & P\\
 		\hline
-		TS08 & L'amministratore non può creare una struttura database se ne esiste una con lo stesso nome & UC4 & P\\
+		TS08 & L'amministratore non può creare una struttura database se ne esiste una con lo stesso nome & RF4 & P\\
 		\hline
-		TS09 & L'amministratore può visionare la pagina di modifica di una struttura database & UC6 & P\\
+		TS09 & L'amministratore può visionare la pagina di modifica di una struttura database & RF6 & P\\
 		\hline
-		TS10 & L'amministratore può modificare una struttura database & UC7 & P\\
+		TS10 & L'amministratore può modificare una struttura database & RF7 & P\\
 		\hline
-		TS11 & L'amministratore non può modificare una struttura fornendo un nome già esistente & UC4 &P\\
+		TS11 & L'amministratore non può modificare una struttura fornendo un nome già esistente & RF4 &P\\
 		\hline
 		
 		
-		TS12 &  L'amministratore può visionare alla pagina di creazione di una tabella & UC9 & P \\
+		TS12 &  L'amministratore può visionare alla pagina di creazione di una tabella & RF9 & P \\
 		\hline
-		TS13 & L'amministratore può creare una tabella & UC9 & P\\
+		TS13 & L'amministratore può creare una tabella & RF9 & P\\
 		\hline		
-		TS14 & L'amministratore non può creare una tabella senza inserire dati & UC10 & P\\
+		TS14 & L'amministratore non può creare una tabella senza inserire dati & RF10 & P\\
 		\hline
-		TS15 & L'amministratore non può creare una tabella se ne esiste una con lo stesso nome & UC10 & P\\
+		TS15 & L'amministratore non può creare una tabella se ne esiste una con lo stesso nome & RF10 & P\\
 		\hline
-		TS16 & L'amministratore può visionare la pagina di modifica di una tabella & UC12 & P\\
+		TS16 & L'amministratore può visionare la pagina di modifica di una tabella & RF12 & P\\
 		\hline
-		TS17 & L'amministratore può modificare una tabella & UC13 & P\\
+		TS17 & L'amministratore può modificare una tabella & RF13 & P\\
 		\hline
-		TS18 & L'amministratore non può modificare una tabella fornendo un nome già esistente & UC10 & P\\
+		TS18 & L'amministratore non può modificare una tabella fornendo un nome già esistente & RF10 & P\\
 		\hline
-		TS18 & L'amministratore non può modificare una tabella non esistente & UC10 & P\\
+		TS18 & L'amministratore non può modificare una tabella non esistente & RF10 & P\\
 		\hline
 		
-		TS12 &  L'amministratore può visionare alla pagina di creazione di un campo & UC15 & P \\
+		TS12 &  L'amministratore può visionare alla pagina di creazione di un campo & RF15 & P \\
 		\hline
-		TS13 & L'amministratore può creare un campo & UC15 & P\\
+		TS13 & L'amministratore può creare un campo & RF15 & P\\
 		\hline		
-		TS14 & L'amministratore non può creare un campo senza inserire dati & UC16 & P\\
+		TS14 & L'amministratore non può creare un campo senza inserire dati & RF16 & P\\
 		\hline
-		TS15 & L'amministratore non può creare un campo se ne esiste uno con lo stesso nome & UC16 & P\\
+		TS15 & L'amministratore non può creare un campo se ne esiste uno con lo stesso nome & RF16 & P\\
 		\hline
-		TS16 & L'amministratore può visionare la pagina di modifica di un campo & UC18 & P\\
+		TS16 & L'amministratore può visionare la pagina di modifica di un campo & RF18 & P\\
 		\hline
-		TS17 & L'amministratore può modificare un campo & UC19 & P\\
+		TS17 & L'amministratore può modificare un campo & RF19 & P\\
 		\hline
-		TS18 & L'amministratore non può modificare un campo fornendo un nome già esistente & UC16 & P\\
+		TS18 & L'amministratore non può modificare un campo fornendo un nome già esistente & RF16 & P\\
 		\hline
-		TS18 & L'amministratore non può modificare un campo di una tabella non esistente & UC10 & P\\
+		TS18 & L'amministratore non può modificare un campo di una tabella non esistente & RF10 & P\\
 		\hline
-		TS18 & L'amministratore non può modificare un campo non esistente & UC16 & P\\
+		TS18 & L'amministratore non può modificare un campo non esistente & RF16 & P\\
 		\hline
 		
-		TS19 & L'amministratore può visionare la pagina di eliminazione & UC8 UC14 UC20 &P\\
+		TS19 & L'amministratore può visionare la pagina di eliminazione & RF8 RF14 RF20 &P\\
 		\hline
-		TS20 & L'amministratore può eliminare una struttura database & UC8 &P\\
+		TS20 & L'amministratore può eliminare una struttura database & RF8 &P\\
 		\hline
-		TS20 & L'amministratore non può eliminare una struttura database non esistente & UC8 &P\\
+		TS20 & L'amministratore non può eliminare una struttura database non esistente & RF8 &P\\
 		\hline
-		TS21 & L'amministratore può eliminare una tabella & UC14 &P\\
+		TS21 & L'amministratore può eliminare una tabella & RF14 &P\\
 		\hline
-		TS22 & L'amministratore può eliminare un campo & UC20 &P\\
+		TS22 & L'amministratore può eliminare un campo & RF20 &P\\
 		\hline
 		TS23 & L'amministratore non può eliminare un oggetto senza fornirne la classe & - &P\\
 		\hline
@@ -687,59 +698,59 @@
 		\hline
 		TS28 & L'amministratore  visualizza un messaggio se non sono strutture database presenti & - &P\\
 		\hline
-		TS29 & L'amministratore visualizza la lista delle strutture database presenti & UC5 & P\\
+		TS29 & L'amministratore visualizza la lista delle strutture database presenti & RF5 & P\\
 		\hline
-		TS27 & L'amministratore visualizza la lista delle tabelle presenti in una struttura database & UC11 & P\\
+		TS27 & L'amministratore visualizza la lista delle tabelle presenti in una struttura database & RF11 & P\\
 		\hline
-		TS28 & L'amministratore visualizza la lista dei campi presenti & UC17 & P\\
+		TS28 & L'amministratore visualizza la lista dei campi presenti & RF17 & P\\
 		
 		\hline
-		TS29 & L'amministratore può effettuare l'operazione di logout & UC23 &P\\
+		TS29 & L'amministratore può effettuare l'operazione di logout & RF23 &P\\
 		\hline
-		TS30 & L'utente non può effettuare l'operazione di logout se non autenticato & UC24 &P\\
-		\hline
-		
-		TS31 & L'amministratore può accedere alla pagina di caricamento file & UC21 &P\\
-		\hline
-		TS32 & L'amministratore può caricare un file in formato JSON & UC21 &P\\
-		\hline
-		TS33 & L'amministratore non può caricare un file senza selezionarlo & UC22 & P\\
-		\hline
-		TS34 & L'amministratore non può caricare un file con formato errato & UC22 & P\\
-		\hline
-		TS35 & L'amministratore può caricare un file in formato CSV & UC21 &P\\
-		\hline
-		TS36 & L'amministratore non può caricare un file JSON di una struttura database con un nome già esistente & UC22 UC4 & P\\
-		\hline
-		TS37 & L'amministratore non può caricare un file CSV di una struttura database con un nome già esistente & UC22 UC4 & P\\
-		\hline
-		TS38 & L'amministratore può importare una struttura datbase da un file in formato JSON & UC21 &P\\
-		\hline
-		TS39 & L'amministratore può importare una struttura datbase da un file in formato CSV & UC21 &P\\
+		TS30 & L'utente non può effettuare l'operazione di logout se non autenticato & RF24 &P\\
 		\hline
 		
-		TS40 & L'utente può accedere alla pagina di generazione \textit{prompt} & UC25 &P\\
+		TS31 & L'amministratore può accedere alla pagina di caricamento file & RF21 &P\\
 		\hline
-		TS41 & L'utente può inviare correttamente i dati per la generazione del \textit{prompt} & UC25 & P\\
+		TS32 & L'amministratore può caricare un file in formato JSON & RF21 &P\\
 		\hline
-		TS42 & L'utente non può inviare la richiesta di generazione \textit{prompt} senza specificare un testo di richiesta & UC25.4 &P\\
+		TS33 & L'amministratore non può caricare un file senza selezionarlo & RF22 & P\\
 		\hline
-		TS43 & L'utente non può inviare la richiesta di generazione \textit{prompt} senza specificare una struttura database & UC25.2 &P\\
+		TS34 & L'amministratore non può caricare un file con formato errato & RF22 & P\\
 		\hline
-		TS44 & L'utente riceve un errore se la frase inserita non è inerente alla struttura database selezionata & UC25.4&P\\
+		TS35 & L'amministratore può caricare un file in formato CSV & RF21 &P\\
 		\hline
-		TS45 & L'utente può visualizzare un prompt con due tabelle & UC25.5 & P\\
+		TS36 & L'amministratore non può caricare un file JSON di una struttura database con un nome già esistente & RF22 RF4 & P\\
 		\hline
-		TS46 & L'utente visualizza un errore se il sistema non può interpretare la frase in linguaggio naturale fornita& UC26&P\\
+		TS37 & L'amministratore non può caricare un file CSV di una struttura database con un nome già esistente & RF22 RF4 & P\\
+		\hline
+		TS38 & L'amministratore può importare una struttura datbase da un file in formato JSON & RF21 &P\\
+		\hline
+		TS39 & L'amministratore può importare una struttura datbase da un file in formato CSV & RF21 &P\\
 		\hline
 		
-		TS47 & L'utente visualizza un errore se non è fornito il \textit{prompt} per la generazione della \textit{query} SQL & UC28 &P\\
+		TS40 & L'utente può accedere alla pagina di generazione \textit{prompt} & RF25 &P\\
 		\hline
-		TS48 & L'utente può visualizzare la \textit{query} SQL richiesta & UC27 UC29 & P\\
+		TS41 & L'utente può inviare correttamente i dati per la generazione del \textit{prompt} & RF25 & P\\
 		\hline
-		TS49 & L'utente visualizza un errore se non è possibile interpretare il \textit{prompt} fornito & UC28.2 &P\\
+		TS42 & L'utente non può inviare la richiesta di generazione \textit{prompt} senza specificare un testo di richiesta & RF27 &P\\
 		\hline
-		TS50 & L'utente visualizza un errore se non è possibile contattare il servizio LLM esterno & UC28.1 &P\\
+		TS43 & L'utente non può inviare la richiesta di generazione \textit{prompt} senza specificare una struttura database & RF26 &P\\
+		\hline
+		TS44 & L'utente riceve un errore se la frase inserita non è inerente alla struttura database selezionata & UC28 &P\\
+		\hline
+		TS45 & L'utente può visualizzare un prompt con due tabelle & UC29 & P\\
+		\hline
+		TS46 & L'utente visualizza un errore se il sistema non può interpretare la frase in linguaggio naturale fornita& RF26&P\\
+		\hline
+		
+		TS47 & L'utente visualizza un errore se non è fornito il \textit{prompt} per la generazione della \textit{query} SQL & RF28 &P\\
+		\hline
+		TS48 & L'utente può visualizzare la \textit{query} SQL richiesta & RF27 RF29 & P\\
+		\hline
+		TS49 & L'utente visualizza un errore se non è possibile interpretare il \textit{prompt} fornito & RF32 &P\\
+		\hline
+		TS50 & L'utente visualizza un errore se non è possibile contattare il servizio LLM esterno & RF32 &P\\
 		\hline
 		
 	\end{longtblr}
@@ -752,7 +763,9 @@
 	\subsection{Test di Accettazione}
 	Detto anche collaudo, viene effettuato per verificare che i requisiti\textsubscript{G} utente siano soddisfatti. Questo test viene effettuato assieme al committente\textsubscript{G}.
 	
-	\begin{longtblr}
+	\begin{longtblr}[
+	caption = {Test di Accettazione},
+	]
 		{
 		colspec={|Q[0.15\linewidth]|Q[0.65\linewidth]|Q[0.15\linewidth]|},
 		columns={halign=c},
@@ -765,7 +778,13 @@
 	\textbf{Codice} & \textbf{Descrizione} & \textbf{Stato}\\
 		
 		\hline
-		TA01 & Il proponente conferma che il software prodotto soddisfa le proprie esigenze  & NI\\
+		TA01 & Il prodotto riesce a gestire il caricamento di un file struttura database & NI\\
+		\hline
+		TA02 & Il prodotto riesce a creare un \textit{prompt} data una frase in linguaggio naturale & NI\\
+		\hline
+		TA03 & Il prodotto riesce a restituire una \textit{query} SQL utilizzando un servizio LLM esterno & NI\\
+		\hline
+		TA04 & Il prodotto riesce a gestire multiple strutture database & NI\\
 		\hline
 	\end{longtblr}
 	
@@ -778,6 +797,10 @@
 	\subsubsection{MPC-AC, MPC-ETC e MPC-EAC (\textit{Actual Cost}, \textit{Estimate To Completion} e \textit{Estimated at Completion})}
 
 \pgfplotsset{compat=1.11}
+\begin{figure}[H]
+	\captionsetup{textformat=empty,labelformat=blank}
+	\caption {MPC-AC, MPC-ETC e MPC-EAC (\textit{Actual Cost}, \textit{Estimate To Completion} e \textit{Estimated at Completion}}
+
 	\begin{tikzpicture}
 		\begin{axis}[
 				xticklabels={1-2, 3-4, 5-6, 7-8, 9-10, 11-12, 13-14, 15, 16, 1, 2, 3, 4, 5, 6,7 ,8},
@@ -815,13 +838,73 @@
 			
 		\end{axis}
 	\end{tikzpicture}
+\end{figure}
+
+	\paragraph{RTB} Il grafico mostra le metriche \textit{Actual Cost} (MPC-AC)  ossia il costo sostenuto nel periodo evidenziato, \textit{Estimate to Completion} (MPC-EC) ossia il costo rimanente previsto ed infine \textit{Estimated at Completion} ossia il costo totale previsto. 
+	Si nota come all'inizio la suddivisione dei periodi era di due settimane fino alla settimana 15 il periodo di sviluppo è stato portato a una settimana questo ha portato ad un aumento del lavoro prodotto. 
+	Il periodo RTB è durato dalla settimana 1 allo sprint 3.
+	
+	\paragraph{PB} Dallo sprint 5, successivo all'inizio del periodo PB (sprint 4), si nota un aumento dell'attività del progetto questo è attribuibile all'applicazione dei \textit{feedback} ricevuti dall'esito della fase RTB e dall'aumento della disponibilità dei componenti dopo la sessione di esami invernale.
+	
+	\subsubsection{MPC-PV e MPC-EV (\textit{Planned Value} e \textit{Earned Value})}
+	
+	\begin{figure}[H]
+		\captionsetup{textformat=empty,labelformat=blank}
+		\caption {MPC-PV e MPC-EV (\textit{Planned Value} e \textit{Earned Value})}
+		\begin{tikzpicture}
+		\begin{axis}[
+			xticklabels={RTB1, RTB2, RTB3,PB1,PB2,PB3},
+			xtick={0,1,2,3,4,5},
+			xlabel=Parti Progetto,
+			ytick={0,2000,...,12000},
+			width=\textwidth,
+			height=\axisdefaultheight,
+			%ylabel=Costo,
+			ymax=12500,
+			%ymin=-7,
+			line width=1.0,
+			%yticklabel={\tick\texteuro},
+			%y tick label style={xshift=-0.2em,log ticks with fixed point},
+			yticklabels={\texteuro0, \texteuro2.000, \texteuro4.000, \texteuro6.000, \texteuro8.000, \texteuro10.000, \texteuro12.000},
+			legend columns=1,
+			legend style={at={(0.0,-0.3)},anchor=west}				
+			]
+			]
+			\addplot+[sharp plot, red4, mark options={fill=red4}] coordinates { 
+				(0,2755) (1,3710) (2,4970) (3,6130) (4,7285) 
+			};
+			\addlegendentry{Earned Value}
+			
+			
+			
+			
+			
+			\addplot+[sharp plot, teal6,mark=*,mark options={fill=teal6}] coordinates {
+				(0,2125) (1,4355) (2,5290) (3,8720) (4,10530) (5,11040)  
+			};
+			\addlegendentry{Planned Value}
+			
+			\addplot[mark=none, dashed, orange ]  coordinates { (0,11040) (5,11040) };
+			\addlegendentry{Costo Totale Preventivato}
+			
+		\end{axis}
+	\end{tikzpicture}
+\end{figure}
+	
+	\paragraph{RTB} Nel primo periodo si nota come il lavoro effettuato sia leggermente maggiore di quello pianificato poi mantenendo lo stesso andamento fino al raggiungimento dei costi pianificati nell'ultimo periodo della fase RTB.
+	
+	\paragraph{PB} Durante il periodo PB si era pianificato un aumento più rapido nei primi due periodi mentre il gruppo ha mantenuto il trend precedente.
 	
 		\subsubsection{MPC-CV (\textit{Cost Variance})}
+		
+\begin{figure}[H]
+\captionsetup{textformat=empty,labelformat=blank}
+\caption {MPC-CV (Cost Variance)}
 	\begin{tikzpicture}
 		\begin{axis}[
 			xticklabels={RTB1, RTB2, RTB3,PB1,PB2},
 			xtick={0,1,2,3,4},
-			xlabel=Parti RTB,
+			xlabel=Parti Progetto,
 			ytick={-10,-8,-6,-4,-2,0,2,4,6,8,10},
 			ylabel=Percentuale,
 			ymax=13,
@@ -849,8 +932,19 @@
 			
 		\end{axis}
 	\end{tikzpicture}
+\end{figure}
+	
+	\paragraph{RTB} Il grafico rappresenta il rapporto tra i costi sostenuti ed il valore ottenuto mostrato come percentuale.
+	Si nota come nella prima fase del periodo il gruppo sia stato leggermente in anticipo sulle aspettative, passando poi in ritardo nel periodo successivo ma concludendo la fase RTB leggermente in anticipo.
+	
+	\paragraph{PB} Dal grafico si deduce un considerevole ritardo nel primo periodo PB che viene diminuito nel secondo periodo.
+	Si noti come in ogni caso il gruppo rispetti i valori di massimo e minimo prestabiliti.
 	
 	\subsubsection{MPC-SV (\textit{Schedule Variance})}
+\begin{figure}[H]
+	\captionsetup{textformat=empty,labelformat=blank}
+	\caption {MPC-SV (\textit{Schedule Variance})}
+
 	\begin{tikzpicture}
 		\begin{axis}[
 			xticklabels={1,  2, 3,4,5,6,7,8},
@@ -878,8 +972,18 @@
 			
 		\end{axis}
 	\end{tikzpicture}
+\end{figure}
+	
+		\paragraph{RTB} Il grafico rappresenta il rapporto tra il valore pianificato ed il valore guadagnato. Vengono considerati i periodi finali del periodo RTB (sprint 1,2 e 3) ed è evidente che il gruppo era in ritardo sulle aspettative, specialmente nello sprint 2 che viene dimezzato nello sprint 3.
+	
+	\paragraph{PB} A partire dallo sprint 4, inizio del periodo PB, si nota come il gruppo ha recuperato gran parte del ritardo accumulato e mantiene un aumento costante delle attività fino ad essere in linea con la pianificazione nello sprint 6 e ad essere in anticipo sulle aspettative negli sprint successivi.
+	
 	
 	\subsubsection{MPC-BV (\textit{Budget Variance})}
+	
+	\begin{figure}[H]
+		\captionsetup{textformat=empty,labelformat=blank}
+		\caption {MPC-BV (\textit{Budget Variance})}
 		\begin{tikzpicture}
 		\begin{axis}[
 			xticklabels={1-2, 3-4, 5-6, 7-8, 9-10, 11-12, 13-14, 15, 16, 1, 2, 3, 4, 5, 6,7 ,8},
@@ -910,15 +1014,21 @@
 			
 		\end{axis}
 	\end{tikzpicture}
+\end{figure}
 	
+	\paragraph{RTB e PB} Si nota dal grafico come il budget per il progetto non sia stato variato durante il proseguimento del progetto.
 	
 	\subsection{Sviluppo}
 	\subsubsection{MPC-RSI (\textit{Requirements Stability Index})}
 	
 	\pgfplotsset{compat=1.11}
+	
+\begin{figure}[H]
+	\captionsetup{textformat=empty,labelformat=blank}
+	\caption {MPC-RSI (\textit{Requirements Stability Index})}
 	\begin{tikzpicture}
 		\begin{axis}[
-			xticklabels={RTB, 1, 2, 3, 4, 5, 5, 7, 8, 9},
+			xticklabels={RTB, 1, 2, 3, 4, 5, 6, 7, 8, 9},
 			xtick={0,1,2,3,4,5,6,7,8,9},
 			xlabel=Sprint,
 			ytick={0,10,...,100},
@@ -934,7 +1044,7 @@
 			legend columns=1
 			]
 			]
-			\addplot+[sharp plot, blue] coordinates {(0,85) (1,90) (2,100) (3,100) (4,100) (5,100) (5,100) (6,100) (7,100) (8,100) (9,100)};
+			\addplot+[sharp plot, blue] coordinates {(0,85) (1,90) (2,95) (3,100) (4,100) (5,100) (5,100) (6,95) (7,100) (8,100) (9,100)};
 			\addlegendentry{Requirements Stability Index}
 			
 			\addplot[mark=none, dashed, green4]  coordinates { (0,100) (9,100) };
@@ -945,14 +1055,25 @@
 			
 		\end{axis}
 	\end{tikzpicture}
+\end{figure}
+	
+	\paragraph{RTB} Il grafico mostra la stabilità dei requisiti nel corso del progetto. Dopo aver ricevuto la correzione del documento di Analisi dei Requisiti da parte del prof. Cardin si nota un aumento della stabilità dei requisiti, applicando le indicazioni fornite.
+	Si è raggiunta la stabilità massima alla fine del periodo RTB (sprint 3).
+	
+	\paragraph{PB} Il periodo PB è iniziato con una stabilità del 100\% avendo un calo del 5\% nello sprint 6 dovuto alla modifica di un requisito nel documento di Analisi dei Requisti per indicare in maniera più precisa il comportamento del sistema durante il caricamento di una struttura database tramite file.
 	
 	\subsection{Gestione di qualità}
 	
 
 	
-	\subsection{Verifica}
-	
-	\subsubsection{MPC-CC (\textit{Code Coverage)}}
+\subsection{Verifica}
+
+\subsubsection{MPC-CC (\textit{Code Coverage})}
+
+\begin{figure}[H]
+	\captionsetup{textformat=empty,labelformat=blank}
+	\caption {MPC-CC (\textit{Code Coverage)}}
+
 	\begin{tikzpicture}
 		\begin{axis}[
 			xticklabels={7,8,9},
@@ -980,7 +1101,20 @@
 		\end{axis}
 	\end{tikzpicture}
 	
+\end{figure}
+	
+	\paragraph{RTB} Il grafico mostra le righe di codice coperte da operazioni di test. 
+	Non sono state effettuate operazioni di codifica del prodotto finale nella fase RTB.
+	
+	\paragraph{PB} All'inizio dello sviluppo del prodotto finale si è ottenuto una copertura del 86\% delle linee di codice scritte passando poi al 87\% nel periodo successivo. Dal periodo Si è raggiunta una copertura del 94\% superando il valore desiderabile di 90\%.\\
+	Ad ogni aggiunta del programma viene associato un aumento della copertura del codice alla fine del periodo di sviluppo.
+
 	\subsubsection{MPC-PTP (\textit{Passed Tests Percentage)}}
+
+\begin{figure}[H]
+	\captionsetup{textformat=empty,labelformat=blank}
+	\caption {MPC-PTP (\textit{Passed Tests Percentage)}}
+
 	\begin{tikzpicture}
 		\begin{axis}[
 			xticklabels={6,7,8,9},
@@ -1007,11 +1141,20 @@
 			
 		\end{axis}
 	\end{tikzpicture}
+\end{figure}
+	
+	\paragraph{RTB} Il grafico mostra la percentuale di test con esito positivo.
+	Non sono state effettuate operazioni di codifica del prodotto finale nella fase RTB.
+	
+	\paragraph{PB} Si nota come ogni test codificato abbia esito positivo, questo avviene perché ogni modifica apportata al prodotto viene accompagnata da test che la verificano con successo.
 	
 	\subsection{Processi organizzativi}
 	
-		% non-calculated risk
 	\subsubsection{MPC-NCR (\textit{Non-Calculated Risks)}}
+	
+\begin{figure}[H]
+	\captionsetup{textformat=empty,labelformat=blank}
+	\caption {MPC-NCR (\textit{Non-Calculated Risks)}}
 	\begin{tikzpicture}
 		\begin{axis}[
 			xticklabels={ 1,  2,  3 ,4,5,6,7,8},
@@ -1041,10 +1184,21 @@
 			
 		\end{axis}
 	\end{tikzpicture}
+\end{figure}
+	
+	\paragraph{RTB} Il grafico mostra i rischi non pianificati sostenuti nel corso del progetto e la loro gravità.
+	Si nota un rischio considerevole nel primo sprint, questo era dato da una mancanza tecnologica presente nel POC presentato al prof. Cardin, questo rischio è stato colmato aumentando le funzionalità del POC e utilizzando le tecnologie non utilizzate in precedenza.
+	
+	\paragraph{PB} Non sono stati sostenuti rischi non pianificati nel periodo PB.
+	
 	
 	\subsection{Documenti}
 	
 	\subsubsection{MPD-IG (Indice Gulpease)}
+	
+\begin{figure}[H]
+	\captionsetup{textformat=empty,labelformat=blank}
+	\caption {MPD-IG (Indice Gulpease)}
 	\begin{tikzpicture}
 		\begin{axis}[
 			xticklabels={ 1,2,...,9},
@@ -1093,8 +1247,23 @@
 			
 		\end{axis}
 	\end{tikzpicture}
+\end{figure}
+	
+	\paragraph{RTB} Il grafico mostra il punteggio raggiunto dai vari documenti per quanto riguarda l'indice di leggibilità Gulpease. Si è scelto il valore 60 come limite minimo, questo rappresenta un livello di comprensione di una persona con un diploma di scuola media.\\
+	Si noti come i documenti mantengano un valore ampiamente sufficiente ad eccezione del documento di Norme di Progetto che comunque mantiene il valore minimo accettabile. Si noti inoltre come la leggibilità dei verbali aumenti di 10 punti nelle ultime fasi del periodo RTB.
+	
+	\paragraph{PB} La maggior parte dei documenti mantiene lo stesso punteggio, le differenze si notano nei documenti: 
+	\begin{itemize}
+		\item Piano di Qualifica: Aumenta di complessità negli sprint 3,4 e 5 ma aumenta il suo punteggio dallo sprint 6;
+		\item Glossario: Si nota come aumentando le definizioni dei termini presenti nel documento aumenti la sua complessità;
+		\item Norme di Progetto: Si nota un leggero aumento del punteggio nello sprint 9;
+	\end{itemize}
 	
 	\subsubsection{MPD-CO (Correttezza Ortografica)}
+	
+\begin{figure}[H]
+	\captionsetup{textformat=empty,labelformat=blank}
+	\caption {MPD-CO (Correttezza Ortografica)}
 	\begin{tikzpicture}
 		\begin{axis}[
 			xticklabels={ 1,  2,  3,...,8},
@@ -1133,15 +1302,23 @@
 			
 			\addplot[mark=none, dashed, green4, mark=none]  coordinates { (0,0) (7,0) };
 			\addlegendentry{Valore Ottimale e accettable}
-			
-			
+		
 		\end{axis}
 	\end{tikzpicture}
+\end{figure}
+	
+	\paragraph{RTB} Il grafico mostra gli errori ortografici nei documenti nelle fasi finali del periodo RTB. Sono stati presenti alcuni errori ma grazie al controllo ortografico dei programmi utilizzati nella redazione dei documenti questi sono stati limitati.
+	
+	\paragraph{PB} Non sono stati rilevati errori ortografici nel periodo PB.
 	
 	\subsection{Software}
 	
 	\subsubsection{MPD-CR (Copertura dei Requisiti)}
 	\pgfplotsset{compat=1.11}
+	
+\begin{figure}[H]
+	\captionsetup{textformat=empty,labelformat=blank}
+	\caption {MPD-CR (Copertura dei Requisiti)}
 	\begin{tikzpicture}
 		\begin{axis}[
 			xticklabels={7,8,9},
@@ -1167,10 +1344,16 @@
 			
 		\end{axis}
 	\end{tikzpicture}
+\end{figure}
+	
+	\paragraph{PB} Il grafico mostra la percentuale di copertura dei requisiti espressi nel documento di Analisi dei Requisti durante la realizzazione del prodotto software.\\
+	All'inizio della codifica sono stati coperti il 6\% dei requisiti per poi passare al 86\% nel periodo successivo, è stata raggiunta la massima copertura nello sprint 9.
 	
 	\subsubsection{MPD-CD (\textit{Code Duplication})}
 	
-		\begin{longtblr}
+		\begin{longtblr}[
+		caption = {MPC-CD (Code Duplication)},
+		]
 		{
 			colspec={|Q[0.15\linewidth]|Q[0.15\linewidth]|Q[0.15\linewidth]|},
 			columns={halign=c},
@@ -1187,9 +1370,13 @@
 		
 	\end{longtblr}
 	
+	\paragraph{PB} La tabella mostra il numero accettabile, ottimale e ottenuto di righe di codice duplicato. Questo valore indica la manutenibilità del \textit{software} prodotto riducendo la difficoltà di apportare modifiche in futuro.
+	
 	\subsubsection{MPD-CS (\textit{Code Smell})}
 	
-			\begin{longtblr}
+			\begin{longtblr}[
+			caption = {MPD-CS - ()Code Smell)},
+			]
 		{
 			colspec={|Q[0.15\linewidth]|Q[0.15\linewidth]|Q[0.15\linewidth]|},
 			columns={halign=c},
@@ -1206,9 +1393,15 @@
 		
 	\end{longtblr}
 	
+	\paragraph{PB} La tabella mostra il numero accettabile, ottimale e ottenuto di \textit{Code Smell} (letteralmente Codice Odoroso) ossia di problemi di progettazione o di struttura del codice. Il valore ottenuto indica che eventuali problemi sono stati risolti, per individuare questo problemi si è utilizzato il software SonarQube.
+	
 	
 	\subsubsection{MPD-BS (Browser Supportati)}
 	\pgfplotsset{compat=1.11}
+	
+\begin{figure}[H]
+	\captionsetup{textformat=empty,labelformat=blank}
+	\caption {MPD-BS (Browser Supportati)}
 	\begin{tikzpicture}
 		\begin{axis}[
 			xticklabels={6,7,8,9},
@@ -1235,13 +1428,19 @@
 			
 		\end{axis}
 	\end{tikzpicture}
+\end{figure}
+	
+	\paragraph{PB} Il grafico mostra la percentuale dei \textit{browser} supportati secondo quelli specificati nel documento di Analisi dei Requisti. 
+	Si noti come tutti i \textit{browser} siano stati supportati dall'inizio della codifica, questo perché le tecnologie web utilizzate nel progetto sono ampiamente supportate dai \textit{browser} selezionati.
 	
 	\section{Valutazioni delle attività di verifica}
 	In questa sezione si riportano le valutazioni sulle criticità incontrate nel corso dello svolgimento del progetto e le correzioni applicate ad esse.
 	
 	\subsection{Organizzazione}
 	
-	\begin{longtblr}
+	\begin{longtblr}[
+	caption = {Valutazioni - Organizzazione},
+	]
 		{
 			colspec={|Q[0.12\linewidth]|Q[0.35\linewidth]|Q[0.08\linewidth]|Q[0.35\linewidth]|},
 			rows={halign=l},
@@ -1263,7 +1462,9 @@
 	
 	\subsection{Strumenti utilizzati}
 	
-	\begin{longtblr}
+	\begin{longtblr}[
+	caption = {Valutazioni - Strumenti Utilizzati},
+	]
 		{
 			colspec={|Q[0.12\linewidth]|Q[0.35\linewidth]|Q[0.08\linewidth]|Q[0.35\linewidth]|},
 			rows={halign=l},

@@ -1,0 +1,6 @@
+projectKey=ChatSQL
+serverUrl=http://192.168.1.5:9000
+serverVersion=10.5.0.89998
+dashboardUrl=http://192.168.1.5:9000/dashboard?id=ChatSQL
+ceTaskId=106c8dc3-3afc-401d-84d9-a3044d3c0ffe
+ceTaskUrl=http://192.168.1.5:9000/api/ce/task?id=106c8dc3-3afc-401d-84d9-a3044d3c0ffe
