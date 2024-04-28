@@ -137,7 +137,9 @@
 				\hline
 				\textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Modifica} \\
 				\hline
-				0.0.13 & 23/04/2024 & G. Moretto & - & Aggiunta QueryForm, QueryGenerationView, QueryGenerator, sostituito Tensorflow con Torch, aggiunta openai \\
+				0.0.14 & 25/04/2024 & R. Simionato & - & Aggiunta dei riferimenti al Glossario \\
+				\hline
+				0.0.13 & 23/04/2024 & G. Moretto & - & Aggiunta QueryForm, QueryGenerationView, QueryGenerator, sostituito Tensorflow con Torch \\
 				\hline
 				0.0.12 & 21/04/2024 & G. Moretto & - & Aggiornamento diagramma Views con nuova operazione per PromptCreator\\
 				\hline
@@ -187,10 +189,10 @@
 	
 	\subsection{Scopo del Documento}
 
-    Il documento ha lo scopo di presentare e motivare le scelte architetturali e di design di applicate al prodotto, oltre che a fornire una lista completa delle tecnologie utilizzate. La struttura interna del prodotto è esposta all'interno del documento sotto forma di diagramma delle classi, in maniera da rendere più chiaro il software sviluppato. Vengono inoltre approfonditi e motivati a loro volta i design pattern utilizzati. 
+    Il documento ha lo scopo di presentare e motivare le scelte architetturali e di design applicate al prodotto, oltre che a fornire una lista completa delle tecnologie utilizzate. La struttura interna del prodotto è esposta all'interno del documento sotto forma di diagramma delle classi, in maniera da rendere più chiaro il software\textsuperscript{G} sviluppato. Vengono inoltre approfonditi e motivati a loro volta i design pattern\textsuperscript{G} utilizzati. 
 	
 	\subsection{Scopo del Prodotto}
-    Il capitolato proposto dall'azienda \textit{Zucchetti S.p.A.} ha come obiettivo la realizzazione di un applicativo web al fine di studiare la fattibilità di un prodotto in grado di elaborare una frase in linguaggio naturale. Questa frase, anche se fornita da un utente inesperto, deve generare come output una \textit{query SQL} in grado di interrogare un database (di cui è conosciuta la struttura) in modo efficiente e affidabile.
+    Il capitolato\textsuperscript{G} proposto dall'azienda \textit{Zucchetti S.p.A.} ha come obiettivo la realizzazione di un applicativo web al fine di studiare la fattibilità di un prodotto in grado di elaborare una frase in linguaggio naturale\textsuperscript{G}. Questa frase, anche se fornita da un utente inesperto, deve generare come output una \textit{query SQL}\textsuperscript{G} in grado di interrogare un database\textsuperscript{G} (di cui è conosciuta la struttura) in modo efficiente e affidabile.
 	
 	\subsection{Glossario}
     Al fine di evitare ambiguità o incomprensioni relative alla terminologia usata all'interno del documento, è fornito un \textit{Glossario} in cui vengono riportate definizioni precise per ogni termine potenzialmente ambiguo. La presenza di tali termini all'interno del documento è indicata con la presenza, vicino alla voce, di una \textit{G} in apice ($^G$). 
@@ -249,7 +251,7 @@
 		\hline
 		Python & 3.11.8 & Linguaggio di programmazione ad alto livello, orientato agli oggetti. Viene utilizzato per la creazione del \textit{server}. \\
 		\hline
-		\SetCell[c=3]{c} \textbf{Framework e Librerie} \\
+		\SetCell[c=3]{c} \textbf{Framework\textsuperscript{G} e Librerie\textsuperscript{G}} \\
 		\hline
 		Django & 5.0.3 & \textit{Framework} per la creazione di applicazioni \textit{web} scritto in linguaggio \textit{Python}. \\
 		\hline
@@ -261,7 +263,7 @@
 		\hline
 		Pip & 24.0 & Strumento per la gestione dei pacchetti utilizzati da applicazioni \textit{Python}.\\
 		\hline
-		Git & 2.44.0 & Strumento per il controllo di versione utilizzato per la gestione della \textit{repository} remota presente su \textit{GitHub}. \\
+		Git & 2.44.0 & Strumento per il controllo di versione utilizzato per la gestione della \textit{repository}\textsuperscript{G} remota presente su \textit{GitHub}\textsuperscript{G}. \\
 		\hline
 	\end{longtblr}
 	
@@ -293,8 +295,6 @@
 		coverage.py & 7.4.4 & \textit{Tool} per misurare il \textit{code coverage} in applicazioni \textit{Python} integrabile nel \textit{framework Django}. \\
 		\hline
 		Prospector & 1.10.3 & \textit{Tool} per l'analisi statica di codice scritto nel linguaggio \textit{Python}. \\
-		\hline
-		openai & 1.23..2 & Libreria per interfacciamento con servizi LLM remoti\\
 		\hline
 		\SetCell[c=3]{c} \textbf{Strumenti} \\
 		\hline
@@ -353,14 +353,14 @@ E' stato scelta questa architettura in quanto offre i seguenti vantaggi:
 	\end{figure}
 
 	
-	Il compito delle view è quella di ricevere richieste dal browser e di restituire risposte sottoforma di pagine HTML o altri elementi che possono essere visualizzati da un browser.\\
+	Il compito delle view è quella di ricevere richieste dal browser\textsuperscript{G} e di restituire risposte sottoforma di pagine HTML o altri elementi che possono essere visualizzati da un browser.\\
 	
 	Le view definite derivano dalla classe View fornita dal framework Django e sono divise per area principale e area amministrativa.\\
 	
 	Le view dell'area principale sono:
 	\begin{itemize}
-		\item  \textbf{MainView}: si occupa di ricevere la richiesta di generazione del prompt dall'utente e di restituirlo. Per fare questo utilizza una classe chiamata PromptCreator che si occupa di generare il prompt per la richiesta ricevuta dalla view.
-		\item \textbf{QueryGenerationView}: si occupa di ricevere il prompt generato, inviarlo al modello LLM esterno tramite la classe Querygenerator e ritornare la risposta;
+		\item  \textbf{MainView}: si occupa di ricevere la richiesta di generazione del prompt\textsuperscript{G} dall'utente e di restituirlo. Per fare questo utilizza una classe chiamata PromptCreator che si occupa di generare il prompt per la richiesta ricevuta dalla view.
+		\item \textbf{QueryGenerationView}: si occupa di ricevere il prompt generato, inviarlo al modello LLM\textsuperscript{G} esterno tramite la classe Querygenerator e ritornare la risposta;
 	\end{itemize}
 
 	
