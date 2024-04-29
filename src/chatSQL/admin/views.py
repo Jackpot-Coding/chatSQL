@@ -28,7 +28,8 @@ class AdminLoginView(View):
                 if user is not None :
                     login(request,user)
                     messages.add_message(request,messages.SUCCESS,"Autenticazione avvenuta con successo")
-                    return render(request,"admin/home.html",{"login_form":login_form})
+                    strutture_db = models.StrutturaDatabase.objects.order_by("nome")
+                    return render(request,"admin/home.html",{'strutture_db':strutture_db})
                 #else
                 login_form.add_error("username","Credenziali non corrette.")
                 return render(request,login_template,{"login_form":login_form})
