@@ -106,7 +106,7 @@
 \begin{flushright}
 	\begin{spacing}{1}
 		USO: INTERNO\\
-		VERSIONE: 1.0.4\\
+		VERSIONE: 1.0.5\\
 	\end{spacing}
 \end{flushright}
 
@@ -136,8 +136,9 @@
     \hline
     % versione & data & autore & verificatore & descrizioneModifica \\
     % \hline
+ 	v1.0.5 & 29/04/2024 & G. Moretto & - & Aggiunta tipologia dei test dinamici\\
     \hline
-    v1.0.4 & 23/04/2024 & G. Moretto & - & Sistemazione struttura, aggiunta strumenti, validazione, verifica documenti e link a formazione"\\
+    v1.0.4 & 23/04/2024 & G. Moretto & - & Sistemazione struttura, aggiunta strumenti, validazione, verifica documenti e link a formazione\\
     \hline
     v1.0.3 & 04/04/2024 & G. Moretto & - & Rimozione Redattori e Verificatori come da feedback RTB\\
     \hline
@@ -258,6 +259,10 @@ Durante l'intero svolgimento del progetto ci impegniamo a mantenere un costante 
     \item Chiarire dubbi e incomprensioni per risolvere ogni possibile incertezza attraverso un dialogo costante e chiaro;
     \item Definire vincoli e requisiti per stabilire parametri chiari per il prodotto finale e per ogni fase intermedia del processo;
 \end{itemize}
+
+\subsubsection{Comunicazione con il proponente}
+Il gruppo comunica con il proponente attraverso l'indirizzo di posta elettronica fornito ed effettua riunioni utilizzando la piattaforma di videoconferenza Zoom.
+Si richiedono incontri per chiarimenti relativi al progetto e alle tecnologie coinvolte in esso e ricezione di riscontro sull'operato.
 
 \subsubsection{Documenti}
 Il processo di Fornitura produce i seguenti documenti:
@@ -599,6 +604,15 @@ In dettaglio, il Piano di Qualifica\textsuperscript{G} è strutturato come segue
     L'analisi dinamica si svolge simultaneamente all'esecuzione del \textit{software} ed è principalmente costituita dalla fase di \textit{test}. A differenza dell'analisi statica, coinvolge l'esecuzione effettiva del sistema e dei suoi componenti.\\
     Per garantire che il prodotto funzioni correttamente durante l'esecuzione, il gruppo utilizza una serie di \textit{test} eseguibili in tempo reale. È essenziale che tali \textit{test} siano ripetibili, pertanto si identificano strumenti per automatizzarne l'esecuzione.\\
     Questo approccio dinamico è cruciale per rilevare problemi e difetti durante l'esecuzione effettiva del \textit{software}, fornendo una maggiore sicurezza sul corretto funzionamento del prodotto.
+    
+    I testi si dividono per:
+    \begin{itemize}
+    	\item \textbf{Test di Unità}: Testano una parte autonoma e piccola del software;
+    	\item \textbf{Test di Integrazione}: Testano l'integrazione di diverse parti del software e come si comportano tra loro;
+    	\item \textbf{Test di Sistema}: Testano il corretto funzionamento del sistema;
+    	\item \textbf{Test di Regressione}: Provano che nuove aggiunte e/o modifiche al software non compromettano funzionalità verificate in precedenza;
+    	\item \textbf{Test di Accettazione}: Provano che il prodotto sia conforme con le aspettative del proponente, attraverso la conformità dei requisiti, il corretto funzionamento e l'usabilità e efficacia del prodotto software;
+    \end{itemize}
     
    \subsubsection{Strumenti utilizzati}
    \begin{itemize}
