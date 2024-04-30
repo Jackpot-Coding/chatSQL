@@ -269,7 +269,8 @@ class AdminCampoView(View):
             return  render(request, field_template, {'field_create_form': field_create_form,
                                                             'struttura':field.tabella.struttura,
                                                             'tabella':field.tabella,
-                                                            'campo_nome':field.nome})
+                                                            'campo_nome':field.nome,
+                                                            'field_id':field_id})
         field_create_form=forms.CampoForm
         if not models.Tabella.objects.filter(pk=table_id).exists():
             messages.add_message(request, messages.ERROR, 'La tabella selezionata non esiste.')
@@ -298,7 +299,8 @@ class AdminCampoView(View):
                         return render(request, field_template, {'field_create_form': field_create_form,
                                                                     'struttura':table.struttura,
                                                                     'tabella':table,
-                                                                    'campo_nome':table.campo_set.get(pk=field_id).nome})
+                                                                    'campo_nome':table.campo_set.get(pk=field_id).nome,
+                                                                    'field_id':field_id})
                     
                     field=models.Campo.objects.get(pk=field_id)
                     field.nome=nome
@@ -313,7 +315,8 @@ class AdminCampoView(View):
                     return  render(request, field_template, {'field_create_form': field_create_form,
                                                                 'struttura':table.struttura,
                                                                 'tabella':table,
-                                                                'campo_nome':table.campo_set.get(pk=field_id).nome})
+                                                                'campo_nome':table.campo_set.get(pk=field_id).nome,
+                                                                'field_id':field_id})
                 
                 table=models.Tabella.objects.get(pk=table_id)
                 if table.campo_set.filter(nome=nome).exists():

@@ -22,7 +22,7 @@
     {{ field_create_form }}
     <button type="submit">Submit</button>
 </form>
-{% if editing_id %}
-    <a href="{% url 'model_delete' 'Campo' editing_id %}">Elimina campo</a>
+{% if field_id %}
+    <a href="{% url 'model_delete' 'Campo' field_id %}" class="del_btn">Elimina campo</a>
 {% endif %} 
 {% endblock content %}
