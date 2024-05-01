@@ -20,7 +20,7 @@
 <form method="post">
     {% csrf_token %}
     {{ field_create_form }}
-    <button type="submit">Submit</button>
+    <button type="submit">Salva</button>
 </form>
 {% if field_id %}
     <a href="{% url 'model_delete' 'Campo' field_id %}" class="del_btn">Elimina campo</a>
