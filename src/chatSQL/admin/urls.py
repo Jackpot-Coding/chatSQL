@@ -8,7 +8,7 @@ LOGIN_URL = '/admin/login'
 urlpatterns = [
      path('login/',views.AdminLoginView.as_view(),name="admin_login"),
      path('logout/',views.AdminLogoutView.as_view(),name="admin_logout"),
-     path('upload/',views.AdminUploadFileView.as_view(),name="admin_upload_structure"),
+     path('upload/',login_required(views.AdminUploadFileView.as_view(),login_url=LOGIN_URL),name="admin_upload_structure"),
      path('',login_required(views.AdminHomeView.as_view(),login_url=LOGIN_URL),name="admin_home"),
      path('struttureDB/nuova',login_required(views.AdminStrutturaDatabaseView.as_view(),login_url=LOGIN_URL),name="new_db_view"),
      path('struttureDB/<int:structure_id>',login_required(views.AdminStrutturaDatabaseView.as_view(),login_url=LOGIN_URL),name="db_view"),

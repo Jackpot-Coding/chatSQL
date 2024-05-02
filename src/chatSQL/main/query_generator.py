@@ -13,7 +13,7 @@ class QueryGenerator:
                     messages=[
                         {"role": "system", "content": "Do not explain code."},
                         {"role": "system", "content": "Give an executive summary"},
-                        {"role": "system", "content": "Always replay in Italian."},
+                        {"role": "system", "content": "Always reply in Italian."},
                         {"role": "system", "content": "Always wrap code in a markdown code block"},
                         {"role": "user", "content": prompt}
                     ],
