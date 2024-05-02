@@ -41,6 +41,11 @@ class UploadFileTestCase(TestCase):
         with open(file_path, 'rb') as file:
             file_data = file.read()
             self.wrong_file_obj = SimpleUploadedFile('wrong_format.txt', file_data, content_type='text/plain')
+            
+        file_path = os.path.join(test_dir, 'assets', 'dump.sql')
+        with open(file_path, 'rb') as file:
+            file_data = file.read()
+            self.sql_file_obj = SimpleUploadedFile('dump.sql', file_data, content_type='text/plain')
 
     def test_can_reach_upload_page(self):
         response = self.client.get(reverse('admin_upload_structure'))
@@ -172,3 +177,47 @@ class UploadFileTestCase(TestCase):
             messages = list(get_messages(response.wsgi_request))
             self.assertEqual(len(messages), 1)
             self.assertTrue('Errore nella creazione della struttura' in str(messages[0]))
+            
+    def test_upload_sql_file(self):
+            
+            response = self.client.post(reverse('admin_upload_structure'), {'file': self.sql_file_obj})
+            
+            self.assertEqual(response.status_code, 200)
+            self.assertTemplateUsed(response, 'admin/home.html')
+            
+            messages = list(get_messages(response.wsgi_request))
+            self.assertEqual(len(messages), 1)
+            self.assertEqual(str(messages[0]), 'File caricato con successo')
+            
+    def test_cannot_upload_sql_file_with_existing_db_structure_name(self):
+                
+        db_struct = StrutturaDatabase(nome="example_database",descrizione="")
+        db_struct.save()
+        
+        response = self.client.post(reverse('admin_upload_structure'), {'file': self.sql_file_obj})
+        
+        db_struct.delete()
+        
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'admin/upload_file.html')
+        
+        messages = list(get_messages(response.wsgi_request))
+        self.assertEqual(len(messages), 1)
+        self.assertEqual(str(messages[0]), 'Errore durante l\'upload del file: Errore: esiste già una struttura con nome example_database')
+        
+    def test_sql_parser_can_catch_error(self):
+            
+        with patch.object(StrutturaDatabase.objects, 'filter') as mock_filter:
+            
+            mock_filter.side_effect = Exception("test error")
+        
+            response = self.client.post(reverse('admin_upload_structure'), {'file': self.sql_file_obj})
+            
+            
+            self.assertEqual(response.status_code, 200)
+            self.assertTemplateUsed(response, 'admin/upload_file.html')
+            
+            messages = list(get_messages(response.wsgi_request))
+            self.assertEqual(len(messages), 1)
+            self.assertTrue('Errore nella creazione della struttura' in str(messages[0]))
+        

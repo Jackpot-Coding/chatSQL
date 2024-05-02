@@ -1,30 +1,31 @@
-from .parsers import csv_parser, json_parser
+from .parsers import csv_parser, json_parser, sql_parser
 
 class FileUploader():
     
     def __init__(self, file):
-        self.parserStrategy = None
+        self.parser_strategy = None
         self.error = None
-        self.setParserStrategy(file)
+        self.set_parser_strategy(file)
 
     def setParserStrategy(self, file):
         if file is None:
             self.error = "Errore: nessun file caricato"
             return
         self.file = file
-        
         if self.file.name.endswith('.csv'):
-            self.parserStrategy = csv_parser.CSVParser()
+            self.parser_strategy = csv_parser.CSVParser()
         elif self.file.name.endswith('.json'):
-            self.parserStrategy = json_parser.JSONParser()
+            self.parser_strategy = json_parser.JSONParser()
+        elif self.file.name.endswith('.sql'):
+            self.parser_strategy = sql_parser.SQLParser()
         else:
-            self.parserStrategy = None
+            self.parser_strategy = None
             self.error = "Errore: formato file non supportato"
     
-    def uploadFile(self):
-        if self.parserStrategy is None:
+    def upload_file(self):
+        if self.parser_strategy is None:
             return None
-        return self.parserStrategy.parser(self.file)
+        return self.parser_strategy.parse(self.file)
     
-    def getStatus(self):
+    def get_status(self):
         return self.error
