@@ -1,0 +1,171 @@
+\documentclass[5pt]{article}
+
+\usepackage{sectsty}
+\usepackage{graphicx}
+\usepackage{lipsum} % for generating dummy text
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{array}
+\usepackage{cellspace}
+
+
+\usepackage{hyperref}
+\usepackage{scrextend}
+\graphicspath{ {../../assets} }
+
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\title{ Verbale - 02/05/2024 }
+\date{\today}
+
+%STARTOF THE DOCUMENT
+\begin{document}
+
+%-------------------------
+
+% Reduce top margin only on the first page
+\newgeometry{top=0.5in}
+
+%UNIPD LOGO
+    \vspace{8pt}
+    \includegraphics[scale=0.2]{UNIPDFull.png}
+%END UNIPD LOGO
+
+\vspace{10pt}
+
+%COURSE INFO
+\begin{minipage}[t]{0.48\textwidth}
+    %COURSE TITLE
+        \begin{flushleft}
+            Informatica\\
+            \vspace{5pt}
+            \textbf{\LARGE Ingegneria del Software}\\
+            Anno Accademico: 2023/2024
+        \end{flushleft}
+    %END COURSE TITLE
+\end{minipage}
+%END COURSE INFO
+
+
+\vspace{5px}
+
+
+%BLACK LINE
+\rule{\textwidth}{5pt}
+
+%JACKPOT CODING INFO
+\begin{minipage}[t]{0.50\textwidth}
+    %LOGO JACKPOT CODING
+    \begin{flushleft}
+        \hspace{10pt}
+        \includegraphics[scale=0.65]{jackpot-logo.png} 
+    \end{flushleft}
+\end{minipage}
+\hspace{-60pt} % This adds horizontal space between the minipages
+\begin{flushright}
+    \begin{minipage}[t]{0.50\textwidth}
+        %INFO JACKPOT CODING
+        \begin{flushright}
+            Gruppo: {\Large Jackpot Coding}\\
+            Email: \href{mailto:jackpotcoding@gmail.com}{jackpotcoding@gmail.com}
+        \end{flushright}
+    \end{minipage}
+\end{flushright}
+%END JACKPOT CODING INFO
+
+\vspace{20pt}
+
+%TITLE
+\begin{center}
+    \textbf{\large VERBALE }
+    \textbf{\large 12/04/2024} \\
+    \textbf{\LARGE  APPROVAZIONE MVP}
+\end{center}
+%END TITLE
+
+\vspace{13pt}
+
+\begin{flushleft}
+    \begin{spacing}{1.5}
+        REDATTORE: M. Camillo\\ 
+        VERIFICATORE: \\ 
+        RESPONSABILE: \\ 
+        \vspace{7pt}
+        SCRIBA: M. Favaretto\\ 
+        \vspace{7pt}
+        DESTINATARI: Sig. G. Piccoli, Prof. T. Vardanega, Prof. R. Cardin\\ 
+    \end{spacing}
+\end{flushleft}
+
+\begin{flushright}
+    \begin{spacing}{1}
+        USO: ESTERNO\\
+        VERSIONE: 1.0\\
+    \end{spacing}
+\end{flushright}
+
+
+% Restore original margins from the second page onwards
+\restoregeometry
+
+\pagebreak
+
+% Optional TOC
+% \tableofcontents
+% \pagebreak
+
+\section{ORARIO}
+\begin{spacing}{1.5}
+    {\large Inizio incontro: 11:00}\\
+    {\large Fine incontro: 11:25} 
+\end{spacing}
+
+\section{PARTECIPANTI}
+% Define minimal spacing at the top and bottom of cells
+\setlength\cellspacetoplimit{6pt}
+\setlength\cellspacebottomlimit{6pt}
+
+\begin{table}[ht]
+  \begin{tabular}{|Sc|Sc|}
+    \hline
+    \textbf{Nome Componente} & \textbf{Durata della presenza} \\
+    \hline
+    Camillo Matteo & 25 minuti \\
+    Favaretto Marco & 25 minuti \\
+    Gallo Edoardo & 25 minuti \\
+    Gobbo Marco & 25 minuti \\
+    Moretto Giulio & 25 minuti \\
+    Simionato Riccardo & 25 minuti \\
+    Gregorio Piccoli (Zucchetti S.p.A.) & 25 minuti \\
+    \hline
+  \end{tabular}
+  \label{tab:conference}
+\end{table}
+
+\section{SINTESI DELL'INCONTRO}
+Durante l'incontro è stato esaminato e valutato per l'approvazione il \textit{MVP} (Minimum Viable Product) sviluppato. La presentazione del prodotto ha incluso una descrizione dettagliata della sua struttura e delle sue funzionalità, insieme a dei test della sua efficacia  mediante l'esecuzione di diversi prompt su vari Large Language Model (\textit{LLM}).
+Durante la discussione con il proponente, è stata presa nota e analizzata la gestione delle relazioni tra le tabelle all'interno di uno stesso database.
+
+
+\section{CONCLUSIONI}
+Dall'incontro è emersa: 
+\begin{itemize}
+    \item Una soddisfazione generale del prodotto da parte del proponente;
+    \item Decisione di mantenere la relazione tra tabelle implicita nella descrizione all'interno del prompt;
+\end{itemize}
+
+\vspace{3em}
+\begin{flushright}
+	\begin{spacing}{1.5}
+		Firma per presa visione\\
+	\end{spacing}
+\end{flushright}
+
+\end{document}
