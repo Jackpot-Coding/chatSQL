@@ -137,7 +137,11 @@
 				\hline
 				\textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Modifica} \\
 				\hline
-				0.0.15 & 28/04/2024 & G.Moretto & - & Aggiunta di SonarQube come strumento di testing \\
+				0.1.1 & 03/05/2024 & E. Gallo & - & Sistemato \textit{Design pattern} utilizzati - \textit{Strategy} \\
+				\hline
+				0.1.0 & 03/05/2024 & - & E. Gallo & Verifica documento \\
+				\hline
+				0.0.15 & 28/04/2024 & G.Moretto & E. Gallo & Aggiunta di SonarQube come strumento di testing \\
 				\hline
 				0.0.14 & 25/04/2024 & R. Simionato & G.Moretto & Aggiunta dei riferimenti al Glossario \\
 				\hline
@@ -438,5 +442,6 @@ E' stato scelta questa architettura in quanto offre i seguenti vantaggi:
 					Un esempio è la generazione e l'inserimento dei sinonimi di tabelle e campi, che di base è lasciata all'utente, 
 					ma è facilmente integrabile con un \textit{API}\textsuperscript{G} o un \textit{LLM} opportuno per migliorare l'esperienza del prodotto.
 			\end{enumerate}
+			Per questioni di tempo soprattutto, il gruppo ha deciso di implementare questo \textit{design pattern} solo per la funzionalità di \textit{upload} di un file. In base all'estensione del file, il programma sceglie quale strategia utilizzare per raccogliere ed immagazzinare nel migliore dei modi le informazioni caricate.
 	
 \end{document}
