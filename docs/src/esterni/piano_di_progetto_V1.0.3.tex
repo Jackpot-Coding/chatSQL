@@ -119,7 +119,7 @@
 \begin{flushright}
     \begin{spacing}{1}
         USO: ESTERNO\\
-        VERSIONE: 1.0.2\\
+        VERSIONE: 1.0.3\\
     \end{spacing}
 \end{flushright}
 
@@ -144,7 +144,7 @@
 	\hline
     \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Modifica} \\
     \hline
-    v1.0.3 & 24/04/2024 & M. Gobbo & - & Modifica documento secondo indicazioni RTB\\
+    v1.0.3 & 24/04/2024 & M. Gobbo & - & Modifica documento secondo indicazioni RTB, inizializzazione sezione 7\\
     \hline
     v1.0.2 & 04/04/2024 & G. Moretto & M. Gobbo & Rimozione Redattori e Verificatori come da feedback RTB\\
     \hline
@@ -251,6 +251,8 @@
             \item Analisi dei requisiti: \\
             \url{https://www.math.unipd.it/~tullio/IS-1/2023/Dispense/T3.pdf}\\
             (Consultato 18/03/2024)
+            \item Documento impegni V1.1.0: \\
+            \url{https://github.com/Jackpot-Coding/chatSQL/blob/main/docs/esterni/documento-impegni-v1.1.pdf}\\
       \end{itemize}
     \subsubsection{Riferimenti Normativi}
       \begin{itemize}
@@ -373,7 +375,7 @@
         \item \textbf{Descrizione}: La presenza di tensioni, conflitti o mancanza di collaborazione tra i membri del gruppo può compromettere l'efficienza e la coesione del gruppo, influenzando negativamente la qualità del lavoro e il raggiungimento degli obiettivi del progetto.
         \item \textbf{Occorrenza}: Media
         \item \textbf{Pericolosità}: Media
-        \item \textbf{Precauzione}: 
+        \item \textbf{Precauzione}: Creazione di un ambiente di lavoro inclusivo e favorevole alla comunicazione aperta
         \item \textbf{Mitigazione}: 
           \begin{itemize}
             \item Utilizzare la votazione per prendere decisioni oggettive basate sulla maggioranza delle preferenze. Assicurarsi che tutte le parti coinvolte comprendano e accettino il risultato della votazione per favorire la collaborazione e il senso di appartenenza al gruppo.
@@ -400,15 +402,22 @@
 %-----------------------------
 
 \section{Pianificazione}
-  \textbf{Scadenze}:
+\subsection{Scadenze generali}
+\subsubsection{Prima Stesura - 03/11/2024:}
   \begin{itemize}
       \item \textit{Requirments and Technology Baseline\textsuperscript{G}}: 01/03/2024
       \item \textit{Product Baseline\textsuperscript{G}}: 17/05/2024
   \end{itemize}
+\subsubsection{Seconda Stesura (date revisionate post RTB) - 24/03/24:}
+  \begin{itemize}
+      \item \textit{Requirments and Technology Baseline\textsuperscript{G}}: 24/03/2024
+      \item \textit{Product Baseline\textsuperscript{G}}: 17/05/2024 
+  \end{itemize}
   % --- Aggiunta possibile linea del tempo
 
   \subsection{Verso la \textit{RTB}}
-    \textbf{Periodo:} dal 24/10/2023 al 24/03/2024
+    \textbf{Periodo Pianificato:} dal 24/10/2023 al 01/03/2024\\
+    \textbf{Periodo Effettivo:} dal 24/10/2023 al 24/03/2024
     \subsubsection{Preparazione preliminare}
       \textbf{Periodo:} dal 24/10/2023 al 15/11/2023 
       \vspace{0.3cm} \\
@@ -422,10 +431,15 @@
       \end{itemize}
       È necessario iniziare una parziale identificazione di alcuni rischi, riportati nell'apposita sezione, che potrebbero compromettere il corretto svolgimento del progetto, 
       ma utili anche a presentare un preventivo maggiormente accurato. 
-      In ultimo, è importante fornire almeno un'iniziale stesura del documento di \textit{Way of Working\textsuperscript{G}}, necessario per definire i principali metodi di lavoro dei membri del \textit{team}.
-      % 31/10 -> scelta proposta 
-      % 06/11 -> aggiudicazione appalti
-      % 15/11 -> verbale ultimato wow
+      In ultimo, è importante fornire almeno un'iniziale stesura del documento di \textit{Way of Working\textsuperscript{G}}, necessario per definire i principali metodi di lavoro dei membri del \textit{team}. \\\\
+      Ruoli coinvolti in questo periodo:
+      \begin{itemize}
+          \item Responsabile
+          \item Amministratore
+          \item Analista
+          \item Verificatore
+      \end{itemize}
+
     
     \subsubsection{Analisi Requisiti}
       \textbf{Periodo:} dal 15/11/2023 al 25/01/2024 
@@ -434,18 +448,29 @@
       Per evitare dubbi ed avere un \textit{feedback\textsuperscript{G}} sul lavoro svolto, è utile organizzare un colloquio con il proponente relativamente all'analisi svoltasi fino a quel momento. \\
       Dopo una fase di \textit{brainstorming\textsuperscript{G}} del gruppo e \textit{feedback\textsuperscript{G}} dal proponente riguardo i casi d'uso identificati, si procederà alla stesura del documento di Analisi dei Requisiti\textsuperscript{G},
       dove verranno riportati tutti i casi d'uso identificati, i requisiti obbligatori, desiderabili e opzionali. \\
-      Questa fase è dunque di fondamentale importanza per la successiva.
-      % 15/11 -> inizio discussione adr, contattato proponente
-      % ??/01 -> fine adr?
+      Questa fase è dunque di fondamentale importanza per la successiva.\\\\
+      Ruoli coinvolti in questo periodo:
+      \begin{itemize}
+          \item Responsabile
+          \item Amministratore
+          \item Analista
+          \item Verificatore
+      \end{itemize}
     
     \subsubsection{Progettazione per RTB}
       \textbf{Periodo} dal 18/01/2024 al 12/02/2024 
       \vspace{0.3cm} \\
-      % periodo 18-25 ultimazione adr e relativa verifica -> quindi inizio poc
       In questo periodo, basandosi sulla precedente analisi dei requisiti\textsuperscript{G}, inizierà la realizzazione del \textit{PoC\textsuperscript{G}}. \\
-      Questa fase si concluderà con un colloquio con il proponente, per un \textit{feedback\textsuperscript{G}} circa il \textit{PoC\textsuperscript{G}} prodotto.
-      % 18/01 -> inizio POC
-      % 11/02 -> fine POC
+      Questa fase si concluderà con un colloquio con il proponente, per un \textit{feedback\textsuperscript{G}} circa il \textit{PoC\textsuperscript{G}} prodotto.\\\\
+      Ruoli coinvolti in questo periodo:
+      \begin{itemize}
+          \item Responsabile
+          \item Amministratore
+          \item Progettista
+          \item Programmatore
+          \item Verificatore
+      \end{itemize}
+
     
     \subsubsection{Rifiniture}
       \textbf{Periodo:} dal 12/02/2024 al 24/03/2024 
@@ -453,28 +478,37 @@
       Nell'ultima fase della prima parte del progetto, verranno ultimate le modifiche e relative verifiche ai vari documenti 
       prodotti fino a questo momento. \\
       Questa parte si concluderà con un colloquio e una presentazione del lavoro fino ad ora svolto 
-      ai professori del corso Ingegneria del \textit{Software}.
-      % aggiunta immagini / schemi esempio: linee del tempo
-      % 25/02 -> fine rtb (non definitiva)
-      % rifinitura ultimi documenti: pdp, pdq, ndp
+      ai professori del corso Ingegneria del \textit{Software}.\\\\
+      Ruoli coinvolti in questo periodo:
+      \begin{itemize}
+          \item Responsabile
+          \item Amministratore
+          \item Analista
+          \item Verificatore
+      \end{itemize}
 
   %-------------
   
   \subsection{Verso la \textit{PB}}
-    \textbf{Periodo Pianificato:} dal 17/03/2024 al 17/05/2024
+    \textbf{Periodo Pianificato:} dal 17/03/2024 al 17/05/2024\\
+    \textbf{Periodo Effettivo:} dal 25/03/2024 al 17/05/2024
     \subsubsection{Preparazione preliminare}
-      \textbf{Periodo:} dal 17/03/2024 al 24/03/2024 
+      \textbf{Periodo:} dal 25/03/2024 al 15/04/2024 
       \vspace{0.3cm} \\
       In questo periodo l'obiettivo sarà l'integrazione dei \textit{feedback\textsuperscript{G}} e la sistemazione degli errori emersi durante la \textit{RTB\textsuperscript{G}}; 
       una volta passata questa fase preliminare è il momento di procedere verso la \textit{PB\textsuperscript{G}}.
-      Verranno dunque pianificate le attività future e la relativa suddivisione dei compiti.
+      Verranno dunque pianificate le attività future e la relativa suddivisione dei compiti.\\\\
+      Ruoli coinvolti in questo periodo:
+      \begin{itemize}
+          \item Responsabile
+          \item Amministratore
+          \item Verificatore
+      \end{itemize}
     
     \subsubsection{Progettazione primaria e codifica dei requisiti obbligatori}
-      \textbf{Periodo:} dal 24/03/2024 al 15/04/2024 
+      \textbf{Periodo:} dal 25/03/2024 al 15/04/2024 
       \vspace{0.3cm} \\
-      Terminata la retrospettiva dell'\textit{RTB\textsuperscript{G}}, Verrà utilizzato il \textit{PoC\textsuperscript{G}}, realizzato nelle fasi precedenti, 
-      come riferimento per la costruzione del progetto effettivo.
-      Lo scopo di questa fase è la realizzazione di una prima versione del prodotto finale, che dovrà soddisfare tutti i requisiti\textsuperscript{G} obbligatori. \\
+      Terminata la retrospettiva dell'\textit{RTB\textsuperscript{G}}, Verrà realizzata una prima versione del prodotto finale, che dovrà soddisfare tutti i requisiti\textsuperscript{G} obbligatori. \\
       Per raggiungere questo obiettivo, andranno svolte le seguenti attività:
       \begin{itemize}
         \item \textbf{Studio tecnologie}: al fine di produrre un risultato migliore, andranno approfondite maggiormente le tecnologie approcciate 
@@ -486,6 +520,14 @@
           \item \textbf{Documentazione}: ampliamento della documentazione già prodotta e scrittura della documentazione relativa al programma
           \item \textbf{Verifica e validazione}: fase di svolgimento di test automatici e non al fine di verificare che il codice non produca errori e soddisfi i requisiti\textsuperscript{G} obbligatori.
         \end{itemize}  
+      \end{itemize}
+      Ruoli coinvolti in questo periodo:
+      \begin{itemize}
+          \item Responsabile
+          \item Amministratore
+          \item Progettista
+          \item Programmatore
+          \item Verificatore
       \end{itemize}
     
     \subsubsection{Progettazione secondaria e codifica dei requisiti opzionali}
@@ -503,18 +545,31 @@
           \item \textbf{Verifica e validazione}: fase di svolgimento di test automatici e non al fine di verificare che il codice non produca errori e soddisfi i requisiti non obbligatori integrati.
         \end{itemize}  
       \end{itemize}
+      Ruoli coinvolti in questo periodo:
+      \begin{itemize}
+          \item Responsabile
+          \item Amministratore
+          \item Progettista
+          \item Programmatore
+          \item Verificatore
+      \end{itemize}
     
     \subsubsection{Validazione finale, collaudo e \textit{PB}}
       \textbf{Periodo:} dal 10/05/2024 al 17/05/2024 
-      \vspace{0.3cm} \\
+      \vspace{0.3cm}\\
       In quest'ultima fase, il \textit{team} ultimerà le attività di verifica, validazione e collaudo del codice prodotto e della documentazione scritta fino a questo momento.
       In caso di necessità, verranno aggiunte le necessarie correzioni risultate dai \textit{feedback\textsuperscript{G}} di queste attività. \\
-      Il fine di questo periodo è la seconda revisione del progetto, ossia la \textit{Product Baseline\textsuperscript{G}}.
+      Il fine di questo periodo è la seconda revisione del progetto, ossia la \textit{Product Baseline\textsuperscript{G}}.\\\\
+      Ruoli coinvolti in questo periodo:
+      \begin{itemize}
+          \item Responsabile
+          \item Amministratore
+          \item Verificatore
+      \end{itemize}
 
 \section{Preventivo}
   Di seguito sono presentate le tabelle con le ore e i costi preventivati per i periodi \textit{RTB} e \textit{PB} e i loro relativi sottoperiodi.
-  Questa pianificazione rispetta quanto è stato dichiarto nel \href{https://jackpot-coding.github.io/chatSQL/docs/esterni/documento-impegni-v.1.1.pdf}{documento di impegni} 
-  presentato ad inizio progetto.
+  Questa pianificazione rispetta quanto è stato dichiarto nel documento di impegni presentato ad inizio progetto di cui si rimanda alla sezione di questo documento numerata 1.4.1 nel file "Riferimenti Informativi".
 
   \subsection{Periodo \textit{RTB}}
     \subsubsection{Prima Parte}
@@ -584,7 +639,7 @@
       \end{table}
     %--------------
 
-    \subsubsection{\textit{RTB}}
+    \subsubsection{\textit{RTB (Complessivo)}}
       Qui sono presentate le ore e i costi preventivati per il periodo \textit{RTB} complessivo.
       \begin{table}[H]
      	  \centering
@@ -625,7 +680,7 @@
 
   \subsection{Periodo \textit{PB}}
     \subsubsection{Fase preliminare}
-      \textbf{Periodo:} dal 24/03/2024 al 15/04/2024 
+      \textbf{Periodo:} dal 25/03/2024 al 15/04/2024 
       \begin{table}[H]
         \centering
         \rowcolors{2}{black!15}{}
@@ -646,7 +701,7 @@
       \end{table}
     
     \subsubsection{Progettazione primaria e codifica dei requisiti obbligatori}
-      \textbf{Periodo:} dal 24/03/2024 al 15/04/2024 
+      \textbf{Periodo:} dal 25/03/2024 al 15/04/2024 
       \begin{table}[H]
         \centering
         \rowcolors{2}{black!15}{}
@@ -708,7 +763,7 @@
         \caption{Ore preventivate per la fase finale della \textit{PB}}
       \end{table}
     
-    \subsubsection{\textit{PB}}
+    \subsubsection{\textit{PB (Complessivo)}}
       Qui sono presentate le ore e i costi preventivati per il periodo \textit{PB} complessivo.
       \begin{table}[H]
      	  \centering
@@ -777,14 +832,31 @@
     Ad esempio: nel mese di Marzo il \textit{team} ha cambiato piattaforma di \textit{ticketing} e gestione di \textit{spring}, passando da \textit{Trello} a \textit{Jira}.
     Ciò ha richiesto delle ore di lavoro per i ruoli di responsabile e amministratore aggiuntive a quelle preventivate.
     In seguito alla prima fase di revisione dell'\textit{RTB}, sono state necessarie ulteriori ore del ruolo di analista.
-    Tuttavia, lo sviluppo del \textit{PoC} ha richeisto meno ore di progettazione, rispetto a quelle preventivate.
-
-
+    Tuttavia, lo sviluppo del \textit{PoC} ha richeisto meno ore di progettazione, rispetto a quelle preventivate.\\
     Al netto di ciò, il consuntivo e il preventivo non presentano una notevole differenza. Abbiamo quindi ragione di credere che il gruppo continuerà 
     a lavorare in maniera simile anche nel prossimo periodo.
 
+    \subsubsection{Difficoltà incotrate}
+Durante la fase di RTB, ci siamo trovati di fronte a diverse sfide e rischi che avrebbero potuto compromettere il successo del nostro progetto. 
+In particolare il gruppo ha avuto problemi nella codifica del Proof of Concept (POC), dal momento che il \textit{team} non aveva piena padronanza ed esperienza delle singole tecnologie scelte per il progettto, e questo ha rallentato le azioni del periodo.\\\\
+Dopo un primo periodo incerto però siamo riusciti a riassestarci cambiando anche piattaforma di ticketing e framework utilizzato. 
+Infine, abbiamo avuto difficoltà legate all'organizzazione in generale causate sia dagli impegni dei singoli componenti (la maggioranza riguardanti il lavoro) sia legate all'inesperienza del gruppo nel lavorare ad un progetto di queste dimensioni, in particolare:
+\begin{itemize}
+    \item Ore di lavoro conteggiate non in modo perfetto
+    \item Distinzione/Rotazione ruoli non chiara (Problematica presente solo all'inizio)
+\end{itemize}
+    
+    \subsubsection{Mitigazione Rischi Attuata}
+Per mitigare efficacemente i rischi identificati durante la fase di RTB, abbiamo adottato una serie di azioni mirate e specifiche. In primo luogo, per affrontare l'inesperienza tecnologica del gruppo nella codifica del Proof of Concept, abbiamo implementato sessioni formative approfondite sul framework Django. Queste sessioni hanno fornito ai membri del team una comprensione più solida delle piattaforme e degli strumenti utilizzati nel progetto, riducendo così la curva di apprendimento e migliorando la qualità del lavoro svolto.\\\\
+In secondo luogo, abbiamo cambiato la piattaforma di ticketing (Da Trello a Jira) e il framework utilizzato(inizio utilizzo del framework Django). Questo ci ha permesso di adattare le nostre operazioni in modo più efficiente alle nostre capacità e conoscenze, consentendo al team di muoversi con maggiore sicurezza e determinazione.\\\\
+Infine sul fronte organizzativo, abbiamo rafforzato la nostra comunicazione interna e la trasparenza riguardo alle responsabilità e ai compiti assegnati. Abbiamo istituito procedure chiare e ben definite per la registrazione delle ore di lavoro, garantendo una maggiore precisione e affidabilità nei conteggi. Inoltre, abbiamo stabilito un sistema di rotazione dei ruoli più strutturato e regolamentato, permettendo una migliore distribuzione del lavoro e evitando sovraccarichi o disallineamenti nelle responsabilità.
+
   \subsection{Periodo \textit{PB}}
     Le spese non sono presenti, in quanto il progetto non è ancora entrato in questa fase di sviluppo.
+    \subsubsection{Difficoltà incotrate}
+    \subsubsection{Mitigazione Rischi Attuata}
+
+\section{Mitigazione Rischi}
 
 
 \end{document}
