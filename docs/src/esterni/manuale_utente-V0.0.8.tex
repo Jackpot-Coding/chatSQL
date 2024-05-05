@@ -128,6 +128,7 @@
 			\hline
 			\rowcolor{teal!50}
 			\textbf{versione} & \textbf{data} & \textbf{autore} & \textbf{verifica} & \textbf{modifica} \\ \hline
+			v.0.0.9 & 05/05/2024 & R. Simionato & - & Prima stesura sezione 4 \\ \hline
 			v.0.0.8 & 02/05/2024 & M. Favaretto & - & Aggiunte e correzioni varie nella sezione di Requisiti \\ \hline
 			v.0.0.7 & 30/04/2024 & M. Favaretto & - & Correzione link e tabelle \\ \hline
 			v.0.0.6 & 28/04/2024 & M. Favaretto & - & Stesura Sezione Installazione \\ \hline
@@ -287,7 +288,61 @@
 					\end{center}
 			\end{enumerate}
  
+	    \subsection{Creazione profilo Amministratore}
+	    Per creare un utente Amministratore che possa accedere all'area amministrativa dell'applicazione seguire i seguenti passaggi:
+	    \begin{enumerate}
+	    	\item Aprire un terminale nella cartella della \textit{repo} in locale
+	    	\item Spostarsi nella cartella dell'applicazione inserendo il comando:
+	    	\begin{center}
+	    		\textit{cd src/chatSQL}
+	    	\end{center}
+	    	\item Inserire il comando:
+	    	\begin{center}
+	    		\textit{python manage.py createsuperuser}
+	    	\end{center}
+	    	\item Inserire l'username desiderato e premere invio
+	    	\item Inserire l'email desiderata e premere invio
+	    	\item Inserire la password desiderata. Verrà richiesta due volte, la seconda servirà per confermare la prima.
+	    \end{enumerate}
+    
     \section{Istruzioni all'uso}
+    
+	    \subsection{Home}
+	    Questa è la schermata principale dell'applicazione. Da qui è possibile richiedere la creazione di un prompt e poi in seguito della query SQL, oppure effettuare l'accesso con un profilo amministratore tramite il link "Accedi" in alto a sinistra.
+	    % TODO - Inserire immagine schermata iniziale
+	    
+	    \subsubsection{Richiedere un prompt e ottenere la query SQL}
+	    Per richiedere la generazione di un prompt è necessario inserire la propria richiesta all'interno della casella di testo apposita, successivamente bisognerà selezionare tramite il menù a tendina il database relativo alla richiesta e cliccare su "Genera Prompt".\\
+	    % TODO - Inserire immagine form di richiesta prompt compilato
+	    Una volta generato il prompt verranno fornite due opzioni per proseguire:
+	    \begin{itemize}
+	    	\item Copiare il prompt generato tramite l'apposito bottone per poterlo facilmente incollare all'interno di un LLM a scelta (es. ChatGPT)
+	    	\item Generare la query SQL utilizzando l'LLM presente nel programma % TODO - Sistemare questa frase
+	    \end{itemize} 
+	    
+	    
+	    \subsection{Area Ammnistrativa}
+	    Dopo aver effettuato il login verrà visualizzata la pagina iniziale dell'area amministrativa. Sarà possibile ritornare a questa pagina facilmente utilizzando il link "Home" posizionato in alto a sinistra. Affianco a questo si trova il link "Upload" che porta alla schermata dov'è possibile caricare una strutturaDB da un file.
+	    % TODO - Inserire immagine nav area amministrativa
+	    
+	    \subsubsection{Lista StruttureDB}
+	    Sempre nella pagina iniziale dell'area amministrativa troviamo la lista delle struttureDB presenti nel programma. È possibile visualizzare le strutture presenti tramite l'apposito bottone "Visualizza" oppure creare una nuova struttura database cliccando sul bottone "Crea Struttura DB". 
+	    % TODO - Inserire immagine bottone creazione nuova struttura + lista strutture DB
+	    
+	    \subsubsection{Upload StrutturaDB}
+	    All'interno della pagina per caricare un file contenete una struttura DB si trova il bottone "Scegli file", una volta cliccato verrà aperta una finestra di dialogo che permetterà all'amministratore di selezionare il file. Selezionare il file in formato .json desiderato e cliccare su "Apri", il nome del file selezionato verrà mostrato nella pagina e una volta controllato che sia il file corretto cliccare sul bottone "Carica" per terminare la procedura.
+	    % TODO - Inserire immagine schermata caricamento file struttura DB
+	    
+	    \subsubsection{StrutturaDB, Tabella e Campo}
+	    Vengono raggruppate le pagine relative alla Struttura DB, alla Tabella e al Campo in quanto strutturate in maniera simile, divise in tre sezioni. Nella prima sezione della pagina è presente un form contenente i dettagli dell'elemento che stiamo visualizzando, dando quindi la possibilità di modificare e salvare le modifiche sull'elemento.\\
+	    Nella seconda sezione, presente solo per StrutturaDB e Tabella, troviamo la lista delle Tabelle contenute in una StrutturaDB e dei Camnpi contenuti in una Tabella nelle rispettive pagine. Da qui possiamo visualizzare gli elementi tramite il bottone "Visualizza" o creare un nuovo elemento con il bottone "Aggiungi".\\
+	    Infine nell'ultima sezione troviamo il bottone per eliminare l'elemento che stiamo visualizzando al momento. Nel caso venisse cliccato verremo rimandati ad una pagina che richiede la conferma prima di procedere con l'eliminazione.
+	    % TODO - Inserire immagine pagina Struttura, Tabella e Campo
+	    
+	    \subsubsection{Creazione nuova Struttura DB, Tabella o Campo}
+	    Vengono nuovamente raggruppate le pagine di creazione della Struttura DB, della Tabella e del Campo. Per ogni elemento viene richiesto di inserire il nome, la descrizione e di compilare gli altri campi necessari a definirlo. Una volta inseriti sarà possibile cliccare il bottone "Crea" per terminare la procedura.
+	    % TODO - Inserire immagine pagina di creazione
+	    
         
 	\section{Supporto Tecnico}
 		Nel caso di malfunzionamenti di qualsiasi genere il \textit{team} "\textit{Jackpot Coding}" si rende disponibile presso la seguente \textit{email}:
