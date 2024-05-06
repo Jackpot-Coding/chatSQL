@@ -117,7 +117,7 @@
 	\begin{flushright}
 		\begin{spacing}{1}
 			USO: ESTERNO\\
-			VERSIONE: 0.0.15\\
+			VERSIONE: 0.1.2\\
 		\end{spacing}
 	\end{flushright}
 	
@@ -136,6 +136,8 @@
 				\rowcolor{teal!50}
 				\hline
 				\textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Modifica} \\
+				\hline
+				0.1.2 & 06/05/2024 & G. Moretto & - & Aggiunta CSVParser e miglioramento descrizioni delle classi \\
 				\hline
 				0.1.1 & 03/05/2024 & E. Gallo & - & Sistemato \textit{Design pattern} utilizzati - \textit{Strategy} \\
 				\hline
@@ -361,14 +363,16 @@ E' stato scelta questa architettura in quanto offre i seguenti vantaggi:
 	\end{figure}
 
 	
-	Il compito delle view è quella di ricevere richieste dal browser\textsuperscript{G} e di restituire risposte sottoforma di pagine HTML o altri elementi che possono essere visualizzati da un browser.\\
+	Il compito delle \textit{view} è quella di ricevere richieste dal browser\textsuperscript{G} e di restituire risposte sottoforma di pagine HTML o altri elementi che possono essere visualizzati da un browser.\\
 	
-	Le view definite derivano dalla classe View fornita dal framework Django e sono divise per area principale e area amministrativa.\\
+	Le \textit{view} definite derivano dalla classe \textit{View} fornita dal \textit{framework}\textsuperscript{G} Django e sono divise per area principale e area amministrativa.\\
 	
-	Le view dell'area principale sono:
+	Le \textit{view} dell'area principale sono:
 	\begin{itemize}
-		\item  \textbf{MainView}: si occupa di ricevere la richiesta di generazione del prompt\textsuperscript{G} dall'utente e di restituirlo. Per fare questo utilizza una classe chiamata PromptCreator che si occupa di generare il prompt per la richiesta ricevuta dalla view.
-		\item \textbf{QueryGenerationView}: si occupa di ricevere il prompt generato, inviarlo al modello LLM\textsuperscript{G} esterno tramite la classe Querygenerator e ritornare la risposta;
+		\item  \textbf{MainView}: si occupa di ricevere la richiesta di generazione del \textit{prompt}\textsuperscript{G} dall'utente e di restituirlo. Per fare questo utilizza una classe chiamata PromptCreator che si occupa di generare il prompt per la richiesta ricevuta dalla view.
+		\item \textbf{PromptCreator}: si occupa di creare il \textit{prompt} a partire dalla struttura database e dalla frase in linguaggio naturale fornita;
+		\item \textbf{QueryGenerationView}: si occupa di ricevere il prompt generato, inviarlo al modello \textit{LLM}\textsuperscript{G} esterno tramite la classe Querygenerator e ritornare la risposta;
+		\item \textbf{QueryGenerator}: si occupa di generare la query SQL richiesta inviando il \textit{prompt} generato ad un servizio LLM esterno;
 	\end{itemize}
 
 	
@@ -380,7 +384,12 @@ E' stato scelta questa architettura in quanto offre i seguenti vantaggi:
 		\item \textbf{AdminStrutturaDatabaseView}: restituisce la pagina di creazione e modifica della StrutturaDatabase e la lista delle tabelle che la compongono;
 		\item \textbf{AdminTabellaView}: restituisce la pagina di creazione e modifica delle Tabelle e la lista dei campi che la compongono;
 		\item \textbf{AdminCampoView}: restituise la pagina di creazione e modifica dei Campi di una tabella;
-		\item \textbf{AdminFileUploadView}: restituisce la pagina per il caricamento di un file di struttura database e utilizza la classe FileUploader per la conversione ed il salvataggio come StrutturaDatabase;
+		\item \textbf{AdminFileUploadView}: restituisce la pagina per il caricamento di un file di struttura database e utilizza la classe FileUploader per la conversione ed il salvataggio come StrutturaDatabase.
+		\item \textbf{FileUploader}: reponsabile per il caricamento di file che rappresentano una struttura database, utilizza l'interfaccia \textbf{ParserStrategy}  che viene implementata con le classi:
+		\begin{itemize}
+			\item \textbf{JSONParser}: per importare file JSON con struttura nota;
+			\item \textbf{CSVParser}: per importare file CSV con struttura nota;
+		\end{itemize}
 		\item \textbf{AdminEliminaModelView}: responsabile per l'eliminazione di un oggetto dal database dato il suo id ed il suo modello. Restituisce una pagina per la conferma dell'eliminazione e l'eliminazione stessa;
 	\end{itemize}
 	
