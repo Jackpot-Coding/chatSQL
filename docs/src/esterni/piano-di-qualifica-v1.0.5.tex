@@ -761,7 +761,7 @@
 	Trattandosi di un progetto in fase di sviluppo iniziale non sono stati utilizzati test di regressione.
 	
 	\subsection{Test di Accettazione}
-	Detto anche collaudo, viene effettuato per verificare che i requisiti\textsubscript{G} utente siano soddisfatti. Questo test viene effettuato assieme al committente\textsubscript{G}.
+	Detto anche collaudo, viene effettuato per verificare che i requisiti\textsuperscript{G} utente siano soddisfatti. Questo test viene effettuato assieme al committente\textsuperscript{G}.
 	
 	\begin{longtblr}[
 	caption = {Test di Accettazione},
@@ -778,13 +778,13 @@
 	\textbf{Codice} & \textbf{Descrizione} & \textbf{Stato}\\
 		
 		\hline
-		TA01 & Il prodotto riesce a gestire il caricamento di un file struttura database & NI\\
+		TA01 & Il prodotto riesce a gestire il caricamento di un file struttura database & P\\
 		\hline
-		TA02 & Il prodotto riesce a creare un \textit{prompt} data una frase in linguaggio naturale & NI\\
+		TA02 & Il prodotto riesce a creare un \textit{prompt} data una frase in linguaggio naturale & P\\
 		\hline
-		TA03 & Il prodotto riesce a restituire una \textit{query} SQL utilizzando un servizio LLM esterno & NI\\
+		TA03 & Il prodotto riesce a restituire una \textit{query} SQL utilizzando un servizio LLM esterno & P\\
 		\hline
-		TA04 & Il prodotto riesce a gestire multiple strutture database & NI\\
+		TA04 & Il prodotto riesce a gestire multiple strutture database & P\\
 		\hline
 	\end{longtblr}
 	
@@ -918,7 +918,7 @@
 			legend columns=1
 			]
 			]
-			\addplot+[sharp plot, blue] coordinates { (0,-0.77) (1,2.24) (2,-0.74) (3,2.92) (4,1.57) };
+			\addplot+[sharp plot, blue] coordinates { (0,-0.77) (1,2.24) (2,-0.74) (3,2.72) (4,0.91) };
 			\addlegendentry{Cost Variance}
 			
 			\addplot[mark=none, dashed, green4 ]  coordinates { (0,0) (4,0) };
@@ -947,8 +947,8 @@
 
 	\begin{tikzpicture}
 		\begin{axis}[
-			xticklabels={1,  2, 3,4,5,6,7,8},
-			xtick={0,1,2,3,4,5,6,7},
+			xticklabels={1,  2, 3,4,5,6,7,8,9},
+			xtick={0,1,2,3,4,5,6,7,8},
 			xlabel=Sprint,
 			ytick={-15,-10,-5,0,5,10,15},
 			ylabel=Percentuale,
@@ -961,14 +961,16 @@
 			legend columns=1
 			]
 			]
-			\addplot+[sharp plot, blue] coordinates {(0,2.34) (1,-8.6) (2,-4.7) (3,-2.09) (4,-2.1) (5,-0.19) (6,0.08) (7,1.29) };
+			\addplot+[sharp plot, blue] coordinates {(0,2.34) (1,-8.6) (2,-4.7) (3,-2.1) (4,-2.22) (5,-0.23) (6,0.23) (7,5.56) (8,4.92) };
 			\addlegendentry{Schedule Variance}
 			
-			\addplot[mark=none, dashed, red4 ]  coordinates { (0,10) (7,10) };
+			\addplot[mark=none, dashed, red4 ]  coordinates { (0,10) (8,10) };
 			\addlegendentry{Valore accettabile (+)}
 			
-			\addplot[mark=none, dashed, red4]  coordinates { (0,-10) (7,-10) };
+			\addplot[mark=none, dashed, red4]  coordinates { (0,-10) (8,-10) };
 			\addlegendentry{Valore accettabile (-)}
+			
+			\addplot[mark=none, dashed, gray2]  coordinates { (0,0) (8,0) };
 			
 		\end{axis}
 	\end{tikzpicture}
@@ -1481,6 +1483,8 @@
 		Trello & Utile all'inizio del progetto ma non permette la gestione delle attività con \textit{Scrum} & Media & Si è passati a Jira\textsuperscript{G} come \textit{Issue Tracking System} \\
 		\hline
 		Jira\textsuperscript{G} & Molti componenti del gruppo non conoscevano il programma & Bassa & Sono state consultate le guide a disposizione ed il progetto è stato impostato da chi aveva più familiarità con esso\\
+		\hline
+		Django\textsuperscript{G} & Alcuni componenti hanno avuto difficoltà ad imparare il \textit{framework}\textsuperscript{G} & Bassa & Le lacune sono state colmate attraverso la documentazione del \textit{software} e tramite suggerimenti di alcuni componenti. \\
 		\hline
 		
 		
