@@ -7,7 +7,7 @@
 Ti trovi in: <a href="{% url 'db_view' struttura_db.id %}">{{ struttura_db.nome }}</a>
 &gt&gt {{table.nome}}
 {% else %}
-Ti trovi in: Nuova tabella
+Ti trovi in: <a href="{% url 'db_view' struttura_db.id %}">{{ struttura_db.nome }}</a> &gt&gt Nuova tabella
 {% endif %}
 {%endblock%}
 

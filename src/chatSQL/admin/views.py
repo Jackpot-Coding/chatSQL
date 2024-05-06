@@ -234,7 +234,8 @@ class AdminTabellaView(View):
                     if table.struttura.tabella_set.filter(nome=nome).exists():
                         messages.error(request, 'Una tabella con questo nome è già esistente.')
                         return render(request, table_template, {'table_create_form': table_create_form, 
-                                                                    'structure_id': structure_id, 'struttura_db':table.struttura, 'table_id': table_id})
+                                                                    'structure_id': structure_id, 'struttura_db':table.struttura,
+                                                                    'table':table, 'table_id': table_id})
                 
                 table.nome = nome
                 table.descrizione = descrizione
@@ -242,7 +243,8 @@ class AdminTabellaView(View):
                 table.save()
                 messages.add_message(request, messages.SUCCESS, 'Tabella modificata con successo')
                 return render(request, table_template, {'table_create_form': table_create_form, 'struttura_db':table.struttura,
-                                                            'structure_id': structure_id, 'table_id':table.pk, 'fields': table.campo_set.all()})
+                                                            'structure_id': structure_id, 'table_id':table.pk,
+                                                            'table':table, 'fields': table.campo_set.all()})
                 
             except Exception as e:
                 error_message = str(e)
