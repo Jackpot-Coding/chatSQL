@@ -434,23 +434,12 @@ E' stato scelta questa architettura in quanto offre i seguenti vantaggi:
 		\subsubsection{Strategy}
 			% Immagine Design Pattern Strategy%
 			Uno dei \textit{design pattern} comportamentali scelto dal gruppo è lo \textit{Strategy}\textsuperscript{G}. 
-			In particolare, viene integrato per l'interrogazione e l'integrazione di diversi \textit{LLM}\textsuperscript{G}. 
-			Il prodotto infatti deve lavorare a stretto contatto con questi modelli linguistici di grandi dimensioni, ma non sempre usarne uno solo è vantaggioso.  \\
-			
-			Spesso i modelli più capaci sono a pagamento e di notevoli dimensioni, vi è quindi la necessità di interrogare modelli di dimensioni ridotte ma specializzati in una singola funzione. \\
-			
-			Inoltre, l'interrogazione di diversi \textit{LLM} permette un confronto dei diversi risultati, fornendo un'interessante introspezione sulle capacità, sulle possibilità e sulle differenze dei modelli. \\
-			
-			Nel nostro caso sono due i tipi di interrogazioni agli \textit{LLM} che il gruppo ha individuato.
-			\begin{enumerate}
-				\item L'interrogazione principale, su cui si basa l'intero progetto: da un \textit{prompt}\textsuperscript{G} restituire una \textit{query} \textit{SQL}\textsuperscript{G}. 
-				Questo per valutare le performance di diversi modelli nella generazione di una \textit{query} \textit{SQL} corretta. 
-				Risulta quindi vantaggioso poter cambiare l'\textit{LLM} interrogato a seconda della complessità della richiesta e della volontà dell'utente. 
-				
-				\item Le interrogazioni ausiliarie, che non formano un requisito obbligatorio ma servono per facilitare l'uso del prodotto all'utente. 
-					Un esempio è la generazione e l'inserimento dei sinonimi di tabelle e campi, che di base è lasciata all'utente, 
-					ma è facilmente integrabile con un \textit{API}\textsuperscript{G} o un \textit{LLM} opportuno per migliorare l'esperienza del prodotto.
-			\end{enumerate}
-			Per questioni di tempo soprattutto, il gruppo ha deciso di implementare questo \textit{design pattern} solo per la funzionalità di \textit{upload} di un file. In base all'estensione del file, il programma sceglie quale strategia utilizzare per raccogliere ed immagazzinare nel migliore dei modi le informazioni caricate.
+			In particolare, viene integrato per permettere al programma di riconoscere diversi tipi di file quando viene eseguito \textit{l'upload}. In base all'estensione del file, il programma sceglie quale strategia utilizzare per raccogliere ed immagazzinare nel migliore dei modi le informazioni caricate.
+			Al lato pratico, una volta caricato un file tramite la classe \textit{FileUploader}, questo viene passato ad un'interfaccia che verrà successivamente implementata da le classi:
+			\begin{itemize}
+				\item \textit{JSONParser}: per i file di tipo JSON
+				\item \textit{CSVParser}: per i file CSV
+			\end{itemize} 
+			Il gruppo ha poi individuato altri ambiti in cui un \textit{Design Pattern Strategy} sarebbe ottimale. Per una questione di tempo principalmente, non sono stati implementati. Siccome il prodotto deve lavorare a stretto contatto con gli LLM\textsuperscript{G}, sarebbe utile che la loro chiamata venga effettuata solo quando necessario, senza usare i modelli più grandi per richieste piccole.  \\
 	
 \end{document}
