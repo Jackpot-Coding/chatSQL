@@ -11,23 +11,18 @@ class PromptCreator:
     def __init__(self,struttura_db:StrutturaDatabase):
         self.struttura_db = struttura_db                
     
-    def create_prompt(self,user_request):
-        # Initialize classifier
-        
-        classifier = pipeline("token-classification", model="sachaarbonel/bert-italian-cased-finetuned-pos")
+    def create_prompt(self,user_request):    
         
         tables = self.struttura_db.tabella_set.all()
 
-        # Tokenize natural language input
-        tokens = classifier(user_request)
+        # Find nouns in user request
+        nouns = self.find_nouns(user_request)
         
-        if len(tokens)<2:
-            error = "Errore: impossibile interpretare la frase inserita."
-            return PromptGenStatus.SENTENCE_UNINTERPRETABLE, error
+        if nouns[0] == PromptGenStatus.SENTENCE_UNINTERPRETABLE:
+            return PromptGenStatus.SENTENCE_UNINTERPRETABLE, nouns[1]
 
-        # Extract nouns from tokens
-        nouns = [token['word'] for token in tokens if token['entity'] == 'NOUN']
-
+        nouns = nouns[0]
+        
         # Find relevant tables
         found_tables = self.__find_tables_from_nouns(nouns, tables)
 
@@ -62,3 +57,16 @@ class PromptCreator:
                 if noun in table.nome or noun in synonyms:
                     found_tables.append(table)
         return found_tables
+
+    def find_nouns(self,user_request):
+        classifier = pipeline("token-classification", model="sachaarbonel/bert-italian-cased-finetuned-pos")
+        
+        # Tokenize natural language input
+        tokens = classifier(user_request)
+        
+        if len(tokens)<2:
+            error = "Errore: impossibile interpretare la frase inserita."
+            return PromptGenStatus.SENTENCE_UNINTERPRETABLE, error
+
+        # Extract nouns from tokens
+        return [token['word'] for token in tokens if token['entity'] == 'NOUN'], None
