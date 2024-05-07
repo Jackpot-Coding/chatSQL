@@ -121,9 +121,15 @@ class AdminStrutturaDatabaseView(View):
 class AdminEliminaModelView(View):
     
     def get(self,request,classe_modello=None,id_modello=None):
-        
+        if classe_modello == 'StrutturaDatabase':
+            oggetto = models.StrutturaDatabase.objects.get(pk=int(id_modello))
+        elif classe_modello == 'Tabella':
+            oggetto = models.Tabella.objects.get(pk=int(id_modello))
+        elif classe_modello == 'Campo':
+            oggetto = models.Campo.objects.get(pk=int(id_modello))
+
         elimina_form = forms.EliminaForm(initial={'id_modello':id_modello,'classe_modello':classe_modello})
-        return render(request,"admin/delete.html",{"elimina_form":elimina_form,'classe_modello':classe_modello,'id_modello':id_modello})
+        return render(request,"admin/delete.html",{"elimina_form":elimina_form,'classe_modello':classe_modello,'id_modello':id_modello, 'nome_modello':oggetto.nome})
     
     def post(self,request,classe_modello=None,id_modello=None):
         elimina_form = forms.EliminaForm(request.POST)
