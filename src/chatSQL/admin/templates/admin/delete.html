@@ -1,0 +1,23 @@
+{% extends "./base.html" %}
+
+{% block title %}Conferma Eliminazione{% endblock title %}
+
+{% block content %}
+
+<h1>Conferma eliminazione</h1>
+
+{% if form.errors %}
+    <div class="alert alert-danger">
+        {{ form.errors }}
+    </div>
+{% endif %}
+
+<h2>Confermi l'eliminazione di {{nome_modello}}?<br>({{classe_modello}} con id {{id_modello}})</h2>
+
+<form method="post">
+    {% csrf_token %}
+    {{elimina_form}}
+    <input type="submit" value="Conferma eliminazione" />
+</form>
+
+{% endblock content %}

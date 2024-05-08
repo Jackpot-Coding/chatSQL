@@ -28,9 +28,19 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
     - name: Install Dependencies
+      working-directory: ./src/chatSQL
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-    - name: Run Tests
+        python -m pip install coveralls
+        python -m pip install prospector
+    - name: Static Test
+      working-directory: ./src/chatSQL
       run: |
-        python manage.py test
+        prospector
+    - name: Run Tests
+      working-directory: ./src/chatSQL
+      run: |
+        coverage run --source='.' manage.py test
+    - name: Test Coverage
+      uses: coverallsapp/github-action@v2.2.3

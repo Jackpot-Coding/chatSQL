@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="it">
+{% load static %}
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock title %}ChatSQL</title>
+    <link rel="stylesheet" href="{% static 'admin/style.css' %}">
+</head>
+
+<body>
+    <header>
+         {% if user.is_authenticated %}
+            <nav>
+                <a href="{% url 'admin_home' %}">Home</a>
+                <a href="{% url 'admin_upload_structure' %}">Upload</a>
+            </nav>
+            Autenticato come {{user.username}} -&nbsp;<a href="{% url 'admin_logout' %}">Esci</a>
+         {% else %}
+            <a href="{% url 'admin_login' %}">Accedi</a>
+         {% endif %}
+    </header>
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% block content %}{% endblock content %}
+</body>
+
+</html>
