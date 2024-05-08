@@ -117,7 +117,7 @@
 	\begin{flushright}
 		\begin{spacing}{1}
 			USO: ESTERNO\\
-			VERSIONE: 0.1.3\\
+			VERSIONE: 1.0.0\\
 		\end{spacing}
 	\end{flushright}
 	
@@ -137,11 +137,13 @@
 				\hline
 				\textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Modifica} \\
 				\hline
-				0.1.3 & 08/05/2024 & G. Moretto & - & Aggiunta indicazione termini presenti nel Glossario\\
+				1.0.0 & 08/05/2024 & - & E. Gallo & Verifica documento\\
 				\hline
-				0.1.2 & 06/05/2024 & G. Moretto & - & Aggiunta CSVParser e miglioramento descrizioni delle classi \\
+				0.1.3 & 08/05/2024 & G. Moretto & E. Gallo & Aggiunta indicazione termini presenti nel Glossario\\
 				\hline
-				0.1.1 & 03/05/2024 & E. Gallo & - & Sistemato \textit{Design pattern} utilizzati - \textit{Strategy} \\
+				0.1.2 & 06/05/2024 & G. Moretto & E. Gallo & Aggiunta CSVParser e miglioramento descrizioni delle classi \\
+				\hline
+				0.1.1 & 03/05/2024 & E. Gallo & G. Moretto & Sistemato \textit{Design pattern} utilizzati - \textit{Strategy} \\
 				\hline
 				0.1.0 & 03/05/2024 & - & E. Gallo & Verifica documento \\
 				\hline
@@ -202,7 +204,7 @@
     Il documento ha lo scopo di presentare e motivare le scelte architetturali e di design applicate al prodotto, oltre che a fornire una lista completa delle tecnologie utilizzate. La struttura interna del prodotto è esposta all'interno del documento sotto forma di diagramma delle classi, in maniera da rendere più chiaro il \textit{software}\textsuperscript{G} sviluppato. Vengono inoltre approfonditi e motivati a loro volta i design pattern\textsuperscript{G} utilizzati. 
 	
 	\subsection{Scopo del Prodotto}
-    Il capitolato\textsuperscript{G} proposto dall'azienda \textit{Zucchetti S.p.A.} ha come obiettivo la realizzazione di un applicativo web al fine di studiare la fattibilità di un prodotto in grado di elaborare una frase in linguaggio naturale\textsuperscript{G}. Questa frase, anche se fornita da un utente\textsuperscript{G} inesperto, deve generare come output una \textit{query} SQL\textsuperscript{G} in grado di interrogare un database\textsuperscript{G} (di cui è conosciuta la struttura) in modo efficiente e affidabile.
+    Il capitolato\textsuperscript{G} proposto dall'azienda \textit{Zucchetti S.p.A.} ha come obiettivo la realizzazione di un applicativo web al fine di studiare la fattibilità di un prodotto che possa elaborare una frase in linguaggio naturale\textsuperscript{G}. Questa frase, anche se fornita da un utente\textsuperscript{G} inesperto, deve generare come output una \textit{query} SQL\textsuperscript{G} in grado di interrogare un database\textsuperscript{G} (di cui è conosciuta la struttura) in modo efficiente e affidabile.
 	
 	\subsection{Glossario}
     Al fine di evitare ambiguità o incomprensioni relative alla terminologia usata all'interno del documento, è fornito un \textit{Glossario} in cui vengono riportate definizioni precise per ogni termine potenzialmente ambiguo. La presenza di tali termini all'interno del documento è indicata con la presenza, vicino alla voce, di una \textit{G} in apice ($^G$). 
@@ -263,7 +265,7 @@
 		\hline
 		\SetCell[c=3]{c} \textbf{Framework\textsuperscript{G} e Librerie\textsuperscript{G}} \\
 		\hline
-		Django & 5.0.3 & \textit{Framework} per la creazione di applicazioni \textit{web} scritto in linguaggio \textit{Python}. \\
+		Django & 5.0.3 & \textit{Framework} per la creazione di applicazioni \textit{web}, scritto in linguaggio \textit{Python}. \\
 		\hline
 		Torch & 2.2.2 & Libreria \textit{Python}\textsuperscript{G} per l'apprendimento automatico. \\
 		\hline
@@ -324,7 +326,7 @@ L'architettura di \textit{"Chat SQL"} si basa sul \textit{design pattern}\textsu
 In questo \textit{pattern}, il \textit{"Model"} rappresenta i dati e la logica di \textit{business} dell'applicazione, la \textit{"View"} esegue la \textit{business logic}, interagisce con il \textit{Model} e ritorna risposte Http, infine  il \textit{"Template"} definisce la struttura dell'interfaccia utente e come i dati vengono visualizzati al suo interno. Più nello specifico il \textit{"Template"}, nel caso della nostra applicazione, definisce la struttura di documenti HTML\textsuperscript{G}.\\
 
 Questo \textit{design pattern}\textsuperscript{G} è simile a \textit{MVC(Model View Controller)} \\\\
-E' stato scelta questa architettura in quanto offre i seguenti vantaggi:
+E' stata scelta questa architettura sia perché dettata dal \textit{framework} sia in quanto offre i seguenti vantaggi:
 \begin{itemize}
     \item \textbf{Separazione delle responsabilità}: \textit{MVT} separa chiaramente le responsabilità tra \textit{Model}, \textit{View} e \textit{Template}. Questo permette una migliore organizzazione del codice, facilitando la manutenzione e la scalabilità dell'applicazione.
 
@@ -371,28 +373,29 @@ E' stato scelta questa architettura in quanto offre i seguenti vantaggi:
 	
 	Le \textit{view} dell'area principale sono:
 	\begin{itemize}
-		\item  \textbf{MainView}: si occupa di ricevere la richiesta di generazione del \textit{prompt}\textsuperscript{G} dall'utente\textsuperscript{G} e di restituirlo. Per fare questo utilizza una classe chiamata PromptCreator che si occupa di generare il prompt per la richiesta ricevuta dalla view.
+		\item  \textbf{MainView}: si occupa di ricevere la richiesta di generazione del \textit{prompt}\textsuperscript{G} dall'utente\textsuperscript{G} e di restituirlo. Per fare questo utilizza una classe chiamata PromptCreator che si occupa di generare il prompt per la richiesta ricevuta dalla view;
 		\item \textbf{PromptCreator}: si occupa di creare il \textit{prompt}\textsuperscript{G} a partire dalla struttura \textit{database}\textsuperscript{G} e dalla frase in linguaggio naturale\textsuperscript{G} fornita;
 		\item \textbf{QueryGenerationView}: si occupa di ricevere il \textit{prompt}\textsuperscript{G} generato, inviarlo al modello \textit{LLM}\textsuperscript{G} esterno tramite la classe Querygenerator e ritornare la risposta;
-		\item \textbf{QueryGenerator}: si occupa di generare la \textit{query} SQL\textsuperscript{G} richiesta inviando il \textit{prompt}\textsuperscript{G} generato ad un servizio \textit{LLM}\textsuperscript{G} esterno;
+		\item \textbf{QueryGenerator}: si occupa di generare la \textit{query} SQL\textsuperscript{G} richiesta inviando il \textit{prompt}\textsuperscript{G} generato ad un servizio \textit{LLM}\textsuperscript{G} esterno.
 	\end{itemize}
 
 	
 	Le view dell'area amministrativa sono:
 	\begin{itemize}
 		\item \textbf{AdminLoginView}: responsabile per l'autenticazione dell'amministratore\textsuperscript{G};
-		\item \textbf{AdminLogoutView}: responsabile per il logout dell'amministratore\textsuperscript{G};
+		\item \textbf{AdminLogoutView}: responsabile per il \textit{logout} dell'amministratore\textsuperscript{G};
 		\item \textbf{AdminHomeView}: resituisce la pagina home dell'area amministrativa dove è presente la lista delle Strutture Database e il link per la creazione delle stesse;
 		\item \textbf{AdminStrutturaDatabaseView}: restituisce la pagina di creazione e modifica della StrutturaDatabase e la lista delle tabelle che la compongono;
 		\item \textbf{AdminTabellaView}: restituisce la pagina di creazione e modifica delle Tabelle e la lista dei campi che la compongono;
 		\item \textbf{AdminCampoView}: restituisce la pagina di creazione e modifica dei Campi di una Tabella\textsuperscript{G};
-		\item \textbf{AdminFileUploadView}: restituisce la pagina per il caricamento di un \textit{file}\textsuperscript{G} di struttura \textit{database}\textsuperscript{G} e utilizza la classe FileUploader per la conversione ed il salvataggio come StrutturaDatabase.
-		\item \textbf{FileUploader}: responsabile per il caricamento di file che rappresentano una struttura \textit{database}\textsuperscript{G}, utilizza l'interfaccia \textbf{Parsergygy}  che viene implementata con le classi:
+		\item \textbf{AdminFileUploadView}: restituisce la pagina per il caricamento di un \textit{file}\textsuperscript{G} di struttura \textit{database}\textsuperscript{G} (con eventuale messaggio di errore o successo a seconda dell'esito del caricamento) e utilizza la classe FileUploader per la conversione ed il salvataggio come StrutturaDatabase;
+		\item \textbf{FileUploader}: responsabile per il caricamento di file che rappresentano una struttura \textit{database}\textsuperscript{G}, utilizza l'interfaccia \textbf{ParserStrategy}  che viene implementata con le classi:
 		\begin{itemize}
 			\item \textbf{JSONParser}: per importare \textit{file}\textsuperscript{G} JSON con struttura nota;
 			\item \textbf{CSVParser}: per importare \textit{file} CSV con struttura nota;
 		\end{itemize}
-		\item \textbf{AdminEliminaModelView}: responsabile per l'eliminazione di un oggetto dal \textit{database}\textsuperscript{G} dato il suo id ed il suo modello. Restituisce una pagina per la conferma dell'eliminazione e l'eliminazione stessa;
+		Ognuno di questi \textit{parser} restituisce, a seconda dell'esito, un messaggio di errore o successo contenuto nell'enumerazione \textbf{ParserStatus};
+		\item \textbf{AdminEliminaModelView}: responsabile per l'eliminazione di un oggetto dal \textit{database}\textsuperscript{G} dato il suo id ed il suo modello. Restituisce una pagina per la conferma dell'eliminazione e l'eliminazione stessa.
 	\end{itemize}
 	
 	\subsubsection{Form}
@@ -402,15 +405,15 @@ E' stato scelta questa architettura in quanto offre i seguenti vantaggi:
 			\centering
 	\end{figure}
 
-	Il compito delle classi \textit{form}\textsuperscript{G} e quella di definire from HTML\textsuperscript{G} sottoforma di classe. Questo per utilizzare le funzioni di validazione e gestione fornite dal \textit{framework}\textsuperscript{G} Django tramite la classe Form dalla quale derivano i \textit{form} da noi definiti:
+	Il compito delle classi \textit{form}\textsuperscript{G} e quella di definire \textit{form} HTML\textsuperscript{G} sottoforma di classe. Questo per utilizzare le funzioni di validazione e gestione fornite dal \textit{framework}\textsuperscript{G} Django tramite la classe Form dalla quale derivano i \textit{form} da noi definiti:
 	\begin{itemize}
-		\item \textbf{NLPromptForm}: raccoglie i dati per la generazione del \textit{prompt}\textsuperscript{G} per la generazione della \textit{query} SQL\textsuperscript{G};
+		\item \textbf{NLPromptForm}: raccoglie i dati per la generazione del \textit{prompt}\textsuperscript{G}, da sottoporre poi ad un \textit{LLM}\textsuperscript{G};
 		\item \textbf{QueryForm}: raccoglie i dati per la generazione della \textit{query} SQL\textsuperscript{G};
 		\item \textbf{LoginForm}: raccoglie i dati per il \textit{login}\textsuperscript{G} dell'amministratore\textsuperscript{G};
 		\item \textbf{StrutturaDatabaseForm}: raccoglie i dati per la creazione e modifica di una Struttura Database;
 		\item \textbf{TabellaForm}: raccoglie i dati per la creazione e modifica di una Tabella\textsuperscript{G};
 		\item \textbf{CampoForm}: raccoglie i dati per la creazione e modifica di un Campo;
-		\item \textbf{FileUploadForm}: raccoglie i dati per il caricamento del \textit{file}\textsuperscript{G} di struttura \textit{database}\textsuperscript{G};
+		\item \textbf{UploadFileForm}: raccoglie i dati per il caricamento del \textit{file}\textsuperscript{G} di struttura \textit{database}\textsuperscript{G};
 		\item \textbf{EliminaForm}: raccoglie i dati per l'eliminazione di un oggetto dal \textit{database}\textsuperscript{G};
 	\end{itemize}
 	
@@ -437,7 +440,7 @@ E' stato scelta questa architettura in quanto offre i seguenti vantaggi:
 			% Immagine Design Pattern Strategy%
 			Uno dei \textit{design pattern}\textsuperscript{G} comportamentali scelto dal gruppo è lo \textit{Strategy}\textsuperscript{G}. 
 			In particolare, viene integrato per permettere al programma di riconoscere diversi tipi di \textit{file}\textsuperscript{G} quando viene eseguito \textit{l'upload}. In base all'estensione del \textit{file}, il programma sceglie quale strategia utilizzare per raccogliere ed immagazzinare nel migliore dei modi le informazioni caricate.
-			Al lato pratico, una volta caricato un \textit{file} tramite la classe \textit{FileUploader}, questo viene passato ad un'interfaccia che verrà successivamente implementata da le classi:
+			Al lato pratico, una volta caricato un \textit{file} tramite la classe \textit{FileUploader}, questo viene passato ad un'interfaccia che verrà successivamente implementata dalle classi:
 			\begin{itemize}
 				\item \textit{JSONParser}: per i \textit{file} di tipo JSON
 				\item \textit{CSVParser}: per i \textit{file} CSV
