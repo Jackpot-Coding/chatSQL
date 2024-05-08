@@ -1192,8 +1192,8 @@
 
 	\begin{tikzpicture}
 		\begin{axis}[
-			xticklabels={7,8,9},
-			xtick={0,1,2},
+			xticklabels={7,8,9,10,11},
+			xtick={0,1,2,3,4},
 			xlabel=Sprint\textsuperscript{G},
 			ylabel=Percentuale,
 			ymax=100,
@@ -1205,13 +1205,13 @@
 			]
 			]
 			
-			\addplot+[sharp plot, blue] coordinates {(0,86) (1,87) (2,94) };
+			\addplot+[sharp plot, blue] coordinates {(0,86) (1,87) (2,94) (3,94) (4,95) };
 		\addlegendentry{Valore attuale}
 			
-			\addplot[mark=none, dashed, green4]  coordinates { (0,90) (2,90) };
+			\addplot[mark=none, dashed, green4]  coordinates { (0,90) (4,90) };
 			\addlegendentry{Valore desiderabile}
 			
-			\addplot[mark=none, dashed, red4 ]  coordinates { (0,70) (2,70) };
+			\addplot[mark=none, dashed, red4 ]  coordinates { (0,70) (4,70) };
 			\addlegendentry{Valore accettabile}
 			
 		\end{axis}
