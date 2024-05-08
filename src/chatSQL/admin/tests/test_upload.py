@@ -13,6 +13,8 @@ from django.core.files.uploadedfile import SimpleUploadedFile
 from ..views import AdminUploadFileView
 from ..models import StrutturaDatabase, Tabella, Campo
 
+from ..file_uploader import FileUploader
+
 class UploadFileTestCase(TestCase):
     
     client = Client()
@@ -172,3 +174,34 @@ class UploadFileTestCase(TestCase):
             messages = list(get_messages(response.wsgi_request))
             self.assertEqual(len(messages), 1)
             self.assertTrue('Errore nella creazione della struttura' in str(messages[0]))
+            
+
+class FileUploaderTestCase(TestCase):
+    
+    def setUp(self):
+        
+        User.objects.create_user(username="testAdmin",password="testPassword123!")
+        self.client.login(username='testAdmin', password='testPassword123!')
+        
+        # Get the directory path of the test file
+        test_dir = os.path.dirname(os.path.abspath(__file__))
+        
+        file_path = os.path.join(test_dir, 'assets', 'wrong_format.txt')
+        with open(file_path, 'rb') as file:
+            file_data = file.read()
+            self.wrong_file_obj = SimpleUploadedFile('wrong_format.txt', file_data, content_type='text/plain')
+            
+    def test_cannot_upload_without_strategy(self):
+        
+        file_uploader = FileUploader(self.wrong_file_obj)
+        result = file_uploader.upload_file()
+        
+        self.assertEqual(result,None)
+        
+    def test_cannot_upload_without_file(self):
+        
+        file_uploader = FileUploader(file=None)
+        result = file_uploader.upload_file()
+        status = file_uploader.get_status()
+        
+        self.assertEqual(status,"Errore: nessun file caricato")

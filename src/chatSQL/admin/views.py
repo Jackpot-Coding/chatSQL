@@ -129,7 +129,8 @@ class AdminEliminaModelView(View):
             oggetto = models.Campo.objects.get(pk=int(id_modello))
 
         elimina_form = forms.EliminaForm(initial={'id_modello':id_modello,'classe_modello':classe_modello})
-        return render(request,"admin/delete.html",{"elimina_form":elimina_form,'classe_modello':classe_modello,'id_modello':id_modello, 'nome_modello':oggetto.nome})
+        return render(request,"admin/delete.html",{"elimina_form":elimina_form,'classe_modello':classe_modello,
+                                                    'id_modello':id_modello, 'nome_modello':oggetto.nome})
     
     def post(self,request,classe_modello=None,id_modello=None):
         elimina_form = forms.EliminaForm(request.POST)
@@ -189,17 +190,15 @@ class AdminTabellaView(View):
                 return render(request, 'admin/tabella.html', {'table_create_form': table_create_form, 
                                                             'structure_id': structure_id,'struttura_db':struttura_db})
             
-            if table_id is not None:
-                table = models.Tabella.objects.get(pk = table_id)
-                struttura_db = table.struttura
-                table_create_form = forms.TabellaForm(initial={'nome':table.nome,'descrizione':table.descrizione,'sinonimi':table.sinonimi})
-                return render(request, 'admin/tabella.html', {'table_create_form': table_create_form,'structure_id':struttura_db.id, 
-                                                            'struttura_db':struttura_db, 
-                                                            'table_id': table_id,"table":table, 'fields': table.campo_set.all()})
+            # if table_id is not None: - non serve, viene catturato dall'except sotto
+            table = models.Tabella.objects.get(pk = table_id)
+            struttura_db = table.struttura
+            table_create_form = forms.TabellaForm(initial={'nome':table.nome,'descrizione':table.descrizione,'sinonimi':table.sinonimi})
+            return render(request, 'admin/tabella.html', {'table_create_form': table_create_form,'structure_id':struttura_db.id, 
+                                                        'struttura_db':struttura_db, 
+                                                        'table_id': table_id,"table":table, 'fields': table.campo_set.all()})
 
-            # else: sto visualizzando una tabella, non può essere senza tabella id
-            messages.error(request,"Tabella non trovata.")
-            return redirect('admin_home') 
+            # else: se non ha id viene catturata dall'except sotto
         
         except Exception:
             messages.error(request,"Errore durante la ricerca della tabella.")
