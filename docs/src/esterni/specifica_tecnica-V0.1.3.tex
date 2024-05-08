@@ -117,7 +117,7 @@
 	\begin{flushright}
 		\begin{spacing}{1}
 			USO: ESTERNO\\
-			VERSIONE: 0.1.2\\
+			VERSIONE: 0.1.3\\
 		\end{spacing}
 	\end{flushright}
 	
@@ -136,6 +136,8 @@
 				\rowcolor{teal!50}
 				\hline
 				\textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Modifica} \\
+				\hline
+				0.1.3 & 08/05/2024 & G. Moretto & - & Aggiunta indicazione termini presenti nel Glossario\\
 				\hline
 				0.1.2 & 06/05/2024 & G. Moretto & - & Aggiunta CSVParser e miglioramento descrizioni delle classi \\
 				\hline
@@ -197,10 +199,10 @@
 	
 	\subsection{Scopo del Documento}
 
-    Il documento ha lo scopo di presentare e motivare le scelte architetturali e di design applicate al prodotto, oltre che a fornire una lista completa delle tecnologie utilizzate. La struttura interna del prodotto è esposta all'interno del documento sotto forma di diagramma delle classi, in maniera da rendere più chiaro il software\textsuperscript{G} sviluppato. Vengono inoltre approfonditi e motivati a loro volta i design pattern\textsuperscript{G} utilizzati. 
+    Il documento ha lo scopo di presentare e motivare le scelte architetturali e di design applicate al prodotto, oltre che a fornire una lista completa delle tecnologie utilizzate. La struttura interna del prodotto è esposta all'interno del documento sotto forma di diagramma delle classi, in maniera da rendere più chiaro il \textit{software}\textsuperscript{G} sviluppato. Vengono inoltre approfonditi e motivati a loro volta i design pattern\textsuperscript{G} utilizzati. 
 	
 	\subsection{Scopo del Prodotto}
-    Il capitolato\textsuperscript{G} proposto dall'azienda \textit{Zucchetti S.p.A.} ha come obiettivo la realizzazione di un applicativo web al fine di studiare la fattibilità di un prodotto in grado di elaborare una frase in linguaggio naturale\textsuperscript{G}. Questa frase, anche se fornita da un utente inesperto, deve generare come output una \textit{query SQL}\textsuperscript{G} in grado di interrogare un database\textsuperscript{G} (di cui è conosciuta la struttura) in modo efficiente e affidabile.
+    Il capitolato\textsuperscript{G} proposto dall'azienda \textit{Zucchetti S.p.A.} ha come obiettivo la realizzazione di un applicativo web al fine di studiare la fattibilità di un prodotto in grado di elaborare una frase in linguaggio naturale\textsuperscript{G}. Questa frase, anche se fornita da un utente\textsuperscript{G} inesperto, deve generare come output una \textit{query} SQL\textsuperscript{G} in grado di interrogare un database\textsuperscript{G} (di cui è conosciuta la struttura) in modo efficiente e affidabile.
 	
 	\subsection{Glossario}
     Al fine di evitare ambiguità o incomprensioni relative alla terminologia usata all'interno del documento, è fornito un \textit{Glossario} in cui vengono riportate definizioni precise per ogni termine potenzialmente ambiguo. La presenza di tali termini all'interno del documento è indicata con la presenza, vicino alla voce, di una \textit{G} in apice ($^G$). 
@@ -253,9 +255,9 @@
 		\hline
 		\SetCell[c=3]{c} \textbf{Linguaggi} \\
 		\hline
-		HTML & 5 & Linguaggio di \textit{markup} utilizzato per la definizione della struttura di pagine \textit{web} \\
+		HTML\textsuperscript{G} & 5 & Linguaggio di \textit{markup} utilizzato per la definizione della struttura di pagine \textit{web} \\
 		\hline
-		CSS & 3 & Linguaggio utilizzato per applicare stile a elementi presenti in una pagina \textit{HTML} \\
+		CSS\textsuperscript{G} & 3 & Linguaggio utilizzato per applicare stile a elementi presenti in una pagina HTML \\
 		\hline
 		Python & 3.11.8 & Linguaggio di programmazione ad alto livello, orientato agli oggetti. Viene utilizzato per la creazione del \textit{server}. \\
 		\hline
@@ -263,13 +265,13 @@
 		\hline
 		Django & 5.0.3 & \textit{Framework} per la creazione di applicazioni \textit{web} scritto in linguaggio \textit{Python}. \\
 		\hline
-		Torch & 2.2.2 & Libreria \textit{Python} per l'apprendimento automatico. \\
+		Torch & 2.2.2 & Libreria \textit{Python}\textsuperscript{G} per l'apprendimento automatico. \\
 		\hline
-		Transformers & 4.29.3 & Libreria \textit{Python} per l'utilizzo di modelli del portale \textit{Hugging Face} utilizzando \textit{Torch}\\
+		Transformers & 4.29.3 & Libreria \textit{Python}\textsuperscript{G} per l'utilizzo di modelli del portale \textit{Hugging Face} utilizzando \textit{Torch}\\
 		\hline
 		\SetCell[c=3]{c} \textbf{Strumenti} \\
 		\hline
-		Pip & 24.0 & Strumento per la gestione dei pacchetti utilizzati da applicazioni \textit{Python}.\\
+		Pip & 24.0 & Strumento per la gestione dei pacchetti utilizzati da applicazioni \textit{Python}\textsuperscript{G}.\\
 		\hline
 		Git & 2.44.0 & Strumento per il controllo di versione utilizzato per la gestione della \textit{repository}\textsuperscript{G} remota presente su \textit{GitHub}\textsuperscript{G}. \\
 		\hline
@@ -294,41 +296,41 @@
 		\hline
 		\textbf{Tecnologia} & \textbf{Versione} & \textbf{Descrizione} \\
 		\hline
-		\SetCell[c=3]{c} \textbf{Framework e Librerie} \\
+		\SetCell[c=3]{c} \textbf{\textit{Framework}\textsuperscript{G} e Librerie\textsuperscript{G}} \\
 		\hline
-		Unittest & 3.11.8 & \textit{Framework} incluso nel linguaggio \textit{Python} utilizzato per il \textit{testing} di unità, utilizzato dal \textit{framework Django}.\\
+		\textit{Unittest} & 3.11.8 & \textit{Framework} incluso nel linguaggio \textit{Python}\textsuperscript{G} utilizzato per il \textit{testing} di unità, utilizzato dal \textit{framework Django}.\\
 		\hline
-		Django Test Client & 5.0.3 & \textit{Client} per il \textit{testing} di un applicazione \textit{web} simulando un \textit{browser}, integrato nel \textit{framework Django}.\\
+		\textit{Django Test Client} & 5.0.3 & \textit{Client} per il \textit{testing} di un applicazione \textit{web} simulando un \textit{browser}\textsuperscript{G}, integrato nel \textit{framework}\textsuperscript{G} Django.\\
 		\hline
-		coverage.py & 7.4.4 & \textit{Tool} per misurare il \textit{code coverage} in applicazioni \textit{Python} integrabile nel \textit{framework Django}. \\
+		\textit{coverage.py} & 7.4.4 & \textit{Tool} per misurare il \textit{code coverage}\textsuperscript{G} in applicazioni \textit{Python}\textsuperscript{G} integrabile nel \textit{framework Django}. \\
 		\hline
-		Prospector & 1.10.3 & \textit{Tool} per l'analisi statica di codice scritto nel linguaggio \textit{Python}. \\
+		\textit{Prospector} & 1.10.3 & \textit{Tool} per l'analisi statica di codice scritto nel linguaggio \textit{Python}\textsuperscript{G}. \\
 		\hline
-		SonarQube & 10.5 & \textit{Tool} per l'analisi automatica della qualità del codice in vari linguaggi e \textit{framework}\textsuperscript{G}.\\
+		\textit{SonarQube} & 10.5 & \textit{Tool} per l'analisi automatica della qualità del codice in vari linguaggi e \textit{framework}\textsuperscript{G}.\\
 		\hline
 		\SetCell[c=3]{c} \textbf{Strumenti} \\
 		\hline
-		GitHub Actions & - & Servizio di \textit{Github} per la \textit{Continuous Integration}, automatizza i processi di \textit{build, test e deploy} del prodotto \textit{software}.\\
+		\textit{GitHub Actions} & - & Servizio di \textit{Github}\textsuperscript{G} per la \textit{Continuous Integration}, automatizza i processi di \textit{build, test e deploy} del prodotto \textit{software}\textsuperscript{G}.\\
 		\hline
-		Coveralls.io & - & Servizio per la visualizzazione dei rapporti di \textit{code coverage} e applicazione di un \textit{badge} alla \textit{repository}.\\
+		\textit{Coveralls.io} & - & Servizio per la visualizzazione dei rapporti di \textit{code coverage}\textsuperscript{G} e applicazione di un \textit{badge} alla \textit{repository}\textsuperscript{G}.\\
 		\hline
 	\end{longtblr}
 	
 	\section{Architettura}
 	
 	\subsection{Introduzione}
-L'architettura di \textit{"Chat SQL"} si basa sul \textit{design pattern} architetturale \textit{MVT(Model View Template)}.\\
+L'architettura di \textit{"Chat SQL"} si basa sul \textit{design pattern}\textsuperscript{G} architetturale \textit{MVT(Model View Template)}.\\
 
-In questo \textit{pattern}, il \textit{"Model"} rappresenta i dati e la logica di \textit{business} dell'applicazione, la \textit{"View"} esegue la \textit{business logic}, interagisce con il \textit{Model} e ritorna risposte Http, infine  il \textit{"Template"} definisce la struttura dell'interfaccia utente e come i dati vengono visualizzati al suo interno. Più nello specifico il \textit{"Template"}, nel caso della nostra applicazione, definisce la struttura di documenti \textit{HTML}.\\
+In questo \textit{pattern}, il \textit{"Model"} rappresenta i dati e la logica di \textit{business} dell'applicazione, la \textit{"View"} esegue la \textit{business logic}, interagisce con il \textit{Model} e ritorna risposte Http, infine  il \textit{"Template"} definisce la struttura dell'interfaccia utente e come i dati vengono visualizzati al suo interno. Più nello specifico il \textit{"Template"}, nel caso della nostra applicazione, definisce la struttura di documenti HTML\textsuperscript{G}.\\
 
-Questo \textit{design pattern} è simile a \textit{MVC(Model View Controller)} \\\\
+Questo \textit{design pattern}\textsuperscript{G} è simile a \textit{MVC(Model View Controller)} \\\\
 E' stato scelta questa architettura in quanto offre i seguenti vantaggi:
 \begin{itemize}
     \item \textbf{Separazione delle responsabilità}: \textit{MVT} separa chiaramente le responsabilità tra \textit{Model}, \textit{View} e \textit{Template}. Questo permette una migliore organizzazione del codice, facilitando la manutenzione e la scalabilità dell'applicazione.
 
     \item \textbf{Riutilizzo dei template}: I \textit{template} in \textit{MVT} consentono di separare la presentazione dalla logica di \textit{business}. Ciò facilita il riutilizzo dei componenti di interfaccia utente in diverse parti dell'applicazione, riducendo la duplicazione del codice e migliorando l'efficienza dello sviluppo.
 
-    \item \textbf{Aumento delle Performance}: Utilizzare i \textit{template} pre-renderizzati può migliorare le prestazioni dell'applicazione rispetto a un'architettura \textit{MVC} tradizionale, poiché il \textit{rendering} dei \textit{template} può essere più efficiente rispetto ad esempio alla generazione dinamica di \textit{HTML} lato \textit{server}.
+    \item \textbf{Aumento delle Performance}: Utilizzare i \textit{template} pre-renderizzati può migliorare le prestazioni dell'applicazione rispetto a un'architettura \textit{MVC} tradizionale, poiché il \textit{rendering} dei \textit{template} può essere più efficiente rispetto ad esempio alla generazione dinamica di HTML\textsuperscript{G} lato \textit{server}.
 
 \end{itemize}
 	
@@ -342,16 +344,16 @@ E' stato scelta questa architettura in quanto offre i seguenti vantaggi:
 		\centering
 	\end{figure}	
 	
-	Il compito del modello è quello di gestire i dati che vengono utilizzati dall'applicazione. Formano la struttura dei dati dell'intera applicazione e sono rappresentati in un database.\\
+	Il compito del modello è quello di gestire i dati che vengono utilizzati dall'applicazione. Formano la struttura dei dati dell'intera applicazione e sono rappresentati in un \textit{database}\textsuperscript{G}.\\
 	
-	I modelli definiti derivano dalla classe Model fornita dal framework Django e sono:
+	I modelli definiti derivano dalla classe Model fornita dal \textit{framework}\textsuperscript{G} Django e sono:
 	\begin{itemize}
-		\item \textbf{StrutturaDatabase}: rappresenta le varie strutture database definite dall'amministratore;
-		\item \textbf{Tabella}: rappresenta le tabelle che compongono una Struttura Database;
-		\item \textbf{Campo}: rappresenta i campi che compongono una Tabella. Questo utilizza un enumerazione chiamata TipoCampo che indica le tipologie di campo selezionabili;
+		\item \textbf{StrutturaDatabase}: rappresenta le varie strutture \textit{database}\textsuperscript{G} definite dall'amministratore\textsuperscript{G};
+		\item \textbf{Tabella}: rappresenta le tabelle che compongono una Struttura \textit{Database}\textsuperscript{G};
+		\item \textbf{Campo}: rappresenta i campi che compongono una Tabella\textsuperscript{G}. Questo utilizza un enumerazione chiamata TipoCampo che indica le tipologie di campo selezionabili;
 	\end{itemize}
 	
-	Viene inoltre utilizzato il modello User fornito dal framework Django del quale si elencano gli attributi e operazioni più rilevanti.\\
+	Viene inoltre utilizzato il modello User fornito dal \textit{framework}\textsuperscript{G} Django del quale si elencano gli attributi e operazioni più rilevanti.\\
 	
 	
 	\subsubsection{View}
@@ -363,34 +365,34 @@ E' stato scelta questa architettura in quanto offre i seguenti vantaggi:
 	\end{figure}
 
 	
-	Il compito delle \textit{view} è quella di ricevere richieste dal browser\textsuperscript{G} e di restituire risposte sottoforma di pagine HTML o altri elementi che possono essere visualizzati da un browser.\\
+	Il compito delle \textit{view} è quella di ricevere richieste dal \textit{browser}\textsuperscript{G} e di restituire risposte sottoforma di pagine HTML\textsuperscript{G} o altri elementi che possono essere visualizzati da un \textit{browser}.\\
 	
 	Le \textit{view} definite derivano dalla classe \textit{View} fornita dal \textit{framework}\textsuperscript{G} Django e sono divise per area principale e area amministrativa.\\
 	
 	Le \textit{view} dell'area principale sono:
 	\begin{itemize}
-		\item  \textbf{MainView}: si occupa di ricevere la richiesta di generazione del \textit{prompt}\textsuperscript{G} dall'utente e di restituirlo. Per fare questo utilizza una classe chiamata PromptCreator che si occupa di generare il prompt per la richiesta ricevuta dalla view.
-		\item \textbf{PromptCreator}: si occupa di creare il \textit{prompt} a partire dalla struttura database e dalla frase in linguaggio naturale fornita;
-		\item \textbf{QueryGenerationView}: si occupa di ricevere il prompt generato, inviarlo al modello \textit{LLM}\textsuperscript{G} esterno tramite la classe Querygenerator e ritornare la risposta;
-		\item \textbf{QueryGenerator}: si occupa di generare la query SQL richiesta inviando il \textit{prompt} generato ad un servizio LLM esterno;
+		\item  \textbf{MainView}: si occupa di ricevere la richiesta di generazione del \textit{prompt}\textsuperscript{G} dall'utente\textsuperscript{G} e di restituirlo. Per fare questo utilizza una classe chiamata PromptCreator che si occupa di generare il prompt per la richiesta ricevuta dalla view.
+		\item \textbf{PromptCreator}: si occupa di creare il \textit{prompt}\textsuperscript{G} a partire dalla struttura \textit{database}\textsuperscript{G} e dalla frase in linguaggio naturale\textsuperscript{G} fornita;
+		\item \textbf{QueryGenerationView}: si occupa di ricevere il \textit{prompt}\textsuperscript{G} generato, inviarlo al modello \textit{LLM}\textsuperscript{G} esterno tramite la classe Querygenerator e ritornare la risposta;
+		\item \textbf{QueryGenerator}: si occupa di generare la \textit{query} SQL\textsuperscript{G} richiesta inviando il \textit{prompt}\textsuperscript{G} generato ad un servizio \textit{LLM}\textsuperscript{G} esterno;
 	\end{itemize}
 
 	
 	Le view dell'area amministrativa sono:
 	\begin{itemize}
-		\item \textbf{AdminLoginView}: responsabile per l'autenticazione dell'amministratore;
-		\item \textbf{AdminLogoutView}: responsabile per il logout dell'amministratore;
+		\item \textbf{AdminLoginView}: responsabile per l'autenticazione dell'amministratore\textsuperscript{G};
+		\item \textbf{AdminLogoutView}: responsabile per il logout dell'amministratore\textsuperscript{G};
 		\item \textbf{AdminHomeView}: resituisce la pagina home dell'area amministrativa dove è presente la lista delle Strutture Database e il link per la creazione delle stesse;
 		\item \textbf{AdminStrutturaDatabaseView}: restituisce la pagina di creazione e modifica della StrutturaDatabase e la lista delle tabelle che la compongono;
 		\item \textbf{AdminTabellaView}: restituisce la pagina di creazione e modifica delle Tabelle e la lista dei campi che la compongono;
-		\item \textbf{AdminCampoView}: restituise la pagina di creazione e modifica dei Campi di una tabella;
-		\item \textbf{AdminFileUploadView}: restituisce la pagina per il caricamento di un file di struttura database e utilizza la classe FileUploader per la conversione ed il salvataggio come StrutturaDatabase.
-		\item \textbf{FileUploader}: reponsabile per il caricamento di file che rappresentano una struttura database, utilizza l'interfaccia \textbf{ParserStrategy}  che viene implementata con le classi:
+		\item \textbf{AdminCampoView}: restituisce la pagina di creazione e modifica dei Campi di una Tabella\textsuperscript{G};
+		\item \textbf{AdminFileUploadView}: restituisce la pagina per il caricamento di un \textit{file}\textsuperscript{G} di struttura \textit{database}\textsuperscript{G} e utilizza la classe FileUploader per la conversione ed il salvataggio come StrutturaDatabase.
+		\item \textbf{FileUploader}: responsabile per il caricamento di file che rappresentano una struttura \textit{database}\textsuperscript{G}, utilizza l'interfaccia \textbf{Parsergygy}  che viene implementata con le classi:
 		\begin{itemize}
-			\item \textbf{JSONParser}: per importare file JSON con struttura nota;
-			\item \textbf{CSVParser}: per importare file CSV con struttura nota;
+			\item \textbf{JSONParser}: per importare \textit{file}\textsuperscript{G} JSON con struttura nota;
+			\item \textbf{CSVParser}: per importare \textit{file} CSV con struttura nota;
 		\end{itemize}
-		\item \textbf{AdminEliminaModelView}: responsabile per l'eliminazione di un oggetto dal database dato il suo id ed il suo modello. Restituisce una pagina per la conferma dell'eliminazione e l'eliminazione stessa;
+		\item \textbf{AdminEliminaModelView}: responsabile per l'eliminazione di un oggetto dal \textit{database}\textsuperscript{G} dato il suo id ed il suo modello. Restituisce una pagina per la conferma dell'eliminazione e l'eliminazione stessa;
 	\end{itemize}
 	
 	\subsubsection{Form}
@@ -400,46 +402,46 @@ E' stato scelta questa architettura in quanto offre i seguenti vantaggi:
 			\centering
 	\end{figure}
 
-	Il compito delle classi form e quella di definire from HTML sottoforma di classe. Questo per utilizzare le funzioni di validazione e gestione fornite dal framework Django tramite la classe Form dalla quale derivano i form da noi definiti:
+	Il compito delle classi \textit{form}\textsuperscript{G} e quella di definire from HTML\textsuperscript{G} sottoforma di classe. Questo per utilizzare le funzioni di validazione e gestione fornite dal \textit{framework}\textsuperscript{G} Django tramite la classe Form dalla quale derivano i \textit{form} da noi definiti:
 	\begin{itemize}
-		\item \textbf{NLPromptForm}: raccoglie i dati per la generazione del prompt per la generazione della query SQL;
-		\item \textbf{QueryForm}: raccoglie i dati per la generazione della query SQL;
-		\item \textbf{LoginForm}: raccoglie i dati per il login dell'amministratore;
+		\item \textbf{NLPromptForm}: raccoglie i dati per la generazione del \textit{prompt}\textsuperscript{G} per la generazione della \textit{query} SQL\textsuperscript{G};
+		\item \textbf{QueryForm}: raccoglie i dati per la generazione della \textit{query} SQL\textsuperscript{G};
+		\item \textbf{LoginForm}: raccoglie i dati per il \textit{login}\textsuperscript{G} dell'amministratore\textsuperscript{G};
 		\item \textbf{StrutturaDatabaseForm}: raccoglie i dati per la creazione e modifica di una Struttura Database;
-		\item \textbf{TabellaForm}: raccoglie i dati per la creazione e modifica di una Tabella;
+		\item \textbf{TabellaForm}: raccoglie i dati per la creazione e modifica di una Tabella\textsuperscript{G};
 		\item \textbf{CampoForm}: raccoglie i dati per la creazione e modifica di un Campo;
-		\item \textbf{FileUploadForm}: raccoglie i dati per il caricamento del file di struttura database;
-		\item \textbf{EliminaForm}: raccoglie i dati per l'eliminazione di un oggetto dal database;
+		\item \textbf{FileUploadForm}: raccoglie i dati per il caricamento del \textit{file}\textsuperscript{G} di struttura \textit{database}\textsuperscript{G};
+		\item \textbf{EliminaForm}: raccoglie i dati per l'eliminazione di un oggetto dal \textit{database}\textsuperscript{G};
 	\end{itemize}
 	
 	\subsection{Design pattern utilizzati}
 			\subsubsection{Model-View-Template}
 			% eventuale immagine mvt
-			Per lo sviluppo del prodotto, il gruppo ha scelto l'utilizzo del \textit{framework Django}. Il \textit{framework} propone un'architettura integrata,
-			basata su una generalizzazione della \textit{view}, attraverso il \textit{design pattern MVT}. \\
+			Per lo sviluppo del prodotto, il gruppo ha scelto l'utilizzo del \textit{framework}\textsuperscript{G} Django. Il \textit{framework} propone un'architettura integrata,
+			basata su una generalizzazione della \textit{view}, attraverso il \textit{design pattern}\textsuperscript{G} MVT. \\
 			L'architettura proposta da \textit{Django} si compone di:
 			\begin{itemize}
-			\item File per la gestione dei Modelli ;
-			\item File per la gestione delle \textit{View};
-			\item File per le impostazioni del progetto;
-			\item File per la configurazione degli URL;
-			\item File di \textit{template} per la definizione dell'interfaccia utente;
-			\item File per la gestione dei \textit{form}; 
-			\item File per la gestione dei test;
-			\item Cartella contenente le migrazioni verso il sistema di Database scelto;
-			\item Cartella contenente file statici come fogli di stile e immagini;
+			\item \textit{File}\textsuperscript{G} per la gestione dei Modelli ;
+			\item \textit{File} per la gestione delle \textit{View};
+			\item \textit{File} per le impostazioni del progetto;
+			\item \textit{File} per la configurazione degli URL;
+			\item \textit{File} di \textit{template} per la definizione dell'interfaccia utente;
+			\item \textit{File} per la gestione dei \textit{form}; 
+			\item \textit{File} per la gestione dei test;
+			\item Cartella contenente le migrazioni verso il sistema di \textit{database}\textsuperscript{G} scelto;
+			\item Cartella contenente \textit{file} statici come fogli di stile e immagini;
 			\item Cartella per ogni applicazione che compone il prodotto;
 			\end{itemize}
 
 		\subsubsection{Strategy}
 			% Immagine Design Pattern Strategy%
-			Uno dei \textit{design pattern} comportamentali scelto dal gruppo è lo \textit{Strategy}\textsuperscript{G}. 
-			In particolare, viene integrato per permettere al programma di riconoscere diversi tipi di file quando viene eseguito \textit{l'upload}. In base all'estensione del file, il programma sceglie quale strategia utilizzare per raccogliere ed immagazzinare nel migliore dei modi le informazioni caricate.
-			Al lato pratico, una volta caricato un file tramite la classe \textit{FileUploader}, questo viene passato ad un'interfaccia che verrà successivamente implementata da le classi:
+			Uno dei \textit{design pattern}\textsuperscript{G} comportamentali scelto dal gruppo è lo \textit{Strategy}\textsuperscript{G}. 
+			In particolare, viene integrato per permettere al programma di riconoscere diversi tipi di \textit{file}\textsuperscript{G} quando viene eseguito \textit{l'upload}. In base all'estensione del \textit{file}, il programma sceglie quale strategia utilizzare per raccogliere ed immagazzinare nel migliore dei modi le informazioni caricate.
+			Al lato pratico, una volta caricato un \textit{file} tramite la classe \textit{FileUploader}, questo viene passato ad un'interfaccia che verrà successivamente implementata da le classi:
 			\begin{itemize}
-				\item \textit{JSONParser}: per i file di tipo JSON
-				\item \textit{CSVParser}: per i file CSV
+				\item \textit{JSONParser}: per i \textit{file} di tipo JSON
+				\item \textit{CSVParser}: per i \textit{file} CSV
 			\end{itemize} 
-			Il gruppo ha poi individuato altri ambiti in cui un \textit{Design Pattern Strategy} sarebbe ottimale. Per una questione di tempo principalmente, non sono stati implementati. Siccome il prodotto deve lavorare a stretto contatto con gli LLM\textsuperscript{G}, sarebbe utile che la loro chiamata venga effettuata solo quando necessario, senza usare i modelli più grandi per richieste piccole.  \\
+			Il gruppo ha poi individuato altri ambiti in cui un \textit{Design Pattern}\textsuperscript{G} \textit{Strategy} sarebbe ottimale. Per una questione di tempo principalmente, non sono stati implementati. Siccome il prodotto deve lavorare a stretto contatto con gli \textit{LLM}\textsuperscript{G}, sarebbe utile che la loro chiamata venga effettuata solo quando necessario, senza usare i modelli più grandi per richieste piccole.  \\
 	
 \end{document}
