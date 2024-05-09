@@ -1,0 +1,183 @@
+\documentclass[5pt]{article}
+
+\usepackage{sectsty}
+\usepackage{graphicx}
+\usepackage{lipsum} % for generating dummy text
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{array}
+\usepackage{cellspace}
+\usepackage{tabularx}
+\usepackage[table]{xcolor}
+\usepackage{tabularray}
+\usepackage{wrapfig}
+\usepackage{flafter} 
+\usepackage{eurosym}
+
+
+\usepackage{hyperref}
+\usepackage{scrextend}
+\graphicspath{ {../assets} }
+
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\title{Analisi dei Requisiti}
+\author{Jackpot Coding}
+\renewcommand*\contentsname{Indice}
+\renewcommand{\figurename}{Immagine}
+\date{\today}
+
+%longtblr
+\DefTblrTemplate{contfoot-text}{default}{}
+\DefTblrTemplate{conthead-text}{default}{}
+\DefTblrTemplate{caption}{default}{}
+\DefTblrTemplate{conthead}{default}{}
+\DefTblrTemplate{capcont}{default}{}
+
+%STARTOF THE DOCUMENT
+\begin{document}
+	
+	%-------------------------
+	
+	% Reduce top margin only on the first page
+	\newgeometry{top=0.5in}
+	
+	%UNIPD LOGO
+	\vspace{8pt}
+	\includegraphics[scale=0.2]{UNIPDFull.png}
+	%END UNIPD LOGO
+	
+	\vspace{30pt}
+	
+	%COURSE INFO
+	\begin{minipage}[t]{0.48\textwidth}
+		%COURSE TITLE
+		\begin{flushleft}
+			Informatica\\
+			\vspace{5pt}
+			\textbf{\LARGE Ingegneria del Software}\\
+			Anno Accademico: 2023/2024
+		\end{flushleft}
+		%END COURSE TITLE
+	\end{minipage}
+	%END COURSE INFO
+	
+	
+	\vspace{5px}
+	
+	
+	%BLACK LINE
+	\rule{\textwidth}{5pt}
+	
+	%JACKPOT CODING INFO
+	\begin{minipage}[t]{0.50\textwidth}
+		%LOGO JACKPOT CODING
+		\begin{flushleft}
+			\hspace{10pt}
+			\includegraphics[scale=0.65]{jackpot-logo.png} 
+		\end{flushleft}
+	\end{minipage}
+	\hspace{-60pt} % This adds horizontal space between the minipages
+	\begin{flushright}
+		\begin{minipage}[t]{0.50\textwidth}
+			%INFO JACKPOT CODING
+			\begin{flushright}
+				Gruppo: {\Large Jackpot Coding}\\
+				Email: \href{mailto:jackpotcoding@gmail.com}{jackpotcoding@gmail.com}
+			\end{flushright}
+		\end{minipage}
+	\end{flushright}
+	%END JACKPOT CODING INFO
+	
+	\vspace{24pt}
+	
+	%TITLE
+	\begin{center}
+		\textbf{\LARGE LETTERA DI PRESENTAZIONE}\\
+		09/05/2024
+	\end{center}
+	%END TITLE
+	
+	\vspace{13pt}
+	
+	\begin{flushleft}
+		\begin{spacing}{1.5}
+			REDATTORI: R. Simionato, G. Moretto, E. Gallo, M.Gobbo\\%INSERT HERE THE NAMES
+			VERIFICATORI: G. Moretto, E. Gallo, R. Simionato\\
+			\vspace{7pt}
+			DESTINATARI: Prof. T. Vardanega, Prof. R. Cardin\\%INSERT HERE THE NAMES
+		\end{spacing}
+	\end{flushleft}
+	
+	
+	% Restore original margins from the second page onwards
+	\restoregeometry	
+	\pagebreak
+	
+\begin{flushleft}
+	Egregio Prof. Tullio Vardanega\\
+	Egregio Prof. Riccardo Cardin\\
+\end{flushleft}
+
+\begin{flushleft}
+	con la presente il gruppo Jackpot Coding intende comunicarVi ufficialmente l'intenzione di sostenere la revisione \textbf{\textit{Product Baseline}} (\textbf{PB}) per il capitolato :
+\end{flushleft}
+
+\begin{center}
+	\textbf{ChatSQL (C9)}
+\end{center}
+proposto dall'azienda Zucchetti S.p.A.\\
+
+\begin{flushleft}
+La documentazione relativa al progetto è consultabile al sito:
+\begin{center}
+	\href{https://jackpot-coding.github.io/chatSQL/}{https://jackpot-coding.github.io/chatSQL/}
+\end{center}
+dove è possibile trovare:
+\begin{itemize}
+	\item Documenti Esterni:
+	\begin{itemize}
+		\item Ananlisi dei Requisiti;
+		\item Glossario;
+		\item Piano di Qualifica;
+		\item Piano di Progetto;
+		\item Specifica Tecnica;
+		\item Manuale Utente;
+		\item Verbali;
+	\end{itemize}
+	\item Documenti Interni:
+	\begin{itemize}
+		\item Norme di Progetto;
+		\item Verbali;
+	\end{itemize}
+\end{itemize}
+\end{flushleft}
+
+\begin{flushleft}
+Viene inoltre fornito il \textbf{\textit{Minimum Viable Product}}, approvato dall'azienda proponente in data 02/05/2024 e disponibile al seguente link:
+\begin{center}
+	\href{https://github.com/Jackpot-Coding/chatSQL/tree/main/src/chatSQL}{MVP ChatSQL}
+\end{center}
+\end{flushleft}
+
+\begin{flushleft}
+Il gruppo intende consegnare il prodotto in data 17/05/2024, senza poi proseguire alla revisione \textbf{CA}.
+
+La spesa totale ammonta a 10.895 \euro \space rispetto alla cifra preventivata di 11.040 \euro.
+\end{flushleft}
+
+\vspace{8mm}
+
+\begin{flushright}
+	Cordiali Saluti,\\
+	il gruppo Jackpot Coding
+\end{flushright}
+	
+\end{document}
