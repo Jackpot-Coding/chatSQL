@@ -39,6 +39,8 @@
 \title{Piano di Qualifica}
 \author{Jackpot Coding}
 \renewcommand*\contentsname{Indice}
+\renewcommand{\listfigurename}{Elenco delle immagini}
+\renewcommand{\listtablename}{Elenco delle tabelle}
 \date{\today}
 
 \newlength\myheight
@@ -51,6 +53,7 @@
 	\settodepth\mydepth{Xygp}%
 	\raisebox{-\mydepth}{\includegraphics[height=\myheight]{#1}}%
 }
+
 
 
 %STARTOF THE DOCUMENT
@@ -144,10 +147,10 @@
 			v.0.0.11 & 09/05/2024 & R. Simionato & - & Aggiunta sezione 3.1.1 e sistemate immagini \\ \hline
 			v.0.0.10 & 07/05/2024 & R. Simionato & - & Aggiunte immagini nella sezione 4 \\ \hline
 			v.0.0.9 & 05/05/2024 & R. Simionato & - & Prima stesura sezione 4 \\ \hline
-			v.0.0.8 & 02/05/2024 & M. Favaretto & - & Aggiunte e correzioni varie nella sezione di Requisiti \\ \hline
-			v.0.0.7 & 30/04/2024 & M. Favaretto & - & Correzione link e tabelle \\ \hline
-			v.0.0.6 & 28/04/2024 & M. Favaretto & - & Stesura Sezione Installazione \\ \hline
-			v.0.0.5 & 26/04/2024 & M. Favaretto & - & Stesura Sezione Requisiti \\ \hline
+			v.0.0.8 & 02/05/2024 & M. Favaretto & R. Simionato & Aggiunte e correzioni varie nella sezione di Requisiti \\ \hline
+			v.0.0.7 & 30/04/2024 & M. Favaretto & R. Simionato & Correzione link e tabelle \\ \hline
+			v.0.0.6 & 28/04/2024 & M. Favaretto & R. Simionato & Stesura Sezione Installazione \\ \hline
+			v.0.0.5 & 26/04/2024 & M. Favaretto & R. Simionato & Stesura Sezione Requisiti \\ \hline
 			v.0.0.4 & 25/04/2024 & M. Gobbo & M. Favaretto & Fine Stesura sezione 1, aggiunti riferimenti \\ \hline
 			v.0.0.3 & 29/03/2024 & M. Gobbo & M. Favaretto & Prima Stesura sezione 1 \\ \hline
 			v.0.0.2 & 29/03/2024 & M. Gobbo & M. Favaretto & Creazione sezione 5 \\ \hline
@@ -161,6 +164,8 @@
 	
 	\pagebreak
 	\tableofcontents
+	\pagebreak
+	\listoftables
 	\listoffigures
 	\pagebreak
 	
@@ -170,7 +175,7 @@
 			Lo scopo del documento "Manuale Utente" è quello di mostrare le istruzioni per l'uso e le funzionalità inerenti al prodotto. Grazie a questo l'utente sarà a conoscenza dei requisiti minimi necessari per il corretto funzionamento di "Chat SQL".
 
 		\subsection{Scopo del prodotto}
-			Il capitolato proposto dall'azienda \textit{Zucchetti S.p.A.} ha come obiettivo la realizzazione di un applicativo web al fine di ottenere un riscontro riguardo la fattibilità di un prodotto in grado di elaborare una frase in linguaggio naturale, fornita da un utente inesperto, e genere come output una \textit{query SQL} in grado di interrogare un database, di cui è conosciuta la struttura, in modo efficiente e che fornisca le informazioni richieste dall'utente.
+			Il capitolato proposto dall'azienda \textit{Zucchetti S.p.A.} ha come obiettivo la realizzazione di un applicativo \textit{web} al fine di ottenere un riscontro riguardo la fattibilità di un prodotto in grado di elaborare una frase in linguaggio naturale, fornita da un utente inesperto, e generare come \textit{output} una \textit{query SQL}\textsuperscript{G} in grado di interrogare un database, di cui è conosciuta la struttura, in modo efficiente e che fornisca le informazioni richieste dall'utente.
 
         \subsection{Glossario}
      		Al fine di evitare ambiguità o incomprensioni relative alla terminologia usata all'interno del documento, è fornito un \textit{Glossario} in cui vengono riportate definizioni precise per ogni termine potenzialmente ambiguo. La presenza di tali termini all'interno del documento è indicata con la presenza, vicino alla voce, di una \textit{G} in apice ($^G$). 
@@ -191,12 +196,12 @@
         
 	\section{Requisiti minimi di sistema}
 		\label{sec:requisiti}
-		Vengono qui presentati i requisiti necessari per eseguire l'applicazione. Il capitolato non esprime particolari requisiti, né sono stati posti dal proponente nelle diverse riunioni. 
+		Vengono qui presentati i requisiti necessari per eseguire l'applicazione. Il capitolato\textsuperscript{G} non esprime particolari requisiti, né sono stati posti dal proponente nelle diverse riunioni.
 		Ne consegue che le caratteristiche elencate fanno riferimento alla configurazione dell'ambiente di sviluppo usata dal \textit{team}.
               
 		\subsection{Requisiti hardware}
 			L'applicazione sviluppata esegue su \textit{browser}. Non vengono dunque individuati particolari requisiti fisici
-			necessari per l'applicazione. I seguenti requisiti sono quindi delle considerazioni generali, derivate dal tipo di computer usati dal gruppo per lo sviluppo dell'applicazione. 
+			necessari per l'applicazione. I seguenti requisiti sono quindi delle considerazioni generali, derivate dal tipo di \textit{computer} usati dal gruppo per lo sviluppo dell'applicazione. 
 			\begin{table}[H]
 				\centering
 				\rowcolors{2}{black!15}{}
@@ -237,7 +242,7 @@
 			\end{table}
         
 		\subsection{Requisiti browser}
-			La WebApp è stata testata nei seguenti \textit{Browser}:
+			La \textit{WebApp} è stata testata nei seguenti \textit{Browser}:
 			\begin{table}[H]
 				\centering
 				\rowcolors{2}{black!15}{}
@@ -255,12 +260,13 @@
 				\caption{Requisiti Browser}
 				\label{tab:browsers}
 			\end{table}
-		
+	
+	\newpage	
 	\section{Installazione}
-		L'applicazione \textit{ChatSQL}, per poter essere eseguita dall'utente, necessita l'attuazione dei seguenti passi:
+		L'applicazione \textit{ChatSQL}, per poter essere eseguita dall'utente\textsuperscript{G}, necessita l'attuazione dei seguenti passi:
 		\begin{itemize}
 			\item Installazione componenti \textit{Software}
-			\item Clonazione \textit{Repo}
+			\item Clonazione \textit{Repo}\textsuperscript{G}
 			\item Avvio dell'applicazione
 		\end{itemize}
 
@@ -268,23 +274,20 @@
 			Prima di procedere all'installazione dell'applicazione in sé, è necessario verificare che tutte i requisiti siano rispettati.
 			A tal fine, si rimanda alla lettura della sezione \hyperref[sec:requisiti]{requisiti}
 			
-			% TODO - Installazione e setup LM STUDIO
-			\subsubsection{Setup di LM Studio}
-			Per utilizzare la funzionalità di generare la query SQL all'interno del programma ChatSQL è necessario l'utilizzo di LM Studio che ci permette di eseguire modelli LLM in locale.\\
-			Una volta installato e avviato LM Studio utilizzare la barra di ricerca nella home per cercare il seguente modello
+			\subsubsection{\textit{Setup} di LM Studio}
+			Per utilizzare la funzionalità di generare la \textit{query SQL} all'interno del programma \textit{ChatSQL} è necessario l'utilizzo di LM Studio che ci permette di eseguire modelli\textsuperscript{G} LLM\textsuperscript{G} in locale.\\
+			Una volta installato e avviato LM Studio utilizzare la barra di ricerca nella \textit{home} per cercare il seguente modello
 			\begin{center}
 				\textit{lmstudio-community/Meta-Llama-3-8B-Instruct-GGUF}
 			\end{center}
 			si aprirà la seguente schermata dalla quale è possibile scaricare il modello nella sezione di destra.
-			% TODO - Immagine search LMSTUDIO
 			\begin{figure}[ht]
 				\centering
 				\fbox{\includegraphics[width = 0.8\textwidth]{User_Manual/lmstudio_search.png}}
 				\caption{Ricerca e download del modello in LM Studio}
 			\end{figure}
-			Una volta terminato il download del modello LLM spostarsi nella sezione 'Local Server' cliccando sull'icona \inlinegraphics{User_Manual/local_server_icon.png} presente nella barra a sinistra dell'applicazione.
-			Da qui selezionare il modello appena scaricato dal menù a tendina presente in alto e attendere il caricamento. Una volta terminato assicurarsi che l'impostazione "Server Port" che si trova all'interno della sezione "Configuration" abbia valore 1234 e cliccare il bottone verde "Start Server" se illuminato.
-			% TODO - Immagine server LMSTUDIO
+			Una volta terminato il \textit{download} del modello LLM spostarsi nella sezione "\textit{Local Server}" cliccando sull'icona \inlinegraphics{User_Manual/local_server_icon.png} presente nella barra a sinistra dell'applicazione.
+			Da qui selezionare il modello appena scaricato dal menù a tendina presente in alto e attendere il caricamento. Una volta terminato assicurarsi che l'impostazione "\textit{Server Port}" che si trova all'interno della sezione "\textit{Configuration}" abbia valore 1234 e cliccare il bottone verde "\textit{Start Server}" se illuminato.
 			\begin{figure}[ht]
 				\centering
 				\fbox{\includegraphics[width = 0.8\textwidth]{User_Manual/local_server_setup.png}}
@@ -293,10 +296,10 @@
 			
 			
 		\newpage
-        \subsection{Clonazione Repo}
+        \subsection{Clonazione \textit{Repo}}
 			Per poter avere una copia dell'applicazione in locale, vi sono due modi:
 			\begin{enumerate}
-				\item Scaricare la cartella compressa contenente l'intera applicazione al link
+				\item Scaricare la cartella compressa contenente l'intera applicazione al \textit{link}
 					\begin{center}
 						\url{https://github.com/Jackpot-Coding/chatSQL/archive/refs/heads/main.zip}
 					\end{center}
@@ -322,14 +325,14 @@
 					\begin{center}
 						\textit{python manage.py runserver}
 					\end{center}
-				\item Aprire il proprio \textit{brower} predefinito e navigare al \textit{link} suggerito dal terminale:
+				\item Aprire il proprio \textit{browser} predefinito e navigare al \textit{link} suggerito dal terminale:
 					\begin{center}
 						\textit{\url{http://127.0.0.1:8000/}}
 					\end{center}
 			\end{enumerate}
  
 	    \subsection{Creazione profilo Amministratore}
-	    Per creare un utente Amministratore che possa accedere all'area amministrativa dell'applicazione seguire i seguenti passaggi:
+	    Per creare un utente Amministratore\textsuperscript{G} che possa accedere all'area amministrativa dell'applicazione seguire i seguenti passaggi:
 	    \begin{enumerate}
 	    	\item Aprire un terminale nella cartella della \textit{repo} in locale
 	    	\item Spostarsi nella cartella dell'applicazione inserendo il comando:
@@ -340,9 +343,9 @@
 	    	\begin{center}
 	    		\textit{python manage.py createsuperuser}
 	    	\end{center}
-	    	\item Inserire l'username desiderato e premere invio
-	    	\item Inserire l'email desiderata e premere invio
-	    	\item Inserire la password desiderata. Verrà richiesta due volte, la seconda servirà per confermare la prima.
+	    	\item Inserire l'\textit{username} desiderato e premere invio
+	    	\item Inserire l'\textit{email} desiderata e premere invio
+	    	\item Inserire la \textit{password} desiderata. Verrà richiesta due volte, la seconda servirà per confermare la prima.
 	    \end{enumerate}
     
     \section{Istruzioni all'uso}
@@ -352,14 +355,14 @@
 	    	\fbox{\includegraphics[width = 0.5\textwidth]{User_Manual/homepage.png}}
 	    	\caption{Homepage ChatSQL}
 	    \end{figure}
-	    Questa è la schermata principale dell'applicazione. Da qui è possibile richiedere la creazione di un prompt e poi in seguito della query SQL, oppure effettuare l'accesso con un profilo amministratore tramite il link "Accedi" in alto a sinistra.
+	    Questa è la schermata principale dell'applicazione. Da qui è possibile richiedere la creazione di un \textit{prompt}\textsuperscript{G} e poi in seguito della \textit{query SQL}, oppure effettuare l'accesso con un profilo amministratore tramite il \textit{link} "Accedi" in alto a sinistra.
 	    
-	    \subsubsection{Richiedere un prompt e ottenere la query SQL}
-	    Per richiedere la generazione di un prompt è necessario inserire la propria richiesta all'interno della casella di testo apposita, successivamente bisognerà selezionare tramite il menù a tendina il database relativo alla richiesta e cliccare su "Genera Prompt".\\
-	    Una volta generato il prompt verranno fornite due opzioni per proseguire:
+	    \subsubsection{Richiedere un \textit{prompt} e ottenere la \textit{query SQL}}
+	    Per richiedere la generazione di un \textit{prompt} è necessario inserire la propria richiesta all'interno della casella di testo apposita, successivamente bisognerà selezionare tramite il menù a tendina il \textit{database} relativo alla richiesta e cliccare su "Genera \textit{Prompt}".\\
+	    Una volta generato il \textit{prompt} verranno fornite due opzioni per proseguire:
 	    \begin{itemize}
-	    	\item Copiare il prompt generato tramite l'apposito bottone per poterlo facilmente incollare all'interno di un LLM a scelta
-	    	\item Generare la query SQL utilizzando ChatSQL con LM Studio
+	    	\item Copiare il \textit{prompt} generato tramite l'apposito bottone per poterlo facilmente incollare all'interno di un LLM a scelta
+	    	\item Generare la \textit{query SQL} all'interno di \textit{ChatSQL} utilizzando LM Studio
 	    \end{itemize} 
 	    \begin{figure}
 	    	\centering
@@ -376,7 +379,7 @@
 	    \end{figure}
 	    
 	    \subsection{Area Ammnistrativa}
-	    Dopo aver effettuato il login verrà visualizzata la pagina iniziale dell'area amministrativa. Sarà possibile ritornare a questa pagina facilmente utilizzando il link "Home" posizionato in alto a sinistra. Affianco a questo si trova il link "Upload" che porta alla schermata dov'è possibile caricare una StrutturaDB da un file.
+	    Dopo aver effettuato il \textit{login}\textsuperscript{G} verrà visualizzata la pagina iniziale dell'area amministrativa. Sarà possibile ritornare a questa pagina facilmente utilizzando il \textit{link} "\textit{Home}" posizionato in alto a sinistra. Affianco a questo si trova il \textit{link} "\textit{Upload}" che porta alla schermata dov'è possibile caricare una StrutturaDB\textsuperscript{G} da un \textit{file}\textsuperscript{G}.
 	    \begin{figure}[ht]
 	    	\centering
 	    	\fbox{\includegraphics[width = 0.5\textwidth]{User_Manual/admin_home.png}}
@@ -386,17 +389,17 @@
 	    \subsubsection{Lista StruttureDB}
 	    Sempre nella pagina iniziale dell'area amministrativa troviamo la lista delle StruttureDB presenti nel programma. È possibile visualizzare le strutture presenti tramite l'apposito bottone "Visualizza" oppure creare una nuova struttura database cliccando sul bottone "Crea Struttura DB". 
 	    
-	    \subsubsection{Upload StrutturaDB}
-	    All'interno della pagina per caricare un file contenete una struttura DB si trova il bottone "Scegli file", una volta cliccato verrà aperta una finestra di dialogo che permetterà all'amministratore di selezionare il file. Selezionare il file in formato .json desiderato e cliccare su "Apri", il nome del file selezionato verrà mostrato nella pagina e una volta controllato che sia il file corretto cliccare sul bottone "Carica" per terminare la procedura.
+	    \subsubsection{\textit{Upload} StrutturaDB}
+	    All'interno della pagina per caricare un \textit{file} contenete una struttura DB si trova il bottone "Scegli \textit{file}", una volta cliccato verrà aperta una finestra di dialogo che permetterà all'amministratore di selezionare il \textit{file}. Selezionare il \textit{file} in formato .json desiderato e cliccare su "Apri", il nome del \textit{file} selezionato verrà mostrato nella pagina e una volta controllato che sia il \textit{file} corretto cliccare sul bottone "Carica" per terminare la procedura.
 	    \begin{figure}[h]
 	    	\centering
 	    	\fbox{\includegraphics[width = 0.5\textwidth]{User_Manual/upload_form.png}}
-	    	\caption{Pagina per il caricamento delle StruttureDB da file}
+	    	\caption{Pagina per il caricamento delle StruttureDB da \textit{file}}
 	    \end{figure}
 	    
 	    \subsubsection{StrutturaDB, Tabella e Campo}
-	    Vengono raggruppate le pagine relative alla Struttura DB, alla Tabella e al Campo in quanto strutturate in maniera simile.\\
-	    Nella prima sezione della pagina è presente un form contenente i dettagli dell'elemento che stiamo visualizzando, dando quindi la possibilità di modificare e salvare le modifiche sull'elemento.\\
+	    Vengono raggruppate le pagine relative alla Struttura DB, alla Tabella\textsuperscript{G} e al Campo in quanto strutturate in maniera simile.\\
+	    Nella prima sezione della pagina è presente un \textit{form}\textsuperscript{G} contenente i dettagli dell'elemento che stiamo visualizzando, dando quindi la possibilità di modificare l'elemento.\\
 	    Nella seconda sezione, presente solo per StrutturaDB e Tabella, troviamo la lista delle Tabelle contenute in una StrutturaDB e dei Campi contenuti in una Tabella nelle rispettive pagine. Da qui possiamo visualizzare gli elementi tramite il bottone "Visualizza" o creare un nuovo elemento con il bottone "Aggiungi".\\
 	    Infine nell'ultima sezione troviamo il bottone per eliminare l'elemento che stiamo visualizzando al momento. Nel caso venisse cliccato verremo rimandati ad una pagina che richiede la conferma prima di procedere con l'eliminazione.
 	    
