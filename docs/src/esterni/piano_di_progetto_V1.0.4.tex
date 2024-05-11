@@ -119,7 +119,7 @@
 \begin{flushright}
     \begin{spacing}{1}
         USO: ESTERNO\\
-        VERSIONE: 1.0.3\\
+        VERSIONE: 1.0.4\\
     \end{spacing}
 \end{flushright}
 
@@ -143,6 +143,8 @@
 	}
 	\hline
     \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Modifica} \\
+    \hline
+    v1.0.4 & 11/5/2024 & M. Gobbo & - & Stesura Consuntivo PB\\
     \hline
     v1.0.3 & 24/04/2024 & M. Gobbo & - & Modifica documento secondo indicazioni RTB, inizializzazione sezione 7\\
     \hline
@@ -197,18 +199,19 @@
 \begin{flushleft}
 	\textbf{\Large Elenco delle tabelle}
 	\begin{spacing}{1.5}
-		Tabella 1: Preventivo prima parte RTB \\
-		Tabella 2: Preventivo seconda parte RTB \\
-		Tabella 3: Preventivo rifiniture RTB \\
-		Tabella 4: Piano ore preventivate per il primo periodo \\
-		Tabella 5: Costi preventivati primo periodo \\
-		Tabella 6: Preventivo fase preliminare PB \\
-		Tabella 7: Preventivo progettazione e programmazione PB \\
-		Tabella 8: Preventivo progettazione secondaria PB \\
-		Tabella 9: Preventivo fase finale PB \\
-		Tabella 10: Piano ore preventivate per il secondo periodo \\
-		Tabella 11: Costi preventivati primo periodo \\
-		Tabella 12: Resoconto ore e costi RTB \\
+		Tabella 2: Preventivo prima parte RTB \\
+		Tabella 3: Preventivo seconda parte RTB \\
+		Tabella 4: Preventivo rifiniture RTB \\
+		Tabella 5: Piano ore preventivate per il primo periodo \\
+		Tabella 6: Costi preventivati primo periodo \\
+		Tabella 7: Preventivo fase preliminare PB \\
+		Tabella 8: Preventivo progettazione e programmazione PB \\
+		Tabella 9: Preventivo progettazione secondaria PB \\
+		Tabella 10: Preventivo fase finale PB \\
+		Tabella 11: Piano ore preventivate per il secondo periodo \\
+		Tabella 12: Costi preventivati secondo periodo \\
+		Tabella 13: Resoconto ore e costi RTB \\
+            Tabella 14: Resoconto ore e costi PB
 	\end{spacing}
 \end{flushleft}
 
@@ -852,9 +855,44 @@ In secondo luogo, abbiamo cambiato la piattaforma di ticketing (Da Trello a Jira
 Infine sul fronte organizzativo, abbiamo rafforzato la nostra comunicazione interna e la trasparenza riguardo alle responsabilità e ai compiti assegnati. Abbiamo istituito procedure chiare e ben definite per la registrazione delle ore di lavoro, garantendo una maggiore precisione e affidabilità nei conteggi. Inoltre, abbiamo stabilito un sistema di rotazione dei ruoli più strutturato e regolamentato, permettendo una migliore distribuzione del lavoro e evitando sovraccarichi o disallineamenti nelle responsabilità.
 
   \subsection{Periodo \textit{PB}}
-    Le spese non sono presenti, in quanto il progetto non è ancora entrato in questa fase di sviluppo.
+La seguente tabella mostra le ore e i costi preventivati per questa fase di progetto per ogni ruolo, affiancate
+alla differenza in termini di ore e i costi effettivi richiesti durante il periodo di PB
+    \begin{table}[H]
+      \centering
+      \rowcolors{2}{black!15}{}
+      \resizebox{\linewidth}{!}{
+        \begin{tabular}{|c|c|c|c|c|c|c|c|}
+          \hline
+          \rowcolor{teal!50}
+          \textbf{Ruolo} & \textbf{Ore previste} & \textbf{Differenza ore} & \textbf{Costo \euro/h} & \textbf{Costo preventivato} & \textbf{Costo effettivo} & \textbf{Differenza Costo} \\ \hline
+          \textbf{Responsabile} & 24 & 0 & \euro 30,00 & \euro 720,00 & \euro 720,00 & \euro 0,00 \\ \hline
+          \textbf{Amministratore} & 24 & 0 & \euro 20,00 & \euro 480,00 & \euro 480,00 & \euro 0,00 \\ \hline
+          \textbf{Analista} & 0 & -3 & \euro 25,00 & \euro 0 & \euro 75,00 & \euro 75,00 \\ \hline
+          \textbf{Progettista} & 68 & 1 & \euro 25,00 & \euro 1.700,00 & \euro 1675,00 & - \euro 25,00 \\ \hline
+          \textbf{Programmatore} & 111 & -1 & \euro 15,00 & \euro 1.665,00 & \euro 1.680,00 & \euro 15 \\ \hline
+          \textbf{Verificatore} & 79 & 2 & \euro 15,00 & \euro 1.185,00 & \euro 1.155,00 & -\euro 30,00 \\ \hline \hline
+          % doppia linea necessaria al fine di separare la prossima riga dal resto della tabella, senza necessariamente creare una nuova tabella
+          \textbf{Totale} & 306 & - 1	&  & \euro 5.750,00 & \euro 5.785,00 & \euro 35 \\ \hline
+       \end{tabular}
+        }
+      \caption{Resoconto ore e costi \textit{PB}}
+    \end{table}
+    Dal resoconto, si può notare come il gruppo abbia svolto questa seconda fase entro i tempi previsti.
+    Dall'analisi del consuntivo della PB emerge un notevole impegno del team nel rispettare le scadenze stabilite rispetto a quanto è invece successo per la RTB. \\\\
+    L'atteggiamento collaborativo e la comunicazione efficace tra i membri del gruppo hanno giocato un ruolo fondamentale nel superare le difficoltà riscontrate nella prima parte del progetto che avrebbero potuto ripresentarsi, consentendo al team di adattarsi prontamente alle necessità emergenti e di mantenere un alto standard di qualità nel lavoro svolto.
+    
     \subsubsection{Difficoltà incotrate}
+    Durante la fase di Product Baseline, abbiamo dovuto affrontare una serie di sfide che hanno dimostrato un notevole miglioramento grazie all'esperienza accumulata. All'inizio della PB, soprattutto, abbiamo constatato un significativo progresso rispetto alla RTB questo dato dalla determinazione e dalla motivazione nel fare progressi dei singoli componenti.
+    È naturale però incontrare delle difficoltà e noi non siamo stati esenti da queste sfide.\\\\
+    Una delle principali difficoltà che abbiamo incontrato è stata la gestione dei conflitti tra i branch, dovuti a una coordinazione lavori non ottimale. Tuttavia siamo stati in grado di individuare rapidamente questi problemi e risolverli quasi immediatamente.\\
+    Inoltre, abbiamo riscontrato difficoltà legate alla propedeuticità di alcuni ticket, che richiedevano una maggiore preparazione o chiarimenti aggiuntivi prima di poter essere affrontati efficacemente, questo ha rallentato la risoluzione degli stessi provocando un trascinamento per alcuni di essi eccessivo.
+    
     \subsubsection{Mitigazione Rischi Attuata}
+    Per mitigare efficacemente i rischi identificati durante la fase di PB, abbiamo adottato una serie di strategie. Innanzitutto, abbiamo riconosciuto l'importanza di una comunicazione aperta e trasparente all'interno del team. Abbiamo incoraggiato attivamente una "cultura" in cui ciascun membro si sentisse libero di esprimere le proprie preoccupazioni e suggerire soluzioni, permettendo così di individuare rapidamente i problemi e risolverli con determinazione.\\\\
+    Per quanto riguarda la gestione dei conflitti tra i branch, abbiamo rafforzato i nostri processi di revisione del codice e di collaborazione. Siamo stati più attenti nel coordinare le attività di sviluppo, assegnando chiaramente responsabilità e ruoli all'interno del team e stabilendo procedure per la risoluzione tempestiva di eventuali discrepanze o conflitti.\\\\
+    Per affrontare le difficoltà legate alla propedeuticità di alcuni ticket, abbiamo adottato un approccio più proattivo nella pianificazione e nell'assegnazione dei compiti. Abbiamo investito maggiori risorse nella fase di analisi e preparazione preliminare, assicurandoci che ogni ticket fosse chiaramente definito e compreso prima di essere assegnato a un membro del team. Inoltre, abbiamo incoraggiato la formazione continua e lo scambio di conoscenze all'interno del team, per garantire che tutti fossero adeguatamente preparati per affrontare le sfide specifiche del progetto.\\\\
+    Complessivamente, abbiamo affrontato queste sfide con determinazione e impegno, utilizzando l'esperienza accumulata e imparando dagli errori passati per migliorare costantemente le nostre pratiche e processi di lavoro. Grazie a questa approccio proattivo e collaborativo, siamo stati in grado di superare le difficoltà incontrate durante la fase di Product Baseline e di progredire verso il completamento del progetto.
+    
 
 \section{Mitigazione Rischi}
 
