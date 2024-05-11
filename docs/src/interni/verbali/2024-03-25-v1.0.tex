@@ -1,0 +1,165 @@
+\documentclass[5pt]{article}
+
+\usepackage{sectsty}
+\usepackage{graphicx}
+\usepackage{lipsum} % for generating dummy text
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{array}
+\usepackage{cellspace}
+
+
+
+\usepackage{hyperref}
+\usepackage{scrextend}
+\graphicspath{ {../../assets} }
+
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\title{ Verbale - data }
+\date{\today}
+
+%STARTOF THE DOCUMENT
+\begin{document}
+
+%-------------------------
+
+% Reduce top margin only on the first page
+\newgeometry{top=0.5in}
+
+%UNIPD LOGO
+    \vspace{8pt}
+    \includegraphics[scale=0.2]{UNIPDFull.png}
+%END UNIPD LOGO
+
+\vspace{25pt}
+
+%COURSE INFO
+\begin{minipage}[t]{0.48\textwidth}
+    %COURSE TITLE
+        \begin{flushleft}
+            Informatica\\
+            \vspace{5pt}
+            \textbf{\LARGE Ingegneria del Software}\\
+            Anno Accademico: 2023/2024
+        \end{flushleft}
+    %END COURSE TITLE
+\end{minipage}
+%END COURSE INFO
+
+
+\vspace{5px}
+
+
+%BLACK LINE
+\hrule
+%JACKPOT CODING INFO
+\begin{minipage}[t]{0.50\textwidth}
+    %LOGO JACKPOT CODING
+    \begin{flushleft}
+        \hspace{10pt}
+        \includegraphics[scale=0.65]{jackpot-logo.png} 
+    \end{flushleft}
+\end{minipage}
+\hspace{-60pt} % This adds horizontal space between the minipages
+\begin{flushright}
+    \begin{minipage}[t]{0.50\textwidth}
+        %INFO JACKPOT CODING
+        \begin{flushright}
+            Gruppo: {\Large Jackpot Coding}\\
+            Email: \href{mailto:jackpotcoding@gmail.com}{jackpotcoding@gmail.com}
+        \end{flushright}
+    \end{minipage}
+\end{flushright}
+%END JACKPOT CODING INFO
+
+\vspace{15pt}
+
+%TITLE
+\begin{center}
+    \textbf{\large VERBALE }
+    \textbf{\large 25/03/2024} \\
+    \textbf{\Large}
+\end{center}
+%END TITLE
+
+\vspace{13pt}
+
+\begin{flushleft}
+    \begin{spacing}{1.5}
+        REDATTORE:  M. Favaretto \\
+        VERIFICATORE:  G. Moretto\\%INSERT HERE THE NAMES
+        RESPONSABILE: E. Gallo \\%INSERT HERE THE NAMES
+        \vspace{7pt}
+        SCRIBA: M. Favaretto\\%INSERT HERE THE NAMES
+    \end{spacing}
+\end{flushleft}
+
+\begin{flushright}
+    \begin{spacing}{1}
+        USO: INTERNO\\
+        VERSIONE: 1.0\\ % secondo numerazione proposta da Riccardo
+    \end{spacing}
+\end{flushright}
+
+
+% Restore original margins from the second page onwards
+\restoregeometry
+
+\pagebreak
+
+% Optional TOC
+% \tableofcontents
+% \pagebreak
+
+\section{\Large ORARIO}
+\begin{spacing}{1.5}
+    {\large Inizio incontro: 21:10}\\
+    {\large Fine incontro: 22:10}
+\end{spacing}
+
+\section{PARTECIPANTI}
+% Define minimal spacing at the top and bottom of cells
+\setlength\cellspacetoplimit{6pt}
+\setlength\cellspacebottomlimit{6pt}
+
+\begin{table}[ht]
+  \begin{tabular}{|Sc|Sc|}
+    \hline
+    \textbf{Nome Componente} & \textbf{Durata della presenza} \\
+    \hline
+    Camillo Matteo & 1 ora \\
+    Favaretto Marco & 1 ora \\
+    Gallo Edoardo & 1 ora \\
+    Gobbo Marco & 1 ora \\
+    Moretto Giulio & 1 ora \\
+    Simionato Riccardo & 1 ora \\
+    \hline
+  \end{tabular}
+  \label{tab:conference}
+\end{table}
+
+\section{SINTESI DELL'INCONTRO}
+Il gruppo ha revisionato l'attuale stato di avanzamento del progetto.
+
+\section{DECISIONI}
+\begin{itemize}
+	\item Inviare il documento di Analisi dei Requisiti aggiornato alla versione 1.0.0 al proponente per \textit{feedback};
+	\item Attuare le ultime correzioni nei documenti:
+        \begin{itemize}
+            \item Aggiunta indicatori di Glossario mancanti;
+            \item Elenco tabelle;
+            \item Correzione dei \textit{path} per gli \textit{assets} nei documenti ;
+        \end{itemize}
+    \item Cominciare la stesura della struttura dei documenti di Specifica Architetturale e Specifica Tecnica per la fase di PB;
+    \item Invio richiesta di colloquio per la valutazione della fase RTB al professor Vardanega;
+\end{itemize}
+
+\end{document}

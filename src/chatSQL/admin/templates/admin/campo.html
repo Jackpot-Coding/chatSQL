@@ -1,0 +1,34 @@
+{% extends "./base.html" %}
+
+{%block title%}Crea campo tabella - {%endblock%}
+
+{% block breadcrumb %}
+{% if struttura %}
+    Ti trovi in: <a href="{% url 'db_view' struttura.pk %}">{{ struttura.nome }}</a> &gt&gt <a href="{% url 'table_view' tabella.pk %}">{{ tabella.nome }}</a> &gt&gt {{ campo_nome }}
+{% else %}
+    C'è stato un problema con l'inserimento dei dati. Torna alla <a href="{% url 'admin_home' %}">home</a>
+{% endif %}
+{% endblock breadcrumb %}
+
+{% block content %}
+
+{% if field_id is not None %}
+    <h1>Modifica campo</h1>
+{% else %}
+    <h1>Crea campo</h1>
+{% endif %}
+
+{% if form.errors %}
+    <div class="alert alert-danger">
+        {{ form.errors }}
+    </div>
+{% endif %}
+<form method="post">
+    {% csrf_token %}
+    {{ field_create_form }}
+    <button type="submit">Salva</button>
+</form>
+{% if field_id %}
+    <a href="{% url 'model_delete' 'Campo' field_id %}" class="del_btn">Elimina campo</a>
+{% endif %} 
+{% endblock content %}

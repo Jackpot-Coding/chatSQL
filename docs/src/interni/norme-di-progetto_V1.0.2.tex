@@ -1,0 +1,755 @@
+\documentclass[5pt]{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+
+\usepackage{titlesec}
+\usepackage{setspace}
+\usepackage{array}
+\usepackage{cellspace}
+\usepackage{tabularx}
+\usepackage[table]{xcolor}
+\usepackage{tabularray}
+\usepackage{wrapfig}
+\usepackage{flafter} 
+
+\usepackage{hyperref}
+\usepackage{scrextend}
+\graphicspath{ {../} }
+
+
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+\setlength{\parindent}{0pt}
+
+\title{Norme di Progetto}
+\author{Jackpot Coding}
+\renewcommand*\contentsname{Indice}
+\renewcommand{\figurename}{Immagine}
+\date{\today}
+
+%longtblr
+\DefTblrTemplate{contfoot-text}{default}{}
+\DefTblrTemplate{conthead-text}{default}{}
+\DefTblrTemplate{caption}{default}{}
+\DefTblrTemplate{conthead}{default}{}
+\DefTblrTemplate{capcont}{default}{}
+
+\begin{document}
+
+% Reduce top margin only on the first page
+\newgeometry{top=0.5in}
+
+%UNIPD LOGO
+\vspace{8pt}
+\includegraphics[scale=0.2]{assets/UNIPDFull.png}
+%END UNIPD LOGO
+
+\vspace{30pt}
+
+%COURSE INFO
+\begin{minipage}[t]{0.48\textwidth}
+	%COURSE TITLE
+	\begin{flushleft}
+		Informatica\\
+		\vspace{5pt}
+		\textbf{\LARGE Ingegneria del Software}\\
+		Anno Accademico: 2023/2024
+	\end{flushleft}
+	%END COURSE TITLE
+\end{minipage}
+%END COURSE INFO
+
+
+\vspace{5px}
+
+
+%BLACK LINE
+\textcolor{black}{\rule{\textwidth}{5pt}}
+
+%JACKPOT CODING INFO
+\begin{minipage}[t]{0.50\textwidth}
+	%LOGO JACKPOT CODING
+	\begin{flushleft}
+		\hspace{10pt}
+		\includegraphics[scale=0.65]{assets/jackpot-logo.png} 
+	\end{flushleft}
+\end{minipage}
+\hspace{-60pt} % This adds horizontal space between the minipages
+\begin{flushright}
+	\begin{minipage}[t]{0.50\textwidth}
+		%INFO JACKPOT CODING
+		\begin{flushright}
+			Gruppo: {\Large Jackpot Coding}\\
+			Email: \href{mailto:jackpotcoding@gmail.com}{jackpotcoding@gmail.com}
+		\end{flushright}
+	\end{minipage}
+\end{flushright}
+%END JACKPOT CODING INFO
+
+\vspace{24pt}
+
+%TITLE
+\begin{center}
+	\textbf{\Large NORME DI PROGETTO }
+\end{center}
+%END TITLE
+
+\vspace{13pt}
+
+\begin{flushleft}
+	\begin{spacing}{1.5}
+		REDATTORE: G. Moretto, M. Gobbo, E. Gallo, R. Simionato\\%INSERT HERE THE NAMES
+		VERIFICATORI: G. Moretto, M. Gobbo, E. Gallo, R. Simionato\\
+	\end{spacing}
+\end{flushleft}
+
+\begin{flushright}
+	\begin{spacing}{1}
+		USO: INTERNO\\
+		VERSIONE: 1.0.2\\
+	\end{spacing}
+\end{flushright}
+
+
+% Restore original margins from the second page onwards
+\restoregeometry
+
+\pagebreak
+
+
+\pagebreak
+
+\textbf{\Large Registro delle modifiche}
+\begin{longtblr}
+	{
+		colspec={|Q[0.10\linewidth]|Q[0.10\linewidth]|Q[0.15\linewidth]|Q[0.15\linewidth]|Q[0.45\linewidth]|},
+		rows={halign=l},
+		column{1}={halign=c},
+		column{3}={halign=c},
+		column{4}={halign=c},
+		row{1}={halign=c},
+		row{odd} = {gray!20},
+		row{1}={teal!50},
+	}
+    \hline
+    \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Modifica} \\
+    \hline
+    % versione & data & autore & verificatore & descrizioneModifica \\
+    % \hline
+    V1.0.2 & 18/03/2024 & E. Gallo & G. Moretto & Modifica al Registro delle modifiche\\
+    \hline
+    V1.0.1 & 14/03/2024 & G. Moretto & E. Gallo & Aggiunto stato "in review" a Jira e prima pagina come altri documenti.\\
+    \hline
+    V1.0.0 & 10/03/2024 & - & R. Simionato & Approvazione versione 1.0.0 \\
+    \hline
+    V0.1.1 & 3/03/2024 & R. Simionato & M. Gobbo & Aggiunto corsivo per i termini in inglese e apice G per Glossario \\
+    \hline
+    V0.1.0 & 2/03/2024 & - & R. Simionato & Verifica documento \\
+    \hline
+    V0.0.10 & 10/02/2024 & M. Gobbo & R. Simionato & Stesura della sezione 4.3 Formazione \\
+    \hline
+    V0.0.9 & 12/01/2024 & M. Camillo & R. Simionato & Stesura della sezione 4.1 Gestione di processo \\
+    \hline
+    V0.0.8 & 06/01/2024 & M. Gobbo & R. Simionato & Stesura parte 2.1, stesura iniziale parte 2.2 \\
+    \hline
+    V0.0.7 & 04/01/2024 & M. Gobbo & R. Simionato & Stesura parte 1.4, stesura iniziale parte 3.2, 3.3, 3.4 \\
+    \hline
+    V0.0.6 & 28/11/2023 & E. Gallo & R. Simionato & Stesura delle sezioni 1.1, 1.2, 1.3 dell'Introduzione \\
+    \hline
+    V0.0.5 & 27/11/2023 & G.Moretto & R. Simionato & Aggiornamento sezioni da 3.1.8 a 3.1.12 \\
+    \hline
+    V0.0.4 & 19/11/2023 & G.Moretto & R. Simionato & Aggiunti \textit{link} all'indice. Aggiornamento sezioni 3.1.4, 3.1.5, 3.1.6 , 3.1.7 \\
+    \hline
+    V0.0.3 & 17/11/2023 & R.Simionato & G.Moretto & Aggiunta sezione 4.2 Infrastruttura \\
+    \hline
+    V0.0.2 & 16/11/2023 & G. Moretto & R. Simionato & Aggiunta sezione 3.1 documentazione e stesura preliminare \\
+    \hline
+    V0.0.1 & 15/11/2023 & G. Moretto & R. Simionato & Creata struttura del documento \\
+    \hline
+\end{longtblr}
+
+
+
+\pagebreak
+\tableofcontents
+\pagebreak
+
+\section{Introduzione}
+
+\subsection{Scopo del documento}
+Il presente documento ha lo scopo di individuare le \textit{best practices} di progetto e definire correttamente il \textit{Way of Working}\textsuperscript{G} dell'attività produttiva, in modo tale da permettere un lavoro omogeneo, coeso e attuabile in modo asincrono. Per garantire un approccio incrementale, vengono indicate nel registro delle modifiche, tutte le versioni e lo storico del documento, seguendo le regole riportate nel documento stesso. Nei prossimi punti vengono precisamente descritte le convenzioni sull'uso degli strumenti utilizzati, sia di comunicazione sia di realizzazione dei processi di lavoro interno ed esterno.
+
+\subsection{Scopo del prodotto}
+L'obiettivo del progetto è quello di realizzare un'applicazione che esplori a fondo la capacità dei \textit{Large Language Models} (\textit{LLM}\textsuperscript{G}) di generare codice più o meno corretto. In questo particolare caso, il capitolato\textsuperscript{G} cerca di approfondire l'uso degli \textit{LLM} e la tecnica di \textit{prompting}\textsuperscript{G} per generare codice \textit{SQL}\textsuperscript{G}.
+L'applicativo deve:
+\begin{enumerate}
+    \item Archiviare la descrizione della struttura di un \textit{database}\textsuperscript{G};
+    \item Fornire un modo per richiedere, tramite linguaggio naturale\textsuperscript{G}, una visione di alcuni dati del \textit{database} a scelta;
+    \item Combinare la richiesta con le varie informazioni necessarie della struttura del \textit{database}, creando un 
+    \textit{prompt}\textsuperscript{G} che verrà poi sottoposto ad un sistema di \textit{AI}\textsuperscript{G};
+\end{enumerate}
+Sia il linguaggio di programmazione sia l'\textit{LLM} utilizzato dalla piattaforma, sono a discrezione del gruppo. Come linguaggio di programmazione è stato scelto \textit{Python}\textsuperscript{G}, per semplicità e la presenza di numerose librerie.
+Oltre ai requisiti\textsuperscript{G} obbligatori, l'azienda Zucchetti S.p.A., da la possibilità di sviluppare l'applicazione in maniere più approfondita. I requisiti opzionali sono:
+\begin{enumerate}
+    \item Visualizzare la frase \textit{SQL} prodotta dal sistema \textit{AI};
+    \item Sviluppare l'\textit{input}\textsuperscript{G} vocale della frase in linguaggio naturale;
+    \item Verificare la correttezza della frase \textit{SQL} prodotta dal sistema di \textit{AI};
+    \item Implementare la gestione di più basi di dati;
+    \item Utilizzare modelli\textsuperscript{G} \textit{LLM} alternativi a \textit{ChatGPT}\textsuperscript{G};
+    \item Addestrare un modello in modo specifico per la traduzione di frasi di interrogazione in italiano a frasi \textit{SQL};
+\end{enumerate}
+
+\subsection{Glossario}
+Per evitare incomprensioni relative ai vari termini utilizzati nel documento, viene fornito un Glossario, nell'omonimo \textit{file}, in modo da dare una definizione precisa di ogni termine che possa risultare ambiguo. Ogni termine presente nel Glossario verrà indicato nel documento con una lettera G come apice.
+
+\subsection{Riferimenti}
+\subsubsection{Riferimenti normativi}
+Capitolato C9 \textit{ChatSQL}: creare frasi \textit{SQL} da linguaggio naturale
+\begin{itemize}
+    \item \url{https://www.math.unipd.it/~tullio/IS-1/2023/Progetto/C9.pdf};
+\end{itemize}
+
+\subsubsection{Riferimenti informativi}
+Slide dell’insegnamento del corso di Ingegneria del Software:
+\begin{itemize}
+\item \url{https://www.math.unipd.it/~tullio/IS-1/2023/Progetto/T3.pdf};
+\item \url{https://www.math.unipd.it/~tullio/IS-1/2023/Dispense/T4.pdf};
+\item \url{https://www.math.unipd.it/~tullio/IS-1/2023/Dispense/T5.pdf};
+\end{itemize}
+
+\section{Processi primari}
+\subsection{Fornitura}
+\subsubsection{Descrizione, Scopo e Aspettative }
+Il processo di fornitura è il fondamento che orienta ogni fase del progetto, mirando a una comprensione completa delle richieste del proponente\textsuperscript{G} per soddisfarle in modo impeccabile. Questo approccio si sviluppa attraverso diverse fasi chiave:
+\begin{itemize}
+    \item{Avvio:} inizia con un'approfondita comprensione delle richieste del proponente e una valutazione della loro fattibilità, culminando nell'instaurazione di un accordo contrattuale;
+    \item{Contrattazione:} definisce chiaramente i termini e le condizioni, garantendo una base solida per la collaborazione;
+    \item{Pianificazione:} determina compiti, tempistiche e risorse necessarie per la realizzazione del progetto;
+    \item{Esecuzione:} attua il piano e monitora costantemente il progresso per assicurare il rispetto dei tempi e degli obiettivi;
+    \item{Revisione e valutazione:} valuta le fasi precedenti per apportare eventuali correzioni o miglioramenti;
+    \item{Consegna e completamento:} conclude il processo garantendo la piena soddisfazione del proponente;
+\end{itemize}
+Il processo di fornitura mira a eliminare ogni dubbio legato alle richieste del proponente, perseguendo la massima comprensione delle sue esigenze al fine di soddisfarle appieno. Questo approccio si concentra sull'instaurazione e il mantenimento di un dialogo attivo per garantire una collaborazione efficace e senza incomprensioni.\\
+Durante l'intero svolgimento del progetto ci impegniamo a mantenere un costante e proficuo scambio con il proponente, l'azienda Zucchetti S.p.A. Questo coinvolgerà:
+\begin{itemize}
+    \item Determinare le necessità del prodotto finale per assicurare una chiara comprensione delle aspettative del proponente rispetto al prodotto finale;
+    \item Stabilire i tempi di consegna e definire con precisione le scadenze per garantire un processo fluido;
+    \item Ricevere \textit{feedback} sul lavoro svolto e accogliere i commenti per migliorare continuamente il nostro impegno;
+    \item Chiarire dubbi e incomprensioni per risolvere ogni possibile incertezza attraverso un dialogo costante e chiaro;
+    \item Definire vincoli e requisiti per stabilire parametri chiari per il prodotto finale e per ogni fase intermedia del processo;
+\end{itemize}
+
+\subsubsection{Piano di Qualifica}
+Il documento rappresenta i compiti e le attività fondamentali legate al progetto che devono essere condotte dal Verificatore. Queste attività sono cruciali per assicurare la qualità del prodotto finale mediante l'utilizzo di approcci di verifica e validazione.\\
+In dettaglio, il Piano di Qualifica\textsuperscript{G} è strutturato come segue:
+\begin{itemize}
+    \item Qualità di Prodotto: stabilisce le metriche per valutare e garantire la qualità del prodotto finale;
+    \item Qualità di Processo: definisce le metriche per il controllo della qualità dei processi adottati;
+    \item Specifica dei \textit{Test}: descrive in maniera specifica i \textit{test} eseguiti sul prodotto per assicurare il soddisfacimento dei requisiti stabiliti;
+    \item Resoconto attività di verifica: fornisce un riassunto delle attività di verifica svolte in un determinato periodo di tempo o fase del progetto;
+    \item Valutazioni attività di verifica: fornisce un'analisi critica delle attività di verifica svolte durante il processo di sviluppo del \textit{software};
+\end{itemize}
+
+\subsubsection{Piano di Progetto}
+Il Piano di Progetto\textsuperscript{G}, situato nella fase iniziale di pianificazione, funge da strumento essenziale per la definizione delle attività, delle risorse necessarie e delle tempistiche del progetto stesso. Trattandosi di un documento ufficiale, è soggetto a versionamento\textsuperscript{G} e approvazione, e rappresenta una guida chiara e concisa degli obiettivi e degli elementi chiave necessari al raggiungimento di tali obiettivi.
+Il Piano di Progetto abbraccia diverse componenti fondamentali:
+\begin{itemize}
+    \item Analisi dei Rischi: valuta e anticipa le possibili difficoltà che potrebbero insorgere durante lo sviluppo del progetto, al fine di prevenire ostacoli e ritardi. Questi rischi sono classificati in due categorie principali:
+    \begin{itemize}
+        \item Rischi Tecnologici;
+        \item Rischi Interni;
+        \begin{itemize}
+            \item Rischi Organizzativi;
+            \item Rischi Comunicativi;
+        \end{itemize}
+    \end{itemize}
+    \item Modello di Sviluppo: determina il modello da adottare per la gestione dello sviluppo;
+    \item Pianificazione: definisce una sequenza temporale delle attività di progetto, stabilendo le relative scadenze;
+    \item Preventivo: sintetizza in modo schematico l'aspetto economico e temporale complessivo del progetto, fornendo anche una suddivisione per fasi;
+    \item Consuntivo: monitora l'andamento del progetto rispetto al preventivo iniziale;
+\end{itemize}
+
+
+\subsection{Sviluppo}
+\subsubsection{Descrizione, Scopo e Aspettative }
+Il processo di sviluppo comprende tutte le attività coinvolte nello sviluppo del prodotto \textit{software}, tra cui l'analisi dei requisiti, la progettazione, la codifica, l'integrazione, i \textit{test}, l'installazione e l'accettazione, necessari per il completamento del \textit{software}.\\\\
+L'obiettivo principale del processo di sviluppo è definire i compiti e le attività necessarie per la codifica del prodotto \textit{software} richiesto, delineando in modo chiaro e definito i ruoli da adottare.\\
+Il Gruppo \textit{"Jackpot Coding"} si impegna a determinare gli obiettivi di sviluppo e \textit{design} necessari per l'implementazione corretta del prodotto finale, garantendo che rispetti le richieste del proponente provenienti dall'Analisi dei Requisiti\textsuperscript{G} e dal \textit{design ER}, oltre a superare i \textit{test} di verifica e validazione.\\\\
+Nel perseguire il processo di sviluppo, ci aspettiamo:
+\begin{itemize}
+    \item Definizione dei Vincoli Tecnologici: chiara definizione dei requisiti tecnologici;
+    \item Determinazione degli Obiettivi di Sviluppo: identificazione chiara degli obiettivi relativi allo sviluppo;
+    \item Definizione dei Vincoli di \textit{Design}: specificazione dei vincoli di \textit{design};
+    \item Conclusione di un Prodotto Finale Che Soddisfi le Richieste del Proponente: garanzia che il prodotto finale superi i \textit{test} e soddisfi appieno i requisiti richiesti dal proponente;
+\end{itemize}
+
+\subsubsection{Analisi Requisiti}
+L'analisi dei requisiti è una fase preliminare fondamentale nel definire chiaramente il prodotto finale. Gli Analisti raccolgono informazioni dettagliate sul contesto d'uso e sugli obiettivi del prodotto per:
+\begin{itemize}
+    \item Identificare il fine del prodotto, in linea con le richieste del proponente;
+    \item Definire le funzionalità, identificando chi interagisce con il sistema e come (attori e casi d'uso);
+    \item Stabilire i criteri per la qualifica e il controllo dei \textit{test};
+    \item Effettuare confronti interni ed esterni, delineando una visione generale del prodotto e quantificando gli impegni basandosi sui ruoli;
+\end{itemize}
+L'obiettivo è capire appieno la specifica del capitolato, arricchendola tramite dialogo col proponente per garantire una corretta realizzazione del prodotto.\\
+Questa attività punta a individuare tutti i requisiti diretti e indiretti richiesti per il prodotto, suddividendo il problema in requisiti elementari per semplificarne lo sviluppo.\\
+La documentazione finale raccoglie tutti i requisiti richiesti dal proponente, fungendo da guida per gli sviluppatori e come riferimento per i \textit{test}, ottenendo così una stima della mole di lavoro necessaria.\\
+Per identificare questi requisiti, è essenziale leggere attentamente il capitolato e mantenere un dialogo costante col proponente.\\
+
+\paragraph{Casi d'uso}~\\
+I casi d'uso\textsuperscript{G} rappresentano il modo in cui il prodotto viene utilizzato e il suo comportamento. Sono delineati attraverso diagrammi \textit{UML}\textsuperscript{G} e ognuno comprende:
+\begin{itemize}
+    \item Un codice identificativo univoco;
+    \item L'attore principale coinvolto;
+    \item Condizioni iniziali necessarie;
+    \item Condizioni finali una volta co mpletato il caso;
+    \item Lo scenario principale del caso d'uso;
+    \item Possibili scenari alternativi o casi simili;
+    \item Estensioni che possono verificarsi durante l'esecuzione del caso d'uso;
+\end{itemize}
+Il nostro gruppo ha scelto di denominarli secondo uno schema preciso: 
+\begin{center}
+    \textbf{UC[Numero Caso D'Uso].[Numero Sottocaso]-[Nome Caso D'Uso]}
+\end{center}
+
+\paragraph{Requisiti}~\\
+%\textbf{Requisiti}\\\\
+I requisiti derivano da varie fonti, tra cui:
+
+\begin{itemize}
+    \item L'esame approfondito della documentazione iniziale del progetto;
+    \item Discussioni e confronti tra i membri del \textit{team};
+    \item Dialogo diretto e confronto con il cliente o il propone te del progetto;
+    \item L'analisi dei modi in cui il prodotto viene utilizzato, come espresso nei casi d'uso;
+\end{itemize}
+Anche per i requisiti il gruppo ha definito uno \textit{standard} da adottare che è il seguente:
+\begin{center}
+    \textbf{R[Tipo][Numero Requisito]}
+\end{center}
+Dove il tipo può essere:
+\begin{itemize}
+    \item \textbf{F} - Requisito Funzionale;
+    \item \textbf{Q} - Requisito Qualità;
+    \item \textbf{V} - Requisito Vincolo;
+    \item \textbf{P} - Requisito Prestazionale;
+\end{itemize}
+\subsubsection{Progettazione}
+La fase di progettazione costituisce un passaggio fondamentale per delineare la struttura essenziale del progetto, basandosi sui requisiti individuati nell'analisi e poi definiti nell'Analisi dei Requisiti. Questo compito è affidato ai progettisti che si dedicano a pianificare l'implementazione di tutti i requisiti specificati. Il nostro \textit{team}, in questa fase del ciclo di vita del \textit{software}, ha le seguenti aspettative:
+\begin{itemize}
+    \item Tradurre tutti i requisiti in specifiche dettagliate che coprano ogni aspetto del sistema;
+    \item Assicurare una comprensione agevole per facilitare la manutenzione;
+    \item Ottenere l'approvazione per procedere alla fase di sviluppo;
+\end{itemize}
+Questo processo si articola in tre livelli:
+\begin{enumerate}
+    \item \textit{Design} dell'interfaccia: qui si opera a un livello elevato di astrazione rispetto al funzionamento interno del sistema. L'attenzione è focalizzata sulle tecnologie che saranno utilizzate nella fase di sviluppo, portando alla creazione di un \textit{Proof of Concept}\textsuperscript{G};
+    \item Progettazione architetturale: si seleziona la struttura generale del sistema, definendo un quadro a alto livello che trascura i dettagli interni dei principali componenti del prodotto. Inoltre, si definiscono i \textit{test} di integrazione;
+    \item Progettazione dettagliata: si specificano gli elementi interni di tutti i principali componenti e le specifiche architetturali del prodotto. Si definiscono anche i diagrammi delle classi e i \textit{test} di unità per ciascun componente. Questa fase costituisce il fondamento del prodotto (\textit{Product Baseline}\textsuperscript{G});
+\end{enumerate}
+Il fine dell'attività di progettazione è concretizzare l'architettura del sistema. Inizialmente come già detto quindi ci si avvale di un \textit{Proof of Concept}, che funge da demo prototipale del sistema, presentato alla \textit{Requirements \& Technology}\textsuperscript{G} per approvazione.
+
+\subsubsection{Codifica}
+Una volta completata la fase di progettazione del prodotto, i membri del gruppo con il ruolo di Programmatori passeranno alla fase di codifica, traducendo le specifiche dei requisiti e i documenti di progettazione in codice effettivo. L'obiettivo primario di questa fase è rendere tangibile il prodotto \textit{software} desiderato attraverso il processo di programmazione.\\
+Durante la fase di codifica, le aspettative includono:
+\begin{itemize}
+    \item Completare lo sviluppo del prodotto finale rispettando le richieste del proponente e garantendone la qualità;
+    \item Assicurare che il codice prodotto sia facilmente comprensibile per chi lo legge;
+\end{itemize}
+La codifica mira a concretizzare la progettazione trasformando il concetto in \textit{software} funzionante. L'obiettivo è generare un prodotto \textit{software} che soddisfi le caratteristiche e i requisiti concordati con il proponente. Affinché il codice sia facilmente gestibile nelle fasi successive di manutenzione, modifica, verifica e validazione, è importante rispettare alcune convenzioni che ne agevolino la comprensione.
+
+
+\section{Processi di supporto}
+
+\subsection{Documentazione}
+\subsubsection{Descrizione, Scopo e Aspettative }
+Si descrive come documentazione \textit{software} come illustrazioni e/o testo che accompagnano il progetto \textit{software}, sia come documenti separati che come commenti nel codice sorgente.\\
+Il suo scopo è quello di rendere comprensibile il progetto nella sua interezza per chi lo sviluppa, chi lo mantiene ed il suo utilizzatore finale. Questo viene fatto descrivendo le attività effettuate nel ciclo di vita del \textit{software} nel modo più chiaro possibile.\\
+Le aspettative per questo processo sono:
+\begin{itemize}
+    \item Documentare tramite verbale ogni incontro interno ed esterno;
+    \item Avere una struttura fissa per ogni tipo di documento;
+    \item Utilizzare una procedura per la verifica dei documenti;
+    \item Facilitare il lavoro autonomo per la gestione dei documenti;
+\end{itemize}
+
+\subsubsection{Ciclo di vita di un documento} \label{cicloDoc}
+Il ciclo di vita di un documento è diviso nelle seguenti fasi:
+\begin{itemize}
+    \item Pianificazione: la struttura ed il contenuto vengono decisi dai componenti del gruppo, varie sezioni sono divise e assegnate tramite la piattaforma \textit{Jira};
+    \item Impostazione: viene implementata la struttura del documento;
+    \item Scrittura: le persone incaricate scrivono il contenuto del documento seguendo la struttura e le indicazioni per il tipo di documento. Il documento viene scritto nel linguaggio \textit{LaTeX}\textsuperscript{G} e caricato nella \textit{repository}\textsuperscript{G} in un \textit{branch}\textsuperscript{G} dedicato;
+    \item Verifica: le persone incaricate verificano il contenuto e, se necessario, apportano modifiche allo stesso;
+    \item Approvazione: il responsabile di progetto approva il documento dopo la verifica. Una volta approvato il documento viene aggiunto al ramo\textsuperscript{G} \textit{main} della \textit{repository};
+\end{itemize}
+
+\subsubsection{Modelli dei documenti}
+Viene creato un modello (o \textit{template}) in formato \textit{LaTeX} per ogni tipo di documento, in questo vengono definite l'intestazione e le sezioni del documento.
+
+\subsubsection{Struttura di un documento}
+
+\paragraph{Intestazione}~\\
+L'intestazione contiene il logo dell'università di Padova, indicando il corso di laurea, il corso relativo al progetto e l'anno accademico. Inoltre è presente il logo, il nome e l'indirizzo email del gruppo (\textit{Jackpot Coding}).
+Sono prensenti i dati che identificano il documento: data del documento, oggetto, redattori, verificatori, il responsabile, lo scriba ed in fine l'uso (interno o esterno) e, se esterno, i destinatari del documento.
+
+\paragraph{Cambiamenti}~\\
+La sezione cambiamenti contiene una tabella con le seguenti colonne:
+\begin{itemize}
+    \item Versione: la versione raggiunta;
+    \item Data: quando sono state effettuate le modifiche;
+    \item Autore: chi ha effettuato le modifiche;
+    \item Verificatore: chi ha verificato le modifiche;
+    \item Modifica: quali modifiche sono state apportate;
+\end{itemize}
+
+\paragraph{Indice}~\\
+L'indice riporta l'elenco delle sezioni e sotto-sezioni del documento riportando a quale pagina si trovano e contenendo un \textit{link} per la navigazione rapida.
+
+\subsubsection{Struttura di un verbale}
+Oltre alle sezioni sopra citate vengono inserite le seguenti sezioni.
+
+\paragraph{Orario}~\\
+Contiene l'ora di inizio e fine dell'incontro.
+
+\paragraph{Partecipanti}~\\
+Contiene una tabella che presenta il nome e cognome dei partecipanti e la durata della loro presenza all'incontro.
+
+\paragraph{Sintesi dell'incontro}~\\
+Contiene una versione riassuntiva degli argomenti trattati durante l'incontro.
+
+\paragraph{Decisioni}~\\
+Contiene le decisioni prese durante l'incontro, queste si traducono i compiti assegnati ai membri del gruppo.
+
+\subsubsection{Nome dei \textit{file}}
+Il nome del \textit{file} deve essere esplicativo, indicandone il contenuto, e la versione.
+
+\subsubsection{Stile del testo}
+\textbf{Grassetto}: applicato ai titoli e a parole di particolare importanza. \\
+\texttt{Monospace}: applicato a frammenti di codice e percorsi di cartelle e \textit{file}. \\
+\underline{Sottolineato}: applicato a \textit{link} presenti nel documento.\\
+\textit{Corsivo}: applicato ai termini inglesi.
+
+\subsubsection{Norme tipografiche}
+\begin{itemize}
+    \item Gli elementi di un elenco finiscono con il carattere punto e virgola;
+    \item La prima lettera degli elementi di un elenco è sempre maiuscola;
+    \item I nomi delle sezioni e sottosezioni iniziano con una lettera maiuscola;
+\end{itemize}
+
+\subsubsection{Glossario}
+Il Glossario è un documento che contiene termini e/o sigle il quale significato è importante per il progetto. Il documento viene caricato sulla \textit{repository} per facilitare la consultazione e la stesura da parte del gruppo. I termini presenti nel glossario presentano una G in apice.
+
+\subsubsection{Sigle}
+
+\subsubsection{Immagini}
+Le immagini presenti nei documenti sono caricate nella cartella \texttt{/docs/src/assets} della \textit{repository}.
+
+\subsubsection{Strumenti utilizzati}
+\paragraph{\textit{Overleaf}}~\\
+Viene utilizzato per la scrittura collaborativa di documenti in formato \textit{LaTeX}.
+\paragraph{\textit{GitHub}}~\\
+Nella \textit{repository} ufficiale vengono caricate le versioni dei documenti utilizzando la procedura descritta dal ciclo di vita come da sezione \ref{cicloDoc}.
+\paragraph{Editor \textit{LaTeX}}~\\
+Ogni componente del gruppo ha la libertà di utilizzare l'\textit{editor LaTeX} che preferisce (viene consigliato TeXstudio).
+
+\subsection{Gestione della configurazione}
+    \subsubsection{Descrizione e scopo}
+    La gestione della configurazione è un processo cruciale per mantenere la coerenza del \textit{software} nel tempo, garantendo il corretto funzionamento del sistema nonostante le eventuali modifiche apportate. Problemi nella configurazione potrebbero causare incoerenze o problemi di aderenza alle normative, compromettendo le operazioni aziendali, è quindi importante perseguire questo punto.
+    
+    \subsubsection{Sistema di versionamento}
+    Il versionamento offre la possibilità di registrare tutte le modifiche apportate a un documento. Questo sistema consente di ripristinare una versione precedente del documento e visualizzare chiaramente tutte le modifiche fatte nel corso del tempo, incluso l'autore di ciascuna modifica.\\
+    Nel nostro gruppo, abbiamo adottato il seguente codice per identificare le diverse versioni di un documento:
+    \begin{center}
+    \textbf{[x].[y].[z]}
+    \end{center}
+    La versione viene indicata con tre numeri separati da un punto, come visto sopra, indicati in questa sezione come x.y.z.
+    \begin{itemize}
+    \item[\textbf{x)}] Il numero viene aumentato solo quando il documento è pronto per essere caricato nel \textit{main branch}\textsuperscript{G};
+    \item[\textbf{y)}] Il numero viene aumentato solo quando le modifiche sono verificate;
+    \item[\textbf{z)}] Il numero viene aumentato quando il documento subisce una modifica;
+    \end{itemize}  
+    
+    \subsubsection{\textit{Repository}}
+    \paragraph{Tecnologie utilizzate}~\\
+    Il nostro \textit{team} ha scelto di utilizzare \textit{GitHub}\textsuperscript{G} come strumento per gestire la configurazione, facendo affidamento sul sistema di controllo di versione distribuito di \textit{Git}\textsuperscript{G}.\\
+    La \textit{repository} è accessibile pubblicamente tramite il seguente \textit{link}:
+    \begin{center}
+    \url{https://github.com/Jackpot-Coding}\\
+    \end{center}
+    Per agevolare la consultazione e la navigazione dei documenti, abbiamo creato un sito dedicato tramite \textit{GitHub}. È possibile accedervi utilizzando il seguente riferimento:
+    \begin{center}
+    \url{https://jackpot-coding.github.io/chatSQL/}\\
+    \end{center}
+    \paragraph{Struttura \textit{Repository}}~\\
+    La struttura della \textit{repository} si basa sulla strategia \textbf{GitHub Flow} che distingue due tipi di rami:
+    \begin{itemize}
+    	\item Ramo principale \textbf{\textit{Main}} in cui è presente la documentazione ed il codice verificato e funzionante;
+    	\item Rami secondari utilizzati per la redazione dei documenti e l'implementazione di nuovo codice che verranno uniti al ramo principale tramite il \textit{merging}\textsuperscript{G} una volta terminate e verificate le modifiche;
+    \end{itemize}
+    Nel ramo \textit{Main} all'interno della cartella "docs" si trovano i documenti divisi nelle sottocartelle:
+    \begin{itemize}
+    	\item "interni", che contiene i documenti utili al gruppo;
+    	\item "esterni", che contiene i documenti che verranno condivisi con i committenti e il proponente;
+    	\item "src", che contiene i \textit{file} sorgente e le immagini o \textit{assets} necessari per la compilazione dei documenti;
+    \end{itemize}
+    Sempre nel ramo \textit{Main} all'interno della cartella "src" si trovano i \textit{file} sorgenti del prodotto.
+    
+\subsection{Gestione della qualità}
+    \subsubsection{Descrizione, scopo}
+    La gestione della qualità in un progetto è fondamentale per assicurare che i processi e i prodotti soddisfino le richieste del cliente con la massima qualità possibile. È altrettanto importante perseguire un miglioramento continuo attraverso monitoraggi e valutazioni retrospettive. Questo processo coinvolge una serie di attività volte a garantire che i risultati e le \textit{performance} del progetto siano allineati agli obiettivi e ai requisiti stabiliti. Questa sezione si concentra sull'impegno del gruppo nella gestione della qualità del progetto, cercando di assicurare un'implementazione accurata e coerente di tali processi.
+    \subsubsection{Piano di qualifica}
+    Per assicurare un mantenimento della qualità il gruppo si avvale del documento Piano Di Qualifica nel quale vengono descritti:
+    \begin{itemize}
+		\item Obiettivi della qualità di Prodotto;
+		\item Obiettivi della qualità di Processo;
+		\item Metodi per la misurazione di questi tramite metriche;
+		\item Definizione dei \textit{test} da effettuare;
+		\item Cruscotto\textsuperscript{G} per la visione dello stato del raggiungimento degli obiettivi;
+    \end{itemize}
+
+\subsection{Verifica}
+    \subsubsection{Descrizione, scopo}
+    La verifica del \textit{software} è il processo valutativo che assicura l'accuratezza della fase di sviluppo per costruire il prodotto desiderato. Si esegue durante lo sviluppo per rilevare difetti precocemente e garantire che il \textit{software} soddisfi i requisiti del cliente. L'obiettivo della verifica è controllare la correttezza e completezza del prodotto, garantendo che sia conforme alle aspettative. Si basa su analisi e \textit{test} per assicurare l'assenza di errori nel \textit{software} e nella documentazione. Questa sezione mira a definire l'approccio scelto dal gruppo per attuare il processo di verifica.
+    \subsubsection{Analisi statica}
+    L'analisi statica consiste nell'esaminare il codice o la documentazione prima dell'esecuzione del \textit{software}, garantendo il soddisfacimento dei requisiti specificati. Questo metodo si applica non solo al codice ma anche ai documenti, focalizzandosi sugli aspetti statici del sistema \textit{software}, come le convenzioni del codice o le metriche del \textit{software}. Include sia \textit{test} manuali che automatizzati, come l'analisi di coerenza.
+    Questo tipo di analisi si divide in due metodi principali: 
+
+    \begin{itemize}
+    \item \textit{Walkthrough}: prevede una lettura ampia per individuare possibili errori senza conoscere la loro posizione esatta.
+    \item \textit{Inspection}: punta a individuare errori specifici con un approccio mirato.
+    \end{itemize}
+    In particolare, nell'analisi dei documenti, si utilizzano tecniche simili di \textit{Walkthrough} e \textit{Inspection}.\\
+    Inizialmente, l'attività di \textit{Walkthrough} è prevalente rispetto all'\textit{Inspection}, ma con il progredire del progetto e la ripetizione delle verifiche sulla documentazione, si sviluppa una lista degli errori comuni (Lista di Controllo), consentendo l'adozione più ampia dell'\textit{Inspection}, che si rivela più efficiente.
+    \subsubsection{Analisi dinamica}
+    L'analisi dinamica si svolge simultaneamente all'esecuzione del \textit{software} ed è principalmente costituita dalla fase di \textit{test}. A differenza dell'analisi statica, coinvolge l'esecuzione effettiva del sistema e dei suoi componenti.\\
+    Per garantire che il prodotto funzioni correttamente durante l'esecuzione, il gruppo utilizza una serie di \textit{test} eseguibili in tempo reale. È essenziale che tali \textit{test} siano ripetibili, pertanto si identificano strumenti per automatizzarne l'esecuzione.\\
+    Questo approccio dinamico è cruciale per rilevare problemi e difetti durante l'esecuzione effettiva del \textit{software}, fornendo una maggiore sicurezza sul corretto funzionamento del prodotto.
+    
+\section{Processi Organizzativi}
+\subsection{Gestione Di Processo}
+
+\subsubsection{Scopo}
+Il processo mira a sviluppare il documento noto come Piano di Progetto. Questo strumento è essenziale per organizzazione e la gestione dei ruoli di ciascun membro del gruppo coinvolto. L'obiettivo principale è fornire una guida chiara e strutturata che consenta ai membri del \textit{team} di comprendere appieno le loro responsabilità e contribuire in modo efficace al successo del progetto.
+
+\subsubsection{Aspettative}
+Le aspettative chiave legate al processo di gestione dei processi sono:
+\begin{itemize}
+    \item \textbf{Creazione di un documento dettagliato che delinei le fasi, le attività e le risorse necessarie per il progetto:} questo documento serve come guida chiara per tutti i membri del \textit{team}.
+    \item \textbf{Definizione dei ruoli dei membri del gruppo:} chiara definizione e assegnazione dei ruoli e delle responsabilità di ciascun membro del \textit{team}. Questo contribuisce a garantire una distribuzione equa del lavoro e una comprensione completa delle responsabilità individuali.
+    \item \textbf{Definizione di un piano per l'esecuzione dei compiti programmati:} sviluppo di un piano operativo che stabilisca le tempistiche, le scadenze e le sequenze di attività per garantire l'esecuzione efficiente e tempestiva dei compiti programmati. Questo passo è fondamentale per mantenere il progetto in linea con le tempistiche previste e per affrontare eventuali deviazioni in modo proattivo.
+\end{itemize}
+
+\subsubsection{Coordinamento}
+\paragraph{Comunicazioni}
+Nel contesto delle comunicazioni interne tra gli studenti del gruppo, si fa uso di diversi canali di comunicazione. La selezione di tali canali è stata attentamente valutata per evitare sovrapposizioni e suddividere i compiti specifici di ciascun canale, al fine di evitare confusioni nella ricerca delle informazioni scambiate. I principali canali utilizzati includono:
+\begin{itemize}
+    \item \textbf{\textit{Discord}:}
+        \begin{itemize}
+            \item \textbf{Testuale:} utilizzato per lo scambio di informazioni testuali, come \textit{file}, \textit{link} e bozze di appunti;
+            \item \textbf{Canale "Chat-Generale":} adibito allo scambio informale di dettagli riguardanti note riunioni e la condivisione di documenti;
+            \item \textbf{Canale "Info":} riservato allo scambio formale di informazioni relative al nucleo centrale del progetto;
+            \item \textbf{Vocale:} utilizzato per condurre incontri interni attraverso canali vocali;
+        \end{itemize}
+    \item \textbf{\textit{Telegram}:} utilizzato per aggiornamenti rapidi tra i membri del gruppo, richieste di chiarimenti, informazioni, organizzazione di incontri e ottenere risposte tempestive;
+\end{itemize}
+
+\subsubsection{Gestione degli incontri}
+\textbf{Incontri Interni}\\
+Gli incontri interni coinvolgono esclusivamente i membri del gruppo e si tengono regolarmente, generalmente almeno una volta a settimana, adattandosi alle esigenze e allo sviluppo del lavoro autonomo di ciascun componente. In situazioni particolari, sono organizzati incontri \textit{extra}. Un impegno costante è posto nel coordinare gli impegni di tutti, cercando di garantire la partecipazione di ogni membro a tali incontri.\\
+Nel caso in cui la partecipazione risulti impossibile per qualche membro, viene assicurato l'\textbf{accesso al verbale} dell'incontro. Inoltre, il responsabile si impegna a fornire tutti gli aggiornamenti essenziali a chi non ha potuto partecipare, garantendo così una piena condivisione delle informazioni all'interno del gruppo.\\
+Per ottimizzare l'efficienza del tempo durante le riunioni interne, vengono adottati i seguenti accorgimenti:
+\begin{itemize}
+    \item \textbf{Scaletta \textit{Standard}:} ogni riunione segue una scaletta predefinita, garantendo un flusso organizzato e la discussione completa di tutti gli argomenti pianificati;
+    \item \textbf{Preparazione:} ciascun membro del gruppo si impegna attivamente e produttivamente durante le riunioni. Questo richiede una preparazione preliminare da parte di ogni partecipante. L'uso del tempo sincrono è considerato prezioso, e pertanto si incoraggia la partecipazione consapevole su argomenti di competenza individuale. Ciò implica avere un'idea chiara di "cosa so" e "cosa non so" per favorire discussioni informate;
+\end{itemize}
+\textbf{Incontri Esterni}\\
+Gli incontri esterni vengono organizzati con il committente\textsuperscript{G} e il proponente e vengono richiesti dal gruppo in situazioni in cui si necessita di opinioni più esperte. Data la preziosità del tempo degli esperti, si fa uno sforzo per minimizzare la frequenza di tali incontri, assicurandosi che siano ben preparati e focalizzati.\\ 
+L'utilizzo del \textbf{tempo degli esperti è ottimizzato} riducendo al minimo il numero di incontri e assicurandosi che le domande rivolte siano dettagliate e concise. L'obiettivo è ottenere tutte le informazioni necessarie nel minor tempo possibile.\\
+Gli incontri esterni avvengono virtualmente attraverso la piattaforma di comunicazione \textbf{\textit{Zoom}} e coinvolgono tutti i membri del gruppo presenti al momento dell'incontro, insieme al referente dell'azienda. Questo approccio permette una partecipazione flessibile e una comunicazione efficace senza la necessità di spostamenti fisici.
+
+\subsubsection{Reperibilità Membri}
+È richiesto che ogni membro del nostro gruppo sia disponibile per riunioni sincrone dal lunedì al venerdì, nel pomeriggio. In caso di impossibilità di partecipazione da parte di uno o più membri alla data programmata, è previsto che si avverta tempestivamente il Responsabile di Gruppo. Inoltre, la disponibilità può essere estesa al fine settimana in caso di necessità particolari.\\
+Nel corso del progetto, ciascun membro gode della libertà di \textbf{gestire in modo autonomo} i compiti assegnati \textbf{asincroni} nel rispetto delle scadenze stabilite. È incoraggiato a organizzare il proprio lavoro tenendo conto degli impegni accademici e personali, garantendo al contempo il rispetto delle tempistiche concordate.\\
+
+\subsubsection{Ruoli Di Progetto}
+All'interno del progetto, ogni membro ha assegnati specifici ruoli da ricoprire per un periodo congruo rispetto a quanto preventivato. Di seguito sono elencati i ruoli previsti:
+\begin{itemize}
+    \item \textbf{Responsabile di Progetto:} figura professionale, punto di riferimento sia per il committente sia per il fornitore, con lo scopo di mediare tra le due parti.
+        \begin{itemize}
+            \item Guida il progetto a livello macroscopico e gestisce i processi;
+            \item Rimane costantemente aggiornato sullo stato di avanzamento del progetto;
+            \item Gestisce la pianificazione delle attività per ciascuna \textit{milestone}\textsuperscript{G};
+            \item Approva le attività completate e verificate, compresi processi primari e di supporto;
+            \item Gestisce il calendario condiviso e si occupa delle comunicazioni esterne;
+        \end{itemize}
+    \item \textbf{Amministratore:} figura professionale con l’incarico delle procedure di controllo e amministrazione dell’ambiente di lavoro, con piena responsabilità sulla capacità operativa e sull’efficienza.
+        \begin{itemize}
+            \item Garantisce l'efficacia ed efficienza dei processi;
+            \item Redige documenti come Norme di Progetto\textsuperscript{G}, Piano di Progetto, Piano di Qualifica;
+            \item Gestisce l'infrastruttura e gli strumenti utilizzati;
+            \item Automatizza i processi;
+            \item Individua punti di miglioramento nei processi;
+        \end{itemize}
+    \item \textbf{Analista:} figura professionale con maggiori competenze riguardo il dominio applicativo del problema.
+        \begin{itemize}
+            \item Gioca un ruolo chiave nelle fasi iniziali del progetto;
+            \item Comprende a fondo le necessità del proponente e identifica i requisiti fondamentali;
+            \item Redige il documento di Analisi dei Requisiti;
+            \item Studia il dominio applicativo relativo alle richieste del proponente;
+            \item Scompone le esigenze del proponente in elementi atomici;
+        \end{itemize}
+    \item \textbf{Progettista:} figura professionale che gestisce gli aspetti tecnologici e tecnici del progetto.
+        \begin{itemize}
+            \item Modella i requisiti identificati nella fase di analisi e li ricompone in un'architettura soddisfacente;
+            \item Produce un'architettura che soddisfa i requisiti richiesti;
+            \item Approfondisce conoscenze tecniche e ricerca strumenti tecnologici utili;
+            \item Realizza una soluzione con un alto livello di manutenibilità, seguendo le \textit{best practices} note;
+            \item Progetta l'architettura di un sistema riducendo al minimo le dipendenze tra componenti;
+        \end{itemize}
+    \item \textbf{Programmatore:} figura professionale incaricata alla codifica del progetto e delle componenti di supporto che verranno utilizzate per eseguire prove di verifica e validazione sul prodotto.
+        \begin{itemize}
+            \item Implementa l'architettura prodotta nella fase di progettazione;
+            \item Scrive codice conforme alle specifiche di progettazione;
+            \item Applica le \textit{best practices} nella scrittura di codice, promuovendo l'alta manutenibilità con versionamento e documentazione;
+            \item Scrive i \textit{test} relativi al codice prodotto;
+            \item Redige il Manuale Utente;
+        \end{itemize}
+    \item  \textbf{Verificatore:} figura professionale con l’incarico di sorveglianza sul lavoro svolto dagli altri componenti del gruppo, sulla base delle proprie competenze tecniche, esperienza e conoscenza delle norme.
+        \begin{itemize}
+            \item Si occupa di controllare che le attività svolte rispettino il livello di qualità atteso;
+            \item Non effettua il controllo delle attività svolte personalmente per ovvie ragioni;
+        \end{itemize}
+        
+\end{itemize}
+
+\subsubsection{Gestione Delle Task}
+Nel contesto della gestione di progetti, ogni obiettivo fondamentale è suddiviso in \textbf{\textit{milestone}}, o tappe chiave, alle quali sono associate specifiche attività. Questo approccio consente un monitoraggio dettagliato dello stato di avanzamento interno di ciascuna \textit{milestone}. Per facilitare la gestione delle attività, il nostro \textit{team} fa uso del \textit{software} \textbf{\textit{Jira}}, fornendo un'interfaccia intuitiva e flessibile.\\
+\textbf{Processo di Gestione delle Attività con \textit{Jira}:}
+\begin{itemize}
+    \item \textbf{Creazione:} una nuova attività viene identificata e definita con una descrizione dettagliata. La \textit{task}\textsuperscript{G} è inserita nella lista "\textit{To Do}";
+    \item \textbf{Assegnazione:} un membro del \textit{team}, tramite il proprio \textit{account Jira}, si prende in carico la \textit{task}. L'assegnazione può avvenire autonomamente o essere decisa durante gli incontri interni del \textit{team};
+    \item \textbf{Sviluppo:} una volta che il membro assegnato inizia a lavorare sulla \textit{task}, questa viene spostata nella lista "\textit{In Progress}". Tale transizione riflette l'avvio effettivo dell'attività;
+    \item \textbf{Completamento:} una volta che la \textit{task} è completata viene associato il \textit{branch GitHub} correlato al lavoro svolto;
+    \item \textbf{Verifica:} un revisore incaricato esegue la verifica della qualità dell' implementazione;
+    \item \textbf{Accettazione:} se la verifica ha esito positivo, la \textit{task} viene spostata nella lista "\textit{Done}";
+\end{itemize}
+
+\textbf{Categorizzazione delle Attività:} le attività vengono categorizzate in base alla loro dimensione e alla loro importanza nel contesto del progetto:
+\begin{itemize}
+    \item \textbf{Processo Primario:} codifica di una classe;
+    \item \textbf{Processo di Supporto:} stesura di una sezione di un documento;
+    \item \textbf{Processo Organizzativo:} creazione e configurazione delle attività di una \textit{milestone};
+\end{itemize}
+
+\textbf{Calendarizzazione e Pianificazione:}
+\begin{itemize}
+    \item Le attività vengono pianificate in base a una calendarizzazione predefinita;
+    \item La dimensione delle attività è commisurata alla loro complessità e al carico di responsabilità associato;
+\end{itemize}
+Questo processo strutturato e l'uso di \textit{Jira} consentono al \textit{team} di mantenere un controllo efficace sullo sviluppo del progetto, garantendo una gestione efficiente delle attività e una chiara visibilità sullo stato di avanzamento complessivo.
+
+\subsubsection{Metodo Di Lavoro}
+Il gruppo, al fine di minimizzare ritardi e massimizzare lo svolgimento delle proprie attività, ha deciso di implementare in modo \textbf{\textit{Agile}}\textsuperscript{G} le tecniche di miglioramento continuo. Dopo una prima revisione, constatando il ritardo accumulato, il gruppo ha optato per l'introduzione della pratica degli \textit{Sprint}\textsuperscript{G} nel proprio metodo di lavoro per rendere più efficace il lavoro svolto.\\
+Il nuovo metodo prevede la suddivisione del tempo di lavoro in \textbf{brevi intervalli} di una settimana ciascuno, noti come \textbf{\textit{Sprint}}. Questi \textit{Sprint} sono caratterizzati da fasi chiave che guidano il processo di sviluppo e valutazione.\\
+\textbf{\textit{Sprint Planning}:}
+\begin{itemize}
+    \item \textbf{\textit{Brainstorming} delle idee:}
+    \begin{itemize}
+        \item Ogni membro del gruppo esprime le proprie idee su ciò che è più rilevante per l'immediato futuro;
+    \end{itemize}
+    \item \textbf{Obiettivi e \textit{issue}:}
+    \begin{itemize}
+        \item Il Responsabile crea lo \textit{Sprint Backlog}\textsuperscript{G} definendo gli obiettivi specifici per lo \textit{Sprint};
+        \item Le corrispondenti \textit{issue} vengono inserite su \textit{Jira};
+    \end{itemize}
+    \item \textbf{Preventivi:}
+    \begin{itemize}
+        \item Ciascun membro del gruppo indica il proprio preventivo orario basato sulle attività da svolgere durante lo \textit{Sprint};
+    \end{itemize}
+\end{itemize}
+
+\textbf{\textit{Sprint Review}:}
+\begin{itemize}
+    \item \textbf{Consuntivo e produttività individuale:}
+    \begin{itemize}
+        \item Ogni membro esprime il lavoro svolto durante lo \textit{Sprint}, evidenziando successi e insuccessi.
+        \item Possibilità di mostrare i risultati e i dubbi sull'attività svolta;
+    \end{itemize}
+    \item \textbf{Obiettivi raggiunti:}
+    \begin{itemize}
+        \item Viene stilata una lista degli obiettivi raggiunti in seguito alle attività svolte dai membri;
+    \end{itemize}
+    \item \textbf{Obiettivi non raggiunti:}
+    \begin{itemize}
+        \item Si elenca una lista degli obiettivi non completati durante lo \textit{Sprint}, che saranno affrontati nello \textit{Sprint} successivo;
+    \end{itemize}
+\end{itemize}
+
+\textbf{\textit{Sprint Retrospective}:}
+\begin{itemize}
+    \item \textbf{Valutazione generale:}
+    \begin{itemize}
+        \item Si conclude definitivamente lo \textit{Sprint} appena svolto, valutandone l'andamento generale;
+    \end{itemize}
+    \item \textbf{\textit{Feedback} e miglioramenti:}
+    \begin{itemize}
+        \item Si stila una lista "\textit{Good}" per ciò che è andato bene e una "\textit{To Improve}" per gli aspetti migliorabili;
+        \item Si definiscono azioni necessarie per iniziare, smettere o continuare attività specifiche;
+    \end{itemize}
+\end{itemize}
+
+Questo approccio \textit{Agile}, integrando elementi di miglioramento continuo e gli \textit{Sprint}, consente al gruppo di \textbf{adattarsi in modo flessibile}, valutare le prestazioni e implementare \textbf{miglioramenti costanti}, contribuendo così a un ciclo di sviluppo efficiente e iterativo.
+
+\subsection{Infrastruttura}
+L'infrastruttura organizzativa comprende tutti gli strumenti utilizzati per la comunicazione, la divisione dei compiti e il coordinamento tra i componenti per svolgere in modo efficace e strutturato i processi di organizzazione.
+
+\subsubsection{Strumenti}
+\paragraph{\textit{GitHub}}~\\
+Servizio di versionamento e \textit{hosting} della \textit{repository} scelto per mantenere la documentazione e il codice del progetto.
+
+\paragraph{\textit{Discord}}~\\
+Strumento utilizzato per la comunicazione sincrona e asincrona interna al gruppo. All'interno del \textit{server} sono presenti due tipologie di canali:
+\begin{itemize}
+    \item\textbf{Canali Testuali}: utilizzati principalmente per lo scambio di risorse e le comunicazioni testuali sincrone e asincrone;
+    \item\textbf{Canali Vocali}: utilizzati per la comunicazione vocale sincrona durante le riunioni interne, consentono inoltre di condividere il proprio schermo con gli altri membri presenti;
+\end{itemize}
+In base al periodo e alle necessità il numero di ciascun tipo di canale può variare, dando la possibilità di creare canali adibiti ad argomenti specifici.
+
+\paragraph{\textit{Telegram}}~\\
+Principale strumento di comunicazione interna testuale asincrona che avviene tramite una \textit{chat} condivisa. Le comunicazioni sono per lo più informali e volte all'organizzazione interna. La \textit{chat} permette di mettere in evidenza i messaggi importanti, menzionare altri membri del gruppo e condividere sondaggi e/o \textit{file}.
+
+\paragraph{\textit{Jira}}~\\
+Strumento utilizzato per la gestione delle \textit{issues} e la suddivisione dei compiti. Sono presenti tre liste che rappresentano lo stato di avanzamento di una \textit{issue}:
+\begin{itemize} 
+    \item\textbf{\textit{To Do}}: stato iniziale, qui la \textit{issue} attende fino a quando non viene presa in carico da un membro del gruppo. Verrà successivamente spostata alla lista "\textit{In Progress}" appena inizierà la sua lavorazione;
+    \item\textbf{\textit{In Progress}}: la \textit{issue} è in lavorazione. Potrà essere spostata alla lista "\textit{In Review}", solamente quando le proprie \textit{task} sono terminate e da verificare;
+    \item\textbf{\textit{In review}}: la \textit{issue} è in fase di verifica. Potrà essere spostata alla lista "\textit{Done}" una volta verificata, o alla lista "\textit{To Do}" se incompleta;
+    \item\textbf{\textit{Done}}: stato finale, la \textit{issue} è stata completata e verificata;
+\end{itemize}
+È compito del \textit{Responsabile di Progetto} verificare che le \textit{issue} vengano divise correttamente ai diversi membri del gruppo. 
+\paragraph{\textit{Overleaf}}~\\
+Editor online per i \textit{file} \textit{LaTeX}, principalmente usato per la stesura dei \textit{file} in maniera condivisa.
+\paragraph{\textit{Google Drive}}~\\
+Strumento utilizzato dal gruppo per la condivisione di \textit{file} non ufficiali contenenti bozze e appunti con \textit{Google Docs}, tabelle per la divisione interna dei ruoli e tracciamento del tempo con \textit{Google Sheets} e presentazioni per i Diari di Bordo con \textit{Google Slides}. 
+\paragraph{\textit{Zoom}}~\\
+Strumento utilizzato principalmente per videochiamate esterne con committente e proponente.
+\paragraph{\textit{Google Mail}}~\\
+Utilizzato per le comunicazioni esterne asincrone verso il proponente e il committente con l'indirizzo mail del gruppo jackpotcoding@gmail.com.
+
+\subsection{Formazione}
+Per garantire un costante miglioramento delle nostre attività e il mantenimento efficace delle stesse in un ambiente asincrono, è essenziale che tutti i membri del gruppo si impegnino nell'autoapprendimento delle tecnologie e delle procedure operative pertinenti. Questo approccio accelererà il processo di apprendimento e di familiarizzazione con gli strumenti impiegati. A tale scopo, si elencano di seguito alcuni documenti utilizzati durante lo sviluppo, sia a livello di documentazione che di organizzazione, per assicurare una comprensione completa del contesto operativo:
+
+\begin{itemize} 
+    \item \href{https://docs.github.com/en}{\textit{GitHub}};
+    \item \href{https://docs.github.com/en/get-started/using-git/pushing-commits-to-a-remote-repository}{\textit{Git}};
+    \item \href{https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes}{\textit{LaTeX}};
+    \item \href{https://docs.python.org/3/tutorial/index.html}{\textit{Python}};
+\end{itemize}
+
+\end{document}

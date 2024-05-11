@@ -1,0 +1,48 @@
+{% extends "./base.html" %}
+
+
+{%block title%}Crea struttura Database - {%endblock%}
+
+{% block breadcrumb %}
+{% if struttura_nome %}
+    Ti trovi in: {{ struttura_nome }}
+{% else %}
+    C'è stato un problema con l'inserimento dei dati. Torna alla <a href="{% url 'admin_home' %}">home</a>
+{% endif %}
+{% endblock breadcrumb %}
+
+{% block content %}
+
+{% if editing_id is not None %}
+    <h1>Modifica struttura Database</h1>
+{% else %}
+    <h1>Crea struttura Database</h1>
+{% endif %}
+
+{% if form.errors %}
+    <div class="alert alert-danger">
+        {{ form.errors }}
+    </div>
+{% endif %}
+<form method="post">
+    {% csrf_token %}
+    {{ db_create_form }}
+    <button type="submit">Salva</button>
+</form>
+
+{% if editing_id %}
+<!-- lista per mostrare tabelle -->
+<h2>Lista Tabelle presenti nella struttura {{editing_id}}: </h2>
+<a href="{% url 'new_table_view' editing_id %}" class="add_btn">Aggiungi Tabella</a><br>
+<ul>
+    {% for table in tables %}                 <!-- passa a visualizza/modifica e passa table_id -->
+        <li> {{ table.nome }} <a href="{% url 'table_view' table_id=table.id %}">Visualizza</a></li>
+    {% empty %}
+        Nessuna Tabella in questa struttura
+    {% endfor %}
+</ul>
+
+<a href="{% url 'model_delete' 'StrutturaDatabase' editing_id %}" class="del_btn">Elimina struttura database</a>
+{% endif %}
+
+{% endblock content %}

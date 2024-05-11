@@ -1,0 +1,162 @@
+\documentclass[5pt]{article}
+
+\usepackage{sectsty}
+\usepackage{graphicx}
+\usepackage{lipsum} % for generating dummy text
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{array}
+\usepackage{cellspace}
+
+
+
+\usepackage{hyperref}
+\usepackage{scrextend}
+\graphicspath{ {../../assets} }
+
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\title{ Verbale - data }
+\date{\today}
+
+%STARTOF THE DOCUMENT
+\begin{document}
+
+%-------------------------
+
+% Reduce top margin only on the first page
+\newgeometry{top=0.5in}
+
+%UNIPD LOGO
+    \vspace{8pt}
+    \includegraphics[scale=0.2]{UNIPDFull.png}
+%END UNIPD LOGO
+
+\vspace{25pt}
+
+%COURSE INFO
+\begin{minipage}[t]{0.48\textwidth}
+    %COURSE TITLE
+        \begin{flushleft}
+            Informatica\\
+            \vspace{5pt}
+            \textbf{\LARGE Ingegneria del Software}\\
+            Anno Accademico: 2023/2024
+        \end{flushleft}
+    %END COURSE TITLE
+\end{minipage}
+%END COURSE INFO
+
+
+\vspace{5px}
+
+
+%BLACK LINE
+\hrule
+%JACKPOT CODING INFO
+\begin{minipage}[t]{0.50\textwidth}
+    %LOGO JACKPOT CODING
+    \begin{flushleft}
+        \hspace{10pt}
+        \includegraphics[scale=0.65]{jackpot-logo.png} 
+    \end{flushleft}
+\end{minipage}
+\hspace{-60pt} % This adds horizontal space between the minipages
+\begin{flushright}
+    \begin{minipage}[t]{0.50\textwidth}
+        %INFO JACKPOT CODING
+        \begin{flushright}
+            Gruppo: {\Large Jackpot Coding}\\
+            Email: \href{mailto:jackpotcoding@gmail.com}{jackpotcoding@gmail.com}
+        \end{flushright}
+    \end{minipage}
+\end{flushright}
+%END JACKPOT CODING INFO
+
+\vspace{15pt}
+
+%TITLE
+\begin{center}
+    \textbf{\large VERBALE }
+    \textbf{\large 05/03/2024} \\
+    \textbf{\Large}
+\end{center}
+%END TITLE
+
+\vspace{13pt}
+
+\begin{flushleft}
+    \begin{spacing}{1.5}
+        REDATTORE:  E. Gallo \\
+        VERIFICATORE:  G. Moretto\\%INSERT HERE THE NAMES
+        RESPONSABILE: M. Camillo \\%INSERT HERE THE NAMES
+        \vspace{7pt}
+        SCRIBA: E. Gallo\\%INSERT HERE THE NAMES
+    \end{spacing}
+\end{flushleft}
+
+\begin{flushright}
+    \begin{spacing}{1}
+        USO: INTERNO\\
+        VERSIONE: 1.0\\ % secondo numerazione proposta da Riccardo
+    \end{spacing}
+\end{flushright}
+
+
+% Restore original margins from the second page onwards
+\restoregeometry
+
+\pagebreak
+
+% Optional TOC
+% \tableofcontents
+% \pagebreak
+
+\section{\Large ORARIO}
+\begin{spacing}{1.5}
+    {\large Inizio incontro: 14:30}\\
+    {\large Fine incontro: 16:00}
+\end{spacing}
+
+\section{PARTECIPANTI}
+% Define minimal spacing at the top and bottom of cells
+\setlength\cellspacetoplimit{6pt}
+\setlength\cellspacebottomlimit{6pt}
+
+\begin{table}[ht]
+  \begin{tabular}{|Sc|Sc|}
+    \hline
+    \textbf{Nome Componente} & \textbf{Durata della presenza} \\
+    \hline
+    Camillo Matteo & 1 ora \\
+    Favaretto Marco & 1 ora e 30 minuti \\
+    Gallo Edoardo & 1 ora e 30 minuti \\
+    Gobbo Marco & - \\
+    Moretto Giulio & 1 ora e 30 minuti \\
+    Simionato Riccardo & - \\
+    \hline
+  \end{tabular}
+  \label{tab:conference}
+\end{table}
+
+\section{SINTESI DELL'INCONTRO}
+La prima parte dell'incontro è servita al gruppo per comprendere e condividere le conoscenze apprese sul funzionamento di \textit{Jira}. È stato completato il primo sprint e deciso quali task portare avanti durante il secondo periodo.\\
+\\
+Si è poi parlato della divisione delle ore e discusso sul preventivo stilato in precedenza, dividendolo nei periodi decisi, per renderlo più adatto all'inserimento nei documenti di progetto.
+
+\section{DECISIONI}
+In preparazione alla seconda parte dell'RTB con il prof. Vardanega sono state individuate le seguenti task:
+\begin{itemize}
+	\item Rifinire il Piano di Progetto con le decisioni prese durante la riunione
+	\item Rifinire il Piano di Qualifica
+	\item Aggiornare le Norme di Progetto per rispecchiare le modifiche implementate nel \textit{Way of Working}
+\end{itemize}
+
+\end{document}

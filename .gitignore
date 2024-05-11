@@ -1,3 +1,10 @@
+/docs/src/*.toc
+/docs/src/*.aux
+/docs/src/*.log
+/docs/src/*.out
+/docs/src/*.pdf
+/docs/src/*.synctex.gz
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -159,3 +166,7 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 .DS_Store
+
+/docs/src/temp
+
+src/chatSQL/.scannerwork
