@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jackpot Coding</title>
+
+  <link rel="stylesheet" href="./website/style.css">
+  <link rel="icon" href="./website/img/logoMoneta.png">
+</head>
+
+<body>
+  <nav>
+    <img id="logo" src="./website/img/logoJackpot.png"
+      alt="logo del gruppo, scritta jackpot coding">
+    <div id="nav-menu">
+      <!--
+      <p><a href="#chatSQL">ChatSQL</a></p>
+      -->
+      <p><a href="index.html#documenti">Documenti</a></p>
+      <p><a href="index.html#contatti">Contatti</a></p>
+      <p><a href="glossario.html">Glossario</a></p>
+      <p><a href="index.html#about">About</a></p>
+    </div>
+  </nav>
+
+  <!-- 
+  <section id="chatSQL">
+    <h1>CHATSQL</h1>
+    <p><a href="https://github.com/Jackpot-Coding/">Link GitHub</a></p>
+  </section>
+  -->
+
+  <section id="documenti">
+    <h1>DOCUMENTI</h1>
+    <h3>CANDIDATURA</h3>
+    <ul>
+        {% for doc in content.candidatura %}
+            <li><a href="{{doc.url}}" target="_blank">{{doc.fileName | replace('-',' ') | replace('_',' ') | title}} <span class="version">{{doc.version}}</span> <span class="lastModified">{{doc.lastModified}}</span></a></li>
+    {% endfor %}
+    </ul>
+    
+    <h3>ESTERNI</h3>
+  
+        <ul>
+            {% for doc in content.esterni.root %}
+                <li><a href="{{doc.url}}" target="_blank">{{doc.fileName | replace('-',' ') | replace('_',' ') | title}} <span class="version">{{doc.version}}</span> <span class="lastModified">{{doc.lastModified}}</span></a></li>
+            {% endfor %}
+        
+            <li class="sublist">Verbali
+            <ul>
+            
+            {% for doc in content.esterni.verbali %}
+                <li><a href="{{doc.url}}" target="_blank">{{doc.fileName}} <span class="version">{{doc.version}}</span> <span class="lastModified">{{doc.lastModified}}</span></a></li>
+            {% endfor %}
+            </ul>
+            </li>
+        </ul>
+    </div>
+    
+    <h3>INTERNI</h3>
+    <div class="indented">
+      <!-- <p><a href="https://jackpot-coding.github.io/chatSQL/docs/interni/norme-di-progetto_V1.0.2.pdf">Norme di Progetto</a> <span class="versione">v1.0.2</span></p> -->
+
+      <ul>
+        {% for doc in content.interni.root %}
+            <li><a href="{{doc.url}}" target="_blank">{{doc.fileName | replace('-',' ') | replace('_',' ') | title}} <span class="version">{{doc.version}}</span> <span class="lastModified">{{doc.lastModified}}</span></a></li>
+        {% endfor %}
+      
+      
+      <li class="sublist">Verbali
+        <ul>
+            {% for doc in content.interni.verbali %}
+                <li><a href="{{doc.url}}" target="_blank">{{doc.fileName}} <span class="version">{{doc.version}}</span> <span class="lastModified">{{doc.lastModified}}</span></a></li>
+            {% endfor %}
+        </ul>
+        </li>
+    </div>
+  </section>
+
+  <section id="contatti">
+    <h1>CONTATTI</h1>
+    <p>Repository Github: <a href="https://github.com/Jackpot-Coding/chatSQL">https://github.com/Jackpot-Coding/chatSQL</a></p>
+    <p>Email: <span class="monospace">jackpotcoding@gmail.com</span></p>
+  </section>
+
+  <section id="about">
+    <h1>ABOUT US</h1>
+    <p>Il gruppo Jackpot Coding nasce per affrontare il progetto didattico di Ingegneria del Software presso l'Università degli Studi di Padova, a.a.2023/24.</p>
+    <p>Il gruppo è formato da:
+      <ul>
+        <li>Matteo Camillo</li>
+        <li>Marco Favaretto</li>
+        <li>Edoardo Gallo</li>
+        <li>Marco Gobbo</li>
+        <li>Giulio Moretto</li>
+        <li>Riccardo Simionato</li>
+      </ul>
+    </p>
+    <p>Il progetto ChatSQL viene proposto da <a href="https://www.zucchetti.it/website/cms/home.html">Zucchetti S.p.A.</a>.</p>
+  </section>
+
+  <p id="last-update"></p>
+</body>
+
+</html>

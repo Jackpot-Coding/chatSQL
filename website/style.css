@@ -53,7 +53,7 @@ nav {
 }
 
 section {
-  max-width: 40em;
+  max-width: 80%;
   margin: auto;
   padding: 1em 3em;
 }
@@ -68,19 +68,57 @@ section h1 {
                 0 7px 0 0 white;
 }
 
-.indented {
-  padding-left: 2em;
-}
-
-#last-update {
-  text-align: center;
-  font-size: 0.7em;
-  color: var(--grey);
-}
-
-.versione {
+.version, .lastModified{
   font-size: 0.9em;
   color: var(--grey);
+  text-decoration: none;
+}
+
+.version{
+  min-width: 3em;
+  display: inline-block;
+}
+
+.version::before, .lastModified::before{
+  display: inline-block;
+  font-size: .6em;
+  text-transform: uppercase;
+  position: absolute;
+  margin-top: -.9em;
+}
+
+.version::before{
+  content: "versione";
+  margin-top: -1.1em;
+}
+
+.lastModified::before{
+  content: "ultima modifica";
+}
+
+ul{
+  padding:0 1em;
+}
+
+ul ul{
+  padding-left: 2em;
+  font-weight: normal;
+}
+
+
+ul li{
+  margin: .8em 0;
+}
+
+ul li.sublist{
+  list-style: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: 1em 0 0 -1em;
+}
+
+ul li a{
+  text-decoration: none;
 }
 
 @media (max-width: 600px) {
@@ -96,4 +134,11 @@ section h1 {
     flex-direction: column;
     align-items: center;
   }
+}
+
+
+#glossario section {
+  max-width: 80%;
+  margin: auto;
+  padding: 1em 3em;
 }

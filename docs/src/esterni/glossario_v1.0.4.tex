@@ -1,0 +1,692 @@
+\documentclass[5pt]{article}
+
+\usepackage{sectsty}
+\usepackage{graphicx}
+\usepackage{lipsum} % for generating dummy text
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{array}
+\usepackage{cellspace}
+\usepackage{tabularx}
+\usepackage[table]{xcolor}
+\usepackage{tabularray}
+\usepackage{wrapfig}
+\usepackage{flafter} 
+
+
+\usepackage{hyperref}
+\usepackage{scrextend}
+\graphicspath{ {../assets} }
+
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\title{Glossario}
+\author{Jackpot Coding}
+\renewcommand*\contentsname{Indice}
+\date{\today}
+
+%longtblr
+\DefTblrTemplate{contfoot-text}{default}{}
+\DefTblrTemplate{conthead-text}{default}{}
+\DefTblrTemplate{caption}{default}{}
+\DefTblrTemplate{conthead}{default}{}
+\DefTblrTemplate{capcont}{default}{}
+
+%STARTOF THE DOCUMENT
+\begin{document}
+
+%-------------------------
+
+% Reduce top margin only on the first page
+\newgeometry{top=0.5in}
+
+%UNIPD LOGO
+    \vspace{8pt}
+    \includegraphics[scale=0.2]{UNIPDFull.png}
+%END UNIPD LOGO
+
+\vspace{30pt}
+
+%COURSE INFO
+\begin{minipage}[t]{0.48\textwidth}
+    %COURSE TITLE
+        \begin{flushleft}
+            Informatica\\
+            \vspace{5pt}
+            \textbf{\LARGE Ingegneria del Software}\\
+            Anno Accademico: 2023/2024
+        \end{flushleft}
+    %END COURSE TITLE
+\end{minipage}
+%END COURSE INFO
+
+
+\vspace{5px}
+
+
+%BLACK LINE
+\rule{\textwidth}{5pt}
+
+%JACKPOT CODING INFO
+\begin{minipage}[t]{0.50\textwidth}
+    %LOGO JACKPOT CODING
+    \begin{flushleft}
+        \hspace{10pt}
+        \includegraphics[scale=0.65]{jackpot-logo.png} 
+    \end{flushleft}
+\end{minipage}
+\hspace{-60pt} % This adds horizontal space between the minipages
+\begin{flushright}
+    \begin{minipage}[t]{0.50\textwidth}
+        %INFO JACKPOT CODING
+        \begin{flushright}
+            Gruppo: {\Large Jackpot Coding}\\
+            Email: \href{mailto:jackpotcoding@gmail.com}{jackpotcoding@gmail.com}
+        \end{flushright}
+    \end{minipage}
+\end{flushright}
+%END JACKPOT CODING INFO
+
+\vspace{24pt}
+
+%TITLE
+\begin{center}
+    \textbf{\LARGE GLOSSARIO}
+\end{center}
+%END TITLE
+
+\vspace{13pt}
+
+\begin{flushleft}
+    \begin{spacing}{1.5}
+        DESTINATARI: Prof. T. Vardanega, Prof. R. Cardin, Zucchetti S.p.A.\\%INSERT HERE THE NAMES
+    \end{spacing}
+\end{flushleft}
+
+\begin{flushright}
+    \begin{spacing}{1}
+        USO: ESTERNO\\
+        VERSIONE: 1.0.4\\
+    \end{spacing}
+\end{flushright}
+
+
+% Restore original margins from the second page onwards
+\restoregeometry
+
+\pagebreak
+
+\textbf{\Large Registro delle modifiche}
+\begin{longtblr}
+	{
+		colspec={|Q[0.10\linewidth]|Q[0.10\linewidth]|Q[0.15\linewidth]|Q[0.15\linewidth]|Q[0.45\linewidth]|},
+		rows={halign=l},
+		column{1}={halign=c},
+		column{3}={halign=c},
+		column{4}={halign=c},
+		row{1}={halign=c},
+		row{odd} = {gray!20},
+		row{1}={teal!50},
+	}
+    \hline
+    \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Modifica} \\
+    \hline
+    % versione & data & autore & verificatore & descrizioneModifica \\
+    % \hline
+    v1.0.4 & 07/05/2024 & G. Moretto & M. Gobbo & Correzione code coverage e rimozione tempo di apprendimento e risposta \\
+    \hline
+    v1.0.3 & 25/04/2024 & R. Simionato & G. Moretto & Aggiunte definizioni dal documento "Specifica Tecnica" \\
+    \hline
+    v1.0.2 & 25/04/2024 & R. Simionato & G. Moretto & Aggiunte definizioni metriche dal documento "Piano di Qualifica" \\
+    \hline
+    v1.0.1 & 04/04/2024 & G. Moretto & R. Simionato & Rimozione Redattori e Verificatori come da feedback RTB\\
+    \hline
+    v1.0.0 & 18/03/2024 & - & E. Gallo & Verifica e approvazione documento \\
+    \hline
+    v0.1.4 & 18/03/2024 & G. Moretto & E. Gallo & Aggiunte definizioni dal documento "Piano di Qualifica" \\
+    \hline
+    v0.1.3 & 09/03/2024 & M. Gobbo & G. Moretto & Aggiunte definizioni dal documento "Piano di Progetto" \\
+    \hline
+    v0.1.2 & 04/03/2024 & E. Gallo & G. Moretto & Aggiunte definizioni dal documento "Norme di Progetto" \\
+    \hline
+    v0.1.1 & 02/03/2024 & E. Gallo & G. Moretto & Migliorata struttura documento e leggibilità del registro delle modifiche \\
+    \hline
+    v0.1.0 & 02/03/2024 & E. Gallo & G. Moretto & Inserita sezione Introduzione e struttura. Verifica del documento \\
+    \hline
+    v0.0.3 & 16/02/2024 & G. Moretto & E. Gallo & Inserito definizioni per i termini nelle sezioni B-U \\
+    \hline
+    v0.0.2 & 13/02/2024 & G. Moretto & E. Gallo & Aggiunto termini, inserito definizioni per i termini nella sezione A \\
+    \hline
+    v0.0.1 & 15/11/2023 & E. Gallo & G. Moretto & Creata struttura del documento \\
+    \hline
+\end{longtblr}
+
+
+
+\pagebreak
+\tableofcontents
+\pagebreak
+
+\section*{Introduzione e struttura}
+\addcontentsline{toc}{section}{Introduzione e struttura}
+Il presente documento ha lo scopo di individuare le terminologie di progetto e facilitarne la comprensione sia ai membri del gruppo sia soprattutto alle persone esterne o eventuali interessati. È suddiviso in sezioni, inserite in ordine alfabetico per facilitarne la ricerca e la lettura.\\ \\
+Ciascun documento inoltre, riporta al proprio interno una sezione dedicata al glossario, con annesso collegamento. Ogni termine presente in questo documento, è indicato con una \textsuperscript{G} al termine della parola.
+\pagebreak
+
+
+
+\section*{A}
+\addcontentsline{toc}{section}{A}
+\begin{flushleft}
+	
+\addcontentsline{toc}{subsection}{Actual Cost}
+\textbf{\textit{Actual Cost}}: Metrica che misura il budget speso fino al momento del calcolo.\newline
+
+\addcontentsline{toc}{subsection}{AI/IA}
+\textbf{AI/IA}: Sigla per \textit{Artificial Intelligence} (o Intelligenza Artificiale), identifica una disciplina che studia come simulare il pensiero umano con l'utilizzo di sistemi informatici\newline
+
+\addcontentsline{toc}{subsection}{Agile}
+\textbf{\textit{Agile}}: Approccio alla gestione di un progetto software. Prevede: la consegna frequente di software funzionante, la collaborazione e la comunicazione continua, l'adattamento continuo ai cambiamenti e l'auto-organizzazione dei team. L'approccio agile si basa su una serie di \textit{framework} e metodologie specifiche, come Scrum.\newline
+
+\addcontentsline{toc}{subsection}{Amministratore}
+\textbf{Amministratore}: Utente autenticato con la possibilità di poter effettuare tutte le operazioni eseguibili nell'applicazione . \newline
+
+\addcontentsline{toc}{subsection}{Analisi dei Requisiti}
+\textbf{Analisi dei Requisiti}: Attività nella quale vengono raccolte le necessità di un proponente per quanto riguarda un programma software. Queste necessità vengono poi trasformate in requisiti descritti in un documento dedicato. \newline
+
+\addcontentsline{toc}{subsection}{API}
+\textbf{API}: Sigla per \textit{Application Program Interface}, descrive un insieme di procedure utilizzate per lo scambio di informazioni tra diversi sistemi, computer o software. \newline
+
+\addcontentsline{toc}{subsection}{Attore}
+\textbf{Attore}: Viene identificato come attore chi interagisce con il sistema dall'esterno. Questo può essere una tipologia di utente o un sistema esterno. 
+
+\end{flushleft}
+
+\pagebreak
+
+\section*{B}
+\addcontentsline{toc}{section}{B}
+\begin{flushleft}
+	
+\addcontentsline{toc}{subsection}{Backlog}
+\textbf{\textit{Backlog}}: Insieme di task ancora da completare. Per quanto riguarda il \textit{framework} Scrum si ha: \textit{product backlog} (lista di funzionalità da implementare nel prodotto) e \textit{sprint backlog} (selezioni di elementi del \textit{product backlog} che verranno trattati durante uno sprint).\newline
+	
+\addcontentsline{toc}{subsection}{Branch}
+\textbf{\textit{Branch}}: Nel contesto di Git, un "ramo" di sviluppo indipendente in cui sviluppare una singola funzione.\newline
+
+\addcontentsline{toc}{subsection}{Brainstorming}
+\textbf{\textit{Brainstorming}}: Tecnica di generazione di idee in cui i partecipanti propongono liberamente soluzioni a un problema senza giudizi preliminari.\newline
+
+\addcontentsline{toc}{subsection}{Browser}
+\textbf{\textit{Browser}}: Applicazione utilizzata per la navigazione di risorse nel \textit{web}. \newline
+
+\addcontentsline{toc}{subsection}{Budget Variance}
+\textbf{\textit{Budget Variance}}: Metrica che misura la differenza tra budget preventivato e budget utilizzato in fase di completamento del prodotto.\newline
+	
+
+\end{flushleft}
+
+\pagebreak
+
+\section*{C}
+\addcontentsline{toc}{section}{C}
+\begin{flushleft}
+
+\addcontentsline{toc}{subsection}{Capitolato}
+\textbf{Capitolato}: Documento che specifica i bisogni del proponente. In questo documento sono espresse caratteristiche e requisiti che il prodotto consegnato deve o può avere.\newline
+
+\addcontentsline{toc}{subsection}{Caso d'uso}
+\textbf{Caso d'uso}: Uno scenario che descrive il comportamento che uno o più attori hanno con il sistema rendendo esplicite le interazioni tra loro.\newline
+
+\addcontentsline{toc}{subsection}{ChatGPT}
+\textbf{ChatGTP}: Un software creato dall'azienda \textit{Open AI} basato su intelligenza artificiale. Il suo obiettivo è quello di poter effettuare conversazioni con un utente umano e rispondere a richieste espresse in linguaggio naturale.\newline
+
+\addcontentsline{toc}{subsection}{Code Coverage}
+\textbf{\textit{Code Coverage}}: Metrica che misura la percentuale di codice che viene eseguito durante i test.\newline
+
+\addcontentsline{toc}{subsection}{Committente}
+\textbf{Committente}: Colui che ordina un lavoro o una prestazione. In questo caso lo sviluppo di un software.\newline
+
+\addcontentsline{toc}{subsection}{Comunicazione sincrona}
+\textbf{Comunicazione sincrona}: Tipo di comunicazione in cui gli interlocutori comunicano in tempo reale, come le chiamate telefoniche o le videoconferenze.\newline
+
+\addcontentsline{toc}{subsection}{Comunicazione asincrona}
+\textbf{Comunicazione asincrona}: Tipo di comunicazione in cui gli interlocutori comunicano senza essere contemporaneamente presenti, come le email o i messaggi di testo.\newline
+
+\addcontentsline{toc}{subsection}{Copertura dei Requisiti}
+\textbf{Copertura dei Requisiti}: Metrica che misura la percentuale di requisiti soddisfatti .\newline
+
+\addcontentsline{toc}{subsection}{Cost Variance}
+\textbf{\textit{Cost Variance}}: Metrica che misura la differenza tra budget utilizzabile e budget utilizzato.\newline
+
+\addcontentsline{toc}{subsection}{Credenziali}
+\textbf{Credenziali}: Combinazione di dati che permettono ad un utente di identificarsi. Di norma si tratta di nome utente e password.\newline
+
+\addcontentsline{toc}{subsection}{CSS}
+\textbf{CSS}: Sigla per \textit{Cascading Style Sheets} (fogli di stile a cascata), si tratta di un linguaggio utilizzato per applicare formattazione a pagine HTML utilizzate in siti internet e applicazioni web.\\
+
+\end{flushleft}
+
+\pagebreak
+
+\section*{D}
+\addcontentsline{toc}{section}{D}
+\begin{flushleft}
+
+\addcontentsline{toc}{subsection}{Database}
+\textbf{Database}: Detta anche base di dati, si tratta di una collezione di dati organizzata e accessibile in maniera elettronica.\newline
+
+\addcontentsline{toc}{subsection}{Dashboard}
+\textbf{\textit{Dashboard}}: Detto anche cruscotto, si tratta di una rappresentazione grafica dei valori importanti riguardo l'andamento di un progetto. Questa permette una visione rapida dei valori scelti.\newline
+
+\addcontentsline{toc}{subsection}{Design pattern}
+\textbf{\textit{Design pattern}}: Soluzione progettuale generale e riutilizzabile a un problema comune nell'ambito dello sviluppo del \textit{software}.\newline
+
+
+\addcontentsline{toc}{subsection}{Discord}
+\textbf{\textit{Discord}}: Piattaforma di comunicazione vocale e testuale orientata alla comunità, spesso utilizzata da giocatori e gruppi di discussione.\newline
+
+
+\end{flushleft}
+
+\pagebreak
+
+\section*{E}
+\addcontentsline{toc}{section}{E}
+
+\addcontentsline{toc}{subsection}{Earned Value}
+\textbf{\textit{Earned Value}}: Metrica che misura il valore prodotto e ottenuto fino a quel momento.\newline
+
+\addcontentsline{toc}{subsection}{Efficienza}
+\textbf{Efficienza}: Misura della capacità di un sistema di ottenere risultati desiderati con il minimo spreco di risorse.\newline
+
+\addcontentsline{toc}{subsection}{Estimated At Completion}
+\textbf{\textit{Estimated At Completion}}: Metrica che misura il costo monetario che si prevede di raggiungere al completamento del progetto.\newline
+
+\addcontentsline{toc}{subsection}{Estimated To Completion}
+\textbf{\textit{Estimated To Completion}}: Metrica che misura il costo monetario necessario per raggiungere il completamento del progetto.\newline
+
+
+\pagebreak
+
+\section*{F}
+\addcontentsline{toc}{section}{F}
+\begin{flushleft}
+	
+\addcontentsline{toc}{subsection}{Failure Density}
+\textbf{\textit{Failure Density}}: Metrica che misura la percentuale di test falliti dal prodotto software.\newline
+
+\addcontentsline{toc}{subsection}{File}
+\textbf{\textit{File}}: Traducibile come archivio, indica un contenitore di dati che risiede in un supporto di archiviazione digitale.\newline
+
+\addcontentsline{toc}{subsection}{Form}
+\textbf{\textit{Form}}: Traducibile come modulo, indica un interfaccia utente che permette l'inserimento e l'invio di dati ad un sistema tramite elementi che compongono l'interfaccia stessa (es. scelta multipla, campo di testo, pulsante, ecc...).\newline
+
+\addcontentsline{toc}{subsection}{Formato}
+\textbf{Formato}: Si tratta di una convenzione adottata per la lettura e scrittura dei contenuti di un \textit{file}.\newline
+
+\addcontentsline{toc}{subsection}{Framework}
+\textbf{Framework}: Architettura logica di supporto, che solitamente implementa un particolare design pattern, e funge da struttura per la progettazione e realizzazione di un software.\newline
+
+\end{flushleft}
+
+\pagebreak
+
+\section*{G}
+\addcontentsline{toc}{section}{G}
+\begin{flushleft}
+
+\addcontentsline{toc}{subsection}{Git}
+\textbf{Git}: \textit{Software} creato per la gestione del codice sorgente ed il tracciamento delle modifiche apportate ad esso.\newline
+
+\addcontentsline{toc}{subsection}{GitHub}
+\textbf{\textit{GitHub}}: Si tratta di un servizio creato per poter ospitare progetti che utilizzano git.
+
+\end{flushleft}
+
+\pagebreak
+
+\section*{H}
+\addcontentsline{toc}{section}{H}
+\begin{flushleft}
+
+\addcontentsline{toc}{subsection}{HTML}
+\textbf{HTML}: Sigla per \textit{HyperText Markup Language} (Linguaggio di marcatura d'ipertesto). Si tratta di un linguaggio utilizzato per definire la struttura di un documento ipertestuale visualizzato da un browser.
+
+\end{flushleft}
+
+\pagebreak
+
+\section*{I}
+\addcontentsline{toc}{section}{I}
+\begin{flushleft}
+
+\addcontentsline{toc}{subsection}{Implementazione}
+\textbf{Implementazione}: Fase del ciclo di vita del \textit{software} in cui il codice viene sviluppato e integrato nel sistema.\newline
+
+\addcontentsline{toc}{subsection}{Incrementi}
+\textbf{Incrementi}: Aggiunte progressive o miglioramenti a un prodotto o a un sistema.\newline
+
+\addcontentsline{toc}{subsection}{Indice Gulpease}
+\textbf{\textit{Indice Gulpease}}: Metrica che misura la leggibilità di un testo.\newline
+
+\addcontentsline{toc}{section}{Input}
+\textbf{\textit{Input}}: Termine inglese che ha come significato l'atto di immettere dati o informazioni, tramite una periferica adibita a tale scopo, verso un sistema che li elabori.\newline
+
+\addcontentsline{toc}{subsection}{Issue}
+\textbf{\textit{Issue}}: Problema o richiesta di miglioramento registrata in un sistema di tracciamento degli errori o di gestione dei problemi.\newline
+
+
+\end{flushleft}
+
+\pagebreak
+
+\section*{J}
+\addcontentsline{toc}{section}{J}
+\begin{flushleft}
+		\addcontentsline{toc}{subsection}{Jira}
+	\textbf{Jira}: Strumento software per la gestione di un progetto. Permette l'assegnazione di compiti, ed il tracciamento delle attività del progetto.  \newline
+\end{flushleft}
+
+\pagebreak
+
+\section*{K}
+\addcontentsline{toc}{section}{K}
+\begin{flushleft}
+	
+\end{flushleft}
+
+\pagebreak
+
+\section*{L}
+\addcontentsline{toc}{section}{L}
+\begin{flushleft}
+	
+\addcontentsline{toc}{subsection}{LaTeX}
+\textbf{\textit{LaTeX}}: Linguaggio di marcatura per la preparazione di testi. Utilizzato dal gruppo per la redazione dei documenti di progetto.\newline
+
+\addcontentsline{toc}{subsection}{Libreria}
+\textbf{Libreria}: Insieme di funzioni e/o strutture dati predefinite e predisposte all'utilizzo da altri programmi software.\newline
+	
+\addcontentsline{toc}{subsection}{Linguaggio naturale}
+\textbf{Linguaggio naturale}: Modalità di espressione utilizzata dagli essere umani.\newline
+
+\addcontentsline{toc}{subsection}{LLM}
+\textbf{\textit{LLM}}: Acronimo per \textit{Large Language Model} (modello linguistico di grandi dimensioni), si tratta di un modello utilizzato per la comprensione e generazione del linguaggio naturale.\newline
+
+\addcontentsline{toc}{subsection}{Login}
+\textbf{\textit{Login}}: In Italiano definito come accesso, o meglio il processo di identificazione di un utente nel momento in cui entra in un sistema informatico. \newline
+
+\addcontentsline{toc}{subsection}{Logout}
+\textbf{\textit{Logout}}: indentifica il processo di uscita di un utente da un sistema informatico.
+
+\end{flushleft}
+
+\pagebreak
+
+\section*{M}
+\addcontentsline{toc}{section}{M}
+\begin{flushleft}
+	
+\addcontentsline{toc}{subsection}{Main branch}
+\textbf{\textit{Main branch}}: Ramo principale di sviluppo. Tutti i rami figli dovranno essere uniti (operazione di \textit{merge}) a questo una volta terminata l'attività sui branch figli.\newline
+
+\addcontentsline{toc}{subsection}{Merging}
+\textbf{\textit{Merging}}: Nel contesto di Git, operazione tramite la quale si riunisce un branch figlio a quello principale (o padre).\newline
+
+\addcontentsline{toc}{subsection}{Milestone}
+\textbf{\textit{Milestone}}: Traducibile come "Pietra miliare". Un punto nel tempo che decreta il raggiungimento di obiettivi prefissati.\newline
+	
+\addcontentsline{toc}{subsection}{Modello}
+\textbf{Modello}: Un programma utilizzato nell'ambito dell'intelligenza artificiale, addestrato su un gruppo di dati, utilizzato per riconoscere alcuni pattern e effettuare decisioni senza intervento umano.\newline
+
+\addcontentsline{toc}{subsection}{MPC}
+\textbf{MPC}: Model Predictive Control, ossia un modello basato su vincoli utilizzato per controllare i processi di un sistema.\newline
+
+\addcontentsline{toc}{subsection}{MPD}
+\textbf{MPD}: Mean Percentage Difference, indica la media percentuale di errore tra i valori previsti e i valori effettivi dati dal programma.\newline
+
+\end{flushleft}
+
+\pagebreak
+
+\section*{N}
+\addcontentsline{toc}{section}{N}
+\begin{flushleft}
+
+\addcontentsline{toc}{subsection}{Non-Calculated Risks}
+\textbf{\textit{Non-Calculated Risks}}: Metrica che misura gli eventi non programmati durante lo svolgimento del progetto che hanno portato ad un ritardo nello sviluppo.\newline
+
+\addcontentsline{toc}{subsection}{Norme di Progetto}
+\textbf{Norme di Progetto}: Documento che raccoglie le norme e le procedure che il gruppo di sviluppo deve utilizzare durante il ciclo di vita del \textit{software}.
+
+\end{flushleft}
+
+\pagebreak
+
+\section*{O}
+\addcontentsline{toc}{section}{O}
+\begin{flushleft}
+	
+\end{flushleft}
+
+\pagebreak
+
+\section*{P}
+\addcontentsline{toc}{section}{P}
+\begin{flushleft}
+	
+\addcontentsline{toc}{subsection}{Passed Test Percentage}
+\textbf{\textit{Passed Test Percentage}}: Metrica che misura la percentuale di test correttamente superati dal prodotto.\newline
+
+\addcontentsline{toc}{subsection}{Password}
+\textbf{Password}: Traducibile come "codice di accesso", consiste in una sequenza di caratteri alfanumerici e simboli, utilizzata da un utente per l'accesso esclusivo ad un risorsa informatica. \newline
+
+\addcontentsline{toc}{subsection}{PoC}
+\textbf{\textit{PoC}}: Sigla per \textit{Proof of Concept}, si tratta di un \textit{software} che il gruppo di sviluppo utilizza per verificare l'applicazione delle tecnologie selezionate alle necessità espresse dal proponente.\newline
+
+\addcontentsline{toc}{subsection}{Piano di Progetto}
+\textbf{Piano di Progetto}: Documento nel quale vengono analizzati i rischi, la pianificazione e il preventivo dei costi, in modo da lavorare nel migliore dei modi.\newline
+
+\addcontentsline{toc}{subsection}{Piano di Qualifica}
+\textbf{Piano di Qualifica}: Documento nel quale si specificano gli obiettivi qualitativi e quantitativi di prodotto e di processo, specificando anche quali e quanti test eseguire.\newline
+
+\addcontentsline{toc}{subsection}{Planned Value}
+\textbf{\textit{Planned Value}}: Metrica che misura l'attività lavorativa impiegata fino a quel momento.\newline
+
+\addcontentsline{toc}{subsection}{Product Baseline}
+\textbf{\textit{Product Baseline}}: Conosciuta anche come PB. È la seconda revisione di avanzamento prevista dall'attività didattica. Il gruppo deve aver acquisito un'alta padronanza delle tecnologie utilizzate, avendo soddisfatto almeno tutti i requisiti obbligatori.\newline
+
+\addcontentsline{toc}{subsection}{Prompt}
+\textbf{\textit{Prompt}}: Un testo in linguaggio naturale interpretabile dal un modello di intelligenza artificiale.\newline
+
+\addcontentsline{toc}{subsection}{Prompting}
+\textbf{\textit{Prompting}}: Tecnica per la generazione di un testo in linguaggio naturale, interpretato poi da un'intelligenza artificiale.\newline
+
+\addcontentsline{toc}{subsection}{Proponente}
+\textbf{Proponente}: Figura che propone un lavoro o un progetto per la sua realizzazione. \newline
+
+\addcontentsline{toc}{subsection}{Python}
+\textbf{\textit{Python}}: Linguaggio di programmazione ad alto livello, orientato agli oggetti.
+
+\end{flushleft}
+
+\pagebreak
+
+\section*{Q}
+\addcontentsline{toc}{section}{Q}
+\begin{flushleft}
+	
+\addcontentsline{toc}{subsection}{Quality Metric Satisfied}
+\textbf{\textit{Quality Metric Satisfied}}: Metrica che misura la percentuale di metriche definite nel Piano di Qualifica soddisfatte.\newline
+
+\addcontentsline{toc}{subsection}{Query SQL}
+\textbf{\textit{Query SQL}}: Traducibile come "interrogazione". Si tratta di un comando inserito da un utente per la richiesta di dati o modifiche su dati presenti in un \textit{database} (in questo caso di tipo SQL).
+
+\end{flushleft}
+
+\pagebreak
+
+\section*{R}
+\addcontentsline{toc}{section}{R}
+\begin{flushleft}
+	
+\addcontentsline{toc}{subsection}{Raggiunta dell'Obiettivo}
+\textbf{Raggiunta dell'Obiettivo}: Metrica che misura il numero di click che l'utente deve impiegare per ottenere la query SQL ritornata dal programma.\newline
+
+\addcontentsline{toc}{subsection}{Repository}
+\textbf{\textit{Repository}}: Si tratta di un ambiente dove vengono "depositati" in modo digitale dati ed informazioni che compongono il progetto.\newline
+
+\addcontentsline{toc}{subsection}{Requirements Stability Index}
+\textbf{\textit{Requirements Stability Index}}: Metrica che misura la necessità di modificare i requisiti dopo averli definiti. Requisiti più stabili non hanno bisogno di essere modificati.\newline
+
+\addcontentsline{toc}{subsection}{Requirements \& Technology Baseline}
+\textbf{\textit{Requirements \& Technology Baseline}}: Conosciuta anche come RTB. Prima revisione di avanzamento prevista dall'attività didattica. Il gruppo deve aver eseguito lo studio dei requisiti e aver studiato le tecnologie e dimostrato la loro possibilità di utilizzo tramite un \textit{Proof of Concept}.\newline
+
+\addcontentsline{toc}{subsection}{Requisito}
+\textbf{Requisito}: Funzionalità e/o caratteristica di un sistema e/o le sue componenti. Questo viene descritto specificando il suo comportamento, i suoi ingressi, le sue uscite ed il suo obiettivo.
+
+\end{flushleft}
+
+\pagebreak
+
+\section*{S}
+\addcontentsline{toc}{section}{S}
+\begin{flushleft}
+	
+\addcontentsline{toc}{subsection}{Satisfied Obligatory Requirements}
+\textbf{\textit{Satisfied Obligatory Requirements}}: Metrica che misura la percentuale di requisiti obbligatiori soddifatti dal prodotto.\newline
+
+\addcontentsline{toc}{subsection}{Schedule Variance}
+\textbf{\textit{Schedule Variance}}: Metrica che misura l'anticipo o il ritardo rispetto a quanto pianificato.\newline
+
+\addcontentsline{toc}{subsection}{Sinonimi}
+\textbf{Sinonimi}: Relazione tra due parole con lo stesso significato. Utilizzato in questo progetto per individuare il soggetto della richiesta da parte dell'utente.\newline
+
+\addcontentsline{toc}{subsection}{Software}
+\textbf{\textit{Software}}: Insieme di programmi, dati e istruzioni che consentono al \textit{computer} di eseguire determinate funzioni o compiti.\newline
+
+\addcontentsline{toc}{subsection}{Software House}
+\textbf{\textit{Software House}}: Azienda specializzata nello sviluppo di \textit{software} e nella fornitura di servizi informatici.\newline
+
+\addcontentsline{toc}{subsection}{Sprint}
+\textbf{\textit{Sprint}}: Periodo di tempo prefissato entro il quale il lavoratore produce dei risultati documentati.\newline
+
+\addcontentsline{toc}{subsection}{SQL}
+\textbf{\textit{SQL}}: Sigla per \textit{Structured Query Language}, si tratta di un linguaggio standardizzato per interrogare e amministrare un \textit{database} basato su modello relazionale.\newline
+
+\addcontentsline{toc}{subsection}{Strategy}
+\textbf{Strategy}: Design pattern che data una famiglia di algoritmi che implementa una precisa funzionalità, permette all'applicazione di utilizzare dinamicamente l'algoritmo corretto.\newline
+
+\addcontentsline{toc}{subsection}{Struttura database}
+\textbf{Struttura \textit{Database}}: Definizione della composizione di un \textit{database} definendo le sue tabelle e la loro composizione.\newline
+
+\end{flushleft}
+
+\pagebreak
+
+\section*{T}
+\addcontentsline{toc}{section}{T}
+\begin{flushleft}
+
+\addcontentsline{toc}{subsection}{Tabella}
+\textbf{Tabella}: Struttura utilizzata da un \textit{database} basato su modello relazionale per la gestione dei dati. Questa è composta da dei campi che indicano il tipo di dato che esso contiene e altri dati utili all'utilizzo e l'amministrazione della tabella.\newline
+
+\addcontentsline{toc}{subsection}{Task}
+\textbf{\textit{Task}}: Traducibile come "compito". Ciò che una persona deve fare in un determinato periodo di tempo.\newline
+
+\addcontentsline{toc}{subsection}{Telegram}
+\textbf{\textit{Telegram}}: Piattaforma di messaggistica istantanea e di comunicazione basata su \textit{cloud}.\newline
+
+%\addcontentsline{toc}{subsection}{Tempo di Apprendimento}
+%\textbf{Tempo di Apprendimento}: Metrica che misura il tempo impiegato da un nuovo utente per comprendere come utilizzare il programma.\newline
+%
+%\addcontentsline{toc}{subsection}{Tempo di Risposta Medio}
+%\textbf{Tempo di Risposta Medio}: Metrica che misura il tempo impiegato dal programma per soddifare una richiesta.\newline
+
+\addcontentsline{toc}{subsection}{Ticketing}
+\textbf{\textit{Ticketing}}: Sistema di gestione delle richieste o dei problemi che assegna un numero di \textit{ticket} univoco a ciascuna richiesta.\newline
+
+\addcontentsline{toc}{subsection}{Tutorial}
+\textbf{Tutorial}: Guida passo-passo che fornisce istruzioni su come fare qualcosa o su come utilizzare un \textit{software}.\newline
+
+
+
+\end{flushleft}
+
+\pagebreak
+
+\section*{U}
+\addcontentsline{toc}{section}{U}
+\begin{flushleft}
+
+\addcontentsline{toc}{subsection}{Utente}
+\textbf{Utente}: Colui che interagisce con un prodotto \textit{software}.\newline
+
+\addcontentsline{toc}{subsection}{UML}
+\textbf{\textit{UML}}: \textit{Unified Modeling Language}, un linguaggio di modellazione generale che fornisce concetti e strumenti applicabili in tutti i contesti.\newline
+
+\addcontentsline{toc}{subsection}{Unità architetturali}
+\textbf{Unità architetturali}: Componenti fondamentali di un sistema \textit{software} che definiscono la sua struttura e organizzazione.\newline
+
+
+\end{flushleft}
+
+\pagebreak
+
+\section*{V}
+\addcontentsline{toc}{section}{V}
+\begin{flushleft}
+	
+\addcontentsline{toc}{subsection}{Versionamento}
+\textbf{Versionamento}: Realizza il "controllo di versione". Traccia la storia delle azioni fatte e i cambiamenti avvenuti nel corso del tempo.\newline
+	
+\end{flushleft}
+
+\pagebreak
+
+\section*{W}
+\addcontentsline{toc}{section}{W}
+\begin{flushleft}
+
+\addcontentsline{toc}{subsection}{Way of Working}
+\textbf{\textit{Way of Working}}: Contenuto nel documento che noi chiamiamo "Norme di progetto". Si tratta dell'insieme di regole e tecnologie, in continua evoluzione, adottate da un gruppo di lavoro.\newline
+
+\end{flushleft}
+
+\pagebreak
+
+\section*{X}
+\addcontentsline{toc}{section}{X}
+\begin{flushleft}
+	
+\end{flushleft}
+
+\pagebreak
+
+\section*{Y}
+\addcontentsline{toc}{section}{Y}
+\begin{flushleft}
+	
+\end{flushleft}
+
+\pagebreak
+
+\section*{Z}
+\addcontentsline{toc}{section}{Z}
+\begin{flushleft}
+	
+\end{flushleft}
+
+\pagebreak
+
+
+
+\end{document}

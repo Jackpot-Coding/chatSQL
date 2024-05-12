@@ -1,0 +1,18 @@
+{% extends "./base.html" %}
+
+{% block title %}Home Admin{% endblock title %}
+
+{% block content %}
+
+<h1>Strutture Database</h1>
+<a href="{% url 'new_db_view' %}" class="add_btn">Crea Struttura DB</a>
+
+<ul>
+    {% for struct in strutture_db %}
+        <li>{{struct.nome}} <a href="{% url 'db_view' structure_id=struct.id %}">Visualizza</a></li>
+    {% empty %}
+        <li>Nessuna struttura database trovata.</li>
+    {% endfor %}
+</ul>
+
+{% endblock content %}

@@ -1,0 +1,175 @@
+\documentclass[5pt]{article}
+
+\usepackage{sectsty}
+\usepackage{graphicx}
+\usepackage{lipsum} % for generating dummy text
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{array}
+\usepackage{cellspace}
+
+
+\usepackage{hyperref}
+\usepackage{scrextend}
+\graphicspath{ {../../assets} }
+
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\title{ Verbale - 12/04/2024 }
+\date{\today}
+
+%STARTOF THE DOCUMENT
+\begin{document}
+
+%-------------------------
+
+% Reduce top margin only on the first page
+\newgeometry{top=0.5in}
+
+%UNIPD LOGO
+    \vspace{8pt}
+    \includegraphics[scale=0.2]{UNIPDFull.png}
+%END UNIPD LOGO
+
+\vspace{10pt}
+
+%COURSE INFO
+\begin{minipage}[t]{0.48\textwidth}
+    %COURSE TITLE
+        \begin{flushleft}
+            Informatica\\
+            \vspace{5pt}
+            \textbf{\LARGE Ingegneria del Software}\\
+            Anno Accademico: 2023/2024
+        \end{flushleft}
+    %END COURSE TITLE
+\end{minipage}
+%END COURSE INFO
+
+
+\vspace{5px}
+
+
+%BLACK LINE
+\rule{\textwidth}{5pt}
+
+%JACKPOT CODING INFO
+\begin{minipage}[t]{0.50\textwidth}
+    %LOGO JACKPOT CODING
+    \begin{flushleft}
+        \hspace{10pt}
+        \includegraphics[scale=0.65]{jackpot-logo.png} 
+    \end{flushleft}
+\end{minipage}
+\hspace{-60pt} % This adds horizontal space between the minipages
+\begin{flushright}
+    \begin{minipage}[t]{0.50\textwidth}
+        %INFO JACKPOT CODING
+        \begin{flushright}
+            Gruppo: {\Large Jackpot Coding}\\
+            Email: \href{mailto:jackpotcoding@gmail.com}{jackpotcoding@gmail.com}
+        \end{flushright}
+    \end{minipage}
+\end{flushright}
+%END JACKPOT CODING INFO
+
+\vspace{20pt}
+
+%TITLE
+\begin{center}
+    \textbf{\large VERBALE }
+    \textbf{\large 12/04/2024} \\
+    \textbf{\LARGE  FEEDBACK SPECIFICA TECNICA}
+\end{center}
+%END TITLE
+
+\vspace{13pt}
+
+\begin{flushleft}
+    \begin{spacing}{1.5}
+        REDATTORE: M. Favaretto\\ 
+        VERIFICATORE: G. Moretto\\ 
+        RESPONSABILE: E. Gallo\\ 
+        \vspace{7pt}
+        SCRIBA: M. Favaretto\\ 
+        \vspace{7pt}
+        DESTINATARI: Sig. G. Piccoli, Prof. T. Vardanega, Prof. R. Cardin\\ 
+    \end{spacing}
+\end{flushleft}
+
+\begin{flushright}
+    \begin{spacing}{1}
+        USO: ESTERNO\\
+        VERSIONE: 1.0\\
+    \end{spacing}
+\end{flushright}
+
+
+% Restore original margins from the second page onwards
+\restoregeometry
+
+\pagebreak
+
+% Optional TOC
+% \tableofcontents
+% \pagebreak
+
+\section{ORARIO}
+\begin{spacing}{1.5}
+    {\large Inizio incontro: 16:00}\\
+    {\large Fine incontro: 16:30} 
+\end{spacing}
+
+\section{PARTECIPANTI}
+% Define minimal spacing at the top and bottom of cells
+\setlength\cellspacetoplimit{6pt}
+\setlength\cellspacebottomlimit{6pt}
+
+\begin{table}[ht]
+  \begin{tabular}{|Sc|Sc|}
+    \hline
+    \textbf{Nome Componente} & \textbf{Durata della presenza} \\
+    \hline
+    Camillo Matteo & 30 minuti \\
+    Favaretto Marco & 30 minuti \\
+    Gallo Edoardo & 30 minuti \\
+    Gobbo Marco & 30 minuti \\
+    Moretto Giulio & 30 minuti \\
+    Simionato Riccardo & - \\
+    Gregorio Piccoli (Zucchetti S.p.A.) & 30 minuti \\
+    \hline
+  \end{tabular}
+  \label{tab:conference}
+\end{table}
+
+\section{SINTESI DELL'INCONTRO}
+Durante l'incontro è stato descritto lo stato attuale del progetto in corso. 
+Il primo punto discusso sono state le tecnologie utilizzate nel progetto per lo sviluppo e per i test.
+Successivamente è stata esposta l'architettura del \textit{software}, seguita da una descrizione del \textit{framework} adotatto per il progetto. \\
+La fase finale dell'incontro si è concentrata sui confronti dei risultati ottenuti dai vari test della funzionalità principale del \textit{software}, sia eseguiti su macchina locale, che remota; con particolare attenzione in merito alla qualità delle risposte ottenute dai vari \textit{LLM}.
+
+
+
+\section{CONCLUSIONI}
+Dall'incontro sono emerse le seguenti attività: 
+\begin{itemize}
+    \item Possibilità di aumento del numero degli incontri, qualora necessario;
+    \item Aumento \textit{test} sulla qualità delle risposte degli \textit{LLM} usati dall'applicazione;
+    \item Il \textit{software} finale potrà essere eseguito in locale, senza la necessità di essere \textit{online};
+\end{itemize}
+
+\vspace{3em}
+\begin{flushright}
+	\begin{spacing}{1.5}
+		Firma per presa visione\\
+	\end{spacing}
+\end{flushright}
+
+\end{document}

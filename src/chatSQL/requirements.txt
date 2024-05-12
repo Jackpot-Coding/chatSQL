@@ -1,0 +1,5 @@
+Django
+transformers
+torch
+openai
+markdown

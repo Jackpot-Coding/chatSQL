@@ -1,0 +1,443 @@
+
+
+\documentclass[5pt]{article}
+
+\usepackage{sectsty}
+\usepackage{graphicx}
+\usepackage{lipsum} 
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{array}
+\usepackage{cellspace}
+\usepackage{tabularx}
+\usepackage[table]{xcolor}
+\usepackage{tabularray}
+\usepackage{pgfplots}
+\usepackage[justification=centering]{caption}
+
+
+\usepackage{hyperref}
+\usepackage{scrextend}
+\graphicspath{ {../assets} }
+
+% package and setup for tables
+\usepackage{float}
+\usepackage[table]{xcolor}
+\renewcommand{\arraystretch}{1.5}
+\arrayrulecolor{black}
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\setlength{\parindent}{0pt}
+
+\title{Piano di Qualifica}
+\author{Jackpot Coding}
+\renewcommand*\contentsname{Indice}
+\renewcommand{\listfigurename}{Elenco delle immagini}
+\renewcommand{\listtablename}{Elenco delle tabelle}
+\date{\today}
+
+\newlength\myheight
+\newlength\mydepth
+\settototalheight\myheight{Xygp}
+\settodepth\mydepth{Xygp}
+\setlength\fboxsep{0pt}
+\newcommand*\inlinegraphics[1]{%
+	\settototalheight\myheight{Xygp}%
+	\settodepth\mydepth{Xygp}%
+	\raisebox{-\mydepth}{\includegraphics[height=\myheight]{#1}}%
+}
+
+
+
+%STARTOF THE DOCUMENT
+\begin{document}
+	
+	%-------------------------
+	
+	% Reduce top margin only on the first page
+	\newgeometry{top=0.5in}
+	
+	%UNIPD LOGO
+	\vspace{8pt}
+	\includegraphics[scale=0.2]{UNIPDFull.png}
+	%END UNIPD LOGO
+	
+	\vspace{30pt}
+	
+	%COURSE INFO
+	\begin{minipage}[t]{0.48\textwidth}
+		%COURSE TITLE
+		\begin{flushleft}
+			Informatica\\
+			\vspace{5pt}
+			\textbf{\LARGE Ingegneria del Software}\\
+			Anno Accademico: 2023/2024
+		\end{flushleft}
+		%END COURSE TITLE
+	\end{minipage}
+	%END COURSE INFO
+	
+	
+	\vspace{5px}
+	
+	
+	%BLACK LINE
+	\rule{\textwidth}{5pt}
+	
+	%JACKPOT CODING INFO
+	\begin{minipage}[t]{0.50\textwidth}
+		%LOGO JACKPOT CODING
+		\begin{flushleft}
+			\hspace{10pt}
+			\includegraphics[scale=0.65]{jackpot-logo.png} 
+		\end{flushleft}
+	\end{minipage}
+	\hspace{-60pt} % This adds horizontal space between the minipages
+	\begin{flushright}
+		\begin{minipage}[t]{0.50\textwidth}
+			%INFO JACKPOT CODING
+			\begin{flushright}
+				Gruppo: {\Large Jackpot Coding}\\
+				Email: \href{mailto:jackpotcoding@gmail.com}{jackpotcoding@gmail.com}
+			\end{flushright}
+		\end{minipage}
+	\end{flushright}
+	%END JACKPOT CODING INFO
+	
+	\vspace{24pt}
+	
+	%TITLE
+	\begin{center}
+		\textbf{\LARGE MANUALE UTENTE}
+	\end{center}
+	%END TITLE
+	
+	\vspace{13pt}
+
+	
+	\begin{flushright}
+		\begin{spacing}{1}
+			USO: ESTERNO\\
+			VERSIONE: 1.0.0\\
+		\end{spacing}
+	\end{flushright}
+	
+	
+	% Restore original margins from the second page onwards
+	\restoregeometry
+	
+	\pagebreak
+	
+	\textbf{\Large Registro delle modifiche}
+	\begin{table}[H]
+		\centering
+		\rowcolors{2}{black!15}{}
+		\resizebox{\linewidth}{!}{
+		  \begin{tabular}{|c|c|c|c|c|c|c|c|}
+			\hline
+			\rowcolor{teal!50}
+			\textbf{versione} & \textbf{data} & \textbf{autore} & \textbf{verifica} & \textbf{modifica} \\ \hline
+			v.1.0.0 & 09/05/2024 & - & G. Moretto & Verifica documento \\ \hline
+			v.0.0.11 & 09/05/2024 & R. Simionato & G. Moretto & Aggiunta sezione 3.1.1 e sistemate immagini \\ \hline
+			v.0.0.10 & 07/05/2024 & R. Simionato & G. Moretto & Aggiunte immagini nella sezione 4 \\ \hline
+			v.0.0.9 & 05/05/2024 & R. Simionato & G. Moretto & Prima stesura sezione 4 \\ \hline
+			v.0.0.8 & 02/05/2024 & M. Favaretto & R. Simionato & Aggiunte e correzioni varie nella sezione di Requisiti \\ \hline
+			v.0.0.7 & 30/04/2024 & M. Favaretto & R. Simionato & Correzione link e tabelle \\ \hline
+			v.0.0.6 & 28/04/2024 & M. Favaretto & R. Simionato & Stesura Sezione Installazione \\ \hline
+			v.0.0.5 & 26/04/2024 & M. Favaretto & R. Simionato & Stesura Sezione Requisiti \\ \hline
+			v.0.0.4 & 25/04/2024 & M. Gobbo & M. Favaretto & Fine Stesura sezione 1, aggiunti riferimenti \\ \hline
+			v.0.0.3 & 29/03/2024 & M. Gobbo & M. Favaretto & Prima Stesura sezione 1 \\ \hline
+			v.0.0.2 & 29/03/2024 & M. Gobbo & M. Favaretto & Creazione sezione 5 \\ \hline
+			v.0.0.1 & 28/03/2024 & M. Gobbo & M. Favaretto & Creata struttura del documento \\ \hline
+		  \end{tabular}
+		}
+		\label{tab:conference}
+	\end{table}
+	
+	
+	
+	\pagebreak
+	\tableofcontents
+	\pagebreak
+	\listoftables
+	\listoffigures
+	\pagebreak
+	
+	
+	\section{Introduzione}
+		\subsection{Scopo del documento}
+			Lo scopo del documento "Manuale Utente" è quello di mostrare le istruzioni per l'uso e le funzionalità inerenti al prodotto. Grazie a questo l'utente sarà a conoscenza dei requisiti minimi necessari per il corretto funzionamento di "Chat SQL".
+
+		\subsection{Scopo del prodotto}
+			Il capitolato proposto dall'azienda \textit{Zucchetti S.p.A.} ha come obiettivo la realizzazione di un applicativo \textit{web} al fine di ottenere un riscontro riguardo la fattibilità di un prodotto in grado di elaborare una frase in linguaggio naturale, fornita da un utente inesperto, e generare come \textit{output} una \textit{query SQL}\textsuperscript{G} in grado di interrogare un database, di cui è conosciuta la struttura, in modo efficiente e che fornisca le informazioni richieste dall'utente.
+
+        \subsection{Glossario}
+     		Al fine di evitare ambiguità o incomprensioni relative alla terminologia usata all'interno del documento, è fornito un \textit{Glossario} in cui vengono riportate definizioni precise per ogni termine potenzialmente ambiguo. La presenza di tali termini all'interno del documento è indicata con la presenza, vicino alla voce, di una \textit{G} in apice ($^G$). 
+
+        \subsection{Riferimenti}
+        
+			\subsubsection{Riferimenti Normativi}
+			\begin{itemize}
+				\item Capitolato\textsuperscript{G} C9 - \textit{ChatSQL} \\ \url{https://www.math.unipd.it/~tullio/IS-1/2023/Progetto/C9.pdf} 
+				\item Norme di progetto\textsuperscript{G} V1.0.0
+			\end{itemize}
+			
+			\subsubsection{Riferimenti informativi}
+			\begin{itemize}
+				\item Diagramma delle classi \\ \url{https://www.math.unipd.it/~rcardin/swea/2023/Diagrammi%20delle%20Classi.pdf}
+				\item Analisi dei requisiti: \\ \url{https://www.math.unipd.it/~tullio/IS-1/2023/Dispense/T3.pdf}
+			\end{itemize}
+        
+	\section{Requisiti minimi di sistema}
+		\label{sec:requisiti}
+		Vengono qui presentati i requisiti necessari per eseguire l'applicazione. Il capitolato\textsuperscript{G} non esprime particolari requisiti, né sono stati posti dal proponente nelle diverse riunioni.
+		Ne consegue che le caratteristiche elencate fanno riferimento alla configurazione dell'ambiente di sviluppo usata dal \textit{team}.
+              
+		\subsection{Requisiti hardware}
+			L'applicazione sviluppata esegue su \textit{browser}. Non vengono dunque individuati particolari requisiti fisici
+			necessari per l'applicazione. I seguenti requisiti sono quindi delle considerazioni generali, derivate dal tipo di \textit{computer} usati dal gruppo per lo sviluppo dell'applicazione. 
+			\begin{table}[H]
+				\centering
+				\rowcolors{2}{black!15}{}
+				\resizebox{!}{!}{         % attenzione alle dimensioni quando si modificherà
+					\begin{tabular}{|c|c|c|c|c|c|c|c|}
+						\hline
+						\rowcolor{teal!50}
+						\textbf{Componente} & \textbf{Requisito} \\ \hline
+						Processore & Quad-Core, 3 GHz \\ \hline
+						Memoria RAM & 8 GB \\ \hline
+						Conessione Internet & Connesione Internet necessaria per gestire il traffico richiesto dall'applicazione \\ \hline
+					\end{tabular}
+				}
+				\caption{Requisiti Hardware}
+			\end{table}
+
+		\subsection{Requisiti Software}
+			Al fine di poter installare correttamente l'applicazione e poterla eseguire, risulta necessario installare le seguenti componenti \textit{Software}:
+			\begin{table}[H]
+				\centering
+				\rowcolors{2}{black!15}{}
+				\resizebox{\linewidth}{!}{
+					\begin{tabular}{|c|c|c|c|c|c|c|c|}
+						\hline
+						\rowcolor{teal!50}
+						\textbf{Componente} & \textbf{Versione} & \textbf{Riferimento per il download} \\ \hline
+						python & 3.1 & \href{https://www.python.org/downloads/}{Download Python} \\ \hline
+						django & 5.0 & \href{https://www.djangoproject.com/}{Download Django} \\ \hline
+						torch & 2.3 & \href{https://pypi.org/project/torch/}{Download Torch} \\ \hline
+						transformers & 4.40 & \href{https://pypi.org/project/transformers/}{Download Transformers} \\ \hline
+						markdown & 3.6 & \href{https://pypi.org/project/markdown/}{Download Markdown} \\ \hline
+						openai & 1.25 & \href{https://pypi.org/project/openai/}{Download OpenAI} \\ \hline
+						lmstudio & 0.2 & \href{https://lmstudio.ai/}{Download LM Studio} \\ \hline
+						Browser & 124 o superiori & Verranno mostrati in dettaglio nella \hyperref[tab:browsers]{tabella successiva} \\ \hline
+					\end{tabular}
+				}
+				\caption{Requisiti Software}
+			\end{table}
+        
+		\subsection{Requisiti browser}
+			L' applicazione è stata testata nei seguenti \textit{Browser}:
+			\begin{table}[H]
+				\centering
+				\rowcolors{2}{black!15}{}
+				\resizebox{!}{!}{
+					\begin{tabular}{|c|c|c|c|c|c|c|c|}
+						\hline
+						\rowcolor{teal!50}
+						\textbf{Browser} & \textbf{Versione} & \textbf{Riferimento per il download} \\ \hline
+						Chrome & 124 & \href{https://www.google.it/intl/it/chrome/}{Download Chrome} \\ \hline        
+						Edge & 124 & \href{https://www.microsoft.com/it-it/edge/download}{Download Edge} \\ \hline
+						Firefox & 125 & \href{https://www.mozilla.org/it/firefox/new/}{Download Firefox} \\ \hline
+						Opera & 110 & \href{https://www.opera.com/}{Download Opera} \\ \hline
+					\end{tabular}
+				}
+				\caption{Requisiti Browser}
+				\label{tab:browsers}
+			\end{table}
+	
+	\newpage	
+	\section{Installazione}
+		L'applicazione \textit{ChatSQL}, per poter essere eseguita dall'utente\textsuperscript{G}, necessita l'attuazione dei seguenti passi:
+		\begin{itemize}
+			\item Installazione componenti \textit{Software}
+			\item Clonazione \textit{Repo}\textsuperscript{G}
+			\item Avvio dell'applicazione
+		\end{itemize}
+
+		\subsection{Installazione componenti \textit{Software}}
+			Prima di procedere all'installazione dell'applicazione in sé, è necessario verificare che tutte i requisiti siano rispettati.
+			A tal fine, si rimanda alla lettura della sezione \hyperref[sec:requisiti]{requisiti}
+			
+			\subsubsection{\textit{Setup} di LM Studio}
+			Per utilizzare la funzionalità di generare la \textit{query SQL} all'interno del programma \textit{ChatSQL} è necessario l'utilizzo di LM Studio che ci permette di eseguire modelli\textsuperscript{G} LLM\textsuperscript{G} in locale.\\
+			Una volta installato e avviato LM Studio utilizzare la barra di ricerca nella \textit{home} per cercare il seguente modello
+			\begin{center}
+				\textit{lmstudio-community/Meta-Llama-3-8B-Instruct-GGUF}
+			\end{center}
+			si aprirà la seguente schermata dalla quale è possibile scaricare il modello nella sezione di destra.
+			\begin{figure}[ht]
+				\centering
+				\fbox{\includegraphics[width = 0.8\textwidth]{User_Manual/lmstudio_search.png}}
+				\caption{Ricerca e download del modello in LM Studio}
+			\end{figure}
+			Una volta terminato il \textit{download} del modello LLM spostarsi nella sezione "\textit{Local Server}" cliccando sull'icona \inlinegraphics{User_Manual/local_server_icon.png} presente nella barra a sinistra dell'applicazione.
+			Da qui selezionare il modello appena scaricato dal menù a tendina presente in alto e attendere il caricamento. Una volta terminato assicurarsi che l'impostazione "\textit{Server Port}" che si trova all'interno della sezione "\textit{Configuration}" abbia valore 1234 e cliccare il bottone verde "\textit{Start Server}" se illuminato.
+			\begin{figure}[ht]
+				\centering
+				\fbox{\includegraphics[width = 0.8\textwidth]{User_Manual/local_server_setup.png}}
+				\caption{Setup del server di LM Studio}
+			\end{figure}
+			
+			
+		\newpage
+        \subsection{Clonazione \textit{Repo}}
+			Per poter avere una copia dell'applicazione in locale, vi sono due modi:
+			\begin{enumerate}
+				\item Scaricare la cartella compressa contenente l'intera applicazione al \textit{link}
+					\begin{center}
+						\url{https://github.com/Jackpot-Coding/chatSQL/archive/refs/heads/main.zip}
+					\end{center}
+			\end{enumerate}
+			Alternativamente, qualora si abbia configurato \textit{Git} in locale:
+			\begin{enumerate}
+				\item Aprire un terminale operante nella cartella in cui si desidera installare l'applicazione
+				\item Inserire il comando:
+					\begin{center}
+						\textit{git clone "https://github.com/Jackpot-Coding/chatSQL.git"}
+					\end{center}
+			\end{enumerate}
+
+		\subsection{Avvio Applicazione}
+			Per avviare l'applicazione bisogna eseguire i seguenti passi:
+			\begin{enumerate}
+				\item Aprire un terminale nella cartella della \textit{repo} in locale
+				\item Spostarsi nella cartella dell'applicazione inserendo il comando:
+					\begin{center}
+						\textit{cd src/chatSQL}
+					\end{center}
+				\item Inserire il comando:
+					\begin{center}
+						\textit{python manage.py runserver}
+					\end{center}
+				\item Aprire il proprio \textit{browser} predefinito e navigare al \textit{link} suggerito dal terminale:
+					\begin{center}
+						\textit{\url{http://127.0.0.1:8000/}}
+					\end{center}
+			\end{enumerate}
+ 
+	    \subsection{Creazione profilo Amministratore}
+	    Per creare un utente Amministratore\textsuperscript{G} che possa accedere all'area amministrativa dell'applicazione seguire i seguenti passaggi:
+	    \begin{enumerate}
+	    	\item Aprire un terminale nella cartella della \textit{repo} in locale
+	    	\item Spostarsi nella cartella dell'applicazione inserendo il comando:
+	    	\begin{center}
+	    		\textit{cd src/chatSQL}
+	    	\end{center}
+	    	\item Inserire il comando:
+	    	\begin{center}
+	    		\textit{python manage.py createsuperuser}
+	    	\end{center}
+	    	\item Inserire l'\textit{username} desiderato e premere invio
+	    	\item Inserire l'\textit{email} desiderata e premere invio
+	    	\item Inserire la \textit{password} desiderata. Verrà richiesta due volte, la seconda servirà per confermare la prima.
+	    \end{enumerate}
+    
+    \section{Istruzioni all'uso}
+	    \subsection{Home}
+	    \begin{figure}[ht]
+	    	\centering
+	    	\fbox{\includegraphics[width = 0.5\textwidth]{User_Manual/homepage.png}}
+	    	\caption{Homepage ChatSQL}
+	    \end{figure}
+	    Questa è la schermata principale dell'applicazione. Da qui è possibile richiedere la creazione di un \textit{prompt}\textsuperscript{G} e poi in seguito della \textit{query SQL}, oppure effettuare l'accesso con un profilo amministratore tramite il \textit{link} "Accedi" in alto a sinistra.
+	    
+	    \subsubsection{Richiedere un \textit{prompt} e ottenere la \textit{query SQL}}
+	    Per richiedere la generazione di un \textit{prompt} è necessario inserire la propria richiesta all'interno della casella di testo apposita, successivamente bisognerà selezionare tramite il menù a tendina il \textit{database} relativo alla richiesta e cliccare su "Genera \textit{Prompt}".\\
+	    Una volta generato il \textit{prompt} verranno fornite due opzioni per proseguire:
+	    \begin{itemize}
+	    	\item Copiare il \textit{prompt} generato tramite l'apposito bottone per poterlo facilmente incollare all'interno di un LLM a scelta
+	    	\item Generare la \textit{query SQL} all'interno di \textit{ChatSQL} utilizzando LM Studio
+	    \end{itemize} 
+	    \begin{figure}
+	    	\centering
+	    	\begin{minipage}{0.49\textwidth}
+	    		\centering
+	    		\fbox{\includegraphics[width = 1\textwidth]{User_Manual/prompt_result.png}}
+	    		\caption{Esempio di prompt generato}
+	    	\end{minipage}\hfill
+	    	\begin{minipage}{0.49\textwidth}
+	    		\centering
+	    		\fbox{\includegraphics[width = 1\textwidth]{User_Manual/sql_result.png}}
+	    		\caption{Esempio di query SQL generata}
+	    	\end{minipage}
+	    \end{figure}
+	    
+	    \subsection{Area Ammnistrativa}
+	    Dopo aver effettuato il \textit{login}\textsuperscript{G} verrà visualizzata la pagina iniziale dell'area amministrativa. Sarà possibile ritornare a questa pagina facilmente utilizzando il \textit{link} "\textit{Home}" posizionato in alto a sinistra. Affianco a questo si trova il \textit{link} "\textit{Upload}" che porta alla schermata dov'è possibile caricare una StrutturaDB\textsuperscript{G} da un \textit{file}\textsuperscript{G}.
+	    \begin{figure}[ht]
+	    	\centering
+	    	\fbox{\includegraphics[width = 0.5\textwidth]{User_Manual/admin_home.png}}
+	    	\caption{Homepage Area Amministrativa}
+	    \end{figure}
+	    
+	    \subsubsection{Lista StruttureDB}
+	    Sempre nella pagina iniziale dell'area amministrativa troviamo la lista delle StruttureDB presenti nel programma. È possibile visualizzare le strutture presenti tramite l'apposito bottone "Visualizza" oppure creare una nuova struttura database cliccando sul bottone "Crea Struttura DB". 
+	    
+	    \subsubsection{\textit{Upload} StrutturaDB}
+	    All'interno della pagina per caricare un \textit{file} contenete una struttura DB si trova il bottone "Scegli \textit{file}", una volta cliccato verrà aperta una finestra di dialogo che permetterà all'amministratore di selezionare il \textit{file}. Selezionare il \textit{file} in formato .json desiderato e cliccare su "Apri", il nome del \textit{file} selezionato verrà mostrato nella pagina e una volta controllato che sia il \textit{file} corretto cliccare sul bottone "Carica" per terminare la procedura.
+	    \begin{figure}[h]
+	    	\centering
+	    	\fbox{\includegraphics[width = 0.5\textwidth]{User_Manual/upload_form.png}}
+	    	\caption{Pagina per il caricamento delle StruttureDB da \textit{file}}
+	    \end{figure}
+	    
+	    \subsubsection{StrutturaDB, Tabella e Campo}
+	    Vengono raggruppate le pagine relative alla Struttura DB, alla Tabella\textsuperscript{G} e al Campo in quanto strutturate in maniera simile.\\
+	    Nella prima sezione della pagina è presente un \textit{form}\textsuperscript{G} contenente i dettagli dell'elemento che stiamo visualizzando, dando quindi la possibilità di modificare l'elemento.\\
+	    Nella seconda sezione, presente solo per StrutturaDB e Tabella, troviamo la lista delle Tabelle contenute in una StrutturaDB e dei Campi contenuti in una Tabella nelle rispettive pagine. Da qui possiamo visualizzare gli elementi tramite il bottone "Visualizza" o creare un nuovo elemento con il bottone "Aggiungi".\\
+	    Infine nell'ultima sezione troviamo il bottone per eliminare l'elemento che stiamo visualizzando al momento. Nel caso venisse cliccato verremo rimandati ad una pagina che richiede la conferma prima di procedere con l'eliminazione.
+	    
+	    \subsubsection{Creazione nuova Struttura DB, Tabella o Campo}
+	    Vengono nuovamente raggruppate le pagine di creazione della Struttura DB, della Tabella e del Campo. Per ogni elemento viene richiesto di inserire il nome, la descrizione e di compilare gli altri campi necessari a definirlo. Una volta inseriti sarà possibile cliccare il bottone "Crea" per terminare la procedura di creazione.
+	    
+	    \begin{figure}[h]
+	    	\centering
+	    	\begin{minipage}{0.49\textwidth}
+	    		\centering
+	    		\fbox{\includegraphics[width = 1\textwidth]{User_Manual/structure_view.png}}
+	    		\caption{Pagina contenente i dettagli di una StrutturaDB}
+	    	\end{minipage}\hfill
+	    	\begin{minipage}{0.49\textwidth}
+	    		\centering
+	    		\fbox{\includegraphics[width = 1\textwidth]{User_Manual/new_structure_form.png}}
+	    		\caption{Form per la creazione di una nuova StrutturaDB}
+	    	\end{minipage}
+	    \end{figure}
+	    
+	\section{Supporto Tecnico}
+		Nel caso di malfunzionamenti di qualsiasi genere il \textit{team} "\textit{Jackpot Coding}" si rende disponibile presso la seguente \textit{email}:
+		\begin{center}
+			\textbf{\url{jackpotcoding@gmail.com}}
+		\end{center}
+
+		Per la segnalazione di problemi si consiglia di adottare il seguente formato:
+		\begin{itemize}
+			\item \textbf{OGGETTO}: "nome dell'evento da segnalare"
+			\item \textbf{CORPO}:
+			\begin{itemize}
+				\item "Data del problema"
+				\item "Descrizione problema"
+				\item "Browser e sistema operativo nei quali si è verificato il problema"
+			\end{itemize}
+			\item \textbf{ALLEGATO}: "immagine illustrativa del problema" se possibile
+		\end{itemize}
+        
+
+\end{document}
