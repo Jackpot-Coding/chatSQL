@@ -1,0 +1,156 @@
+\documentclass[5pt]{article}
+
+\usepackage{sectsty}
+\usepackage{graphicx}
+\usepackage{lipsum} % for generating dummy text
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{array}
+\usepackage{cellspace}
+
+
+\usepackage{hyperref}
+\usepackage{scrextend}
+\graphicspath{ {../../assets} }
+
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\title{ Verbale - 29/04/2024 }
+\date{\today}
+
+%STARTOF THE DOCUMENT
+\begin{document}
+
+%-------------------------
+
+% Reduce top margin only on the first page
+\newgeometry{top=0.5in}
+
+%UNIPD LOGO
+    \vspace{8pt}
+    \includegraphics[scale=0.2]{UNIPDFull.png}
+%END UNIPD LOGO
+
+\vspace{10pt}
+
+%COURSE INFO
+\begin{minipage}[t]{0.48\textwidth}
+    %COURSE TITLE
+        \begin{flushleft}
+            Informatica\\
+            \vspace{5pt}
+            \textbf{\LARGE Ingegneria del Software}\\
+            Anno Accademico: 2023/2024
+        \end{flushleft}
+    %END COURSE TITLE
+\end{minipage}
+%END COURSE INFO
+
+
+\vspace{5px}
+
+
+%BLACK LINE
+\rule{\textwidth}{5pt}
+
+%JACKPOT CODING INFO
+\begin{minipage}[t]{0.50\textwidth}
+    %LOGO JACKPOT CODING
+    \begin{flushleft}
+        \hspace{10pt}
+        \includegraphics[scale=0.65]{jackpot-logo.png} 
+    \end{flushleft}
+\end{minipage}
+\hspace{-60pt} % This adds horizontal space between the minipages
+\begin{flushright}
+    \begin{minipage}[t]{0.50\textwidth}
+        %INFO JACKPOT CODING
+        \begin{flushright}
+            Gruppo: {\Large Jackpot Coding}\\
+            Email: \href{mailto:jackpotcoding@gmail.com}{jackpotcoding@gmail.com}
+        \end{flushright}
+    \end{minipage}
+\end{flushright}
+%END JACKPOT CODING INFO
+
+\vspace{20pt}
+
+%TITLE
+\begin{center}
+    \textbf{\large VERBALE }
+    \textbf{\large 29/04/2024} \\
+\end{center}
+%END TITLE
+
+\vspace{13pt}
+
+\begin{flushleft}
+    \begin{spacing}{1.5}
+        REDATTORE: M. Camillo\\ 
+        VERIFICATORE: \\ 
+        RESPONSABILE: \\ 
+        \vspace{7pt}
+        SCRIBA: M. Camillo\\ 
+    \end{spacing}
+\end{flushleft}
+
+\begin{flushright}
+    \begin{spacing}{1}
+        USO: INTERNO\\
+        VERSIONE: 1.0\\
+    \end{spacing}
+\end{flushright}
+
+
+% Restore original margins from the second page onwards
+\restoregeometry
+
+\pagebreak
+
+% Optional TOC
+% \tableofcontents
+% \pagebreak
+
+\section{ORARIO}
+\begin{spacing}{1.5}
+    {\large Inizio incontro: 18:30}\\
+    {\large Fine incontro: 19:30} 
+\end{spacing}
+
+\section{PARTECIPANTI}
+% Define minimal spacing at the top and bottom of cells
+\setlength\cellspacetoplimit{6pt}
+\setlength\cellspacebottomlimit{6pt}
+
+\begin{table}[ht]
+  \begin{tabular}{|Sc|Sc|}
+    \hline
+    \textbf{Nome Componente} & \textbf{Durata della presenza} \\
+    \hline
+    Camillo Matteo & 60 minuti \\
+    Favaretto Marco & 60 minuti \\
+    Gallo Edoardo & 60 minuti \\
+    Gobbo Marco & 60 minuti \\
+    Moretto Giulio & 60 minuti \\
+    Simionato Riccardo & 60 minuti \\
+    \hline
+  \end{tabular}
+  \label{tab:conference}
+\end{table}
+
+\section{SINTESI DELL'INCONTRO}
+Durante l'incontro è stato principalmente discusso lo stato del progetto sia per quanto riguarda la codifica del prodotto che i documenti da concludere. Sono state quindi suddivise le rimanenti task per permetterci di arrivare preparati alla presentazione almeno dell'MVP (Minimum Viable Product).
+\section{DECISIONI}
+\begin{itemize}
+    \item Abbiamo ritenuto il prodotto pronto, con le ultime modifiche specificate, adatto ad essere presentato al proponente come MVP.
+    \item Ad ogni membro è stata assegnata una task tra codifica, finalizzazione documenti e creazione di test ad hoc per la presentazione dell'MVP al proponente.
+\end{itemize}
+
+\end{document}
