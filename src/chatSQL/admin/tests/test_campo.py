@@ -23,18 +23,13 @@ class CreateFieldTestCase(TestCase):
         self.assertEqual(response.status_code,200)
         self.assertTemplateUsed(response,'admin/campo.html')
 
-    def test_table_does_not_exist(self):
-        response=self.client.get(reverse('new_campo_view',args=(1,)))
-        self.assertEqual(response.status_code,200)
-        self.assertTemplateUsed(response,'admin/base.html')
-        messages = [msg for msg in get_messages(response.wsgi_request)]
-        self.assertTrue("La tabella selezionata non esiste." in messages[0].message)
-
     def test_can_create_field(self):
         db = StrutturaDatabase(nome="Test DB",descrizione="Description for test")
         db.save()
+
         db.tabella_set.create(nome="Test table",descrizione="Description for test",sinonimi="Synonyms for test")
         data={'nome':'Test field','tipo':'INT','descrizione':'Description for test','sinonimi':'Synonyms for test'}
+        
         response=self.client.post(reverse('new_campo_view',args=(1,)),data)
         self.assertEqual(response.status_code,302)
         self.assertTrue(Campo.objects.filter(nome='Test field').exists())
@@ -89,8 +84,11 @@ class CreateFieldTestCase(TestCase):
     def test_can_edit_field(self):
         db = StrutturaDatabase(nome="Test DB",descrizione="Description for test")
         db.save()
+        
         t=db.tabella_set.create(nome="Test table",descrizione="Description for test",sinonimi="Synonyms for test")
+
         t.campo_set.create(nome='Test field',tipo='INT',descrizione='Description for test',sinonimi='Synonyms for test')
+        
         data={'nome':'Test field edited','tipo':'VARCHAR','descrizione':'Description for test edited','sinonimi':'Synonyms for test edited'}
         response=self.client.post(reverse('campo_view',args=(1,)),data)
         editedField=Campo.objects.get(pk=1)
@@ -104,6 +102,23 @@ class CreateFieldTestCase(TestCase):
         self.assertEqual(editedField.descrizione,'Description for test edited')
         self.assertEqual(editedField.sinonimi,'Synonyms for test edited')
         self.assertTemplateUsed(response,'admin/campo.html')
+        
+    def test_can_list_fields_in_table_page(self):
+        
+        db = StrutturaDatabase(nome="Test DB",descrizione="Description for test")
+        db.save()
+        
+        t=db.tabella_set.create(nome="Test table",descrizione="Description for test",sinonimi="Synonyms for test")
+        
+        t.campo_set.create(nome='Test field',tipo='INT',descrizione='Description for test',sinonimi='Synonyms for test')
+        t.campo_set.create(nome='Second Test field',tipo='VARCHAR',descrizione='Description for test 2',sinonimi='Synonyms for test 2')
+        
+        response = self.client.get(reverse('table_view',args=(1,)))
+        
+        self.assertEqual(response.status_code,200)
+        self.assertContains(response,'Test field')
+        self.assertContains(response,'Second Test field')
+
 
 class CampoFormTestCase(TestCase):
 

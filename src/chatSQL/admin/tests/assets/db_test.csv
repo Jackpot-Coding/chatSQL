@@ -1,0 +1,9 @@
+Tabella;descrizione;sinonimi;Campo;tipo;sinonimi
+CUS;Tabella contenente i clienti dell'azienda;clienti,cliente,acquirente,acquirenti;Id;INT;identificatore
+CUS;Tabella contenente i clienti dell'azienda;clienti,cliente,acquirente,acquirenti;C1;VARCHAR;ragione sociale,nome
+CUS;Tabella contenente i clienti dell'azienda;clienti,cliente,acquirente,acquirenti;C2;VARCHAR;indirizzo,posizione,recapito,strada,abitazione,residenza,domicilio,via,strada
+CUS;Tabella contenente i clienti dell'azienda;clienti,cliente,acquirente,acquirenti;C3;BOOL;attivo,attivi,abilitato,abilitati
+FAT;Fatture emesse;fatture,fattura,vendite,vendita,fatturato;id;INT;identificatore
+FAT;Fatture emesse;fatture,fattura,vendite,vendita,fatturato;C1;INT;clienti,cliente,acquirente,acquirenti
+FAT;Fatture emesse;fatture,fattura,vendite,vendita,fatturato;C2;FLOAT;importo,costo,prezzo,ammontare,somma,totale,spesa
+FAT;Fatture emesse;fatture,fattura,vendite,vendita,fatturato;C3;DATE;data,anno,mese,giorno,tempo,scadenza,termine

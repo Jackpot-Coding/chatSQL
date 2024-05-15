@@ -29,3 +29,8 @@ class TipoCampo(Enum):
     DATETIME = 'DATETIME'
     TIME = 'TIME'
     YEAR = 'YEAR'
+    
+class ParserStatus(Enum):
+    SUCCESS = 1
+    DB_ALREADY_EXISTS = -1
+    CREATION_DB_ERROR = -2

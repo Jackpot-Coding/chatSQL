@@ -10,6 +10,17 @@
 </head>
 
 <body>
+    <header>
+         {% if user.is_authenticated %}
+            <nav>
+                <a href="{% url 'admin_home' %}">Home</a>
+                <a href="{% url 'admin_upload_structure' %}">Upload</a>
+            </nav>
+            Autenticato come {{user.username}} -&nbsp;<a href="{% url 'admin_logout' %}">Esci</a>
+         {% else %}
+            <a href="{% url 'admin_login' %}">Accedi</a>
+         {% endif %}
+    </header>
 
     {% if messages %}
     <ul class="messages">

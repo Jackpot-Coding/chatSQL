@@ -2,7 +2,7 @@ from openai import OpenAI
 
 class QueryGenerator:
     
-    def getQuery(self,prompt):
+    def get_query(self,prompt):
         
         try:  
         
@@ -12,8 +12,9 @@ class QueryGenerator:
                     model="lmstudio-community/Meta-Llama-3-8B-Instruct-GGUF",
                     messages=[
                         {"role": "system", "content": "Do not explain code."},
-                        {"role": "system", "content": "Return only SQL queries."},
-                        {"role": "system", "content": "Always replay in Italian."},
+                        {"role": "system", "content": "Give an executive summary"},
+                        {"role": "system", "content": "Always reply in Italian."},
+                        {"role": "system", "content": "Always wrap code in a markdown code block"},
                         {"role": "user", "content": prompt}
                     ],
                 )

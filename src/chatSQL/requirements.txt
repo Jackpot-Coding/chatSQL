@@ -2,4 +2,4 @@ Django
 transformers
 torch
 openai
-markdown2
+markdown

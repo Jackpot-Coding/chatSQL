@@ -17,8 +17,10 @@ class adminTestCase(TestCase):
         
         struttura_db = StrutturaDatabase(nome="Test DB",descrizione="Descrizione test")
         struttura_db.save()
+
         tab_test = Tabella(nome="Test Tabella", descrizione="Descrizione test", struttura=struttura_db)
         tab_test.save()
+
         campo = Campo(nome="Test Tabella", tipo="INT", descrizione="Descrizione test", tabella=tab_test)
         campo.save()
     
@@ -29,6 +31,24 @@ class adminTestCase(TestCase):
         self.assertEqual(response.status_code,200)
         self.assertTemplateUsed(response,'admin/delete.html')
         self.assertContains(response,'value="StrutturaDatabase"')
+        self.assertContains(response,'value="1"')
+    
+    def test_can_render_tabella_deletion_form(self):
+    
+        response = self.client.get(reverse("model_delete",kwargs={"classe_modello":"Tabella","id_modello":1}))
+        
+        self.assertEqual(response.status_code,200)
+        self.assertTemplateUsed(response,'admin/delete.html')
+        self.assertContains(response,'value="Tabella"')
+        self.assertContains(response,'value="1"')
+    
+    def test_can_render_campo_deletion_form(self):
+        
+        response = self.client.get(reverse("model_delete",kwargs={"classe_modello":"Campo","id_modello":1}))
+        
+        self.assertEqual(response.status_code,200)
+        self.assertTemplateUsed(response,'admin/delete.html')
+        self.assertContains(response,'value="Campo"')
         self.assertContains(response,'value="1"')
     
     def test_can_delete_struttura_database(self):

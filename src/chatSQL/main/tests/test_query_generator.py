@@ -29,7 +29,7 @@ class QueryGeneratorTestCase(TestCase):
 
     @patch('openai.OpenAI',FakeClient)
     def test_catch_openai_exception(self):
-        result = self.query_generator.getQuery("")
+        result = self.query_generator.get_query("")
         self.assertEqual(result, 'error')
             
             

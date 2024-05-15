@@ -7,7 +7,7 @@
 Ti trovi in: <a href="{% url 'db_view' struttura_db.id %}">{{ struttura_db.nome }}</a>
 &gt&gt {{table.nome}}
 {% else %}
-Ti trovi in: Nuova tabella
+Ti trovi in: <a href="{% url 'db_view' struttura_db.id %}">{{ struttura_db.nome }}</a> &gt&gt Nuova tabella
 {% endif %}
 {%endblock%}
 
@@ -37,7 +37,7 @@ Ti trovi in: Nuova tabella
 <a href="{% url 'new_campo_view' table_id %}" class="add_btn">Aggiungi campo</a>
 <ul>
     {% for field in fields %}
-        <li>{{ field.nome }} - {{ field.tipo }} <a href="{% url 'campo_view' field_id=field.id %}">Modifica</a></li>
+        <li>{{ field.nome }} - {{ field.tipo }} <a href="{% url 'campo_view' field_id=field.id %}">Visualizza</a></li>
     {% empty %}
         <li>Nessun campo presente nella tabella.</li>
     {% endfor %}
